@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Workaround for permissions issues on the Tome macs</TITLE>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="mystyle.css">
+  </HEAD>
+  <BODY>
+    <H3>Workaround for permissions issues on the Tome macs</H3>
+
+Some applications do not work correctly when interacting with files
+stored on your network storage. For example, usually we double-click
+on a .zip file to unzip it, but this is not working at
+present. Whenever you encounter this problem, please use the following
+workaround:
+<ol>
+  <li>Copy the file(s) you're using to a folder called "/tmp". To open
+  this folder, go to Finder, choose "Go | Go to folder..." from the
+  menu, and type "/tmp".
+    <ul>
+      <li><i>Couldn't copy to /tmp??</i> Maybe someone already put a
+      file there with the same name. If this happens, create a new
+      folder in /tmp and copy your files into that new folder instead.
+    </ul>
+   
+  <li>Perform whatever action you want to on the file(s). For example,
+  if you're trying to unzip a .zip file, double-click on the copy of
+  the file that is now stored in /tmp.
+  <li>Copy the resulting file(s) back to your network storage, and
+  delete the versions in /tmp.
+  <li>Do <b>not</b> work directly on the file(s) stored in /tmp. These
+  files are stored only on the local machine, and could be deleted at
+  any time, either by other users or by a reboot of the machine. In
+  addition, other users can read the files in /tmp, so your privacy
+  could be violated if you leave files there.
+    </ol>
+
+  </BODY>
+</HTML>

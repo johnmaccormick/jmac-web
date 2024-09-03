@@ -1,0 +1,197 @@
+/* div {border: 1px dotted gray; padding: 0em}  */
+
+/* @viewport{ */
+/*     zoom: 1.0; */
+/*     width: device-width; */
+/* } */
+
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+  font-size: x-large;
+}
+
+.mainlink {
+  font-size: x-large;
+  padding: 0em;
+  margin: 0.8em;
+  text-align: center;
+}
+
+ul.imagewrap li {
+  margin: 0.7em 0em;
+}
+
+ul.imagewrap {
+  list-style-position: inside;
+}
+
+.linkedimage img {
+  border: hidden;
+}
+
+.linkedimage img:hover {
+  border: solid;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1 a:link {
+  color: black;
+}
+
+h1 a:visited {
+  color: black;
+}
+
+h1 a:hover{ 
+  color: blue; 
+}
+
+.mainlink a {
+  text-decoration: none;
+}
+
+.mainlink a:hover{ 
+  color: rgb(80,170,100);
+}
+
+span.s10 {
+  font-size:10%;
+}
+
+span.s15 {
+  font-size:15%;
+}
+
+span.s20 {
+  font-size:20%;
+}
+
+span.s25 {
+  font-size:25%;
+}
+
+span.s30 {
+  font-size:30%;
+}
+
+span.s35 {
+  font-size:35%;
+}
+
+span.s40 {
+  font-size:40%;
+}
+
+span.s45 {
+  font-size:45%;
+}
+
+span.s50 {
+  font-size:50%;
+}
+
+span.s60 {
+  font-size:60%;
+}
+
+span.s70 {
+  font-size:70%;
+}
+
+span.s80 {
+  font-size:80%;
+}
+
+span.s90 {
+  font-size:90%;
+}
+
+span.s100 {
+  font-size:100%;
+}
+
+span.s120 {
+  font-size:120%;
+}
+
+span.s140 {
+  font-size:140%;
+}
+
+span.s150 {
+  font-size:150%;
+}
+
+span.s160 {
+  font-size:160%;
+}
+
+span.s180 {
+  font-size:180%;
+}
+
+span.s200 {
+  font-size:200%;
+}
+
+span.s250 {
+  font-size:250%;
+}
+
+span.s300 {
+  font-size:300%;
+}
+
+span.s350 {
+  font-size:350%;
+}
+
+span.s400 {
+  font-size:400%;
+}
+
+span.s450 {
+  font-size:450%;
+}
+
+span.s500 {
+  font-size:500%;
+}
+
+OL.withroman { list-style-type: lower-roman }
+OL.withlatin { list-style-type: lower-latin }
+OL.withalpha { list-style-type: lower-alpha }
+
+.versiontable {
+    border-width: 1px;
+    border-spacing: 3px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    background-color: white;
+}
+.versiontable th {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+	-moz-border-radius: ;
+}
+.versiontable td {
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+	-moz-border-radius: ;
+}
