@@ -1,0 +1,36 @@
+.deptname {
+	PADDING-RIGHT: 10px; FONT-WEIGHT: normal; FONT-SIZE: 30px; COLOR: white; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Helvetica, sans-serif; HEIGHT: 51px; TEXT-ALIGN: right
+}
+H1 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; MARGIN-BOTTOM: 5px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+H2 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; MARGIN-BOTTOM: 5px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+H3 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; MARGIN-BOTTOM: 5px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+H4 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; MARGIN-BOTTOM: 5px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+.body {
+	FONT-SIZE: 13px; FONT-FAMILY: "Georgia","Times New Roman", Times, serif
+}
+.sans {
+	FONT-SIZE: 13px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+.nav {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+A:visited {
+	FONT-WEIGHT: bold; COLOR: #cc0000; TEXT-DECORATION: underline
+}
+A:link {
+	FONT-WEIGHT: bold; COLOR: #0033ff; TEXT-DECORATION: underline
+}
+A:hover {
+	FONT-WEIGHT: bold; COLOR: #ffffff; BACKGROUND-COLOR: #000000; TEXT-DECORATION: none
+}
+DIV.footer {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 2px; BORDER-TOP: medium none; MARGIN-TOP: 5px; PADDING-LEFT: 2px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; BORDER-LEFT: medium none; WIDTH: 100%; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: medium none; FONT-FAMILY: Verdana, Helvetica, sans-serif; BACKGROUND-COLOR: #000000; TEXT-ALIGN: center
+}

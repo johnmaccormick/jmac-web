@@ -1,0 +1,58 @@
+<html lang="en"><head><title>More Array Processing</title>
+	<!-- Changed by: , 20-May-2008 -->
+	
+	<link href="25-Searching_files/cs131.css" type="text/css" rel="stylesheet"></head><body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>More Array Processing<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review 4.16.5-4.17 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<!---<a href="../examples/StockAnalyzer-Start.zip"><i>StockAnalyzer-Start</i></a><br>--->
+<a href="../examples/StockAnalyzer.zip"><i>StockAnalyzer</i></a><br>
+<a href="../examples/GradeBook.zip"><i>GradeBook</i></a><br>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<li>Using the <i>StockAnalyzer</i> project complete the following exercises:
+<ol type="a">
+<li>Complete the method named <code>buyOnEveryIncrease</code> in the <code>StockAnalyzer</code> class. This method accepts a single parameter indicating a number of shares of stock. It returns the profit or loss that would be experienced if the following trading strategy is used: Each time the price of the stock increases, buy the specified number of shares.  At the end of the period being analyzed, sell all of the shares that were bought. For example, if the data were {1 2 3 2 2 5} and the buy is 5 shares then the profit would be $25 (5 shares bought at $2, 5 bought at $3, 5 bought at $5, then 15 sold at $5.  So we spent $10+$15+$25=$50 and made $75 for a profit of $25.) If there are no increases in price, then this method returns 0.  Note: The <i>StockAnalyzer</i> project contains test methods that you can run to check if your solution to this exercise works correctly.
+<li>Complete the method named <code>dogDetector</code> in the <code>StockAnalyzer</code> class.  This method accepts a single parameter indicating a number of days. If the stock has decreased in price every day for the specified number of days at the end of the period being analyzed then the stock is a dog and the method returns <code>true</code>. Otherwise, the method returns <code>false</code>. For example, if the data were {20 22 25 23 21 19} and the specified number of days was 3 then the stock would be a dog.  However, if the specified number of days was 4 then the stock would not be a dog (yet!).  If the specified number of days is greater than one less than the number of days of data, then this method should return <code>false</code>. Note: The <i>StockAnalyzer</i> project contains test methods that you can run to check if your solution to this exercise works correctly.
+</ol>
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 9d</h3>
+<p>
+</p>
+<OL>
+Use the <i>GradeBook</i> project to complete the following exercises. 
+<ol type="a">
+<li>Add a method named <code>quizzesShowImprovement</code> to the <code>GradeBook</code> class. This method checks to see if the student's quiz scores are improving at the end.  This method takes one parameter specifying a number of improvements and returns <code>true</code> if the student's quiz scores show the specified number of improvements at the end of the array. Otherwise it returns <code>false</code>. For example, if the specified number of improvements were 3 and series of quiz scores were: {90 80 82 68 70 75 83} then the method would return <code>true</code> because the last 4 quiz scores show three consecutive improvements.  However, if the specified number of improvements were 4 then the method would return <code>false</code>.  If the specified number of improvements is equal to or larger than the total number of quizzes then this method returns <code>false</code>.
+<li>Create test methods for the <code>quizzesShowImprovement</code> method that you added to the <code>GradeBook</code> class. Your test methods must achieve statement coverage.
+
+<li>Add a method named <code>moreHWIncThanDec</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns <code>true</code> if there are more increases in the homework scores than there are decreases and <code>false</code> otherwise. For example, if the homework scores are {75, 80, 97, 78, 88, 93, 93, 88} then the result of this method would be <code>true</code>, because there are 4 increases (75 to 80, 80 to 97, 78 to 88, and 88 to 93) and only 2 decreases (97 to 78 and 93 to 88).
+</li>
+<li>Create test methods for the <code>moreHWIncThanDec</code> method that you added to the <code>GradeBook</code> class. Your test methods must achieve statement coverage.
+
+
+<!--
+<li>Add a method named <code>longestHWStreak</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the longest streak of non-decreasing homework scores.  For example, if the homework scores are {75, 80, 97, 78, 88, 93, 93, 88} then the result of this method would be 4, because the streak {78, 88, 93, 93} is the longest non-decreasing streak and it contains 4 homework scores. If the homework scores contain no non-decreasing streaks (e.g. {95, 87, 85, 53}) then this method should return -1.</li>
+<li>Create test methods for the <code>longestHWStreak</code> method that you added to the <code>GradeBook</code> class. Your test methods must achieve statement coverage.
+-->
+</li>
+</ol>
+<p>Submit your <code>GradeBook</code> project via WebCAT. 
+</OL>
+</OL>
+</div></body></html>

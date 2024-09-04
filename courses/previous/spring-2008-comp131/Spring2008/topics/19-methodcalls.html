@@ -1,0 +1,88 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Method Calls and Test Fixtures</TITLE>
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Method Calls and Test Fixtures</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 3.10 - 3.11.1 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Bank.zip"><i>Bank</i></a><br>
+<a href = "../examples/Bicycle.zip"><i>Bicycle</i></a>
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Add accessor methods for the checking and savings account balances
+ of the customer to the <code>BankCustomer</code> class.  These methods should simply return the balance of the appropriate account.
+<LI> Create test methods for the accessor methods that you added in the previous exercise.  Use a test fixture for your test cases.
+<li> Add a method to the <code>BankCustomer</code> class to transfer money 
+ from the customer's checking account to the customer's savings account.
+ Your method must print an error message if sufficient funds are not
+ available for the transfer, and not change any account balances
+ in this case.
+<li> Write test cases that achieve statement coverage for the transfer
+ method that you wrote in the previous exercise.  Use the test fixture that you created earlier for your test cases.
+<!--
+<li>  Do Exercises 3.28 and 3.30 - 3.32 in Barnes &amp; Kolling.
+ For Exercise 3.30, start by implementing the version that works internally
+ as a 24 hour clock.  If you can answer the questions in the exercise
+ without finishing the implementation, then you do NOT need to complete the 
+ version that stores hours from 1 to 12 only.
+-->
+</ol>
+<p>
+<HR>
+<H3>Homework Assignments</H3>
+<p>
+<ol>
+<li> Using the <i>Bicycle</i> project that you started working on in
+  the previous homework assignment:
+<ol type="a">
+ <li> complete the definitions of the remaining methods in the class
+ <li> write test cases that achieve statement coverage for the
+  <code>setFrontTireSize</code>, <code>setRearTireSize</code>,
+  <code>getSeatSize</code> and <code>getSeatColor</code>  methods
+ <li> submit your <i>Bicycle</i> project via WebCAT
+</ol>
+
+<li> Modify the <code>withdrawChecking</code> method of the 
+ <code>BankCustomer</code> so that it has overdraft protection as specified
+ in the following:
+ <ul>
+ <li> if the checking account has sufficient funds for the withdrawal,
+      then the checking balance should be updated as usual
+ <li> if the checking account does not have sufficient funds for the
+  withdrawal, but the combination of the checking and savings accounts
+  is sufficient, then all funds should be withdrawn from the checking
+  account and the remainder of the funds needed to cover the withdrawal
+  should be withdrawn from the savings account
+ <li> if the combination of the checking and savings accounts does not
+  contain sufficient funds for the withdrawal, then an error message should
+  be printed and no balances should be modified
+ </ul>
+  Copy and paste your modified <code>withdrawChecking</code> method 
+ as your answer to this exercise.
+
+<li> Write test cases that achieve statement coverage for the method
+ you defined in the previous exercise.  Your test cases MUST use a 
+ test fixture containing at least 3 objects.  Copy and paste the test methods 
+ and the <code>setUp</code> method from the test class as your answer for 
+ this exercise.  (The <code>setUp</code> method contains the code used
+ to create the test fixture.)
+</ol>
+</BODY>
+</HTML>
+

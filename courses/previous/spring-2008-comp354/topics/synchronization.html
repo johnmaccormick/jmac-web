@@ -1,0 +1,138 @@
+<html lang="en">
+<HEAD>
+<Title>CS354 - Operating Systems</Title>
+<!-- Changed by: , 30-Mar-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<hr>
+<center>
+<font size=+2 color='#006400'>
+<b>
+Computer Science 354<br>
+Operating Systems<br>
+</b>
+</font>
+<font size=-1>
+<br>
+Dickinson College<br>
+Spring Semester 2006<br>
+John MacCormick
+</font>
+</center>
+
+<hr>
+
+<center>
+<font size=+2 color='#000064'>
+
+<b>Thread Synchronization</b>
+
+</font>
+</center>
+
+<h3><img src="../images/reading.gif"> Reading Assignment <img src="../images/reading.gif"></h3>
+<UL>
+<LI>Operating Systems Concepts: Chapter 6.
+</UL>
+
+<h3><img src="../images/slides.gif"> Lecture Slides <img src="../images/slides.gif"></h3>
+<UL>
+<LI><a href="../slides/synchronization.pdf">Thread Synchronization</a>
+ 
+</UL>
+
+<h3><img src="../images/hw.gif"> Homework Assignment <img src="../images/hw.gif"></h3>
+<UL>
+Due Date: 3/27/08
+<br><br>
+<LI>Operating Systems Concepts: #6.9, #6.16, #6.17, #6.27.
+<LI>In class we discussed how mutual exclusion could be implemented using a <code>TSL</code> instruction.  It is also possible to implement mutual exclusion with a <code>SWAP</code> instruction.  Assume that the <code>SWAP</code> instruction is indivisible (i.e. atomic) and that it swaps the values of two variables. For example: <code>SWAP A B</code> will swap the values in the variables <code>A</code> and <code>B</code>.  Show how the <code>SWAP</code> instruction could be used to implement mutual exclusion. Also, give an argument, similar to the one given in class, that your <code>SWAP</code> based mutual exclusion works.
+<LI>Consider the three threads shown below. Using pseudo-code similar to that used in class, show how it is possible to ensure that <i><code>section a2</code></i> will run before <i><code>section b2</code></i> and that <i><code>section b2</code></i> will run before <i><code>section c2</code></i>.
+<UL>
+<p><table>
+<tr>
+<th><U>Thread A</U></th><th>&nbsp;&nbsp;&nbsp;&nbsp</th>
+<th><U>Thread B</U></th><th>&nbsp;&nbsp;&nbsp;&nbsp</th>
+<th><U>Thread C</U></th></tr>
+
+<tr>
+<td><code>
+1. <i>section a1</i><br>
+2. <i>section a2</i>
+</code></td>
+<td></td>
+<td><code>
+1. <i>section b1</i><br>
+2. <i>section b2</i>
+</code></td>
+<td></td>
+<td><code>
+1. <i>section c1</i><br>
+2. <i>section c2</i>
+</code></td>
+
+</table>
+</UL>
+
+<!--
+<p><LI>Consider N copies of the thread shown below that are executing concurrently. Using pseudo-code similar that used in class modify this thread such that all N threads will synchronize before each execution of <i><code>section a2</code></i>.  That is, each thread that arrives at <i><code>section a2</code></i> will wait until all N threads have arrived at <i><code>section a2</code></i>.  Then all threads will execute <i><code>section a2</code></i> concurrently before again waiting prior to the next execution of <i><code>section a2</code></i>. Hint: One possible solution includes (among other things) the use of two turnstiles, one before <i><code>section a2</code></i> and one after.
+<p><UL>
+<U><b>Thread A</b></U><br>
+<code>
+1. <i>section a1</i><br>
+2. while (<i>some condition</i>)<br>
+3. &nbsp;&nbsp<i>section a2</i><br>
+4. end while<br>
+5. <i>section a3</i>
+</UL>
+-->
+
+<p><LI>In class we saw a solution to the Readers-Writers problem.  Unfortunately, in our solution it was possible for a continuous stream of readers to cause the writers to starve.  Augment our solution from class to ensure that writers do not starve.  You solution should guarantee that each time writer arrives, the current readers may finish, but any new readers must block until at least one writer has had the chance to write.  Hint: Think about using a turnstile that both readers and writers go through.  The turnstile should locks when a writer arrives and unlock when a writer completes.
+</UL>
+
+<h3><img src="../images/web.gif"> Related Web Sites <img src="../images/web.gif"></h3>
+<UL>
+<dl>
+<dt><LI><a href="http://java.sun.com/docs/books/tutorial/essential/threads/multithreaded.html">Synchronizing Threads</a>
+<dd>A set of pages from the Java Tutorial that discuss how to synchronize threads.  Some of this goes well beyond what we'll be doing in this class, but the inroductory material is good.
+</dl>
+</UL>
+
+<h3><img src="../images/code.gif"> Sample Code <img src="../images/code.gif"></h3>
+<UL>
+
+<LI><A HREF="code/SheepTracker1.java">SheepTracker1.java</A></LI>
+<LI><A HREF="code/SheepTracker2.java">SheepTracker2.java</A></LI>
+<LI><A HREF="code/SheepTracker3.java">SheepTracker3.java</A></LI>
+<LI><a href="code/ThreadSynchExample1.java">ThreadSynchExample1.java</a> - Example of two threads that contain a mutual exclusion problem.
+<LI><a href="code/ThreadSynchExample2.java">ThreadSynchExample2.java</a> - Example of two threads that contain a serialization problem.
+<br><br>
+<LI><a href="code/Semaphore.java">Semaphore.java</a> - An implementation of a semaphore in Java.
+</UL>
+
+<h3><img src="../images/project.gif"> Project Assignment <img src="../images/project.gif"></h3>
+<UL>
+Due Date: <STRIKE>4/3/08</STRIKE> 4/7/08
+<br><br>
+<LI><a href="../projects/project3/project3.html">Project #3</a> - Thread Synchronization Problems
+</UL>
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+
+<hr>
+<font size=-2>
+<script language="JavaScript">
+          <!---//hide script from old browsers
+          document.write( "This document was last updated "+ document.lastModified + "<br><br>" );
+          //end hiding contents --->
+          </script>
+</FONT>
+
+</BODY>
+</HTML>

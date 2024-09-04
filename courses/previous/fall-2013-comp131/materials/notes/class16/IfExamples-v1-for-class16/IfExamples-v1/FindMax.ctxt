@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=init1\ init2\ init3
+comment0.target=FindMax(int,\ int,\ int)
+comment0.text=\nset\ the\ 3\ numbers\ to\ find\ the\ max\ of\n@param\ init1\ first\ number\n@param\ init2\ second\ number\n@param\ init3\ third\ number\n\n
+comment1.target=int\ max3()
+comment1.text=return\ the\ maximum\ of\ the\ three\ numbers\ set\ by\ the\ constructor\n@return\ the\ maximum\ of\ the\ three\ numbers\n\n
+numComments=2

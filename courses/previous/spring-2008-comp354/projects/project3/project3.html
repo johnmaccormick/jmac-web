@@ -1,0 +1,90 @@
+<html lang="en">
+<HEAD>
+<Title>CS354 - Operating Systems</Title>
+<!-- Changed by: , 20-Mar-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<hr>
+<center>
+<font size=+2 color='#006400'>
+<b>
+Computer Science 354<br>
+Operating Systems<br>
+</b>
+</font>
+<font size=-1>
+<br>
+Dickinson College<br>
+Spring Semester 2006<br>
+Grant Braught
+</font>
+</center>
+
+<hr>
+<center>
+<font size=+2 color='#000064'>
+<b>Project #3 - Thread Synchronization Problems</b>
+</font>
+</center>
+
+
+<font size=+1 color='#006400'>
+<p><b>Introduction</b>
+</font>
+
+<UL>
+<p>In this project you are asked to solve two thread synchronization problems using semaphores. The following sections describe each of the problems and provide an unsynchronized version of the program from which you can start.  In addition to the starter programs provided below, you will also need to use the <a href="Semaphore.java"><code>Semaphore</code> class</a> that we have discussed to implement your solutions. 
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>The Sandwich Shop Problem</b>
+</font>
+<UL>
+<p>The sandwich shop in this problem is very small. It has a single employee and there is room for only one customer to be in the shop at a time. This problem contains two types of threads. There is a single thread modeling an employee and there are multiple threads modeling customers.
+  
+<p>The employee waits in the shop until a customer places an order. Once a customer places an order the employee takes a random amount of time to make the sandwich. When the sandwich is made, the employee carries the sandwich to the cash register and waits for the customer to pay. Once the customer pays, the employee waits for the next order.
+  
+<p>Each customer thread takes a random amount of time to travel to the sandwich shop. After traveling the the customer arrives at the sandwich shop. If the shop is not empty the customer must wait until the shop is empty before entering. The sandwiches are excellent, so the customer will wait as long as it takes to get into the shop. When the shop is empty, one of the waiting customers enters the shop and places an order. The customer then browses around the shop for a random amount of time. After browsing, the customer goes to the cash register and waits for the employee to bring the sandwich. When the employee arrives at the cash register, the cutomer pays for the sandwich and leaves the shop.
+  
+<p>Your solution for the employee will augment the <code>run</code> methods in the <code>EmployeeThread</code> class and the <code>CustomerThreaad</code> class to enforce the synchronization constraints just described. Each of these <code>run</code> methods currently contains method calls that indicate what the thread is doing and provide the random waits that have been described. Once synchronized these methods must be invoked as described below.
+  
+<p>The <code>EmployeeThread</code> must invoke the method <code>waitForCustomer()</code> to indicate that it is waiting for a customer to order. It must invoke the <code>makeSandwich()</code> method when it begins making a sandwich for the customer. When the sandwich is finished being made, the <code>EmployeeThread</code> must invoke the <code>atCashRegister()</code> method to indicate that the employee is waiting for payment. Finally the <code>EmployeeThread</code> must invoke the <code>PaymentAccepted()</code> method to indicate that the customer's payment has been taken.
+  
+<p>The <code>CustomerThread</code> must invoke the method <code>travelToShop()</code> when it is first started. When the customer arrives at the shop it must invoke the <code>arriveAtShop()</code> method. When the shop is empty and the customer has entered it must invoke the <code>placeOrder()</code> method. After the order has been placed, the <code>CustomerThread</code> must inoke the <code>browseShop()</code> method. When the customer is finished browsing it must invoke the <code>atRegister()</code> method. Finally, after the employee has taken the customer's payment the <code>CustomerThread</code> must invoke the <code>leaveShop()</code> method.
+  
+<p>The starter code for this problem is provided in the <a href="SandwichShop.java">SandwichShop.java</a> file. This starter code provides unsynchronized versions of the <code>EmployeeThread</code> and the <code>CustomerThread</code> that display nicely formatted output.  Be sure to run this code and understand the output before you start making modifications to the code.  The only modifications that you may make to the provided code are to add <code>public static</code> variables to the <code>SandwichShop</code> class and to add synchornization code, using semaphores, to the <code>run</code> methods within the <code>EmployeeThread</code> and <code>CustomerThread</code> classes.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>The Roller Coaster Problem</b>
+</font>
+<UL>
+<p>In the roller coaster problem there are two types of threads.  There is one <code>TrainThread</code> that models the roller coaster train and numerous <code>PassengerThreads</code> that model the passengers.  These threads should behave as described below.
+
+<p>The thread for the train will wait while passengers load.  When the train is full, and only when it is full, it will run a loop around the track.  After completing a loop around the track it will wait while all of the passengers unload.  Once the passengers unload, the train will again begin loading passengers.
+
+<p>The threads for the passengers will each wander around the amusement park for a random amount of time before getting in line for the roller coasters. Once in line a passenger waits for an opportunity to get on the train.  Once on the train a passenger will wait until the train runs its loop around the track and begins unloading.  Note: The "line" in this case need not necessarily be first-come-first-served.  However, those passengers that get on a given train must be the same ones that get off of that train.
+
+<p>The starter code for this problem is provided in the <a href="RollerCoaster.java">RollerCoaster.java</a> file.  As with the starter code for the Sandwich Shop Problem, the provided code for the Roller Coaster Problem contains method calls that must be invoked to indicate the current state of the <code>TrainThread</code> and each <code>PassengerThread</code>.  Also like the Sandwich Shop Problem, the only modifications that you may make to the provided code are to add <code>public static</code> variables to the <code>RollerCoaster</code> class and to add synchornization code, using semaphores, to the <code>run</code> methods within the <code>PassengerThread</code> and <code>TrainThread</code> classes.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>Submitting Your Solutions</b>
+</font>
+<UL>
+Submit your solutions both in hard copy and by sending me an e-mail attachment containing two files: The SandwichShop.java file and the RollerCoaster.java file augmented with your synchronization code.
+</UL>
+
+
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+
+
+</body>
+</html>

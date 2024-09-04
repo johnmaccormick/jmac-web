@@ -1,0 +1,161 @@
+
+<HEAD>
+   	<TITLE>Boolean Operators</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Boolean Operators</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Review Sections 2.1 - 2.17 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/IfExamples-start.zip"><i>IfExamples-start</i></a> <br>
+<a href = "../examples/IfExamples-v1.zip"><i>IfExamples-v1</i></a><br> 
+<a href = "../examples/GuessingGame.zip"><i>GuessingGame</i></a> 
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Implement the <code>has30Days</code> method in the <code>Date</code> class
+of the <i>IfExamples-v1</i> project.  Also create test methods that achieve
+statement coverage for your implementation.
+<li>Do you think statement coverage provides sufficient testing for your <code>has30Days</code>
+method? Why or why not?
+<li> Rewrite the code for the <code>isLeap</code> method in the <code>Date</code> class 
+of the <i>IfExamples-v1</i> project using the Boolean operators.  You should be able to 
+produce a significantly simpler version now.  To help, here is a summary of the rules:
+<UL>
+<LI>If the year is before 1384 and it is divisible by 4 it is a leap year.
+<LI>Otherwise the year is a leap year if...
+<UL>
+<LI>It is divisible by 4, <LI>as long as it is not divisible by 100, <LI>unless it is also divisible by 400.
+</UL>
+</UL>
+
+<li>Do the tests you created for the previous version of the <code>isLeap</code> method 
+still achieve statement coverage?
+
+<!--
+<li> The constructor for the <code>Date</code> class in the 
+ <i>IfExamples-v1</i> project does not check that its parameters make
+ sense.  For example, the day must be between 1 and 31, and the month 
+ must be one of January, February, ..., December.  Modify the constructor
+ so that it checks these conditions, and prints an error message if any
+ parameter is invalid.  You can assume that every month has exactly
+ 31 days.  Additionally, create a test class and
+ write test cases that achieve statement coverage for
+ your modified constructor.  Note that you may
+ need to add additional methods to the class in order to test
+ the constructor properly.
+-->
+
+<li> Consider the boolean expression: <code>(x &lt; 3) || (x &gt; 4)</code>.
+   What values of <code>x</code> make this expression
+ true?  Justify your answer.
+<li> Consider the boolean expression: <code>(x &lt; 15) &amp;&amp; (x &gt; 4)</code>.
+   What values of <code>x</code> make this expression
+ false?  Justify your answer.
+<li> Consider the boolean expression: <code>!((x &lt; 3) &amp;&amp; (x &gt; 4))</code>.
+   What values of <code>x</code> make this expression
+ true?  Justify your answer.
+
+
+<li> Will the <code>grade</code> method from the <code>GradeCalculator</code>
+ class of the <i>IfExamples-v1</i> project
+ still work correctly if the order of the ifs (and the corresponding
+ code) is changed?  For example, if the method body is changed to:
+<pre>
+        if (pct &gt;= 90 &amp;&amp; pct &lt;= 100) {
+            letGrade = "A";
+        } else if (pct &gt;= 70 &amp;&amp; pct &lt; 80) {
+            letGrade = "C";
+        } else if (pct &gt;= 80 &amp;&amp; pct &lt; 90) {
+            letGrade = "B";
+        } else {
+            letGrade = "other";
+        }
+</pre>
+ Why or why not?
+
+<!--
+<li> Do the test cases that you developed for the <code>max3</code>
+ method (class <code>FindMax</code>) as implemented in the <i>IfExamples-v1</i> project 
+ still achieve statement coverage
+ for the <code>max3</code> method (still class <code>FindMax</code>)
+ as implemented in the <i>IfExamples-v2</i> project?
+ Why or why not?
+-->
+
+</UL>
+
+
+
+</ol>
+<p>
+<HR>
+<H3>Homework Assignment 5c</H3>
+<p>
+<ol>
+<li> Consider the boolean expression: 
+ <code>(x &lt; 10) &amp;&amp; (x &gt; 4)</code>.
+   What values of <code>x</code> make this expression
+ false?  Justify your answer.
+<li> Consider the boolean expression: 
+ <code>!(x &lt; 10)</code>.
+  What values of <code>x</code> make this expression
+ true?  Justify your answer.
+<li> Consider the boolean expression: 
+ <code>(year % 400 == 0) &amp;&amp; (year % 100 != 0)</code>. 
+  What values of <code>year</code> make this expression
+ true?  Justify your answer.
+
+<li> Download and unzip the <i>GuessingGame</i> project, and edit the
+ class <code>Game</code> within that project.  
+ When finished, this class will allow two people to play everyone's
+ favorite guessing game - "I'm thinking of a number between 1 and 10 (inclusive)."
+ One player will use the constructor for the class to create a new
+ <code>Game</code> object containing the number they are thinking of.  The 
+ second player will repeatedly call a method called <code>guess</code>
+ to attempt to guess the number.
+<p>
+ You must implement this constructor and method as follows:
+<ul>
+<li> the constructor must take one parameter - the number that the
+ first player is thinking of
+<li> the <code>guess</code> method must also take one parameter - the
+ number that the second player is guessing.  The method must then 
+ respond by returning one of the following messages:
+  <ul>
+  <li> "Your guess is out of range!" if the guess is not between 1 and
+ 10 (inclusive)
+  <li> "You win!" if the guess is correct
+  <li> "Your guess is too high!" if the guess is too high
+  <li> "Your guess is too low!" if the guess is too low
+  </ul>
+</ul>
+ Stub versions of the constructor and <code>guess</code> method are
+ provided for you, so you need only fill in the code in the bodies of
+ these methods.
+<p>
+ You must also provide test cases for the 
+ <code>guess</code> method that achieve statement coverage.
+<p>
+Submit this project via WebCAT.  Note that WebCAT will not accept your
+submission if you have not created a test class for class <code>Game</code>.
+
+</ol>
+</BODY>
+
+</HTML>
+

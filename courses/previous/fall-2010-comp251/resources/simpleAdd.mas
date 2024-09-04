@@ -1,0 +1,6 @@
+load 	004
+add	005
+store 	006
+halt
+dec	9
+dec	12

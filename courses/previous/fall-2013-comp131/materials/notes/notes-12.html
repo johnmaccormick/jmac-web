@@ -1,0 +1,969 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-12</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Topic #12
+          &#8211;&nbsp; Mutators and Unit Testing:<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Last time, we
+        started working with the </span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Turtle</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Its methods,
+        fields needed<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">We then
+        developed the source code for the <u>field</u>s, <u>constructors</u>
+        and <u>accessors</u> of the </span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> class.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Continue
+        writing more of the methods in the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt;color:green">
+        class?</span><span style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt"><span style="mso-spacerun:yes">&nbsp; </span>What about
+        testing?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">What if we&#8217;ve
+        got a <span style="color:#C0504D;mso-themecolor:accent2">bug</span>
+        in there&#8230; <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Big Bang approach???<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">The more
+        code we have, the harder to find and fix errors.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Best to test as we go along - <b
+          style="mso-bidi-font-weight:normal"><span
+            style="mso-spacerun:yes">&nbsp;</span>&#8220;Code a little, test a
+          little&#8221;<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">So <u>how
+          can we check</u> if the code that we have written is correct?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Testing by
+          hand</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Create a </span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> object on
+        the object bench.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Call its accessor methods <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getX</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getY</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getAngle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getColor</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">isPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Check each
+        value with what is expected...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>As you can see this can get a bit tedious&#8230;.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Also if you
+        were to find a bug in the code and attempt to fix it, <br>
+        then you&#8217;ll need to run all of your tests over again. <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">First, to be
+        sure that you fixed the bug<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Second, to <u>be
+
+          sure that the changes you made didn&#8217;t break anything else.</u><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Automated
+          Testing</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">:<span
+          style="mso-tab-count: 1">&nbsp;&nbsp; </span>(This is not in
+        the text!)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">To help with
+        testing BlueJ has built in support for an automatic testing
+        system called <b style="mso-bidi-font-weight:normal">JUnit</b>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">The idea is
+        that you will go through your test once and BlueJ will record
+        it.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Then you&#8217;ll
+        be able to re-run your test automatically, as many times as you
+        need to.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><span style="color:green">Creating a test class</span> <span
+          style="mso-spacerun:yes">&nbsp;</span>(enabled?)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Right click </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> class<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Choose &#8220;Create Test Class&#8221;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt;color:green">Recording
+        a test case for the default constructor</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Right click </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">TurtleTest</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Choose &#8220;Create Test Method&#8221;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Make test for </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">testDefaultConstructor</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Convention: <b
+          style="mso-bidi-font-weight:normal">Test methods are named </b></span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">testXXXXX<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size: 10.0pt">Recording
+          indicator</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> comes on.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Everything
+        you do now will be <u>recorded</u> into the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">testDefaultConstructor</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> <br>
+        method and saved so that you can re-run it later.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt;color:green">Create
+        a new </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt;color:green">
+        using the default constructor.<span style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Test to see
+        if it worked by calling accessor methods.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Call </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getAngle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> first.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>For each call you have to provide the expected value.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Assert that&#8230; <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>This is the test&#8230; <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">if the
+        assertion holds then the test will pass.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">if the
+        assertion fails then the test will fail.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Then call
+        methods:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">isPenDown<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>getColor</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt;color:green">Do
+      </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:green">getX</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Here the
+        assert will need to be different because the return value is a
+        double.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">NOTE: In
+        BlueJ 2.1.3 this does not default to the right setting so <br>
+        &nbsp;they&#8217;ll have to be careful with assertions involving </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">double</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> values.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><b style="mso-bidi-font-weight: normal">&#8220;Computer&#8217;s
+          cannot represent every decimal value exactly&#8221;<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">So instead
+        of testing if the value is exactly 50 we&#8217;ll test if <br>
+        &nbsp; it is <b style="mso-bidi-font-weight:normal">&#8220;close
+          enough&#8221; to 50</b> for our purposes.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>The assert tests if the return value is 50 +- delta.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Using 0.01 for delta will generally work well.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Do </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getY</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Run the test.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">What does an
+        error case do?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Some rules &#8211;<o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Testing
+          Rule: Constructors and Accessors:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>One test method for each constructor.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>Create an object using the constructor being tested.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>Call the accessor for each field and make an assertion.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Do
+        a test for the 4 argument constructor:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Pick different values for x and y.<span
+          style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Show
+        code recorded for the test cases.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Creating object by calling constructor.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Calling accessors using the . notation.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">For now you
+        just need to know that recording a test puts this code here.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Homework
+        will ask you to copy and paste test these methods as your
+        answers.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">Now</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">
+        lets look at one of the mutator methods in the </span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:green">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">
+        class.</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-spacerun:yes">&nbsp; <br>
+        </span>The </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">putPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method.<span
+          style="mso-spacerun:yes">&nbsp; </span>We&#8217;ll also look at how
+        we should test this method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">What should
+        the </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">putPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method do?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">How do we <span
+          style="color:green">write the source code</span> to make it do
+        that?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">public
+void
+
+        putPenDown() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><span style="mso-tab-count:1">&nbsp;&nbsp; </span>penDown
+=
+
+        true;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+          style="mso-tab-count:1">&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">We should
+        stop here and <span style="color:green">test the </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier;color:green">putPenDown</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt;color:green">
+        method</span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"> before going on.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><b style="mso-bidi-font-weight:normal">&#8220;Code a little,
+          Test a little&#8221;</b><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Record
+        the test case:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Create test method </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">testPutPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Create </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Turtle</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> object using
+        default constructor.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Call </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">putPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Call </span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">isPenDown</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> to check
+        that the pen is down.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Run it!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Should we have checked if the pen was up before putting
+        it down?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>We could and it wouldn&#8217;t be wrong.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>But it isn&#8217;t necessary because we already tested the
+        constructor. <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Notice all
+        tests run.<span style="mso-spacerun:yes">&nbsp; </span>So
+        having the descriptive names helps here.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Notice that
+        the object disappears when recoding is ended.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">The object
+        only exists while the test is being recorded or run.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Show
+        test code again</span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">WALK THROUGH
+        <span style="color:green">CONFIGURING <span
+            style="mso-spacerun:yes">&nbsp;</span>BLUEJ&#8217;s TO HAVE
+          TESTING STUFF</span>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>BlueJ menu<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Preferences
+        option<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Miscellaneous tab<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Check &#8220;Show unit testing tools.&#8221;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Practice
+        Exercises.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Start with #3 we did through #2.<o:p></o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>660</o:Words>
+  <o:Characters>3765</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>31</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4417</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

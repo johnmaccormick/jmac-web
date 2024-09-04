@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=initPoints
+comment0.target=GradeCalculator(int)
+comment0.text=\nset\ the\ number\ of\ points\ on\ the\ assignment\n@param\ initPoints\ the\ number\ of\ points\ on\ the\ assignment\n\n
+comment1.params=score
+comment1.target=String\ grade(int)
+comment1.text=return\ the\ letter\ grade\ associated\ with\ a\ particular\ score\ \n@param\ the\ score\ on\ the\ assignment\n@return\ the\ letter\ grade\ associated\ with\ a\ particular\ score\ \n\n
+comment2.params=gradingLevel\ score
+comment2.target=boolean\ passingGrade(int,\ int)
+comment2.text=determine\ whether\ or\ not\ the\ percentage\ on\ the\ assignment\ is\ passing.\nIf\ we\ are\ using\ easy\ grading\ (the\ grading\ level\ is\ 1),\ any\ score\ giving\na\ percentage\ of\ 60\ or\ higher\ is\ passing.\ \ If\ we\ are\ using\ hard\ grading\n(the\ grading\ level\ is\ 2),\ any\ score\ giving\ a\ percentage\ of\ 75\ or\ higher\nis\ passing.\ \ You\ can\ assume\ that\ the\ grading\ level\ is\ always\ either\ \n1\ or\ 2.\n@param\ gradingLevel\ whether\ to\ use\ easy\ or\ hard\ grading\n@param\ score\ the\ score\ on\ the\ assignment\n@return\ whether\ or\ not\ the\ score\ gives\ a\ passing\ percentage\n\n
+numComments=3

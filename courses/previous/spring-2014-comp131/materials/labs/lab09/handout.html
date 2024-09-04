@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <title>dPod</title>
+  </head>
+  <body bgcolor="#FFFFFF" link="#473C8B" text="#000000" vlink="#757575">
+    <font color="#006400" size="+2">
+      <center><b>Lab 9 - dPod</b></center>
+    </font>
+    <font color="#006400" size="+1">
+    </font>
+    <p><font color="#006400" size="+1"><b>Introduction:</b>
+      </font>
+      <!--- MMC (Spring 2011): I implemented the constructor and accessors -->
+      <!--in Song because they are too easy (and tedious) for this point in -->
+      <!--the term. I also modified this handout to reflect that. --->
+    </p>
+    <p>
+      For this assignment, you will first complete (and fully test) a
+      class
+      that represents a song or other audio file that might be played by
+      an
+      audio player. You will then
+      implement a class named <code>PlayList</code> that represents a
+      collection of songs. These two classes form an integral part of
+      the <i>dPod</i> MP3 music player. Once you have completed their
+      implementation you will be able to use the dPod to organize and
+      play collections of MP3 audio files.
+      <br>
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>Setup:</b>
+      </font> </p>
+    <p>Create a <code>Lab9</code> folder in your <code>CS131</code>
+      folder.
+      Download and unpack the <a href="dPod.zip"><i>dPod</i> project</a>
+      into your <code>Lab9</code> folder, and use BlueJ to open the <i>dPod</i>
+      project. <br>
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>The Assignment:</b>
+      </font> </p>
+    <p>In this lab, you should only be concerned with the <code>Song</code>
+      class and the <code>PlayList</code> class. The <code>Song</code>
+      class
+      has been started for you (the fields, constructor, and accessor
+      methods have been written), but you will need to complete and
+      test the remaining methods in <code>Song</code> and the entire
+      <code>PlayList</code> class. The test cases that you create must
+      achieve statement coverage and must follow the "Testing Rules"
+      that we have discussed in class.
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>Bonus:</b>
+      </font>
+    </p>
+    <p>Implement the <code>shuffle</code> method in the <code>PlayList</code>
+      class. In order to implement this method you will need to read
+      about how to use the <code>Random</code> class on-line or in the
+      textbook. </p>
+    <p>Whether or not you elect to complete the bonus you must do two
+      things:
+    </p>
+    <ul>
+      <li>Leave the definition of the <code>Shuffle</code> method in
+        place. </li>
+      <li>Create a test method that calls the <code>shuffle</code>
+        method. This test method
+        only needs to invoke the <code>shuffle</code> method, it does
+        not have to make any
+        assertions.
+      </li>
+    </ul>
+    <font color="#006400" size="+1">
+    </font>
+    <p><font color="#006400" size="+1"><b>The dPod Interface:</b>
+      </font>
+    </p>
+    <p>To use the dPod create a new <code>DPod</code> object. If you
+      have correctly implemented the <code>Song</code> and <code>PlayList</code>
+      classes then you should see a window similar to the one shown in
+      Figure 1. </p>
+    <center><img src="dPod.jpg"><br>
+      <b>Figure 1</b>: The dPod.
+    </center>
+    <p>The dPod interface is divided into 3 main sections: the Master
+      PlayList, the PlayLists list and the PlayList Contents. Each of
+      these sections is described below:
+    </p>
+    <ul>
+      <li><b>Master PlayList</b>: The Master PlayList contains a list of
+        all of the songs that you have added to the dPod. You can add
+        additional songs to the Master PlayList by choosing the "Add
+        Song to Master PlayList" option from the "dPod" menu. There is a
+        collection of MP3 files contained in the "music" folder within
+        the <i>dPod</i> project. However, you can also add any of your
+        own songs to the dPod by copying the MP3 file for your song into
+        the "music" directory within the "dPod" project and adding it to
+        the Master PlayList. Songs added to the Master PlayList appear
+        in alphabetical order. Currently there is no way to remove a
+        song from the Master PlayList.
+        <p></p>
+      </li>
+      <li><b>PlayLists</b>: The PlayLists sections shows a list of all
+        of the PlayLists that have been created. You can create, rename
+        and delete PlayLists using the options on the "PlayList" menu.
+        PlayLists appear in alphabetical order.
+        <p></p>
+      </li>
+      <li><b>PlayList Contents</b>: The PlayList Contents section shows
+        the list of songs that are contained in the selected PlayList.
+        You can add songs to a PlayList by selecting the song in the
+        Master PlayList, selecting the PlayList to which you want to add
+        in the PlayLists list and then choosing "Add Song to PlayList"
+        from the "PlayLists" menu. Songs appear in the PlayList in the
+        order that you add them. You can remove songs from a PlayList by
+        selecting the song in the PlayList Contents section and choosing
+        "Remove Song from PlayList" from the "PlayList" menu.
+      </li>
+    </ul>
+    <p>Any time you make changes to the Master PlayList, to the list of
+      PlayLists or to a specific PlayList you will want to save the
+      change by choosing the "Save" option from the "dPod" menu. All of
+      your saved songs and PlayLists will be automatically loaded into
+      the dPod each time it is started.
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>Playing Music in the dPod:</b>
+      </font>
+    </p>
+    <p>Music can be played in three different ways within the dPod. The
+      most common way to play music is to select a PlayList in the
+      PlayLists section and click the "Play" button. This will play each
+      song in the selected PlayList one after the other. While the
+      PlayList is playing you can use the other buttons to pause/resume,
+      stop or change the song that is playing. If a specific song is
+      selected in the PlayList Contents section when the "Play" button
+      is clicked, the selected song will begin playing and the dPod will
+      continue to play the rest of the songs in the PlayList one after
+      the other.
+    </p>
+    <p>In addition to playing songs using a PlayList, it is also
+      possible to play songs directly from the Master PlayList. To play
+      a song from the Master PlayList, first make sure no PlayList is
+      selected (you can hold down the Apple key and click in the
+      PlayLists section to deselect all PlayLists). Then select the song
+      you would like to play in the Master PlayList and click on the
+      "Play" button. The dPod will play the selected song and then
+      continue to play songs from the Master PlayList one after the
+      other.
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>Submitting Your Solution:</b>
+      </font> </p>
+    <p>When you have completed the implementation of the <code>Song</code>
+      and <code>PlayList</code> classes, submit your <i>dPod</i>
+      project to WebCAT.
+      <font color="#006400" size="+1">
+      </font></p>
+    <p><font color="#006400" size="+1"><b>Credits:</b>
+      </font>
+    </p>
+    <p>The dPod player uses the following libraries to aid in playing
+      MP3 files:
+    </p>
+    <ul>
+      <li><a href="http://www.javazoom.net/javalayer/javalayer.html">JLayer</a>
+        - MP3 Library for the Java Platform from JavaZoom.
+      </li>
+      <li><a href="http://www.javazoom.net/mp3spi/mp3spi.html">MP3SPI</a>
+        - MP3 Service Provider Interface from JavaZoom.
+      </li>
+      <li><a href="http://sourceforge.net/projects/tritonus/">Tritonus</a>
+        - Implementation of the Java Sound API.
+      </li>
+    </ul>
+    <p>Each of these libraries is covered by <a
+        href="http://www.gnu.org/licenses/lgpl.html">the LPGL license</a>
+      and is included in the <code>mp3libs</code> directory in the <i>dPod</i>
+      project.
+    </p>
+  </body>
+</html>

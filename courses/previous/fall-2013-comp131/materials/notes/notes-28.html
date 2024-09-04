@@ -1,0 +1,1352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-28</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Topic #28:
+          Arrays of
+          Primitive Values<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green">(
+          Uses <span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>FirstArrayExample,<span style="mso-spacerun:yes">&nbsp;&nbsp;
+          </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>StockAnalyzer-Start
+          )<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">CoinCollection</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> and </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">VideoStore</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> examples all
+        used an </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> to implement
+        a collection
+        of objects.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Two features of these examples that are
+        worth noting:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>We didn&#8217;t need to know the
+        size of the collection in advance.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>The size of the collection
+        could change over time.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">: <o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">Useful for variable size collections.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">Stores object references.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Some
+        collections are different:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>We may <b style="mso-bidi-font-weight:
+          normal"><u>know the size of the collection in advance and that
+            size may also be
+            fixed</u></b>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>e.g. <span style="mso-tab-count:
+          1">&nbsp;&nbsp; </span>the number of hours in a day<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>a list of the US
+        Senators<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>a list of stock
+        prices for the last 20 days<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">the number of quiz or homework grades
+        for each
+        student in a particular class<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">We
+        could of course implement these types of collections using an </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> too.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">However, because the </span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> has the
+        ability to change
+        size its code contains a <b style="mso-bidi-font-weight:normal">lot
+          of overhead</b>
+        that is not needed in cases where we know the size of the
+        collection and that
+        size is fixed.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Today and the next few classes we&#8217;ll be
+        working with something called an:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-spacerun:yes">&nbsp;</span><b
+          style="mso-bidi-font-weight:normal"><span style="color:maroon">Array</span>:
+          Used for fixed size collections.</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The fact that arrays are fixed size
+        may have
+        limitations but they also have <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">Two benefits: <o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">Store either object references or <u>primitive values</u>.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Accessing elements
+          is <u>more efficient</u>
+          than with </b></span><b style="mso-bidi-font-weight:normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Our
+        examples:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">We&#8217;ll develop a program for <b
+          style="mso-bidi-font-weight:
+          normal">analyzing a fixed number of days worth of stock
+          prices.<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Declaring
+          an Array Variable:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">double[] prices;</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;color:#000090">Creates an array
+        variable that can
+        refer to an array that can hold </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:#000090">double</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:#000090">
+        values.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:maroon">[]</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"> </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">make this different than declaring a variable of type </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">double</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>e.g. </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">double price;<span
+            style="mso-spacerun:yes">&nbsp;
+          </span>// not an array.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">[]</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> in the
+          declaration indicate
+          that </span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:
+          14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">prices</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt"> is an array variable.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Declaring an array variable doesn&#8217;t <u>create</u>
+        an
+        array.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">It only <b
+          style="mso-bidi-font-weight:normal">creates
+          a variable that <u>can</u> hold a reference</b> to an array.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>In the
+        same way declaring an object variable doesn&#8217;t create an object.
+        <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Array variables have the default
+        value </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">null</span><u><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">, just like
+          an object
+          variable</span></u><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Draw Object diagram:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><!--[if gte vml 1]><v:rect id="_x0000_s1026"
+ style='position:absolute;left:0;text-align:left;margin-left:166.05pt;
+ margin-top:10.4pt;width:45pt;height:27pt;z-index:251654656' filled="f"/><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="10" width="166"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image001.png"
+              v:shapes="_x0000_s1026" height="30" width="48"></td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">prices: <span
+            style="mso-spacerun:yes">&nbsp;</span>null<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Array variables can be of <b
+          style="mso-bidi-font-weight:
+          normal">any</b> type.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">How would I declare an array variable of type </span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">int</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">?<o:p></o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">How would I declare an array variable of type </span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">DVD</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">?</span></i><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Creating an
+          Array:<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><b style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">prices = new double[3];<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Creates the actual array. <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>This array has space to store
+        3 </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">double</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        values.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:
+          normal">Default value of numeric array entries is 0.<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><i style="mso-bidi-font-style:
+          normal">What do you think the default value would be if the
+          array held </i></span><i style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">DVDs</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">?<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Update Object diagram:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><!--[if gte vml 1]><v:rect id="_x0000_s1027"
+ style='position:absolute;left:0;text-align:left;margin-left:166.05pt;
+ margin-top:10.4pt;width:45pt;height:27pt;z-index:251655680' filled="f"/><v:rect
+ id="_x0000_s1028" style='position:absolute;left:0;text-align:left;
+ margin-left:247.05pt;margin-top:9.9pt;width:2in;height:67.15pt;z-index:251656704'
+ filled="f"/><v:shape id="_x0000_s1032" style='position:absolute;left:0;
+ text-align:left;margin-left:184.05pt;margin-top:9.9pt;width:63pt;height:19.5pt;
+ z-index:251660800' coordsize="1260,390" path="m0,360c390,180,780,,900,,1020,,660,330,720,360,780,390,1020,285,1260,180e"
+ filled="f" strokeweight="1pt">
+ <v:stroke startarrow="oval" endarrow="block"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="9" width="166"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image002.png"
+              v:shapes="_x0000_s1027 _x0000_s1028 _x0000_s1032"
+              height="71" width="228"></td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">prices:<span
+            style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>:double[]<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><!--[if gte vml 1]><v:rect
+ id="_x0000_s1031" style='position:absolute;left:0;text-align:left;
+ margin-left:346.05pt;margin-top:9.7pt;width:36pt;height:18pt;z-index:251659776'
+ filled="f"/><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout;
+position:absolute;z-index:251659776;left:0px;margin-left:346px;margin-top:10px;
+        width:39px;height:21px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image003.png"
+          v:shapes="_x0000_s1031" height="21" width="39"></span><!--[endif]--><!--[if gte vml 1]><v:rect id="_x0000_s1030"
+ style='position:absolute;left:0;text-align:left;margin-left:301.05pt;
+ margin-top:9.7pt;width:36pt;height:18pt;z-index:251658752' filled="f"/><![endif]--><!--[if !vml]--><span
+style="mso-ignore:vglayout;position:absolute;z-index:251658752;left:0px;
+        margin-left:301px;margin-top:10px;width:39px;height:21px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image004.png"
+          v:shapes="_x0000_s1030" height="21" width="39"></span><!--[endif]--><!--[if gte vml 1]><v:rect id="_x0000_s1029"
+ style='position:absolute;left:0;text-align:left;margin-left:256.05pt;
+ margin-top:9.7pt;width:36pt;height:18pt;z-index:251657728' filled="f"/><![endif]--><!--[if !vml]--><span
+style="mso-ignore:vglayout;position:absolute;z-index:251657728;left:0px;
+        margin-left:256px;margin-top:10px;width:39px;height:21px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image005.png"
+          v:shapes="_x0000_s1029" height="21" width="39"></span><!--[endif]--><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><b
+          style="mso-bidi-font-weight:
+          normal"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>0<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>1<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>2<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><span style="mso-spacerun:yes">&nbsp;</span>0.0<span
+            style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+          </span>0.0<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>0.0<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Like an </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">, the entries
+        in an array
+        are numbered from 0 up to the number of entries -1.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">How would I create an array to hold
+        50 </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> objects?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">DVD []<span
+          style="mso-spacerun:yes">&nbsp; </span>dvdArray;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">dvdArray =
+        new DVD[50];<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Using
+          Array
+          Objects:<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">Getting the value of an array element:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><b style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">double price = <span style="color:#000090">prices[2]</span>;<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">Setting the value of an array element:<o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></b><b style="mso-bidi-font-weight:normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+          color:#000090">prices[1]</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">
+          =
+          78.33;</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Each element of the array acts like
+        an independent
+        variable of the specified type.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>So we
+        can do things like:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">prices[0]<span
+            style="mso-spacerun:yes">&nbsp;
+          </span>= 2*prices[1] + prices[2];<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Finding the <b style="mso-bidi-font-weight:
+          normal">length of an array</b>:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><b style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">int len = prices.length;<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Notice the difference from </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayLists</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">.<span
+          style="mso-spacerun:yes">&nbsp; </span>With an </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> we called
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">.size()</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> method to
+        find out how many
+        things were in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">.<span style="mso-spacerun:yes">&nbsp;
+        </span>With an
+        array we use </span><b style="mso-bidi-font-weight:normal"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">.length</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> which is <u>a
+          field, not a
+          method</u>, thus <b style="mso-bidi-font-weight:normal">no </b></span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">()</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> after </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">.length</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">FirstArrayExample<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Walk through the <span style="color:#000090">ArrayDemo2</span>
+        with debugger and inspect array.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">prices</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> field is
+        originally </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">null</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        because it is not initialized</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><i style="mso-bidi-font-style:normal">What
+          happens if we put in a line like the following after we create
+          the array?<o:p></o:p></i></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">prices[99]
+        = 12.44;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:
+          normal">ArrayIndexOutOfBoundsException<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Just like an </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">IndexOutOfBoundsException</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> for an </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Write
+        code for the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">StockAnalyzer</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> Class:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Start with the <i style="mso-bidi-font-style:
+          normal">StockAnalyzer-Start</i> project.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Add
+        and discuss the purpose of each field:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">private String
+        symbol;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>private double[]
+        prices;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Add
+        the constructor:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>What needs to go in the constructor.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Field declaration creates the
+        variable, but not the array!<span style="mso-spacerun:yes">&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Must use new
+        to actually
+        create the array!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>Without
+        it we will get<span style="mso-spacerun:yes">&nbsp; </span></span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">NullPointerException</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> when we try
+        to use the
+        array. <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public
+        StockAnalyzer(String
+        tickerSymbol, int days) { <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">symbol =
+        tickerSymbol;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">// Create the
+        array that will
+        hold the price data.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">prices = new
+        double[days]; <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}</span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Write
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">getDays</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">getTickerSymbol</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> methods.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Add
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">setPrice</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        method:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public void <b
+          style="mso-bidi-font-weight:
+          normal">setPrice</b>(int day, double value) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">if
+        (<i style="mso-bidi-font-style:normal">the day is valid</i>) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">//
+        Set
+        the price for the day to value.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">else
+        {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">System.out.println("Error:
+Invalid
+        day.");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}</span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Add the </span><span style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getPriceMethod</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public double
+        getPrice(int day)
+        {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">if
+        (day
+        &gt;= 0 &amp;&amp; day &lt; prices.length) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return
+        prices[day];<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">else
+        {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">System.out.println("Error:
+Invalid
+        day.");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return
+        -1;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}</span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Why return
+          the value &#8211;1 when
+          the day is invalid?<o:p></o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">If the day is not a valid one, then
+        there is no
+        actual price to return.<span style="mso-spacerun:yes">&nbsp; </span>So
+        we want to
+        return something that could not be mistaken for an actual price.<b
+          style="mso-bidi-font-weight:normal"><i
+            style="mso-bidi-font-style:normal"><o:p></o:p></i></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Discuss
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">fetchClosingPrices</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> method.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">It fetches closing prices from Yahoo
+        Finance and
+        fills in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">prices</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> array.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">To do that:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:#000090">It
+        uses a </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#000090">StockDataReader</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:#000090">
+        to fetch
+        stock information from Yahoo Finance<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Each
+        day&#8217;s data is returned as a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">StockData</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> object<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Has opening, closing, volume ect...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Uses methods in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">StockData</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> objects to
+        get the closing
+        price<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Puts the closing price into
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">prices</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        array.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Develop
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">getNetChangeInValue</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public double
+        getNetChangeInValue() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>double
+startingPrice
+        = prices[0];<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>double
+endingPrice
+        = prices[prices.length-1];<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return
+endingPrice
+        - startingPrice;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}</span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p></o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_filelist.xml">
+    <link rel="Edit-Time-Data"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_editdata.mso">
+    <!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>822</o:Words>
+  <o:Characters>4689</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5501</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1033"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--><!--StartFragment--><!--[endif]--><!--[endif]--><!--EndFragment-->
+  </body>
+</html>

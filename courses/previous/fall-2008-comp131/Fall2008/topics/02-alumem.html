@@ -1,0 +1,124 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>The ALU and Memory</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+
+<SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>The ALU and Memory</H2>
+<HR>
+</CENTER>
+<h3>Reading Assignments</h3>
+<p>
+<a href = "how1/index.html">How Computers Work</a><br>
+
+<br><br>
+
+<h3>Related Web Sites</h3>
+<DL> 
+
+<DT><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/datapath.html');">The Basic Knob &amp; Switch Computer</a>
+<dd>A model of a simple CPU with 4 registers and an ALU (with operations for addition, subtraction, bitwise-AND, and bitwise-OR). This version of the Knob &amp; and Switch does not have a Control Unit. Instead, you must play the role of the control unit by selecting the input registers, ALU functions, and output registers by clicking on the appropriate knobs. When you click on the Execute button on the page, a single CPU cycle is simulated. You can play with this version of the Knob &amp; and Switch simulator until you have a better feel for the CPU and what happens within a CPU cycle.
+
+<DT><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/dpandmem.html')">The Knob &amp; Switch Computer with Memory</a>
+<dd>This version of the Knob &amp; and switch simulator brings us closer to the von Nuemann architecture by adding main memory, where data can be stored and retrieved for calculations by the CPU. By clicking on switches, it is possible to direct data from the main memory to registers within a CPU cycle. Likewise, switches can be set so that the output of the ALU is directed to main memory as opposed to registers. You can play with this version of the Knob &amp; and Switch simulator until you have a better feel for the way that data flows between the main memory and the CPU.
+</DL> 
+ 
+<P>
+<HR>
+<H3>Practice Exercises</H3>  
+<ol>
+<li>Answer the following questions using the Basic Knob &amp; Switch Computer:
+   <OL type = "a">
+   <LI> How must the knobs in the Knob &amp; Switch Computer be set in order
+       to subtract the contents of register R1 from register R3, and store
+       the result in R2?
+
+   <LI> How many CPU cycles would be required in order to add the contents of
+       registers R0, R1, and R2 and store the result in R3?  Describe the
+       settings for each of the cycles.
+
+   <li> What is the fewest number of CPU cycles that you could use to
+    quadruple the value stored in R1? You do not have to specify
+    the knob and switch settings for each cycle. Rather, just describe the
+    operation that would be performed during each cycle.
+
+   </ol>
+<li>Answer the following questions using the Knob &amp; Switch Computer with Memory:
+<OL type = "a">
+<LI>Describe the knob and switch settings required to move the contents of Main
+Memory cell 7 into Register R0.  Or, to describe the operation in pseudocode:
+<XMP>
+    R0 = MM[7]
+</XMP>
+<LI>Describe the knob and switch settings required to add the contents of Register R0 and Register R1 and store the result in Main Memory cell 5.  In pseudocode:
+<XMP>
+    MM[5] = R0 + R1
+</XMP>
+
+<LI>Is it possible to move the contents of one Main Memory cell to another
+ without changing the value?  If so, describe the steps involved.  For 
+ example, consider moving the contents of Main Memory cell 4 to cell 5:
+<XMP>
+    MM[5] = MM[4]
+</XMP>
+<br>
+
+<li> How would you store 3 times the value contained in Main Memory cell 1 into
+  Register R2? Describe the operation that would be performed during each
+  CPU cycle (you do not have to specify the knob and switch settings).
+
+   </ol>
+ </ol>
+<HR>
+<H3>Homework Assignment 1b</H3> 
+
+<OL> 
+<li> For the von Neumann Architecture:
+   <ol type = "a">
+   <LI> What is meant by Stored Program (i.e. "Von Neumann")  architecture?
+   <LI> What are the three main parts of the Stored Program Architecture and what do they do?
+   <li> What are the three main parts of the CPU and what do they do?
+   <LI> What is a CPU Cycle (or Instruction Cycle)? 
+   </ol>
+
+<li> For the basic Knob &amp; Switch Computer:
+   <OL type = "a">
+   <li> How must the knobs in the Knob &amp;  Switch Computer be set in order
+       to double the contents of register R2, and store the result in R1?
+
+   <li> How many CPU cycles would be required in order to negate (flip the
+       sign) of the contents of register R1, and store the result in back in
+       R1?  Describe the settings for each of the cycles.
+
+   </ol>
+
+<li> For the Knob &amp; Switch Computer with Memory:
+<OL type = "a">
+<LI>How many CPU cycles are required to add the contents of Main Memory cells 1 and 2, and store the result in Main Memory cell 3?  Describe the settings for each cycle.  In pseudocode:
+<XMP>
+    MM[3] = MM[1] + MM[2]
+</XMP>
+<LI>  What is the fewest number of CPU cycles that you could use to store
+ 12 times the value contained in Main Memory cell 2 into Register R3? Describe
+ the operation that would be performed during each cycle.  You can assume
+ that all registers initially contain 0.
+
+<br>
+</OL>
+</OL>
+</BODY> 
+</HTML>      
+

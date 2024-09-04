@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Programming assignments for COMP352: Computer Networks</title>
+    <!-- Changed by: , 29-Jan-2009 -->
+    <META NAME="ROBOTS" CONTENT="NOFOLLOW">
+  </head>
+
+  <body>
+    <h2>Programming assignments for COMP352: Computer Networks</h2>
+    Please see the course <A
+    HREF="../schedule.pdf">schedule</A> for due dates.
+    Each assignment, or part of the assignment, gives an
+    estimated time for completion.  If an assignment is
+    taking you significantly longer than the estimated
+    time, you should seek help from the instructor or
+    your classmates (but of course, do not violate the
+    plagiarism and copying rules.)  
+
+<P>
+
+All programming assignment solutions will be submitted
+electronically via <A
+HREF="https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa">Web-CAT</A>.
+No paper copy is required. Web-CAT will perform some
+simple checks on the formatting and style of your code,
+awarding you points in the &quot;Style/Coding&quot;
+section of the results page.  Points deducted from this
+section <B>will</B> be incorporated into your final
+grade.  It's true that Web-CAT's style rules are
+extremely stringent and occasionally annoying, but you
+are nevertheless required to conform to these rules,
+even if that requires modifying example code given to
+you in an assignment.
+
+<P>
+
+Web-CAT will <B>not</B> run your code to test its
+functionality. Also, you are not required to submit any
+JUnit tests.  Therefore, even a completely correct
+submission will get the following alarming response:
+
+<PRE>
+     Results from Running Your Tests (No Tests Submitted!)
+     Code Coverage from Your Tests (0%)
+     Code Coverage: 0% (percentage of methods exercised by your tests)
+     Estimate of Problem Coverage (Unknown!)
+     Problem coverage: unknown
+     Interpreting Your Correctness/Testing Score (0/0)
+</PRE>
+
+Please ignore all of these messages.  The instructor
+will examine and grade your code manually, and a random
+subset of students will be required to demonstrate their
+solutions in class lab time.  The results of this manual
+grading will be entered in the
+&quot;Design/Readability&quot; section of the Web-CAT
+results page.
+
+    <h3>Programming assignment P1</h3>
+
+P1 consists of two K&R Programming assignments:
+&quot;Assignment 2a: A Simplified Mail User Agent:
+Without GUI&quot;, and &quot;Assignment 3: UDP
+Pinger&quot;.  A few hints and additional details
+follow.
+    <UL>
+      <LI><B>Simplified Mail User Agent</B>
+	<UL>
+	  <LI>The standard Dickinson mail server
+	  (<TT>exmail.dickinson.edu</TT>) does not
+	  permit unauthenticated sending of messages.
+	  For this lab, you should use Dickinson's
+	  legacy mail server, which is
+	  <TT>mail.dickinson.edu</TT>.</LI>
+
+	  <LI>Estimated completion time: one hour</LI>
+	</UL>
+      </LI>
+      
+      <LI><B>UDP Pinger</B>
+	<UL>
+	  <LI>Although the assignment does not
+	  explicitly say so, your client program should
+	  print out the contents and round-trip time for
+	  each packet that yields a response, and a
+	  suitable error message for packets that do not
+	  yield a response.  So your output should look
+	  something like this:
+	  <PRE>
+     Received from 127.0.0.1: PING 0 Fri Jan 16 12:26:53 EST 2009
+     Round-trip time was 168 milliseconds
+     
+     Received from 127.0.0.1: PING 1 Fri Jan 16 12:26:54 EST 2009
+     Round-trip time was 17 milliseconds
+     
+     receive timed out -- packet assumed lost
+     
+     Received from 127.0.0.1: PING 3 Fri Jan 16 12:26:59 EST 2009
+     Round-trip time was 58 milliseconds
+     
+     Received from 127.0.0.1: PING 4 Fri Jan 16 12:27:00 EST 2009
+     Round-trip time was 88 milliseconds
+     
+     Received from 127.0.0.1: PING 5 Fri Jan 16 12:27:01 EST 2009
+     Round-trip time was 132 milliseconds
+     
+     receive timed out -- packet assumed lost
+     
+     Received from 127.0.0.1: PING 7 Fri Jan 16 12:27:06 EST 2009
+     Round-trip time was 87 milliseconds
+     
+     ...</PRE>
+	  </LI>
+
+	  <LI>A useful snippet for producing a string with the current date and time is:
+	    <PRE>
+	      Date now = new Date(System.currentTimeMillis());
+	      String nowString = now.toString();</PRE>
+</LI>
+      
+
+      <LI>As stated in the assignment, you will need
+      to investigate the API of <TT>DatagramSocket</TT>
+      in order to implement the receive timeout.  Hint:
+      you will need to surround the <TT>receive</TT>
+      call with an appropriate try/catch block.</LI>
+
+      <LI>Estimated completion time: two hours</LI>
+	</UL>
+      </LI>
+    </UL>
+
+<h3>Programming assignment P2</h3>
+
+P2 consists of the K&R Programming Assignment 1:
+&quot;Building a Multi-Threaded Web Server&quot;.  
+<UL>
+  <LI>To test your program, you'll need to place the
+  source HTML of a simple webpage in the same directory
+  as the program.  If you want, you can use this <A
+  HREF="jmac-homepage.zip">zip file of my home page</A>
+  for this purpose.</LI>
+  <LI>Estimated time: 2 hours.</LI>
+</UL>
+
+<h3>Programming assignment P3</h3>
+
+P3 consists of the K&R Programming Assignment 4:
+&quot;Proxy Cache&quot; with some small alterations:
+<UL>
+  <LI>Don't do any of the optional or extra credit
+  exercises.</LI>
+  <LI><B>For full credit (this is not just for extra
+    credit) you must implement caching in your proxy.</B>
+  However, keep the cache as simple as possible: you
+  should store the cached objects in a suitable
+  in-memory data structure, and don't bother to
+  implement any kind of eviction from the cache.  (Note:
+  this is different from the third optional exercise in
+  the K&R assignment, which is a little more difficult
+  because it requires you to store cached objects on
+  disk rather than in memory.)</LI>
+  <LI>Estimated time: 3 hours.</LI>
+</UL>
+
+
+
+  </body>
+</html>

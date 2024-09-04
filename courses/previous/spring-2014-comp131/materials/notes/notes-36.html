@@ -1,0 +1,1969 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-36</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+          New Roman&quot;">Topic
+          #36: Zuul &#8211; Coupling and Cohesion<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;;color:green">(use
+        project <i style="mso-bidi-font-style:
+          normal">zuul-start</i>, results are in <i
+          style="mso-bidi-font-style:normal">zuul</i>
+        project) <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;">Introduction to <b
+          style="mso-bidi-font-weight:
+          normal"><span style="color:maroon">Zuul</span><o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;;color:#00B050">Play the
+        Zuul game; go &#8230;. , help, quit<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">What
+        classes might be included in this application<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Look at the classes:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#C00000">Room<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Represents
+        a location in the game<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Keeps
+        track of the description of the room and exits to other rooms<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Public
+        fields <b style="mso-bidi-font-weight:normal">???</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#C00000">Command<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Represents
+        commands issued by the user<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Each
+      </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Command</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> object can contain <b
+          style="mso-bidi-font-weight:
+          normal">two words</b> (as </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Strings</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">The
+        first is a command word like go, quit, ...<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">The second supplies
+        additional information (such as a direction to go etc.)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#C00000">CommandReader</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;;
+        color:#C00000"> <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Reads commands from
+        the keyboard, and passes them back as </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Command</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        objects, or </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">null</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> for invalid
+        commands<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Also
+        keeps track of the <b style="mso-bidi-font-weight:normal">valid
+          command words</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#C00000">Player<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Keeps
+        track of the name and current room of the player<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Contains
+        a method for changing the current room of the player<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:#C00000">Game<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Sets
+        up the game<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Contains
+        the <b style="mso-bidi-font-weight:normal"><u>main game loop</u></b>:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Read
+        a user command<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Execute
+        it<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Continue until user
+        enters the quit command<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Also
+        contains "helper" methods used to execute user commands<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;;color:#00B050"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;;color:#00B050">Look at
+        code for the <b style="mso-bidi-font-weight:normal">Game</b>
+        class<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Fields:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">reader</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        is a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">CommandReader</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> for reading
+        user commands<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">thePlayer</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        keeps track of the location of the player<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">The
+        constructor:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Creates
+        the rooms and player (by calling </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">createRoomsAndPlayer</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Creates
+        a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">CommandReader</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Adds
+        the valid command words<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">createRoomsAndPlayer</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Creates
+        the locations and links them together<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Creates
+        the player with a specified name and initial room<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">play</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Reads
+        and processes user commands until quit is entered<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printWelcome</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Prints the initial
+        welcome message and information about the player's location<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">processCommand</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Used
+        to execute each user command<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printHelp</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>&#8220;Helper&#8221; method to process a help
+        command.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Prints
+        the Help message<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">&#8220;Helper&#8221;
+        method to process a go command<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Calls the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        method of the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> class to change
+        the player's location to
+        the room in the indicated direction<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Prints
+        information about the player's new location<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Quit</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">:</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">
+        <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">&#8220;Helper&#8221;
+        method to process a quit command<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+          New Roman&quot;;
+          color:maroon">Code Duplication </span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+          New Roman&quot;;
+          color:black">and</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+          New Roman&quot;;
+          color:maroon"> Method Cohesion<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Note that code for
+        printing information about the player's location is <b
+          style="mso-bidi-font-weight:
+          normal">repeated</b> in both </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">printWelcome</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;">Why is this duplication bad?</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">If the code needs to
+        be changed, the programmer very well might forget to modify <u>both/all</u>
+        places.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">This type of code
+        duplication is related to what is called <b
+          style="mso-bidi-font-weight:normal"><span style="color:maroon">Method
+            Cohesion</span></b>:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:&quot;Times New Roman&quot;">Each method
+          should be responsible for <u>one</u>
+          well-defined task.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Makes methods easier to write<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Makes code easier to understand and
+        easier to maintain.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>You should:<b style="mso-bidi-font-weight:
+          normal"><o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:&quot;Times New Roman&quot;"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Strive
+          for high method cohesion<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Avoid
+          low method cohesion<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">printWelcome</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        has low method cohesion because it prints the welcome
+        information <b style="mso-bidi-font-weight:normal">and</b> the
+        location information.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        has low method cohesion because it moves the player to a new
+        location <b style="mso-bidi-font-weight:normal">and</b> prints
+        the location information.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Solution?<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Add a new method called </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printLocationInfo</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        that prints the location information.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        print information about the player's
+        current <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        location<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>private
+        void printLocationInfo() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Room currentRoom = thePlayer.getCurrentRoom();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.println("You are "
+        + <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>currentRoom.getDescription());<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("Exits: ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if (currentRoom.northExit != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("north
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if (currentRoom.eastExit != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("east
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if (currentRoom.southExit != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("south
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if (currentRoom.westExit != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("west
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;</span><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.println();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Call it from </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printWelcome</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">goRoom<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Let&#8217;s play the game to
+        show that it still works.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">We have (relatively)
+        high method cohesion in the rest of the </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">The constructor calls </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">createRoomsAndPlayer</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        to create the rooms and player.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">processCommand</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        method calls a different helper method to process each command
+        (rather than
+        directly including code for processing several different
+        commands). <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;;color:#C00000">Coupling</span></b><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Note that the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> classes use code like:
+        <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">currentRoom.northExit<span
+          style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">in
+        many, many places (show the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> method in </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">This
+        is a direct reference to a field of the </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">It
+        is possible because the fields in </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        were declared </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">public</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">We&#8217;ve said not to do
+        this, which is the right choice almost 100% of the time. Now
+        we&#8217;ll take a look
+        at <b style="mso-bidi-font-weight:normal">why</b> that is true.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Using
+        these fields directly is bad design!<span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Why?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">What if we change the
+        implementation of the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> class by doing
+        something as simple as changing the name of one of the fields?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">We will have to change
+        code in many places in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        classes.<span style="mso-spacerun:yes">&nbsp; </span><span
+          style="mso-spacerun:yes">&nbsp;</span>Though the compiler will
+        tell us each place
+        that needs to be changed.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">What about another
+        kind of change, suppose we wanted to add another kind of exit
+        (up, elevator,
+        slide, ...)?<span style="mso-spacerun:yes">&nbsp; </span><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;</span><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>What
+        is involved now?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">This type of <u>rippling
+          change</u> results from what is called <b
+          style="mso-bidi-font-weight:normal">Coupling</b>:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> classes are tightly
+        coupled with the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;">Tight coupling arises when
+          classes do <u>not</u> communicate
+          via a well-defined interface,</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> i.e. through accessor
+        and mutator methods instead of via direct use of fields.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Any changes to the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class will force changes to the </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> classes.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>When
+        designing programs you should:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Strive
+          for loose coupling.<span style="mso-spacerun:yes">&nbsp; </span><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>Avoid
+          tight coupling.<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;">Loose Coupling:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Better
+          abstraction<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          &quot;Times New Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Higher reuse<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">It is possible to read
+        and understand one without understanding all details of the
+        other<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Easier updates and
+          maintenance<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">It is possible to
+        change one without necessarily changing the other<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:
+          normal">Locality of change</b><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">So we should refactor
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;">, </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> classes to reduce
+        their degree of
+        coupling.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Approach:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Declare
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">northExit</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;">, </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">southExit</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">,
+        ... fields of </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> as </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">private</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Add a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getExit</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        method to the Room class that takes a direction, and returns the
+        Room in that
+        direction (or null if there is no such room).<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        Return the room that lies in the
+        indicated direction, or <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        null if there<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>* is
+        no exit in that direction.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @param direction the direction of the
+        exit<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @return the Room that lies in that
+        direction<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>public
+        Room <b style="mso-bidi-font-weight:
+          normal">getExit</b>(String direction) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (direction.equals("north")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return northExit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if
+        (direction.equals("east")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return eastExit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if (direction.equals("south"))
+        {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return southExit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if
+        (direction.equals("west")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return westExit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return null;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Note that this will
+        also allow us to more easily have exits in directions other than
+        the standard
+        compass directions.<span style="mso-spacerun:yes">&nbsp; </span>To
+        get the exit in a
+        particular direction we would need to add a field and then add
+        an else if
+        clause for the direction here.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">We would also need a
+        way to set the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Room</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> that is in this
+        new direction.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Could just add another parameter to the
+      </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">setExits</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"> method.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>That seems tedious because we could
+        imagine having lots of exit types.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Some of which are used
+        very rarely and it would seem silly to have to specify all of
+        them all of the
+        time.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;;color:#00B050">Modify
+        the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier;color:#00B050">setExits</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;;color:#00B050">
+        method as follows:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Change
+        the name to </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">setExit</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> (it will now
+        set only one exit at a
+        time)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Have
+        it take a direction and a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Room</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> as parameters<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Sets the indicated
+        exit to the indicated </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Room<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">This will allow us to
+        more easily have exits other than the standard compass
+        directions.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-spacerun:yes">&nbsp;</span></span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp; </span></span><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        Define one exit of this room.<span style="mso-spacerun:yes">&nbsp;
+        </span>Every direction <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        either leads to another room or is null
+        (no exit there).<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @param direction the direction of the
+        exit<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @param exit the Room that lies in that
+        direction<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>public
+        void <b style="mso-bidi-font-weight:
+          normal">setExit</b>(String direction, Room exit) <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>{<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (direction.equals("north")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>northExit = exit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if
+        (direction.equals("east")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>eastExit = exit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if
+        (direction.equals("south")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>southExit = exit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>} else if
+        (direction.equals("west")) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>westExit = exit;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">This requires a
+        corresponding change to the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">createRoomsAndPlayer</span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"> method in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Game</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// initialize room exits<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp; </span><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>outside.setExit("north",
+        hub);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>outside.setExit("east",
+        theatre);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>outside.setExit("south",
+        lab);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>outside.setExit("west", pub);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>theatre.setExit("west",
+        outside);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>pub.setExit("east", outside);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>lab.setExit("north",
+        outside);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>lab.setExit("east", office);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>office.setExit("west", lab);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>hub.setExit("south",
+        outside);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><span
+          style="mso-spacerun:yes">&nbsp; </span><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+    <span
+      style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+      New Roman&quot;;
+      mso-fareast-font-family:Times;mso-bidi-font-family:&quot;Times New
+      Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"><br
+        style="page-break-before:always" clear="all">
+    </span>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">We must also change </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printLocationInfo</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        as follows:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp; </span></span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;</span>private void
+        printLocationInfo() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Room currentRoom = thePlayer.getCurrentRoom();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.println("You are "
+        + <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>currentRoom.getDescription());<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("Exits: ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (currentRoom.getExit("north") != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("north
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if (currentRoom.getExit("east")
+        != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("east
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (currentRoom.getExit("south") != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("south
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (currentRoom.getExit("west") != null) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.print("west
+        ");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>System.out.println();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-spacerun:yes">&nbsp;</span>Finally
+        in the </span><span style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Player</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">
+        class, change </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">goRoom</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:&quot;Times New Roman&quot;"> as follows:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>(lines 59 - 70 become just)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>nextRoom =
+        currentRoom.getExit(direction);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;;color:#00B050">Run the
+        tests and play the game to
+        show that it still works<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;">With these changes,
+        outside code cannot access
+        the fields of the Room class directly.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>A
+        class with this property is said to <b
+          style="mso-bidi-font-weight:normal"><span
+            style="color:#C00000">encapsulate</span></b> its own data.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Encapsulation is the
+        primary way of implementing information hiding.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;">Encapsulation, information
+        hiding and loose coupling are all closely related.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New Roman&quot;"><o:p>&nbsp;</o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>1461</o:Words>
+  <o:Characters>8332</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>69</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>9774</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

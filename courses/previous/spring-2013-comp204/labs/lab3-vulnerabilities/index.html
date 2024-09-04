@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Software vulnerabilities lab</title>
+    <!-- Changed by: , 30-Aug-2010 -->
+  </head>
+
+  <body>
+    <h2>Software vulnerabilities lab</h2>
+
+<a href="https://docs.google.com/spreadsheet/ccc?key=0AqFettA6GtYZdFN0RHJSZjVLMEhfZG9KVXUtOHZEeEE&usp=sharing">Lab partners for today.</a>
+
+<h3>Part 1: Python injection</h3>
+
+Note: If you have Python installed on your own computer, you can do
+this part of the lab on your own computer. Otherwise, use one of the
+lab machines.  
+
+<P><b>Homework exercise 16.0:</b> Who is your lab partner?<P>
+
+<ol>
+<li>Create a new folder called "lab3" somewhere in your filesystem.
+
+<li>Download <a href="calculator.py">calculator.py</a> and save it in
+your lab3 folder.  Important: please make sure calculator.py goes into
+your lab3 folder; we will be deleting files in this folder, and we
+don't want to delete any file that is actually important to you!
+
+<li>If necessary, refamiliarize yourself with how to execute Python
+  programs by working through <i>just the first four steps</i> of
+  the <a href="../python-overview.html">Python overview</a>. (You
+  already did this once, in Lab 1.  Also, you need to <i>execute</i> Python
+  in this lab, but you don't need to <i>edit</i> Python -- that's why you
+  only need to work through the first four steps of the overview.)
+
+<li>Run calculator.py, and use it to answer the following questions:
+
+<p><b>Homework exercise 16.1:</b> What is 456^76?  Hint: in Python,
+exponentiation is not achieved using the "^" character. Check our
+class notes or search online.<p>
+
+<p><b>Homework exercise 16.2:</b> What is 52.3 / sin(0.445)?<p>
+
+<li>Create a Microsoft Word document and type a few words into it. Now
+save this Word document in your lab3 folder.  Run calculator.py, and
+use a Python code injection to delete your Word document. Hint: look
+at the notes from our first class on software vulnerabilities. Also,
+note that a Microsoft Word file name typically ends in ".docx", even
+if you don't see this part of the filename in your desktop view.
+
+<p><b>Homework exercise 16.3:</b> What input did you give calculator.py in order to delete your Word document?<p>
+
+<li>Create another Microsoft Word document and type a few words into
+it. Again save this Word document in your lab3 folder.  Run
+calculator.py, and use a Python code injection to rename your Word
+document to instead be called "important-stuff.docx". Hint: search for
+the word "rename" at the following
+URL: <a href="http://docs.python.org/2/library/os.html">http://docs.python.org/2/library/os.html</a>.
+
+<p><b>Homework exercise 16.4:</b> What input did you give calculator.py in order to rename your Word document?<p>
+
+<li>Mount a denial of service attack against calculator.py by entering
+a suitable string. Hint: look at the notes from our first class on
+software vulnerabilities.
+
+<p><b>Homework exercise 16.5:</b> (a) What input did you give
+calculator.py in order to achieve a denial of service attack? (b)
+Approximately what percentage of the CPU is the calculator program now
+consuming? Hint: use Activity Monitor, in the Utilities folder of the
+Applications folder.<p>
+
+<li>Kill your out-of-control calculator.py program by pressing
+Control-C in the terminal window.
+
+</ol>
+
+
+<h3>Part 2: Buffer overflow</h3>
+
+Note: This part of the lab can only be done on the lab machines.
+Don't try it on your own laptop (although it might work if your laptop
+is a Mac).
+
+<ol>
+  <li>Download the program <a href="greetings.exe">greetings.exe</a>
+  and save it in your lab3 folder.  (Optional, for experienced
+  programmers only: if you're interested in seeing the source code of
+  this program, it's available
+  as <a href="greetings.c">greetings.c</a>.)
+  <li>Open up a terminal window, navigate to your lab3 folder, and run
+  greetings.exe by typing "./greetings.exe" at the command
+  prompt. (Note: you will see a warning message when running this
+  program. This is normal -- the computer has recognized that the
+  program has a security flaw.)
+  <li>Verify that greetings.exe works as expected with reasonably short inputs.
+
+<p><b>Homework exercise 16.6:</b> Give examples of two different inputs
+for which greetings.exe works as expected.<p>
+
+<li>Mount a buffer overflow attack on greetings.exe, causing the program to crash.
+
+<p><b>Homework exercise 16.7:</b> What error message do you see when the program crashes after a buffer overflow?<p>
+
+<li>Experiment further with the program to answer the following question.
+
+<p><b>Homework exercise 16.8:</b> What is the size of the buffer
+allocated by greetings.exe to hold the user's input?<p>
+
+</ol>
+
+<h3>Part 3: Cross-site scripting</h3>
+
+<P>You can do this part of the lab on any computer.  We will be
+using <a href="http://www.steve.org.uk/Security/XSS/Tutorial/index.html">Steve
+Kemp's XSS tutorial</a> for our experiments.
+
+<ol>
+  <li>Work through parts 1 and 2 of the tutorial.
+
+<p><b>Homework exercise 16.9:</b> Give an example of some input that
+could be provided to the text box in part 2 of the tutorial ("simple cookie stealing"), that
+would result in a pop-up window with the message "This is Homework
+exercise 16.9".<p>
+
+  <li>Work through parts 3 and 4 of the tutorial.
+
+<p><b>Homework exercise 16.10:</b> Give an example of some input that
+could be provided to the text box in part 3 of the tutorial ("basic
+filtered input"), that would result in a pop-up window with the
+message "This is Homework exercise 16.10".<p>
+
+  <li>Work through part 5 of the tutorial.
+
+<p><b>Homework exercise 16.11:</b> Give an example of some input that
+could be provided to the text box in part 2 of the tutorial ("simple
+cookie stealing"), that results in the user being immediately
+redirected to Dickinson's homepage.<p>
+
+</ol>
+
+
+
+
+
+    <hr>
+  </body>
+</html>

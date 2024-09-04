@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <HEAD>
+    <TITLE>How to... (key techniques for labs and homework)</TITLE>
+  </HEAD>
+  <BODY>
+    <H2>How to... (key techniques for labs and homework)</H2>
+
+<h3>Installing required software</h3>
+    
+<P>For completing labs in this course, you will need to install the
+following two pieces of software on your computer (or if you are on
+campus, you can use the computers in the Tome building, which already
+have the necessary software installed):
+    <ul>
+      <li>A Java development kit (JDK). The specific recommendation
+      for this course is openjdk 11 with the Hotspot VM (virtual
+      machine), available
+      from <a href="https://adoptopenjdk.net">adoptopenjdk.net</a>. Other
+      JDK's should also work fine.
+      <li>The Eclipse IDE (integrated development environment),
+      available
+      from <a href="https://www.eclipse.org/">eclipse.org</a>.
+    </ul>
+    Install the two tools above before continuing.
+
+<h3>Accessing Eclipse remotely</h3>
+
+If you are unable to install your own software as described above, a
+good alternative is to access a computer at Dickinson remotely and run
+eclipse on the Dickinson computer. This is achieved through the
+following website:
+
+<P><a href="https://remotelab.dickinson.edu/remotelab/">https://remotelab.dickinson.edu/remotelab/</a>
+
+<P>Choose a computer in the General Pool&mdash;these are the ones that have Eclipse on them. When you start up Eclipse, put your workspace inside your OneDrive. That way, the next time you access the General Pool you can get at the same workspace even if you are assigned a different computer.
+
+
+    
+<h3>Obtaining starter code and creating Git repository</h3>
+    
+<P>Unless stated otherwise, the following instructions apply to each lab:
+    <OL>
+      <li>Copy the starter code link, available from the course "Labs"
+      webpage.
+      <li>Log into your GitHub account and paste the starter code link
+      in the address bar of the same window you used to log in to
+	GitHub.
+	<ul>
+	  <li>If you see a message stating that you need to "Join the
+	    classroom: comp132-labs", ignore it and click on "skip to the
+	    next step".
+	</ul>
+      <li>You will see a message to accept an assignment. Once you
+      accept the assignment, GitHub will provide you with a link that
+      you can use to access the code repository for the lab.
+      <li>On the GitHub webpage for the starter code repository, click
+      the green Code button, and copy the web URL for "clone with HTTPS".
+      <li>Open Eclipse.
+      <li>Go to Window  |  Show View  |  Other  |  Git  |  Git
+      Repositories. A Git Repositories view should appear below the
+      Package Explorer.
+      <li>In the Git Repositories view, click on "Clone a Git
+      Repository and add the clone to this view". In the Window that
+      opens up, paste the URL for the starter code repository (already
+      copied above) into the URI field. Enter your GitHub username and
+      password. Click Next and Finish. A Git clone should appear in
+      the Git Repositories window.
+      <li>Right click on the Git Repository and select Import Projects
+       |  Finish.
+      <li>A Java project should now appear in the Package Explorer tab
+      in the left part of the Eclipse window.
+    </OL>
+
+<h3>Committing and pushing your changes to GitHub for backup and grading</h3>
+
+In order to push your changes to the GitHub repository from Eclipse,
+right click on the relevant Java project in the Git Repositories view
+and click on Commit.  Find the newly-appeared "Git Staging" window and
+click on the double-plus symbol to move all of your changes from
+"Unstaged Changes" to "Staged Changes". Type a descriptive commit
+message into the Commit Message box (this can be useful later to
+remind you of what changes you have made). Finally, click "Commit and
+Push" followed by "Preview", "Push", "Close". This saves all the
+changes on your computer and also pushes them to the GitHub
+servers. This is a good way to back up your progress, and it is also
+the way you will submit code for grading. The instructor will grade
+the most recently-committed version.
+
+<h3>Pulling graded files from GitHub and sharing with lab partner</h3>
+
+You can always view the instructor's grade and comments on your Java
+source code on the GitHub website. But to share these comments with
+your lab partner, you will need to pull the instructor's changes back
+to your own machine. To do this, right click on the relevant Java
+project in the Git Repositories view and click on Pull. Then email the
+.java files to your lab partner.
+
+<h3>Finding your source files to share with a lab partner</h3>
+  
+Note that Eclipse stores your .java files within a directory on your
+computer. In most labs, you will be working with a lab partner. Most
+often, you will work simultaneously with your partner via screen
+sharing&mdash;so you will be working together on one set of
+files. However, sometimes you will want to work individually and share
+your progress with each other. There are many sophisticated ways of
+collaborating on shared files, but in this course we use the simplest
+possible approach: it is recommended that you simply email your .java
+files to your partner (or share the files by any other filesharing
+technique that you are comfortable with).
+
+<P>Before you can do this, you will need to find your .java files
+within the local file system on your computer. Within Eclipse, this is
+achieved by right-clicking on the relevant .java file in Package
+Explorer, then choose Show In | System Explorer. 
+  
+
+  
+<h3>Submitting lab report, including self-assessment report, to
+ Moodle</h3>
+
+For every lab, the source code will be submitted to a GitHub
+repository as described above. In addition, however, for every lab
+you will also be required to submit a <i>lab report</i> to
+Moodle. Some labs require you to collect and write about some results
+as part of the lab itself, in which case those results would form part
+of your lab report. However, whether or not the lab explicitly
+requires you to report on results, every lab report must
+contain a
+<i>self-assessment report</i>. The self-assessment report is a very
+brief summary of which parts of the lab you successfully completed,
+together with descriptions of any parts that are incomplete or not
+working correctly. Typically, the self-assessment report will be
+between one and five sentences in length. It should take at most 10
+minutes to write the report. The main purpose of the self-assessment
+report is to help the instructor grade your work efficiently and
+accurately while also creating the best possible opportunity for the
+instructor to help you with problems you encountered. If you believe
+you completed and tested all parts of the lab successfully, you can
+state this in a single sentence. If not, briefly describe the parts
+that are incomplete or not working correctly. Submit your lab report
+in PDF, Word or another common format to Moodle.
+
+<h3>Creating a new project in Eclipse</h3>
+<ol>
+<li>Open the&nbsp;<b>File</b>&nbsp;menu and choose&nbsp;<b>New</b>.</li>
+<li>Choose&nbsp;<b>Project...</b>&nbsp;from the pop-up menu.</li>
+<li>In the&nbsp;<i>New Project</i>&nbsp;dialog, select&nbsp;<b>Java Project</b>&nbsp;and click&nbsp;<b>Next</b>.</li>
+<li>Enter the name for your project in the&nbsp;<b>Project Name</b>&nbsp;box.</li>
+<li>If, at any stage in this process, you are offered the opportunity
+  to create a <i>module</i>, do not select that option. We do not want
+  a module as part of our project.
+<li>Click&nbsp;<b>Finish</b>.
+</li>
+</ol>
+<p>A new project with the name that you specified will appear in the&nbsp;<i>Package Explorer</i>&nbsp;tab in the left part of the Eclipse window.</p>
+
+<h3>Opening a Closed project in Eclipse</h3>
+<p>Closed projects appears as a closed folder in the&nbsp;<i>Package Explorer</i>&nbsp;tab in the left part of the Eclipse window.</p>
+<ol>
+<li>Double click on the project's folder in the&nbsp;<i>Package Explorer</i>&nbsp;tab.</li>
+<li>Click&nbsp;<b>Yes</b>&nbsp;in the&nbsp;<i>Question</i>&nbsp;dialog asking about opening referenced projects.</li>
+</ol>
+<p><a name="newpackage"></a></p>
+<p><a name="newpackage"></a><b>Creating a new package in Eclipse</b></p>
+<ol>
+  <li>Ensure that the project to which you want to add the package is
+  open. See <i>Opening a project</i>, above.</li>
+<li>Right click on the&nbsp;<b>src</b>&nbsp;folder of the project and choose&nbsp;<b>New</b>.</li>
+<li>Select&nbsp;<b>Package...</b>&nbsp;from the pop-up menu.</li>
+<li>Enter the name of your package in the&nbsp;<b>Name</b>&nbsp;field of the&nbsp;<i>New Java Package</i>&nbsp;dialog.</li>
+<li>Click&nbsp;<b>Finish</b>.
+</li>
+</ol>
+<p>A new package with the name that you specified will appear within the project's&nbsp;<b>src</b>&nbsp;folder in the&nbsp;<i>Package Explorer</i>&nbsp;tab in the left part of the Eclipse window.</p>
+
+<h3>Creating a new class/interface in Eclipse</h3>
+<ol>
+<li>Right click on the package to which you want to add the class or interface and choose&nbsp;<b>New</b>.</li>
+<li>Select&nbsp;<b>Class</b>&nbsp;or&nbsp;<b>Interface</b>&nbsp;as appropriate.</li>
+<li>Enter the name of the new class or interface in the&nbsp;<b>Name</b>&nbsp;field of the dialog.</li>
+<li>Click&nbsp;<b>Finish</b>.
+</li>
+</ol>
+<p>A new class (or interface) will appear within the package in the&nbsp;<i>Package Explorer</i>&nbsp;tab in the left part of the Eclipse window. An editor window will also open for the new class (or interface) with a stub implementation to be completed.</p>
+
+<h3>Running a Java program (i.e.&nbsp;<code>main</code>) in Eclipse</h3>
+<ol>
+<li>Right click on the class containing the&nbsp;<code>main</code>&nbsp;method you wish to run.</li>
+<li>Select&nbsp;<b>Run as</b>&nbsp;and choose "Java Application" from the pop-up menu.
+</li>
+</ol>
+<p>The program will execute and any output generated will appear in the&nbsp;<i>Console</i>&nbsp;tab at the bottom of the Eclipse window.</p>
+<p>NOTE: Pressing&nbsp;<b>Shift-Apple-F11</b>&nbsp;(Mac) or <b>Ctrl-F11</b> (Windows) will re-run the last executed program.</p>
+
+
+<h3>Creating a new JUnit Test Case in Eclipse</h3>
+<ol>
+<li>Right click on the class that you wish to test and choose&nbsp;<b>New</b>.</li>
+<li>Select&nbsp;<b>JUnit Test Case</b>&nbsp;from the pop-up menu.</li>
+<li>Choose the&nbsp;<b>New JUnit 4 test</b>&nbsp;radio button at the top of the&nbsp;<i>New JUnit Test Case</i>&nbsp;dialog.</li>
+<li>Click on&nbsp;<b>Finish</b>.</li>
+<li>If this is the first test case added to the project a second dialog box will appear stating&nbsp;<i>Junit 4 is not on the build path</i>. Click&nbsp;<b>OK</b>.
+</li>
+</ol>
+<p>A new class will appear beneath the class being tested in the&nbsp;<i>Package Explorer</i>&nbsp;tab in the left part of the Eclipse window. The name of the new class will be the name of the class being tested with "Test" appended to the end. An editor window will also open for the new test class with a stub implementation to be completed.</p>
+
+<h3>Creating a new JUnit test method</h3>
+<ol>
+<li>Find the editor window for the test class you wish to add to. Bring this window to the front.</li>
+<li>Create a stub for your test method as shown here:<code><br>@Test&nbsp;<br>public void test<i>Something</i>() {&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;fail("not implemented");&nbsp;<br>}&nbsp;<br><br></code></li>
+<li>Change the name of the method from&nbsp;<i>testSomething</i>&nbsp;to be descriptive of what you are testing.</li>
+<li>Replace the&nbsp;<code>fail</code>&nbsp;assertion in the body of the test method with your test.
+</ol>
+<p>The assertions that can be used in a JUnit test include the following. Note that for the purposes of this course it is acceptable to omit the "message" parameter in the assertions below. </p>
+<ul>
+<li><code>fail("message")</code> Test always fails with message when this assertion is encountered.</li>
+<li><span><code>assertEquals("message", expectedValue, actualValue)</code> Test fails with message if the&nbsp;<code>actualValue</code>&nbsp;does not equal the&nbsp;<code>expectedValue</code>. If&nbsp;<code>expectedValue</code>&nbsp;and&nbsp;<code>actualValue</code>&nbsp;are objects their&nbsp;<code>.equals</code>&nbsp;methods are used for the comparison.</span></li>
+<li><code>assertEquals("message", expectedValue, actualValue, detla)</code> Test fails with message if the&nbsp;<code>actualValue</code>&nbsp;is not within + or - delta of the&nbsp;<code>expectedValue</code>. This form is required for testing equality of&nbsp;<code>double</code>&nbsp;and&nbsp;<code>float</code>&nbsp;values.</li>
+<li><code>assertFalse("message", value)</code> Test fails with message if the value is not false.</li>
+<li><code>assertTrue("message", value)</code> Test fails with message if the value is not true.</li>
+<li><code>assertNotNull("message", value)</code> Test fails with message if the value is null.</li>
+<li><code>assertNull("message", value)</code> Test fails with message if the value is not null.</li>
+<li><code>assertNotSame("message", expectedObject, actualObject)</code> Test fails if the&nbsp;<code>expectedObject</code>&nbsp;and the&nbsp;<code>actualObject</code>&nbsp;are the same object (i.e. == is used for the comparision).</li>
+<li><code>assertSame("message", expectedObject, actualObject)</code> Test fails if the&nbsp;<code>expectedObject</code>&nbsp;and the&nbsp;<code>actualObject</code>&nbsp;are not the same object (i.e. == is used for the comparision).</li>
+</ul>
+
+<h3>Running JUnit Test Cases in Eclipse</h3>
+<ol>
+<li>Right click the JUnit Test Case (or package, or project) containing the tests you want to run.</li>
+<li>Choose&nbsp;<b>Run As</b>&nbsp;and select&nbsp;<b>JUnit Test</b>&nbsp;from the pop-up menu.
+All of the test methods in the Test Case (or package, or project) that you selected will be executed. The&nbsp;<i>JUnit</i>&nbsp;tab will become active on the left side of the Eclipse window and will show you your test results.
+</li>
+<li>Click on any failed test to see the message from the failed assertion.</li>
+<li>Double click on any failed test to see the test method containing the assertion that failed.</li>
+</ol>
+
+
+<h3>Adding the JUnit4 library to a project in Eclipse</h3>
+
+<ol>
+  <li>Right click on the project in Package Explorer and choose Properties.
+  <li>Click on "Java Build Path" and select the Libraries tab.
+  <li>Click "Add library...", choose JUnit, then Next.
+  <li>Select JUnit library version "JUnit 4", then Finish, then Apply and Close.
+</ol>
+
+<h3>Changing default font of the editor in Eclipse</h3>
+
+<ol>
+  <li>On Window menu, choose Preferences | General | Appearance | Colors and Fonts
+  <li>Choose Basic | Text Font | Edit...
+  <li>Select the font you wish and choose Apply and Close
+</ol>
+
+<h3>Importing .java files into an Eclipse project</h3>
+
+<ol>
+  <li>Right click the project in Package Explorer.
+  <li>Choose Import | General | File System, hit Next.
+  <li>Browse to the folder containing your .java file(s) and click the
+  Select Folder button (or it may be labelled "Open" on a Mac) to
+  select this folder.
+  <li>Put checkmarks by every folder or file that you wish to import.
+  <li>Make sure the Into Folder setting is correct&mdash;usually this
+    should be set to the <code>src</code> subdirectory of your project.
+  <li>Click Finish.
+</ol>
+
+  </BODY>
+</HTML>
+

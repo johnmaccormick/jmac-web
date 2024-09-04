@@ -1,0 +1,77 @@
+<html>
+<head><Title>Nim</title>
+                                                                                
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+                                                                                
+<font size=+2 color='#006400'>
+<center><b>Nim</b></center>
+</font>
+                                                                                
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+
+<p>Nim is a simple 2-player strategy game played with 3 piles of chips (see figure 1). The players take turns removing chips from the piles.  During each turn a player removes one or more chips from one, and only one, of the three piles. The objective of the game is to force your opponent to remove the last chip from the board.
+
+
+<center>
+<img src="NimGUI.jpg">
+<p><b>Figure 1:</b> The Nim application.
+</center>
+
+<font size=+1 color='#000064'>
+<p><b>Getting Started</b>
+</font>
+
+<p>To get started create a <code>Lab07</code> folder in your <code>CS131</code> folder. Download and unpack the <a href="Nim.zip"><i>Nim</i> project</a> into your <code>Lab07</code> folder, and use BlueJ to open it.  Note that you can see the user interface to Nim by creating a new <code>NimGUI</code> object in BlueJ.  However, this interface will not allow you to play Nim until you complete the assignment described below.
+
+<font size=+1 color='#000064'>
+<p><b>The Assignment</b>
+</font>
+
+<p>This lab assignment is designed to emphasize the use of <i>composition</i> and <i>method calls</i>. You will be completing the implementation of two classes: <code>NimStack</code> and <code>NimPlayer</code>. You should complete and test the <code>NimStack</code> class before moving on to the <code>NimPlayer</code> class.
+
+<p><b>Part 1: The <code>NimStack</code> Class</b>
+
+<p>The <code>NimStack</code> class represents one of the stacks of chips in the Nim game.  The source code in the <code>NimGUI</code> class creates three objects of type <code>NimStack</code> to represent the three stacks in the game.  Open the <code>NimStack</code> class and implement the constructors and methods that are described.
+
+<p>After you have implemented and tested the <code>NimStack</code> class you can try it out by playing a "human vs. human" game with your lab partner. To do so, create an instance of the <code>NimGUI</code> class and click the "Play" button.  The green box indicates which player's turn it is.  Clicking on one of the chips removes that chip and all of the chips above that one in the stack.  Play a few games to get a feel for how Nim is played and to verify that your <code>NimStack</code> is working correctly.
+
+<p><b>Part 2: The <code>NimPlayer</code> Class</b>
+
+<p>The <code>NimPlayer</code> class will be, once you implement it, an <i>artificial intelligence</i> for playing the Nim game.  The <code>NimGUI</code> will provide three <code>NimStack</code> objects to the <code>NimPlayer</code> constructor.  These three <code>NimStack</code> objects reflect the state of the playing board.  The methods within the <code>NimPlayer</code> may call methods on each of the <code>NimStack</code> objects in order to find out how many chips a stack contains (<code>getNumChips</code>) and to remove chips from a stack (<code>removeChips</code>).
+
+<p>Open the <code>NimPlayer</code> class and implement each of the constructors and methods that are described.  Three of the methods (<code>takeOneFromLargest</code>, <code>takeFiveFromAny</code> and <code>takeHalfOfAny</code>) implement different Artificial Intelligence strategies for playing Nim.  After you code and test each strategy you can create a new <code>NimGUI</code> and play against it.
+
+<p><b>Part 3: An Experiment</b>
+
+<p>Design and conduct an experiment to determine if one of the three strategies that you implemented is better than the others.  We will consider a strategy "A" to be better than a strategy "B" if we can find data that at least weakly supports the hypothesis that strategy A wins a higher percentage of games played between A and B.  Note that the <code>NimGUI</code> provides text boxes that allow you to run multiple trials, each consisting of multiple games.  The results of each trial along with the mean and standard deviation for all of the trials are reported in the player's text areas in the GUI. Be sure to use a sufficient number of trials and games per trial to ensure that your results are replicable.
+
+<p>Provide a 1-2 page write-up clearly describing your experiment.  You should explicitly state each hypothesis that you test, clearly describe the experiment that you used to collect data (i.e. number of games and number of trials), present the data that you obtained (i.e. mean and standard deviations) and draw a conclusion regarding each hypothesis using the criterion from <a href="../lab03/handout.html">Lab #3</a>. Turn in this write-up at the start of the next lab period.
+
+<p>When I evaluate the write-up of your experiment, I will consider the following areas:
+<ul>
+  <li><em>correctness:</em> Were appropriate experimental methods used? Were correct conclusions drawn based on the given hypotheses?
+  <li><em>content/organization:</em> Are all required sections of the write-up included? Does the material presented flow logically from one idea to the next?
+  <li><em>writing presentation:</em> Is the work free from grammatical and spelling errors? Are words used correctly and precisely?
+</ul>
+
+<p><b>Bonus: Create Your Own Strategy</b>
+
+<p>Add another artificial intelligence strategy of your own design that is better than all three of the other strategies. To do so, add another method to the class.  You may name your new method whatever you like, but it must not accept any parameters and must have a void return type (similar to the methods for the other 3 strategies that you implemented). You must include a javadoc comment above your method that clearly describes how your strategy is supposed to play. 
+
+<p>Note that WebCAT will not be able to test the correctness of your strategy, as it does not know how your strategy is supposed to play!  However, WebCAT will evaluate whether or not your test cases achieve statement coverage.  I will evaluate the correctness of your strategy by comparing your code to the javadoc comment describing it.
+
+<p>When you have completed your strategy add to your write-up another experiment and data that at least weakly supports the hypothesis that your strategy is better than the other three.
+
+<font size=+1 color='#000064'>
+<p><b>Submitting Your Solution</b>
+</font>
+
+<p>Submit your project via WebCAT.  
+
+<p>In addition,  you must also hand in the write-up of your experiment(s) at the start of the next lab period.
+
+</body>
+</html>

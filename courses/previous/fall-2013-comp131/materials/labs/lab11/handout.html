@@ -1,0 +1,202 @@
+<html>
+<head><Title>Lab #11 - Zuul</title>
+
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+                     
+<H4 align="center">COMP 131</H4>
+
+<font size=+2 color='#006400'>
+<center><b>Lab #11 - Zuul</b></center>
+</font>
+
+<font size=+1 color='#000064'>
+<p><b>The Assignment:</b>
+</font>
+
+<p>First, create a <code>Lab11</code> folder in your <code>COMP131</code> folder, and download and unpack the <a href="Zuul.zip"><i>Zuul</i></a> project into this folder.  Do NOT use the <i>zuul-bad</i> or <i>zuul-better</i> projects from the textbook.
+
+<p><b>Part I:</b> (5 points)
+<OL>
+<li><b>Written Exercise 1</b>: Imagine you would like to allow rooms to have a new type of exit (e.g. "up").  Identify each class and method that you would have to change in order to allow for this type of exit. Briefly describe the changes you would make in each class and method that you identified.  NOTE: Do not actually make these changes!
+
+<LI>Several methods in the <code>Game</code> class contain repeated
+ functionality. Specifically, the <code>printWelcome</code> method and
+ the <code>goRoom</code> methods both print a description of the current
+ room and a list of the exits.  As we have learned, having the same
+ functionality implemented in multiple locations can lead to the introduction
+ of errors when software is modified. Correct this problem by factoring the
+ common functionality out of these methods into a method of its own.  
+Then call this new method each place the description and exits are to be
+ displayed.  (Note that we have already done this in class,
+ and you can simply make the same changes in your own copy of zuul.)
+</OL>
+
+<p><b>Part II:</b> (15 points)
+<OL>
+<li>Create a test class for the <code>Room</code> class that fully tests the class in its current form.
+
+<li>Currently the code that generates and displays the list of exits from a room is contained in the <code>Game</code> class.  This is not a particularly good design. Each room in the game is represented by a <code>Room</code> object.  The <code>Room</code> object contains fields that store the information about that room's exits. Therefore it should seem like this program would be better if the code to generate a list of the exits for a room would be contained in the <code>Room</code> class. Make this improvement by adding a method named <code>getExitString</code> to the <code>Room</code> class. This method should return a <code>String</code> listing the exits from the room. For example, if the room has exits to the north and west, this method should return a <code>String</code> containing: <code>"north west"</code>.  
+
+<LI>Add tests for your <code>getExitString</code> method to the test class for <code>Room</code>.
+
+<li>Now that each <code>Room</code> is capable of generating a list of its own exits.  Refactor the code in the <code>Game</code> class to take advantage of this functionality.  I.e. anywhere the <code>Game</code> class generates a list of the exits from the current room, change it to use your <code>getExitString</code> method.
+
+<li><b>Written Exercise 2</b>: After making the above improvements to the code, imagine again that you would like to allow rooms to have a new type of exit (e.g. "up").  Now identify each class and method that you would have to change in order to add the new type of exit.  Has the design improved? Why or why not?  NOTE: Do not actually make these changes!
+
+<li>Currently, the <code>Game</code> class generates the full description of
+ the current room (including information about exits) and displays it.  This
+ is dealing with data of the <code>Room</code> class, so the <code>Room</code>
+ class should be responsible for generating this description.
+ Add a method called <code>getLongDescription</code> to the <code>Room</code>
+ class that returns a <code>String</code> containing the description and
+ exits of a room, and refactor the <code>Game</code> class to use it whenever
+  the <code>Game</code> needs to print information about a <code>Room</code>.
+</OL>
+
+<p><b>Part III:</b> (20 points)
+<OL>
+<li> Design your own text-based adventure game, using the given zuul game as a starting point.  Some possible game scenarios are described in Exercise 6.3 of the text - you may use one of these or choose your own.  Your game can be set on a college campus if you wish, but the rooms must be different from those currently found in the zuul game.  If you find it difficult to visualize this sort of game scenario, try modeling your game on some familiar real-world location.  If you need additional inspiration, you can try playing the original <a href="http://jerz.setonhill.edu/if/canon/Adventure.htm">Colossal Cave Adventure</a> game.
+
+<p>Some additional specifications:
+<ul>
+<li>Your game scenario must include at least six different rooms.
+<li>There must be at least six types of exits for the rooms in your game.  For example, you could use north, south, east, west, up and down. This requirement does NOT mean that each room must have 6 exits -- most or even all rooms will have fewer.
+<li>Your game scenario must include at least four items that the player could find, pick up and potentially use.
+<li>Your game must have some way for the player to win.  Most likely, this will be by achieving some goal such as finding a particular item, surviving for some specified number of moves, ... whatever makes sense for your game.
+</ul>
+
+<li><b>Written Exercise 3</b>: Write a brief description of your game, including the setting for the game, the items in the game, and how a player wins.  
+
+<li><b>Written Exercise 4</b>: Draw a map for your game scenario.  Label the rooms and the exits (connections between rooms), and specify the locations of the items. The map can be hand-drawn - you do not need to use a drawing program.
+
+<li>Update the comments at the beginning of the <code>Game</code> class and the message displayed by the <code>printWelcome</code> method so that they describe your game.
+
+<li>Change the <code>createRoomsAndPlayer</code> method in the <code>Game</code> class so that it creates the rooms and exits that you invented for your game. You do not need to add any items to your game yet.  You will add items in a later exercise.
+
+<li>Update the test methods in the <code>GameTest</code> class as necessary to account for your changes to the <code>Game</code> class.  You can directly edit the code in the test class, or delete any test methods that do not pass and re-record them. NOTE: Do NOT write a test method for the <code>play</code> method of the <code>Game</code> class. The <code>play</code> method requires the user to type commands and Web-CAT can not read input from your keyboard so it will wait forever! Web-CAT will make a small point deduction for not having statement coverage for this method, but your instructor will return these points when grading.
+
+<p>Play the game for a bit - enjoy the fruits of your hard work!
+</OL>
+
+<p><b>Part IV:</b> (5 points)
+<OL>
+<li>Add a <code>main</code> method to the <code>Game</code> class so that your game can be played outside of the BlueJ environment.  You should NOT write test cases for your <code>main</code> method.  Web-CAT will make a small point deduction for not having statement coverage for <code>main</code>, but your instructor will return those points when grading.
+
+<LI>Run the game from outside of the <code>BlueJ</code> environment.
+</OL>
+
+<p><b>Part V:</b> (25 points)
+<OL>
+<li>In many games (perhaps even in yours) there may be a very large number of different types of exits (e.g. "up", "down", "window", "slide", "stairway", "trapdoor", "trampoline", "fire-pole"  etc...) One way to support such exits would be to make the changes that you identified in Written Exercise 2 for each imaginable type of exit. This is clearly better than it would have been before you completed Part II of this lab, but it is still not ideal.  It would be better if it were possible for an exit to have any arbitrary name and that when given the name of an exit we could find the associated <code>Room</code> that lies beyond.  This should sound like a good job for a <code>HashMap</code> where the name of an exit is the key and the <code>Room</code> lying beyond the exit is the value. Improve the design of the <code>Room</code> class by refactoring it so that it uses a <code>HashMap</code> to store the exits instead of an individual field for each exit.
+
+<li>Re-run the tests that you created in Part II to ensure that the <code>Room</code> class still functions as expected.  Also extend your tests for the <code>Room</code> class to include a new exit with an arbitrary name.
+
+<p>Play the game to check that it still works - take a deep breath and relax a bit!
+</OL>
+
+<p><b>Part VI:</b> (15 points)
+<OL>
+<li>You game scenario requires that there be items positioned throughout the world that the player can pick up and possibly use.  An item sounds like something that should be represented by an object! So create an <code>Item</code> class to represent the items in your game. You will need to decide what fields your <code>Item</code> class needs to have, what parameters the constructor will require and what methods the class will have. At a minimum, items will have a name and a description.  However, items may have any other attributes that make sense for your game (e.g. weight, color, value, destructive power, ... ).
+
+<LI>Create a test class that fully tests your <code>Item</code> class.
+
+<li>Now that there is a class for representing <code>Items</code> we need a way to allow the rooms to contain an item.  Modify the <code>Room</code> class so that one item can be added to or removed from the room. You will need to think about what fields and methods to add to the <code>Room</code> class.  Also think about what the methods that you add should do when an attempt is made to add an item to a room that already contains an item, or an attempt is made to remove an item from a room that does not contain an item. 
+
+<li>Update your tests for the <code>Room</code> class to test the addition and removal of items.
+
+<li>Now that a room can contain an item, when the player enters a room he/she should be told about the item in that room (if there is one). Modify the appropriate code so that if the player enters a room containing an item, the name and description of the item are displayed along with the description of the room and the list of exits.
+
+<LI>Edit the code in the <code>Game</code> class so that the items for your game are created and added to the appropriate rooms at the start of the game.  Recall that your game must include at least four items. Be sure to test any methods that you add or modify.
+
+<p>Play the game to ensure that your items are appearing in the rooms - enjoy the coolness of what you are creating!
+</OL>
+
+<p><b>Part VII:</b> (15 points)
+<OL>
+<LI>Now that rooms can contain items and a player will know when they enter a room with an item, it would be nice if the player could pick up and carry items.  Add functionality to the <code>Player</code> class that will allow the player to pick up and drop items.  The player should be able to carry any number (i.e. a collection) of items. 
+
+<LI>Update your tests for the <code>Player</code> class to test the addition and removal of items.
+
+<LI>Modify the <code>Game</code> class so that it will recognize the command <i>take</i>. When the user enters the "take" command, the item in the current room, if there is one, should be added to the items that the player is carrying and a message should be printed indicating that the player has taken the item.  If there is no item in the current room the <i>take</i> command should print an error message. Be sure to test any methods that you add or modify. (<em>Hint:</em> Remember that one task of the Game constructor is to "teach" the CommandReader what words are valid commands. Thus, you will need to make a change in Game's constructor if you want to introduce a new command.)
+
+<p>Play the game to be sure the <code>take</code> command works!
+
+<LI>Modify the <code>Game</code> class so that it will recognize the command <i>inventory</i>.  When the user types "inventory" the game prints the names of the items that the player is currently carrying.  You should think carefully about where the list of item names should be generated. (Consider the fact that the player is carrying the items, and think about how the list of exits for a room is generated and displayed.)
+
+<p>Play the game to be sure the <code>inventory</code> command works!
+
+<li>Add support to the game for a <i>drop</i> command so that the player can drop an item by name (e.g. "drop book"). The dropped item should appear in the current room.  If the current room already contains an item, the drop command should print an error message indicating that the room is full and the player should continue to carry the item.
+
+<p>Play the game to be sure the <code>drop</code> command works!
+
+<li>Notice that when you use the <i>help</i> command <i>take</i>, <i>inventory</i> and <i>drop</i> do not appear as command words. Modify the <code>printHelp</code> method of the <code>Game</code> class so that it automatically displays any new command words that are added to the game. Hint: there is a helpful method in the <code>CommandReader</code> class.
+
+<p>Play the game to be sure the modified <code>help</code> command works - celebrate! You are done with the required part of this lab!
+</OL>
+
+<font size=+1 color='#000064'>
+<p><b>Bonus Problems:</b>
+</font>
+<p>
+If you completed all of the above parts, you may complete any or all of the following exercises for extra credit. You must explicitly state which (if any) of these bonus problems you have done.  Include a description of the bonus exercises that you have completed with the written exercises.
+<ol type = "A">
+<li> Problems worth at most 2 extra credit points:
+  <ol>
+  <li> Exercise 6.41 in the text.
+  <li> Exercise 6.42 in the text.
+  </ol>
+<li> Problems worth at most 4 extra credit points:
+  <ol>
+  <li> Exercise 6.23 in the text.
+  <li> Exercise 6.43 in the text.
+  <li> Exercise 6.44 in the text.
+  <li> Exercise 6.45 in the text.
+  <li> Allow each room to contain a collection of items (rather than just one).
+  <li> Modify the game so that only a list of the names of the items in a room are displayed when the player enters.  Then add a <i>look</i> command that allows the player to to look at an item in the current room by name.  For example, if the player types <i>look book</i> and there is an item named "book" in the current room, your game should display the description of that item.  If there is no such item, your game should display an error message.  If the player enters the <i>look</i> command with no second word, it should display the entire description of the room, its exits and the names of any items again.
+  </ol>
+<li> Problems worth at most 6 extra credit points:
+  <ol>
+  <li> Exercise 6.26 in the text.
+  <li> Exercise 6.47 in the text.
+  <li> Modify your game to allow the player to win (as you described in your
+ game scenario).
+  </ol>
+<li> Problems worth at most 8 extra credit points:
+<ol>
+<li> Do Exercise 6.48 in the text.  Note that you must do Exercise 6.47 before doing this one.  Hints:
+ <ul>
+ <li> You can add the following method to the <code>Room</code> class to randomly choose an exit for the character when it moves. Note that <code>exits</code> is the field (of type <code>HashMap</code>) that contains the exits for the room - if you used a different field name, use that name instead.
+
+<pre>
+    /**
+     * choose a potential exit at random
+     */
+    public String randomExit() {
+        Object [] dirs = exits.keySet().toArray();
+        int index = (int) (Math.random() * dirs.length);
+        return (String) dirs[index];
+    }
+</pre>
+ 
+<li>Your test cases for character movement do not need to check the location of the character after moving (because characters may move randomly).
+ </ul>
+</ol>
+
+<li> Variable credit: if some other game modification or extension makes
+ more sense for your game scenario, you may make this modification or
+ extension for extra credit with approval of your instructor.
+ You must also thoroughly describe this modification or extension in your
+ written game description.
+</ol>
+<p>
+
+<font size=+1 color='#000064'>
+<p><b>Submitting Your Solution:</b>
+</font>
+<p>
+You must submit your <i>Zuul</i> project via Web-CAT by the due date for your section. Your answers to the written exercises (including the description of your game and its map) are due on the final day of class. If you completed any bonus exercises be sure to include a list of them with your written exercises.
+</body>
+</html>
+
+

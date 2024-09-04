@@ -1,0 +1,71 @@
+<html><head>
+	<title>Computing Aggregate Data</title>
+	<!-- Changed by: , 12-Aug-2009 -->
+	<link href="../cs131.css" type="text/css" rel="stylesheet">
+</head>
+
+<body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Computing Aggregate Data<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review section 4.9 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/CoinCollection.zip"><i>CoinCollection</i></a><br>
+<!---<a href="../examples/VideoStore-Start.zip"><i>VideoStore-Start</i></a><br>--->
+<a href="../examples/VideoStore.zip"><i>VideoStore</i></a><br>
+</p><hr>
+
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<LI>Complete the definition of the <code>countOverdueDVDs()</code> method in the <code>VideoStore</code> class.  Hint: Counting the overdue DVDs is a lot like counting the rental nights. Except here you keep a total for the number of overdue DVDs. Then check if each DVD is overdue and if it is add 1 to the total. Note: Test methods already exist for this method, so you can test your implementation by running the existing tests.
+<LI>Complete the definition of the <code>countLostDVDs</code> method in the <code>VideoStore</code> class.  Note: Test methods already exist for this method. So you can test your implementation by running the existing tests.
+<LI>Complete the method body of the <code>countInStockTitles</code> method in the <code>VideoStore</code> class.  
+<LI>Create a test method for your <code>countInStockTitles</code>. Be sure that your test method achieves statement coverage.
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 7d</h3>
+<p>
+</p><ol>
+<li>Make the following additions to the <i>CoinCollection</i> project that you have been working with for the last several assignments. For each method, be sure that you use the specified name and that your method signatures are consistent with what is described below.
+
+<OL type="a">
+<LI>Add a method named <code>getTotalValue</code>. This method returns a <code>double</code> value indicating the total value of all of the coins in the collection.  It does not accept any parameters. Be sure to include a javadoc comment describing your method.
+
+<LI>Create a test method for your <code>getTotalValue</code> method.
+
+<li>Add a method named <code>countCoinsOlderThan</code> that returns the number of <code>Coin</code>s that were minted during or before a specified year.  This method takes one parameter indicating the year.  If the <code>CoinCollection</code> does not contain any <code>Coin</code>s minted during or before the specified year then this method should return 0. Be sure to include a javadoc comment for your method.
+
+<li>Develop test methods for your <code>countCoinsOlderThan</code> method. Your tests must achieve statement coverage.
+
+<li>Add a method named <code>getAverageAge</code> that that takes one parameter indicating the current year and returns an <code>int</code> indicating the average age in whole years of the <code>Coin</code>s in the collection.  The age of a <code>Coin</code> is the current year minus the year that it was minted.  If the <code>CoinCollection</code> does not contain any <code>Coin</code>s then this method should return -1. Be sure to include a javadoc comment for your method.
+
+<li>Develop test methods for your <code>getAverageAge</code> method. Your tests must achieve statement coverage.
+
+<!--
+<LI>Add a method named <code>printValuableCoins</code>. This method does not return a value.  It accepts one parameter of type <code>double</code> indicating the minimum value for a valuable coin.  When invoked it prints the year, condition and type of all of the coins with a value greater than or equal to the specified value. For example, the output for a given coin might be: <code>1909 Mint Penny</code>. Be sure to include a javadoc comment describing your method.
+
+<LI>Create a test method for your <code>printValuableCoins</code> method.
+-->
+</OL>
+
+<p>Submit your solution via Web-CAT.  Also be sure to save your project because you will be continuing to add
+to it in the next several homework assignments.
+
+<!--
+Submit your project <i>CoinCollection-v1</i> project via Web-CAT.
+-->
+</ol>
+
+</div></body></html>

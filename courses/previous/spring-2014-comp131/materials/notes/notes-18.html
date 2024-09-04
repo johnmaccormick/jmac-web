@@ -1,0 +1,1602 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-18</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Topic # 18:
+          Design Notation
+          &amp; Implementing Composition<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">{ Uses
+          Bank-start project }<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        color:green">Recap:</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><i
+          style="mso-bidi-font-style:
+          normal">What is composition?<o:p></o:p></i></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Composition: Using
+          objects as fields in
+          other objects.<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">That is having the data type of a
+        field in a class
+        be another class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">E.g. The </span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">---<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Today
+        we&#8217;ll talk about <b style="mso-bidi-font-weight:normal">two
+          types of diagrams</b>
+        that are useful for creating and understanding programs that use
+        composition.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+            style="color:maroon">Class Diagram</span>: Illustrates
+          relationships between classes in a program.</span></b><span
+        style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:maroon">Object
+          Diagram</span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">:
+          Illustrates relationships
+          between objects as a program is running.</span></b><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Class
+          Diagram: <o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>There is a box for each class, with the
+        name of the class at the top.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">If Class A has a field of type Class
+        B then there is
+        an <b style="mso-bidi-font-weight:normal">arrow</b> from Class
+        A to Class B.<span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><!--[if gte vml 1]><v:group id="_x0000_s1026"
+ style='position:absolute;left:0;text-align:left;margin-left:85.05pt;
+ margin-top:13.05pt;width:117pt;height:54pt;z-index:251647488' coordorigin="5481,12424"
+ coordsize="2340,1080">
+ <v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s1027" type="#_x0000_t202" style='position:absolute;
+  left:5481;top:12424;width:2340;height:1080'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><span style='font-family:Courier'>BankCustomer<o:p></o:p></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1028" style='position:absolute' from="5481,12784"
+  to="7821,12784"/>
+</v:group><v:group id="_x0000_s1029" style='position:absolute;left:0;
+ text-align:left;margin-left:292.05pt;margin-top:13.05pt;width:90pt;height:54pt;
+ z-index:251648512' coordorigin="7461,12964" coordsize="1800,1080">
+ <v:shape id="_x0000_s1030" type="#_x0000_t202" style='position:absolute;
+  left:7461;top:12964;width:1800;height:1080'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><span style='font-family:Courier'>Account<o:p></o:p></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1031" style='position:absolute' from="7461,13324"
+  to="9261,13324"/>
+</v:group><v:line id="_x0000_s1032" style='position:absolute;left:0;
+ text-align:left;z-index:251649536' from="202.05pt,42.2pt" to="292.05pt,42.2pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="13" width="84"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image001.png"
+              v:shapes="_x0000_s1028 _x0000_s1027 _x0000_s1026
+              _x0000_s1030 _x0000_s1029 _x0000_s1031 _x0000_s1032"
+              height="58" width="302"></td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">So to draw a class diagram.<span
+          style="mso-spacerun:yes">&nbsp; </span>Just draw one box for
+        each class. Then for
+        each class, draw an arrow to any class that it uses as the data
+        type for a
+        field.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Arrow is called a <b
+          style="mso-bidi-font-weight:
+          normal"><span style="color:#000090">uses arrow</span></b>.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">This is what is shown in the BlueJ
+        window.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">NOTE: It turns out that </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> is actually
+        a Class in Java.
+        So we should really draw a uses arrow to a box for the </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> class from
+        each of these
+        classes.<span style="mso-spacerun:yes">&nbsp; </span>However, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Strings</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> are used so
+        often that they
+        are treated a little differently than other classes and objects,
+        so we will not
+        be doing that.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">What would a class diagram look like
+        for the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Student</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> example we
+        did last class?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>(Show
+        it in BlueJ)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Why
+        does it look that way?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><!--[if gte vml 1]><v:group id="_x0000_s1033"
+ style='position:absolute;left:0;text-align:left;margin-left:238.05pt;
+ margin-top:.5pt;width:63pt;height:54pt;z-index:251650560' coordorigin="7461,12964"
+ coordsize="1800,1080">
+ <v:shape id="_x0000_s1034" type="#_x0000_t202" style='position:absolute;
+  left:7461;top:12964;width:1800;height:1080'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>Address<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1035" style='position:absolute' from="7461,13324"
+  to="9261,13324"/>
+</v:group><v:group id="_x0000_s1036" style='position:absolute;left:0;
+ text-align:left;margin-left:85.05pt;margin-top:.5pt;width:63pt;height:54pt;
+ z-index:251651584' coordorigin="7461,12964" coordsize="1800,1080">
+ <v:shape id="_x0000_s1037" type="#_x0000_t202" style='position:absolute;
+  left:7461;top:12964;width:1800;height:1080'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>Student<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1038" style='position:absolute' from="7461,13324"
+  to="9261,13324"/>
+</v:group><v:group id="_x0000_s1039" style='position:absolute;left:0;
+ text-align:left;margin-left:238.05pt;margin-top:72.05pt;width:63pt;height:54pt;
+ z-index:251652608' coordorigin="7461,12964" coordsize="1800,1080">
+ <v:shape id="_x0000_s1040" type="#_x0000_t202" style='position:absolute;
+  left:7461;top:12964;width:1800;height:1080'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>Course<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1041" style='position:absolute' from="7461,13324"
+  to="9261,13324"/>
+</v:group><v:line id="_x0000_s1042" style='position:absolute;left:0;
+ text-align:left;z-index:251653632' from="148.05pt,29.6pt" to="238.05pt,29.6pt">
+ <v:stroke endarrow="block"/>
+</v:line><v:line id="_x0000_s1043" style='position:absolute;left:0;
+ text-align:left;z-index:251654656' from="148.05pt,36.9pt" to="184.05pt,36.9pt"/><v:line
+ id="_x0000_s1044" style='position:absolute;left:0;text-align:left;z-index:251655680'
+ from="184.05pt,36.9pt" to="184.05pt,89.9pt"/><v:line id="_x0000_s1045"
+ style='position:absolute;left:0;text-align:left;z-index:251656704' from="184.05pt,83.5pt"
+ to="238.05pt,83.5pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="0" width="84"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image002.png"
+              v:shapes="_x0000_s1034 _x0000_s1035 _x0000_s1033
+              _x0000_s1037 _x0000_s1038 _x0000_s1036 _x0000_s1041
+              _x0000_s1039 _x0000_s1040 _x0000_s1042 _x0000_s1043
+              _x0000_s1044 _x0000_s1045" height="130" width="221"></td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Class diagrams are useful for
+        understanding the <b style="mso-bidi-font-weight:normal"><span
+            style="color:maroon">static</span></b><span
+          style="color:maroon"> structure</span> of a program.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>They do not change as the
+        program is running.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>We can look at the source code
+        and draw a class diagram.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>What is the only way a class diagram can change?<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>If we edit the source code and
+        change the fields!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">How we implement classes that use
+        composition:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">The
+        Bank Project.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>The </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> class:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Has the fields that we added
+        last class.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Let&#8217;s now look at the
+        constructor...<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Recall that the job of the
+        constructor is to
+        initialize all the fields of the object<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Looks a lot like any other
+        constructor that we&#8217;ve worked with.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">It has
+        parameters that take
+        in initial values for the fields.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">We need to
+        copy the values
+        of those parameters into the fields using assignment statements.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></i><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Notice that in the case of the </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, the data
+        type of two of
+        those parameters is </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Account</span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">. <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Recall that when the type of a
+        parameter is a Class,
+        we are expected to provide the <b
+          style="mso-bidi-font-weight:normal">name</b>
+        of an Object as the <b style="mso-bidi-font-weight:normal">value</b>
+        for the
+        parameter.<br style="mso-special-character:line-break">
+        <!--[if !supportLineBreakNewLine]--><br
+          style="mso-special-character:line-break">
+        <!--[endif]--><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">So to create a </span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> we first
+        have to create two
+      </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">
+        objects!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Create <i
+          style="mso-bidi-font-style:
+          normal"><span style="mso-spacerun:yes">&nbsp;</span></i></span><i
+        style="mso-bidi-font-style:
+        normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier;color:green">sAcct</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">,
+        </span></i><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:green">cAcct</span></i><span
+        style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;color:green"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;color:green"><span style="mso-spacerun:yes">&nbsp;</span>Construct
+          a new </span></i><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:green">BankCustomer</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;color:green"> object using those objects <o:p></o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></i><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Look at the object
+        inspector</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Note the normal stuff
+        (</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">name</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">address</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">phoneNum</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Note the arrows in
+        the fields for </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">savings</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt"> and </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">checking</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">Each arrow is a <b
+          style="mso-bidi-font-weight:normal"><span style="color:maroon">Reference</span>:
+          <o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt">- indicates the <u>location</u> of an object in
+          memory<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">-
+          a variable
+          whose data type is a class will hold a reference to an object
+          of that type.</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:green">Clicking
+          on one</span> in BlueJ will pop up the object that is being
+        referred to.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>T<i style="mso-bidi-font-style:
+          normal">hey are the same objects as on the bench.<o:p></o:p></i></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">When we create an object and give it
+        a name, such as
+      </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">sAcct</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">
+        or </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">cAcct</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">
+        what that computer is doing is placing into a variable with that
+        name, a
+        reference that tells it where in memory to find the actual
+        object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">So we might represent what the
+        computer is doing as
+        follows:<span style="mso-tab-count:1">&nbsp;&nbsp; </span><i
+          style="mso-bidi-font-style:
+          normal">(label the reference).<o:p></o:p></i></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:shape id="_x0000_s1050" style='position:absolute;
+ margin-left:130.05pt;margin-top:6.55pt;width:99pt;height:19.5pt;z-index:251659776'
+ coordsize="1980,390" path="m0,210c645,105,1290,,1620,30,1950,60,1965,225,1980,390e"
+ filled="f">
+ <v:stroke startarrow="oval" endarrow="block" endarrowwidth="wide"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout;position:
+absolute;z-index:251659776;margin-left:126px;margin-top:6px;width:111px;
+        height:25px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image003.png"
+          v:shapes="_x0000_s1050" height="25" width="111"></span><!--[endif]--><!--[if gte vml 1]><v:rect id="_x0000_s1046"
+ style='position:absolute;margin-left:112.05pt;margin-top:8.05pt;width:36pt;
+ height:18pt;z-index:251657728'/><![endif]--><!--[if !vml]--><span
+style="mso-ignore:vglayout;position:absolute;z-index:251657728;margin-left:112px;margin-top:8px;width:39px;height:21px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image004.png"
+          v:shapes="_x0000_s1046" height="21" width="39"></span><!--[endif]--><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><o:p></o:p></span></i></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:group id="_x0000_s1047" style='position:absolute;
+ margin-left:202.05pt;margin-top:12.2pt;width:117pt;height:63pt;z-index:251658752'
+ coordorigin="7281,4144" coordsize="2340,1260">
+ <v:shape id="_x0000_s1048" type="#_x0000_t202" style='position:absolute;
+  left:7281;top:4144;width:2340;height:1260'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>sAcct: Account<o:p></o:p></p>
+     <p class=MsoNormal>acctNumber: &#8220;987&#8221;<o:p></o:p></p>
+     <p class=MsoNormal>balance: 0<o:p></o:p></p>
+     <p class=MsoNormal>interestRate: 5<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1049" style='position:absolute' from="7281,4504"
+  to="9621,4504"/>
+</v:group><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout;position:
+absolute;z-index:251658752;margin-left:201px;margin-top:12px;width:122px;
+        height:67px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image005.png"
+          v:shapes="_x0000_s1048 _x0000_s1049 _x0000_s1047" height="67"
+          width="122"></span><!--[endif]--><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>sAcct:<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:shape id="_x0000_s1062" style='position:absolute;
+ margin-left:166.05pt;margin-top:3.7pt;width:238.1pt;height:343.2pt;z-index:251667968;
+ mso-position-horizontal:absolute;mso-position-vertical:absolute' coordsize="4762,6864"
+ path="m0,6864c604,6698,2848,6804,3626,5867,4404,4930,4762,2218,4666,1240,4570,262,3388,258,3052,0e"
+ filled="f">
+ <v:stroke startarrow="oval" endarrow="block" endarrowwidth="wide"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table height="44" align="left" cellpadding="0" cellspacing="0"
+      width="168">
+      <tbody>
+        <tr>
+          <td height="2" width="162"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <i style="mso-bidi-font-style:normal"><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal"><!--[if gte vml 1]><v:shape id="_x0000_s1055" style='position:absolute;
+ margin-left:130.05pt;margin-top:6.55pt;width:99pt;height:19.5pt;z-index:251662848'
+ coordsize="1980,390" path="m0,210c645,105,1290,,1620,30,1950,60,1965,225,1980,390e"
+ filled="f">
+ <v:stroke startarrow="oval" endarrow="block" endarrowwidth="wide"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout;position:
+absolute;z-index:251662848;margin-left:126px;margin-top:6px;width:111px;
+        height:25px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image007.png"
+          v:shapes="_x0000_s1055" height="25" width="111"></span><!--[endif]--><!--[if gte vml 1]><v:rect id="_x0000_s1051"
+ style='position:absolute;margin-left:112.05pt;margin-top:8.05pt;width:36pt;
+ height:18pt;z-index:251660800'/><![endif]--><!--[if !vml]--><span
+style="mso-ignore:vglayout;position:absolute;z-index:251660800;margin-left:112px;margin-top:8px;width:39px;height:21px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image008.png"
+          v:shapes="_x0000_s1051" height="21" width="39"></span><!--[endif]--><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><o:p></o:p></span></i></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:group id="_x0000_s1052" style='position:absolute;
+ margin-left:202.05pt;margin-top:12.2pt;width:117pt;height:63pt;z-index:251661824'
+ coordorigin="7281,4144" coordsize="2340,1260">
+ <v:shape id="_x0000_s1053" type="#_x0000_t202" style='position:absolute;
+  left:7281;top:4144;width:2340;height:1260'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>cAcct: Account<o:p></o:p></p>
+     <p class=MsoNormal>acctNumber: &#8220;234&#8221;<o:p></o:p></p>
+     <p class=MsoNormal>balance: 0<o:p></o:p></p>
+     <p class=MsoNormal>interestRate: 1<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1054" style='position:absolute' from="7281,4504"
+  to="9621,4504"/>
+</v:group><![endif]--><!--[if !vml]--><span
+        style="mso-ignore:vglayout;position:
+absolute;z-index:251661824;margin-left:201px;margin-top:12px;width:122px;
+        height:67px"><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image009.png"
+          v:shapes="_x0000_s1053 _x0000_s1054 _x0000_s1052" height="67"
+          width="122"></span><!--[endif]--><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>cAcct:<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:shape id="_x0000_s1061" style='position:absolute;
+ margin-left:166.05pt;margin-top:6.9pt;width:195.5pt;height:3in;z-index:251666944'
+ coordsize="3910,4320" path="m0,4320c549,4126,2674,3759,3292,3156,3910,2553,3742,1229,3706,703,3670,177,3209,146,3078,0e"
+ filled="f">
+ <v:stroke startarrow="oval" endarrow="block" endarrowwidth="wide"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="6" width="162"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <i style="mso-bidi-font-style:normal"><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Then
+        the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt"> might look like:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><!--[if gte vml 1]><v:rect id="_x0000_s1059" style='position:absolute;
+ margin-left:76.05pt;margin-top:9.6pt;width:36pt;height:18pt;z-index:251664896'/><v:shape
+ id="_x0000_s1060" style='position:absolute;margin-left:90pt;margin-top:7.55pt;
+ width:103.05pt;height:38.05pt;z-index:251665920;mso-position-horizontal:absolute;
+ mso-position-vertical:absolute' coordsize="2061,761" path="m0,184c279,169,1357,,1701,96,2045,192,2046,456,2061,761e"
+ filled="f">
+ <v:stroke startarrow="oval" endarrow="block" endarrowwidth="wide"/>
+ <v:path arrowok="t"/>
+</v:shape><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table height="118" align="left" cellpadding="0" cellspacing="0"
+      width="231">
+      <tbody>
+        <tr>
+          <td height="9" width="76"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image011.png"
+              v:shapes="_x0000_s1059 _x0000_s1060" height="133"
+              width="225"></td>
+        </tr>
+      </tbody>
+    </table>
+    <i style="mso-bidi-font-style:normal"><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>pres:<o:p></o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><!--[if gte vml 1]><v:group id="_x0000_s1056"
+ style='position:absolute;left:0;text-align:left;margin-left:94.05pt;
+ margin-top:4.05pt;width:153pt;height:139.15pt;z-index:251663872'
+ coordorigin="2781,7304" coordsize="3060,2783">
+ <v:shape id="_x0000_s1057" type="#_x0000_t202" style='position:absolute;
+  left:2781;top:7304;width:3060;height:2783'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>pres: BankCustomer<o:p></o:p></p>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+     <p class=MsoNormal>name: &#8220;bill&#8221;<o:p></o:p></p>
+     <p class=MsoNormal>addresss: &#8220;212 W. High St&#8221;<o:p></o:p></p>
+     <p class=MsoNormal>phone: &#8220;BEN-RUSH&#8221;<o:p></o:p></p>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+     <p class=MsoNormal>checking:<o:p></o:p></p>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+     <p class=MsoNormal>savings:<o:p></o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1058" style='position:absolute' from="2781,7747"
+  to="5841,7747"/>
+</v:group><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+      </span></p>
+    <table align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td height="4" width="93"><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><img
+src="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_image012.png"
+              v:shapes="_x0000_s1057 _x0000_s1058 _x0000_s1056"
+              height="227" width="371"></td>
+        </tr>
+      </tbody>
+    </table>
+    <i style="mso-bidi-font-style:normal"><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><i
+        style="mso-bidi-font-style:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <br style="mso-ignore:vglayout" clear="ALL">
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">There is a
+          correspondence
+          between object diagram and object inspector in BlueJ.<o:p></o:p></span></i></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">What
+        we have here is called an: <b
+          style="mso-bidi-font-weight:normal"><span style="color:maroon">Object
+            Diagram</span><o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">It is a representation of what is
+        stored in the
+        computer&#8217;s memory.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">It shows us the relationships between
+        objects as a
+        program is running.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">They will be useful in helping us
+        understanding what
+        a program is doing as it runs.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Let&#8217;s
+        look at a call to the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">BankCustomer</span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"> constructor to see how the code that
+        we wrote
+        creates the structure we have drawn in the computer&#8217;s memory.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        color:green">Use the debugger to trace a call to the </span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">BankCustomer</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;color:green"> constructor:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;color:green">( Put break point on the first line. )<o:p></o:p></span></i></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Call constructor, pass in
+        names of 2 </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;color:green"> objects (</span><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+          color:green">sAcct</span></i><i
+        style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">,
+        </span></i><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier;color:green">cAcc</span></i><i
+        style="mso-bidi-font-style:
+        normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">t)</span></i><i style="mso-bidi-font-style:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> </span></i><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Instance
+        variables (i.e.
+        fields) will be </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">null</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Times
+        New Roman&quot;">Recall
+        that </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">null</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">
+        is a special value for fields that have not yet been
+        initialized.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Parameters have values or </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">&lt;object
+        reference&gt;</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>i.e.
+        references the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt"> objects.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Step through each
+        assignment<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">What is happening in the object
+        diagram?<i style="mso-bidi-font-style:normal"><o:p></o:p></i></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>What about changes seen in
+        BlueJ&#8217;s object inspector.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">---<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Two
+        categories of data types:<span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Primitive
+          Data
+          Types</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> <o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Object
+          Data
+          Types</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Primitive
+          Data Types:<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></b><b style="mso-bidi-font-weight:normal"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">int</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt">, </span></b><b style="mso-bidi-font-weight:normal"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">double</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt">, </span></b><b style="mso-bidi-font-weight:normal"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">boolean</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt"> (and others)<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><span style="color:#000090">built into java<o:p></o:p></span></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>not defined by classes<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>primitive type variables hold the actual value<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt">NOTE: A variable is <b
+          style="mso-bidi-font-weight:
+          normal">just</b> a storage location in memory. In java
+        variables include local
+        variables, fields and also formal parameters.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Object
+          Data Types:<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>defined by classes<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></b><b style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">Account</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">, </span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">Address</span></b><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">,
+        </span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">Student</span></b><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">,
+          (</span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">String</span></b><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt">)<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Some
+        are defined by us: e.g. </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Account</span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Others
+        come packaged with Java:<span style="mso-spacerun:yes">&nbsp; </span>e.g.
+      </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>We&#8217;ll
+        see lots more of these as the semester progresses.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:
+          normal">object type variables hold a <span
+            style="color:#000090">reference</span>
+          to the object<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>reference = memory address</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_filelist.xml">
+    <link rel="Edit-Time-Data"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_editdata.mso">
+    <!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>763</o:Words>
+  <o:Characters>4350</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>36</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5103</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1063"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--><!--StartFragment--><!--[endif]--><!--[endif]--><!--[endif]--><!--[endif]--><!--[endif]--><!--[endif]--><!--EndFragment-->
+  </body>
+</html>

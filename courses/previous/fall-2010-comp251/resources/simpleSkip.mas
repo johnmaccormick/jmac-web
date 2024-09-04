@@ -1,0 +1,12 @@
+load 	008
+skipcond 000
+jump 	005
+load	009
+jump 	006
+load 	00A
+store 	00B
+halt
+dec	-5
+dec	8
+dec	15
+dec	0

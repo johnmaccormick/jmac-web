@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Editing and executing Python programs</title>
+    <!-- Changed by: , 30-Aug-2010 -->
+  </head>
+
+  <body>
+    <h2>Editing and executing Python programs</h2>
+
+For labs in this class, we will use computer programs written in a
+programming language called Python.  This page walks through an
+example of how to execute and edit a Python program on the machines in
+our classroom.  (You can also download and install Python for your own
+computer, but the instructions given here may not be exactly correct
+for your operating system and version of Python.)  Now let's work through our example:
+
+<ol>
+  <li>Download the Python file <a href="hello.py">hello.py</a>, and
+  save it anywhere you want.  These instructions will assume you saved
+  it in the folder <tt>Documents|HelloExample</tt>.
+  <li>Open a terminal window (search for "terminal", or find it in
+  the <tt>Applications|Utilities</tt> folder).
+  <li>By typing commands in the terminal window, navigate to the
+  folder where you saved your Python program. To do this, you will
+  need to use some or all of the following terminal commands:
+    <ul>
+      <li><tt>pwd</tt>: print working folder i.e. print the name of
+      the folder you are currently in.
+      <li><tt>cd somewhere</tt>: change directory to the folder
+"somewhere". e.g. <tt>cd Documents</tt> followed by <tt>cd
+HelloExample</tt> if you have saved the Python file
+in <tt>Documents|HelloExample</tt>.
+      <li><tt>ls</tt>: list contents of current folder
+    </ul>
+  <li>To execute the program, enter the terminal command <tt>python
+  hello.py</tt>.  If all goes well, you'll be asked to enter your name
+  and the program will say hello to you.
+  <li>Sometimes, programs use extra information that is entered when
+  you run them. This extra information is called <i>commandline
+  arguments</i>.  For example <tt>hello.py</tt> can accept a
+  commandline argument that specifies how many times it should say
+  hello. Try this now, by entering the command <tt>python hello.py
+  5</tt>.  Try it a few times with different values of the commandline
+  argument.    
+<li>This would be a good time to mention that, in the Terminal window, the up-arrow key brings up your previous command, so you can quickly run it again as is, or change it before rerunning.  Try this a few times.  Also, pressing the up-arrow key repeatedly cycles through previous commands, which can also be useful.  Try it now.
+  <li>Try running <tt>hello.py</tt> with a non-numeric commandline argument, such
+  as <tt>python hello.py apple</tt>.  Notice that you receive a
+  mysterious and unhelpful error message, because the program was
+  expecting a number. If you ever receive a mysterious error message
+  during a lab, just ask for help.  
+  <li>Python programs can receive more than one commandline argument.
+  For example, <tt>hello.py</tt> can accept a commandline argument that
+  specifies your name.  Try this now, by entering the
+  command <tt>python hello.py 1 Tiberius</tt>.  Try it a few times
+  with different values of the two commandline arguments.
+  <li>Now let's try to edit the program and make it do something
+  different.  By double-clicking the file <tt>hello.py</tt>, you can
+  open a type of program called a <i>text editor</i> for editing this file
+  (the name of the text editor we are using is <i>Aquamacs</i>).  Do
+  this now.  
+  <li>You don't need to understand the Python code that you see here!
+  If you're interested, you can glance over the code to get some idea
+  of how it works, but this is not necessary.
+  <li>Let's change the program so that it says 'Goodbye' rather than
+  'Hello'.  To do this, just change the last line of the file by
+  replacing 'Hello' with 'Goodbye'.  Now save the file (by choosing "save buffer" in the File menu), and test that
+  your change has worked by running the program from the terminal
+  window again.
+  <li>Sometimes you will want to interrupt a program that is taking
+  too long to finish. To do this, just press Control-c (i.e. hold down
+  control and press 'c') in the Terminal window.  Practice this now,
+  by asking for a ridiculously large number of goodbyes and then
+  interrupting the program while it's running (e.g. <tt>python
+  hello.py 10000000</tt>).
+</ol>
+
+
+
+    <hr>
+  </body>
+</html>

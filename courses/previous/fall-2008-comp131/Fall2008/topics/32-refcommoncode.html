@@ -1,0 +1,107 @@
+<html lang="en"><head><title>Factoring Out Common Code</title>
+	<!-- Changed by: , 20-May-2008 -->
+	
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Factoring Out Common Code<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 5.1 and 5.2 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/FactorOutExample.zip"><i>FactorOutExample</i><br>
+<a href="../examples/StudentDatabase-Start.zip"><i>StudentDatabase-Start</i>
+        </a><br>
+<a href="../examples/StudentDatabase-v1.zip"><i>StudentDatabase-v1</i></a> (<code>ArrayList</code> based)<br>
+<a href="../examples/LibraryDB.zip"><i>LibraryDB</i></a>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+Use the <i>StudentDatabase-v1</i>
+project to complete each of the following exercises:
+<ol>
+<li> Add a <code>changeInstructor</code> method to the <code>Student</code>
+    class.  This method takes
+    the department and number of the class and the name of the new instructor
+    as parameters, and changes the instructor of the class.  If the student is
+    not taking the specified class, the method should print an error message
+    Be sure to include a javadoc comment for your method.
+ <p>
+    Hint: you should not have to write a loop to implement this method!
+<li> Write test cases for the <code>changeInstructor</code> method that
+    properly test it (statement coverage is a minimum goal).
+                                                                                
+<li> Add the following two methods to the <code>Student</code> class:
+   <ul>
+   <li> a method called <code>isTakingFrom</code> that takes the name of an
+      instructor as a parameter and returns boolean - true if the student is
+      taking a course from that instructor, and false otherwise.
+   <li> a method called <code>dropCourseOf</code> that takes the name of
+      an instructor as a parameter, and drops one course from the  
+      student's schedule that the specified instructor is teaching.
+    </ul>
+                                                                                
+     These methods should not contain any repeated functionality.
+    Be sure to include javadoc comments for these methods.
+                                                                                
+<li> Write test cases for the <code>isTakingFrom</code> and 
+ <code>dropCourseOf</code> methods that properly test these methods.
+
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 10a</h3>
+<p>
+</p>
+<p>Download and unpack the 
+<a href="../examples/LibraryDB.zip"><i>LibraryDB</i></a> project and use it to
+ complete the following exercises.
+<ol>
+<li> Study the interface view for the <code>Book</code> class, as you will
+ need to use instances and methods of this class in completing the following
+ exercises.  The implementation of the <code>Book</code> class and test cases
+ achieve statement coverage have been provided for you.  (There is nothing
+ to turn in for this exercise.)
+<li> Complete the definitions of the constructor and the
+ <code>getLibraryName</code>, <code>getNumBooks</code>, <code>addBook</code>
+  and <code>getBook</code> methods of the <code>Library</code> class.
+<li> Create a test class for the <code>Library</code> class, and write a
+  test case for the constructor.
+<li> Write test cases for the <code>addBook</code> and <code>getBook</code>
+  methods that properly test those methods.  In particular, you should
+ test that <code>getBook</code> behaves correctly when returning a book
+ at the beginning, middle and end of the collection, and also when the
+ library does not have a book with the specified call number.
+<li> Write test cases for the <code>hasBookByAuthor</code> and 
+ <code>deleteBookByAuthor</code> methods (that have been provided for you)
+ that properly test those methods.  Statement coverage is a minimum goal.
+ In particular, you should test that these methods behave correctly when 
+ a book by the specified author is at the beginning, middle and end of
+ the collection, and when the library has no books by the specified author.
+<li> The <code>hasBookByAuthor</code> and <code>deleteBookByAuthor</code> 
+ methods contain repeated functionality for finding the position of a <code>Book</code>
+ by a particular author.
+ To eliminate this repetition, refactor the methods as follows:
+  <ul>
+  <li> add a new method that gets the position of a <code>Book</code> by
+    a particular author (specified as a parameter), or indicates that no
+    <code>Book</code> by this author was found in the library.
+  <li> use your new method to refactor the <code>hasBookByAuthor</code> and 
+   <code>deleteBookByAuthor</code> methods so that they 
+    no longer contain any loops
+  </ul>
+ Make sure that your test cases still pass after this
+ refactoring.
+</ol>
+
+Save this project.  You will be adding to it in the next three assignments and
+then submitting it via Web-CAT.
+
+</div></body></html>

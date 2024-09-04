@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+   	<TITLE>Design Notations and Implementing Composition</TITLE>
+	<!-- Changed by: , 12-Aug-2009 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Design Notations and Implementing Composition</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 3.6 - 3.9 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Bank-start.zip"><i>Bank-start</i></a><br>
+<a href = "../examples/Bicycle.zip"><i>Bicycle</i></a>
+
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Draw an object diagram for instances of the <code>BankCustomer</code>
+ and <code>Account</code> classes representing yourself and your bank
+ accounts.  (Please do NOT use your actual bank account numbers and balances.)
+<li> Open the <i>MyComputer</i> project that you completed as a homework exercise
+in <a href="10-printing.html">Class #10</a>, create a new class <code>ComputerOwner</code> within 
+ that project, and implement the <code>ComputerOwner</code> class as follows:
+ <ol type = "a">
+ <li> Declare fields so that an instance of class <code>ComputerOwner</code> 
+ can hold the following information for a computer owner: name, address, 
+ telephone number and a reference to a <code>Computer</code> object representing
+ the computer that the person owns.
+ <li> Define a constructor that initializes all fields of a 
+ <code>ComputerOwner</code> using parameters.
+ <li> Define accessor methods for the name, address and telephone number.
+ <li> Create a test class for <code>ComputerOwner</code>, and write a
+ test method for the constructor.  Your test method should not check the
+ value of the <code>Computer</code> object associated with a
+ <code>ComputerOwner</code>.
+ </ol>
+<li> Do Exercises 3.1, 3.4, and 3.23-3.26 in Barnes &amp; Kolling.
+Many of these exercises use the <i>clock-display</i> project from Chapter 3.
+</ol>
+<p>
+<HR>
+<H3>Homework Assignment 6b</H3>
+<p>
+<ol>
+<li> Download and unpack the <a href = "../examples/Bicycle.zip">
+ <i>Bicycle</i></a> project, open it in BlueJ, and use it to complete
+  the following steps.
+  <ol type="a">
+  <li> complete the definitions of the <code>BicycleSeat</code>
+ and <code>Tire</code> classes according to the specifications given
+ in those classes
+  <li> create test classes for the <code>BicycleSeat</code>
+ and <code>Tire</code> classes, and write test cases that achieve statement
+ coverage for those classes
+  <li> (partially) complete the definition of the <code>Bicycle</code>
+ class according to the specifications given in that class.  Note that
+ you should NOT complete all of the methods for this homework assignment -
+ you should stop at the comment that says: 
+<pre>
+// STOP HERE FOR CLASS #18 HOMEWORK
+</pre>
+  <li> create a test class for the <code>Bicycle</code> class, and write
+ a test case that checks that the constructor sets the manufacturer and
+ number of gears correctly for a <code>Bicycle</code> object.  You do not
+ need to check the values of any other fields set by the constructor.
+  <li> you will be submitting your <i>Bicycle</i> project via
+  WebCAT as part of a future homework assignment, so there is nothing
+  to submit for this exercise (yet).
+ </ol>
+
+<li> Using the <i>Bicycle</i> project that you worked on in the previous
+   exercise:
+<ol type = "a">
+<li> Draw a class diagram for the classes in this project.
+<li> Draw an object diagram for an instance of the <code>Bicycle</code>
+     class.  Use any values for the fields that are of the appropriate type
+     and that could reasonably represent a real bicycle.
+</ol>
+<li> Do Exercise 3.2 in Barnes &amp; Kolling.
+<li> Do Exercise 3.3 in Barnes &amp; Kolling.
+
+</ol>
+</BODY>
+</HTML>
+

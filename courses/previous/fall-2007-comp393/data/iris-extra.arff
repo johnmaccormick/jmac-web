@@ -1,0 +1,190 @@
+% 1. Title: Iris Plants Database, altered with an extra attribute by John MacCormick
+% 
+
+% 
+% 5. Number of Instances: 150 (50 in each of three classes)
+% 
+% 6. Number of Attributes: 5 numeric, predictive attributes and the class
+% 
+% 7. Attribute Information:
+%    1. sepal length in cm
+%    2. sepal width in cm
+%    3. petal length in cm
+%    4. petal width in cm
+%    5. a mystery attribute
+%    6. class: 
+%       -- Iris Setosa
+%       -- Iris Versicolour
+%       -- Iris Virginica
+% 
+% 8. Missing Attribute Values: None
+% 
+% Summary Statistics:
+%  	           Min  Max   Mean    SD   Class Correlation
+%    sepal length: 4.3  7.9   5.84  0.83    0.7826   
+%     sepal width: 2.0  4.4   3.05  0.43   -0.4194
+%    petal length: 1.0  6.9   3.76  1.76    0.9490  (high!)
+%     petal width: 0.1  2.5   1.20  0.76    0.9565  (high!)
+% 
+% 9. Class Distribution: 33.3% for each of 3 classes.
+
+@RELATION iris
+
+@ATTRIBUTE sepallength	REAL
+@ATTRIBUTE sepalwidth 	REAL
+@ATTRIBUTE petallength 	REAL
+@ATTRIBUTE petalwidth	REAL
+@ATTRIBUTE mystery	REAL
+@ATTRIBUTE class 	{Iris-setosa,Iris-versicolor,Iris-virginica}
+
+@DATA
+5.1,3.5,1.4,0.2,0.22,Iris-setosa
+4.9,3,1.4,0.2,0.15,Iris-setosa
+4.7,3.2,1.3,0.2,0.18,Iris-setosa
+4.6,3.1,1.5,0.2,0.20,Iris-setosa
+5,3.6,1.4,0.2,0.25,Iris-setosa
+5.4,3.9,1.7,0.4,0.40,Iris-setosa
+4.6,3.4,1.4,0.3,0.27,Iris-setosa
+5,3.4,1.5,0.2,0.15,Iris-setosa
+4.4,2.9,1.4,0.2,0.18,Iris-setosa
+4.9,3.1,1.5,0.1,0.05,Iris-setosa
+5.4,3.7,1.5,0.2,0.16,Iris-setosa
+4.8,3.4,1.6,0.2,0.23,Iris-setosa
+4.8,3,1.4,0.1,0.06,Iris-setosa
+4.3,3,1.1,0.1,0.12,Iris-setosa
+5.8,4,1.2,0.2,0.17,Iris-setosa
+5.7,4.4,1.5,0.4,0.40,Iris-setosa
+5.4,3.9,1.3,0.4,0.35,Iris-setosa
+5.1,3.5,1.4,0.3,0.25,Iris-setosa
+5.7,3.8,1.7,0.3,0.29,Iris-setosa
+5.1,3.8,1.5,0.3,0.34,Iris-setosa
+5.4,3.4,1.7,0.2,0.23,Iris-setosa
+5.1,3.7,1.5,0.4,0.45,Iris-setosa
+4.6,3.6,1,0.2,0.16,Iris-setosa
+5.1,3.3,1.7,0.5,0.48,Iris-setosa
+4.8,3.4,1.9,0.2,0.16,Iris-setosa
+5,3,1.6,0.2,0.18,Iris-setosa
+5,3.4,1.6,0.4,0.43,Iris-setosa
+5.2,3.5,1.5,0.2,0.19,Iris-setosa
+5.2,3.4,1.4,0.2,0.24,Iris-setosa
+4.7,3.2,1.6,0.2,0.19,Iris-setosa
+4.8,3.1,1.6,0.2,0.22,Iris-setosa
+5.4,3.4,1.5,0.4,0.43,Iris-setosa
+5.2,4.1,1.5,0.1,0.05,Iris-setosa
+5.5,4.2,1.4,0.2,0.23,Iris-setosa
+4.9,3.1,1.5,0.1,0.10,Iris-setosa
+5,3.2,1.2,0.2,0.15,Iris-setosa
+5.5,3.5,1.3,0.2,0.16,Iris-setosa
+4.9,3.1,1.5,0.1,0.13,Iris-setosa
+4.4,3,1.3,0.2,0.18,Iris-setosa
+5.1,3.4,1.5,0.2,0.22,Iris-setosa
+5,3.5,1.3,0.3,0.25,Iris-setosa
+4.5,2.3,1.3,0.3,0.30,Iris-setosa
+4.4,3.2,1.3,0.2,0.25,Iris-setosa
+5,3.5,1.6,0.6,0.60,Iris-setosa
+5.1,3.8,1.9,0.4,0.42,Iris-setosa
+4.8,3,1.4,0.3,0.30,Iris-setosa
+5.1,3.8,1.6,0.2,0.18,Iris-setosa
+4.6,3.2,1.4,0.2,0.17,Iris-setosa
+5.3,3.7,1.5,0.2,0.21,Iris-setosa
+5,3.3,1.4,0.2,0.23,Iris-setosa
+7,3.2,4.7,1.4,1.40,Iris-versicolor
+6.4,3.2,4.5,1.5,1.48,Iris-versicolor
+6.9,3.1,4.9,1.5,1.53,Iris-versicolor
+5.5,2.3,4,1.3,1.31,Iris-versicolor
+6.5,2.8,4.6,1.5,1.51,Iris-versicolor
+5.7,2.8,4.5,1.3,1.32,Iris-versicolor
+6.3,3.3,4.7,1.6,1.55,Iris-versicolor
+4.9,2.4,3.3,1,1.01,Iris-versicolor
+6.6,2.9,4.6,1.3,1.30,Iris-versicolor
+5.2,2.7,3.9,1.4,1.44,Iris-versicolor
+5,2,3.5,1,0.98,Iris-versicolor
+5.9,3,4.2,1.5,1.51,Iris-versicolor
+6,2.2,4,1,1.03,Iris-versicolor
+6.1,2.9,4.7,1.4,1.40,Iris-versicolor
+5.6,2.9,3.6,1.3,1.27,Iris-versicolor
+6.7,3.1,4.4,1.4,1.43,Iris-versicolor
+5.6,3,4.5,1.5,1.54,Iris-versicolor
+5.8,2.7,4.1,1,0.99,Iris-versicolor
+6.2,2.2,4.5,1.5,1.52,Iris-versicolor
+5.6,2.5,3.9,1.1,1.06,Iris-versicolor
+5.9,3.2,4.8,1.8,1.83,Iris-versicolor
+6.1,2.8,4,1.3,1.35,Iris-versicolor
+6.3,2.5,4.9,1.5,1.48,Iris-versicolor
+6.1,2.8,4.7,1.2,1.22,Iris-versicolor
+6.4,2.9,4.3,1.3,1.31,Iris-versicolor
+6.6,3,4.4,1.4,1.41,Iris-versicolor
+6.8,2.8,4.8,1.4,1.36,Iris-versicolor
+6.7,3,5,1.7,1.70,Iris-versicolor
+6,2.9,4.5,1.5,1.53,Iris-versicolor
+5.7,2.6,3.5,1,1.01,Iris-versicolor
+5.5,2.4,3.8,1.1,1.10,Iris-versicolor
+5.5,2.4,3.7,1,0.96,Iris-versicolor
+5.8,2.7,3.9,1.2,1.20,Iris-versicolor
+6,2.7,5.1,1.6,1.56,Iris-versicolor
+5.4,3,4.5,1.5,1.50,Iris-versicolor
+6,3.4,4.5,1.6,1.60,Iris-versicolor
+6.7,3.1,4.7,1.5,1.45,Iris-versicolor
+6.3,2.3,4.4,1.3,1.27,Iris-versicolor
+5.6,3,4.1,1.3,1.26,Iris-versicolor
+5.5,2.5,4,1.3,1.26,Iris-versicolor
+5.5,2.6,4.4,1.2,1.17,Iris-versicolor
+6.1,3,4.6,1.4,1.42,Iris-versicolor
+5.8,2.6,4,1.2,1.22,Iris-versicolor
+5,2.3,3.3,1,0.99,Iris-versicolor
+5.6,2.7,4.2,1.3,1.29,Iris-versicolor
+5.7,3,4.2,1.2,1.23,Iris-versicolor
+5.7,2.9,4.2,1.3,1.27,Iris-versicolor
+6.2,2.9,4.3,1.3,1.32,Iris-versicolor
+5.1,2.5,3,1.1,1.14,Iris-versicolor
+5.7,2.8,4.1,1.3,1.34,Iris-versicolor
+6.3,3.3,6,2.5,2.49,Iris-virginica
+5.8,2.7,5.1,1.9,1.94,Iris-virginica
+7.1,3,5.9,2.1,2.13,Iris-virginica
+6.3,2.9,5.6,1.8,1.84,Iris-virginica
+6.5,3,5.8,2.2,2.22,Iris-virginica
+7.6,3,6.6,2.1,2.09,Iris-virginica
+4.9,2.5,4.5,1.7,1.71,Iris-virginica
+7.3,2.9,6.3,1.8,1.85,Iris-virginica
+6.7,2.5,5.8,1.8,1.82,Iris-virginica
+7.2,3.6,6.1,2.5,2.47,Iris-virginica
+6.5,3.2,5.1,2,2.00,Iris-virginica
+6.4,2.7,5.3,1.9,1.92,Iris-virginica
+6.8,3,5.5,2.1,2.07,Iris-virginica
+5.7,2.5,5,2,2.00,Iris-virginica
+5.8,2.8,5.1,2.4,2.42,Iris-virginica
+6.4,3.2,5.3,2.3,2.27,Iris-virginica
+6.5,3,5.5,1.8,1.81,Iris-virginica
+7.7,3.8,6.7,2.2,2.18,Iris-virginica
+7.7,2.6,6.9,2.3,2.28,Iris-virginica
+6,2.2,5,1.5,1.50,Iris-virginica
+6.9,3.2,5.7,2.3,2.32,Iris-virginica
+5.6,2.8,4.9,2,2.02,Iris-virginica
+7.7,2.8,6.7,2,2.03,Iris-virginica
+6.3,2.7,4.9,1.8,1.84,Iris-virginica
+6.7,3.3,5.7,2.1,2.07,Iris-virginica
+7.2,3.2,6,1.8,1.81,Iris-virginica
+6.2,2.8,4.8,1.8,1.81,Iris-virginica
+6.1,3,4.9,1.8,1.80,Iris-virginica
+6.4,2.8,5.6,2.1,2.13,Iris-virginica
+7.2,3,5.8,1.6,1.56,Iris-virginica
+7.4,2.8,6.1,1.9,1.91,Iris-virginica
+7.9,3.8,6.4,2,2.03,Iris-virginica
+6.4,2.8,5.6,2.2,2.18,Iris-virginica
+6.3,2.8,5.1,1.5,1.48,Iris-virginica
+6.1,2.6,5.6,1.4,1.38,Iris-virginica
+7.7,3,6.1,2.3,2.33,Iris-virginica
+6.3,3.4,5.6,2.4,2.40,Iris-virginica
+6.4,3.1,5.5,1.8,1.75,Iris-virginica
+6,3,4.8,1.8,1.79,Iris-virginica
+6.9,3.1,5.4,2.1,2.08,Iris-virginica
+6.7,3.1,5.6,2.4,2.43,Iris-virginica
+6.9,3.1,5.1,2.3,2.34,Iris-virginica
+5.8,2.7,5.1,1.9,1.94,Iris-virginica
+6.8,3.2,5.9,2.3,2.35,Iris-virginica
+6.7,3.3,5.7,2.5,2.50,Iris-virginica
+6.7,3,5.2,2.3,2.28,Iris-virginica
+6.3,2.5,5,1.9,1.86,Iris-virginica
+6.5,3,5.2,2,2.04,Iris-virginica
+6.2,3.4,5.4,2.3,2.29,Iris-virginica
+5.9,3,5.1,1.8,1.76,Iris-virginica

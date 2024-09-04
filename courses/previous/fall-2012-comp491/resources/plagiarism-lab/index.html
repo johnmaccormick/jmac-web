@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Instructions for Detecting Plagiarism lab</TITLE>
+    <!-- Changed by: , 13-Sep-2010 -->
+  </HEAD>
+  <BODY>
+    <H2>Instructions for Detecting Plagiarism lab</H2>
+ 
+    <H3>Structure of the lab</H3>
+ 
+The lab has two main goals: (i) to practice writing a design for
+some software before writing any code; (ii) to experience
+<I>iteration</I> of the design -- that is, changes to the design
+that result when one attempts to implement the original design.
+ 
+The sequence of steps for the lab is as follows:
+ 
+<OL>
+ 
+ 
+  <LI><B>Read this entire list of instructions:</B> That's what
+  you're doing now.</LI>
+ 
+  <LI><B>Read the background information:</B> This is provided  in the section below called "Description of the problem to be solved."</LI> 
+ 
+  <LI><B>Study the <A HREF="plagiarism-framework.zip">code
+  framework</A> provided:</B> There is no need to absorb every
+  detail; just make sure you are aware of which parts of the problem
+  have already been solved for you.</LI>
+ 
+ 
+  <LI><B>Write Design Document 1:</B> Write a design document (we'll
+  call it "Design Document 1")
+  explaining how you plan to solve the
+    problem.  
+ 
+<UL>
+ 
+ 
+  <LI> <I>You must submit Design Document 1 to Moodle before you write
+any code, and certainly before the end of class at 5pm.</I> You may
+browse the code provided -- see below -- but you may not edit it.
+</LI>
+ 
+  <LI><I>It is expected that you will take no more than one hour to
+write and submit Design Document 1; the deadline for submission is the
+end of class (5pm).</I> Re-submissions will not be permitted: the
+first submission is your final submission.  Late submissions will be
+penalized by 1% for every minute of lateness after 5pm.</LI>
+ 
+<LI>The expected length of Design Document 1 is 0.5-2 pages.</LI>
+ 
+<LI> The document must be written in English, although you
+  may also use pseudocode and diagrams if you wish.  We'll be
+  studying more details of how to structure design documents later
+  in the semester, but for now, just use common sense.  The document
+  must describe, clearly and succinctly, the main elements of your
+  solution, in such a way that another computer programmer could use
+  your document to implement your solution.  Your document should
+  mention any important data structures you plan to use
+  (e.g. ArrayList, HashMap, arrays, Set), describing what data they
+  will contain. 
+  <!-- The document will be -->
+  <!-- far from perfect, because of the time constraints. -->
+  <!-- This is an intentional element of the lab, so -->
+  <!-- just do your best in the time allowed.  -->
+</LI>
+
+<li>Any common file format (e.g. PDF, Microsoft Word, OpenOffice,
+plain text) is acceptable, and any reasonable formatting conventions
+may be used.</li>
+
+</UL>
+ 
+</LI>
+ 
+ 
+  <LI><B>Implement Design Document 1</B>
+ 
+    <UL>
+      
+<LI>Submit your code by
+  the due date for this assignment (i.e. the start of the next
+  class).  Code should be submitted to Moodle, as a single zip file
+  of <TT>.java</TT> files only.</LI>
+ 
+      <LI>You should make an honest attempt to implement the design
+      in your document, but if you discover problems with that
+      design, then it is fine to incorporate changes to the design
+      in your code.  Indeed, incorporating such changes is one of
+      the primary goals of the lab.  You should make a note of
+      any design changes, since these will need to be described in
+      Design Document 2 (see below).</LI>
+ 
+  <LI>Don't worry too much about efficiency; for this lab,
+  correctness is more important.  However, woefully inefficient
+  solutions will be penalized a little.  Your solution should
+  produce correct output for both the small and medium data sets
+  provided below within less than 10 seconds on the lab machines.
+  Your code need not work efficiently on the big data set.</LI>
+ 
+ 
+    </UL>
+ 
+   </LI>
+ 
+  <LI> <B>Write Design Document 2:</B> The main purpose of this
+  document is to explain a new design for your solution to the
+  problem, incorporating <I>both</I> changes you have implemented in
+  the code you submitted, and further changes you would recommend if
+  efficiency were a significant consideration.  Divide your document
+  into two sections, one for the changes you implemented and another
+  for the ones you recommend in future.
+ 
+  <UL>
+ 
+    <LI>Submit your document to Moodle by the due date for this
+    assignment.</LI>
+ 
+  <LI>Design Document 2 should be 1-2 pages in length. In the very
+  unlikely event that your original design was near-perfect and you
+  have few changes to discuss or recommend, you should instead
+  discuss potential designs for more challenging versions of the
+  problem.
+  (e.g. How would you detect near-duplicate documents on the entire
+  web?  How would you detect near-duplicate images?)</LI>
+ 
+  <LI> In terms of style, use the same guidelines as for Design
+  Document 1.</LI>
+ 
+  </UL>
+ 
+</LI>
+ 
+  <LI><B>Optional:</B> (No extra credit -- for fun only -- but if
+  anyone attempts it, we will discuss the results in class.)
+  Implement
+  some or all of your recommendations for improving efficiency.  Can
+  you turn this into a genuinely effective piece of software that
+  could be used for detecting plagiarism in a very large corpus of
+  documents?</LI>
+ 
+</OL>
+ 
+    <H3>Description of the problem to be solved</H3>
+ 
+The objective is to detect plagiarism in a corpus of text
+    documents. In this lab, we adopt a very restrictive definition
+    of plagiarism, based on the concept of <I>n-grams</I>. An n-gram
+    is a sequence of <I>n</I> consecutive words in a document.  For
+    example, if a document consists of the text "the quick brown fox
+    jumps over the lazy dog" then the set of all 3-grams in the
+    document is: "the quick brown", "quick brown fox", "brown fox
+    jumps", ..., "over the lazy", "the lazy dog".  Two documents
+    will be defined as suspiciously similar if they have too many
+    n-grams in common.  
+ 
+<P>Specifically, the inputs to the algorithm
+    will be:
+    <UL>
+      <LI>A directory containing some documents, each of which
+      consists of ASCII text.  The filename of each document to be
+      analyzed is guaranteed to end in "<TT>.txt</TT>".
+ 
+      <LI>the <I>phrase length n</I>: the length of the n-grams  to be analyzed</LI>
+ 
+      <LI>the <I>in-common threshold T</I>: if two different
+	documents contain <I>T</I> or more of the same n-grams, the
+	documents will be considered <I>suspiciously
+	similar</I>. </LI>
+ 
+    </UL>
+ 
+    Your program should have a <TT>main</TT> method in the class
+    <TT>PlagiarismFinder</TT>, which accepts the above three inputs
+    as command line parameters in the given order.  For example, if
+    the documents are in a folder called
+    <TT>/somewhere/here/sm_doc_set</TT>, the following command line
+    runs the program with <I>n</I>=6 and <I>T</I>=100:
+ 
+<PRE>
+java PlagiarismFinder /somewhere/here/sm_doc_set 6 100
+</PRE>
+ 
+<P>The output of the algorithm will be a list of all pairs of
+suspiciously similar documents.  For each pair, the number of
+n-grams that appeared in both documents should also be displayed.
+Thus, a typical output will be:
+ 
+<PRE>
+530 abf0704.txt abf70402.txt
+675 abf0704.txt edo26.txt
+179 abf70402.txt edo26.txt
+423 bef1121.txt edo14.txt
+285 catchmeifyoucan.txt ecu201.txt
+311 catchmeifyoucan.txt hal10.txt
+384 catchmeifyoucan.txt tyc12.txt
+1622 jrf1109.txt sra31.txt
+</PRE>
+ 
+In fact, the above output is precisely what should be produced when
+the above command line (with <I>n</I>=6 and <I>T</I>=100) is run on
+the small document set provided below.  Your program may produce the
+lines of output in a different order, but the output must otherwise
+be identical. 
+ 
+<P>A <A HREF="plagiarism-framework.zip">code framework</A> is
+provided to help you get started.  The assignment can be completed
+successfully by adding code only to the <TT>PlagiarismFinder</TT>
+class, and only in the places indicated by the comment "<TT>// ADD
+CODE HERE</TT>".  However, you are welcome to edit the
+<TT>NGramGenerator</TT> class and the <TT>PlagiarismFinder</TT>
+class as much as you wish, and you can also create new classes if
+desired.  
+ 
+<P>Note that there are many details of exactly how to compute
+n-grams that have been left unspecified in the above description
+(e.g. how to treat capitalization, whitespace, and non-alphabetic
+characters).  These details are not discussed further here, because
+the provided <TT>NGramGenerator</TT> class computes the n-grams for
+you -- please read the code if you're interested in the details, but
+if you edit this part of the code, its functionality should remain
+the same.
+ 
+<P>Three different data sets are provided: <A
+HREF="sm_doc_set.zip">small</A>, <A
+HREF="med_doc_set.zip">medium</A>, and <A
+HREF="big_doc_set.zip">large</A>.  As noted above, your solution
+should work on the small and medium data sets within less than 10
+seconds (for typical values of the parameters, say <I>n</I>=6 and
+<I>T</I>=100), but it need not work on the large data set.  Each
+data set contains a file, called <TT>catchmeifyoucan.txt</TT>, which
+is definitely plagiarized -- but there may be other examples of
+plagiarism in each data set.
+
+    <H3>Grading</H3>
+
+    <TABLE border compact>
+
+      <TR><TD>  Design Document 1 </TD><TD> 40% </TD></TR>
+      <TR><TD>  Design Document 2 </TD><TD> 40% </TD></TR>
+      <TR><TD> Code </TD><TD> 20% </TD></TR>
+    </TABLE>
+
+<P>The design documents will be graded on clarity, appropriate level
+of detail, and quality of writing.  The code will be graded on
+correctness only, by running some reference tests.
+ 
+<P>Acknowledgment: This lab is based very closely on Baker Franke's
+  <A
+  HREF="http://nifty.stanford.edu/2008/franke-catch-plagiarists/">Catching
+  Plagiarists</A> lab, which is made available as part of the the
+  Stanford <A HREF="http://nifty.stanford.edu/">Nifty
+  Assignments repository</A>.
+ 
+  </BODY>
+</HTML>

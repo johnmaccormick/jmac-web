@@ -1,0 +1,71 @@
+<html><head>
+	<title>Returning Objects and Testing</title>
+	<!-- Changed by: , 20-May-2008 -->
+	<link href="../cs131.css" type="text/css" rel="stylesheet">
+</head>
+
+<body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Returning Objects and Testing<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review Sections 4.1-4.8 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/CoinCollection.zip"><i>CoinCollection</i></a><br>
+<!---<a href="../examples/VideoStore-Start.zip"><i>VideoStore-Start</i></a><br>--->
+<a href="../examples/VideoStore.zip"><i>VideoStore</i></a>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<LI>Fill in the body of the <code>moveDVDToEnd</code> method in the <code>VideoStore</code> class.
+
+<LI>Create test methods for your <code>moveDVDToEnd</code> method.  This method both removes from and adds to a collection. Thus your test methods should follow the Testing Rules for both situations.
+
+<LI>Fill in the body of the <code>getDVDIfInStock</code> method in the <code>VideoStore</code> class.
+
+<LI>Create test methods for your <code>getDVDIfInStock</code> method. Be sure that your test methods achieve statement coverage for your method.
+
+<!--
+<li>Add a <code>getNote</code> method to the <i>Notebook</i> project
+from the text. This method must accept an integer parameter indicating
+the position of the note to get, and must return a String containing
+the text of the note. If the position specified by the parameter is
+valid, this method returns the requested note. If the position is not
+valid (i.e. it would cause an <code>IndexOutOfBoundsException</code>),
+ this method prints an error message and returns <code>null</code>.
+</li>
+<li>Create test methods that provide statement coverage for your <code>getNote</code> method.
+</li>
+-->
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 7b</h3>
+<p>
+</p><ol>
+<li>Perform the following tasks using the <i>CoinCollection</i> project that you began working with in the last homework.
+
+<ol type="a">
+<li>Add a <code>getCoin</code> method to the <i>CoinCollection</i> class. This method must accept an integer parameter indicating the position of the <code>Coin</code> to get.  If the position specified by the parameter is valid, this method returns the requested <code>Coin</code>. If the position is not valid (i.e. it would cause an <code>IndexOutOfBoundsException</code>, this method prints an error message and returns <code>null</code>. You must also include a javadoc comment above this method describing what it does.  Use the comments above the methods in the <code>VideoStore</code> class as a model.
+</li>
+<li>Create test methods for all of the methods in your <code>CoinCollection</code>
+class. You will find it useful to create a test fixture before
+proceeding with these tests. It is suggested that you create a test
+fixture containing 3 or 4 <code>Coin</code> objects and a <code>CoinCollection</code> object. In completing your tests you should use the appropriate <a href="testing.html">Testing Rules</a> from class.
+</ol>
+
+<p>Save this project. You will be adding additional methods to it in the next several homework assignments. Once all of the assignments are complete, you will submit your project via Web-CAT.
+</li>
+</ol>
+
+</div></body></html>

@@ -1,0 +1,159 @@
+<html lang="en"><head><title>Class Constants and HashMap</title>
+	<!-- Changed by: , 21-Nov-2008 -->
+	
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Class Constants and <code>HashMap</code><hr></h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 5.5 - 5.6, 5.13 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/StudentDatabase-v1.zip"><i>StudentDatabase-v1</i></a> (<code>ArrayList</code> based)<br>
+<a href="../examples/StudentDatabase-v2.zip"><i>StudentDatabase-v2</i></a> (<code>HashMap</code> based)<br>
+<a href="../examples/FirstHashMap.zip"><i>FirstHashMap</i></a><br>
+<a href="../examples/LibraryDB.zip"><i>LibraryDB</i></a>
+<hr>
+
+<h3>Practice Exercises</h3>
+<p>
+    Use the <i>StudentDatabase-v1</i></a>
+    project to complete the following exercises:
+<ol>
+<li> Refactor the method that you added to the <code>RegistrarsOffice</code>
+    class to count and
+    display the number of students who are eligible to graduate with each
+    level of latin honors (from the last class meeting)
+    by declaring and using a constant for the minimum GPA required for each
+    level of latin honors.
+    These constants should be declared in the <code>Student</code> class.
+
+<li> Suppose that the only departments in the college are
+    MATH, COSCI, ENGL, PE and MISC.
+    Declare a constant in the <code>Course</code> class to represent each of
+    these possible departments.
+<li> Modify the constructor for the <code>Course</code> class so that the
+    department is
+    set to MISC if the parameter for the department is not one of  MATH,
+    COSCI, ENGL, or PE.  Use the constants that you defined in
+    the previous exercise.  Update the javadoc for the constructor
+    appropriately, and add a test case that verifies this new behavior.
+<li> Add a method to the <code>Student</code> class to count and
+    display, for each of the possible departments, the number of classes
+    that the student is taking in that department.
+    For example, the ouput from this method
+    might be:
+                                                                                
+<pre>
+MATH: 2
+COSCI: 1
+ENGL: 0
+PE: 0
+MISC: 1
+</pre>
+                                                                                
+    Use the constants that you have defined for the departments.
+ <p>
+  Be sure to include a javadoc comment for your method, and to write
+ test cases as needed.
+
+    <li> Refactor the <code>Student</code> class as follows:
+    change the <code>schedule</code> field from an 
+    <code>ArrayList</code> to a <code>HashMap</code>, and update all methods of 
+    the <code>Student</code> class except for <code>toString</code> and 
+    <code>print</code> to work correctly with the this change.
+    Use the combination of the course department and number as the key for the
+    <code>HashMap</code>, and the <code>Course</code> object as the value.
+    The department and number can be combined via string concatenation (+).
+    For example, if department contains the <code>String</code> "MATH" and
+    number contains 161, then <code>department + number</code> evaluates to
+    the <code>String</code> "MATH161".
+    Run the tests to verify that the program still works correctly (except
+    for the <code>toString</code> method).
+</ol>
+
+<p>
+<hr>
+<h3>Homework Assignment 10c</h3>
+<p>
+Complete the following exercises using
+the <i>LibraryDB</i>
+project that you have been working on for the last two homeworks.
+<ol>
+<li> Declare a constant of type <code>int</code> called
+ <code>OLD_BOOK_YEAR</code> with a value of 1900 in the
+ <code>Book</code> class.  Then write a method in the <code>Book</code>
+ class called <code>isOld</code> that returns true if the publication
+ year of the book is earlier than 1900, and false otherwise.  Use the
+ constant in your method definition.  Include a javadoc comment for your
+ method, and write test cases that achieve statement coverage.
+ <p>
+ Remember that you must use exactly the specified method name, parameters
+ (none) and return type (<code>boolean</code>), or Web-CAT will be unable
+ to grade your code.
+<li> Suppose that the library only has books with the subjects:
+ Math, Computer Science, History and Fly Fishing.  Declare a constant in
+ the <code>Book</code> class for each of these possible subjects.
+<li> Modify the constructor of the <code>Book</code> class so that it uses
+ the constants that you defined for the previous exercise.
+  Specifically, a new <code>Book</code> must be assigned one of the
+  four permitted subjects.  If the constructor parameter specifying
+  the subject is not one of the permitted ones, consider the book to
+  be about fly fishing.
+<!--- MMC: WebCAT deducts points for the following if the student's
+      favorit subject is not fly fishing. 
+  assign the book to your favorite of the four permitted subjects.
+--->
+  Make sure that
+ your test cases still pass.
+<li> Add a method called <code>countBooksBySubject</code> to the
+    <code>Library</code> class to count and
+    display, for each of the possible subjects, the number of books on
+    that subject that the library has.  For example, the ouput from this method
+    might be:
+                                                                                
+<pre>
+Number of books by subject area:
+Math: 5
+Computer Science: 3
+History: 6
+Fly Fishing: 897
+</pre>
+                                                                                
+ Use the constants that you have defined for the subjects.
+ Be sure to include a javadoc comment for your method, and to write
+ test cases as needed.
+
+   <li>  Perform the following refactoring:
+    change the <code>books</code> field of the <code>Library</code> class
+    from an 
+    <code>ArrayList</code> to a <code>HashMap</code>, and update the 
+    constructor and the <code>addBook</code>, <code>getBook</code>,
+    <code>checkOutBook</code> and <code>returnBook</code> methods of 
+    the <code>Library</code> class to work correctly with the this change.
+    Use the call number as the key for the
+    <code>HashMap</code>, and the <code>Book</code> object as the value.
+    For the moment, you should comment out the remaining methods
+    of the <code>Library</code> class (<code>hasBookByAuthor</code>,
+    <code>deleteBookByAuthor</code>, <code>print</code>, 
+    <code>countBooksBySubject</code>, and the method that
+    you added when refactoring <code>hasBookByAuthor</code> and
+    <code>deleteBookByAuthor</code>) so that it will compile.
+<p>
+    NOTE: for any method definition that you need to change, do NOT delete
+    the previous version of the method body.  Instead, simply comment it out
+    using <code>/*</code> and <code>*/</code> comments so that it will be
+    ignored by the compiler, and then put the new version of the method below
+    the old version.  Failure to comply with these instructions will result in
+    an immediate 15 point deduction.
+<p>
+  Save your <i>LibraryDB</i> project - you will be submitting it via
+ Web-CAT after completing the next homework assignment.
+</OL>
+
+</div></body></html>

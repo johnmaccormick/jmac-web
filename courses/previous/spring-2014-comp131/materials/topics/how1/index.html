@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en"><HEAD><TITLE>CS 131: Topic 6</TITLE>
+	<!-- Changed by: , 27-Jan-2010 -->
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2719.2200" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff>
+<DIV align=center><B><FONT size=+2>How Computers Work
+</B></FONT>
+<a name="Top"></a>
+<p align="center"><img border="0" src="../../Images/logo.gif" width="100" height="100"></p>
+<P></P></DIV>
+<HR>
+<H2>Outline</H2><BR>
+<UL>
+  <LI><A href="#review">Review of Basic Computer Hardware</A>  
+  <LI><A href="#cycles">Clock Cycles</A>  
+  <LI><A href="#words">CPU Wordsize</A>  
+  <LI><A href="#registers">More on Registers</A>  
+  <LI><A href="#buses">Buses</A>  
+  <LI><A href="#fetch">Fetch-decode-execute Cycle</A>  
+  <LI><A href="#memory">Memory Revisited</A>  
+<!--
+  <LI><A href="#monitor">How Does a Monitor Work?</A> 
+  <LI><A href="#intelproc">Summary of Intel Processors</A>
+--> 
+</UL><BR><BR>
+<HR>
+
+<SCRIPT language=Javascript>
+   document.write("Last Updated: " + document.lastModified);
+</SCRIPT>
+ 
+ <!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="review">Review of Basic Computer Hardware</a></b></p>
+
+<UL> 
+
+  <LI> Computer hardware is the set of physical components that make 
+up a computational device.
+
+  <LI> Some examples of hardware include:
+
+
+  <UL>
+      <LI> The output devices, such as a printer or monitor, that 
+provides feedback for the user;
+      <LI> The input devices, such as a mouse or keyboard, that are the 
+means by which a user interacts with the computer;
+      <LI> The motherboard, the electronic circuit board(s) that 
+contains many of the major components of the computer, 
+not the least of which is the Central Processing Unit.
+
+  </UL>
+
+<BR><BR>
+<CENTER> <B>von 
+Neumann architecture</B> </CENTER>
+<BR><BR>
+
+  <LI> A computer follows the von Neumann architecture (also known
+  as the stored program architecture) and has three basic parts:
+
+
+  <OL>
+      <LI> the central processing unit (CPU)
+      <LI> computer memory,
+      <LI> input and output devices (peripherals)
+
+  </OL>
+
+<CENTER>
+<IMG SRC="arch.gif">
+</CENTER>  
+
+<BR><BR>
+<CENTER> <B>The Central Processing Unit</B> </CENTER>
+<BR><BR>
+
+  <LI> The Central Processing Unit (CPU) functions as the "brain" of the 
+computer.
+
+  <UL>
+
+    <LI> It directs execution of instructions received from 
+software, and manages the low-level internal workings of the 
+computer.
+
+    <LI> It is composed of three parts:
+
+    <OL>
+      <LI> The Program Control Unit (PCU) acts as the "conductor" 
+of the computer
+
+      <UL>
+
+        <LI> It retrieves program instructions from main 
+memory and determines the type of instruction
+        <LI> It also 
+coordinates the transfer of data within the CPU and 
+throughout the computer.
+        <LI> Once decoded, most instructions are carried out by 
+Arithmetic Logic Unit (ALU).
+
+      </UL>
+
+
+      <LI> The Arithmetic Logic Unit functions as the "orchestra."
+
+      <UL>
+
+        <LI>  It 
+performs simple math operations on the inputs it is given, 
+and produces a result. 
+        <LI> These operations can be addition or 
+logic, such as AND and OR comparisons.
+
+      </UL>
+
+      <LI> Additionally, the CPU contains special memory cells called
+  registers that store the data the CPU is currently manipulating
+
+      <UL>
+
+        <LI> they function as a scratch space
+
+      </UL>
+
+    </OL>
+
+  </UL>
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="cycles">Clock Cycles</a></b></p>
+
+<UL> 
+
+      <LI> A clock cycle
+      <UL>
+
+          <LI> a measure of the time required to transfer items 
+between the components of the CPU.
+
+          <LI> CPU clock speed now measured in Megahertz (Mhz) or Gigahertz (GHz), 
+which means millions or billions of cycles per second, respectively.
+	  <LI> Intel has a 3.2 GHz Pentium IV
+	  processor and AMD (Advanced Micro 
+Design) also has processors over 2 GHz.
+          <LI> The PowerPC G4 processors on the lab machines run at 800 Mhz.
+          <LI> Since data is transferred as electronic signals, the speed 
+of transfers on the chip is limited by the speed at which an electron
+can move.
+          <LI> The distance between the components becomes a factor 
+in clock speed --- the shorter the distance, the faster the 
+execution.
+          <UL> 
+            <LI> This is one reason why people strive to make chips as 
+small as possible.
+            <LI> Another reason is that you can manufacture more chips 
+from the same amount of material
+	  </UL>
+
+       </UL>
+        
+       <LI> Distance is also a factor in main memory access time vs. 
+cache access time
+          <UL> 
+            <LI> Recall that cache is very fast memory that is physically close to the CPU and holds a copy of portions of main memory
+
+            <UL>
+              <LI> when a memory access would normally occur, cache is first examined to determine if it has a copy of that piece of data
+            </UL>
+
+            <LI>  If you think of the the distance from the CPU to 
+cache located on the same chip as the distance from 
+Carlisle to Baltimore
+
+            <UL>
+              <LI> then the distance to memory off chip is 
+about the distance from Carlisle to the Sun
+            </UL>
+
+	  </UL>
+ 
+
+ 
+
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+<HR>
+<p align="left"><b><a name="words">CPU Word Size</a></b></p>
+
+<UL> 
+
+  <LI> Word size
+  <UL>
+      <LI> the number of bits that can be stored by a register in the CPU
+      <LI> on some machines, it is also a measure of the amount of data that can 
+be moved to the CPU in a single transfer.
+      <UL> 
+        <LI> generally includes both the data 
+coming from main memory and from I/O devices.
+      </UL>
+
+  </UL>
+
+
+  <LI> The Intel Pentium IV has a word size of 32 bits.  
+
+  <UL>
+     <LI> We often say it has a "32-bit architecture".
+     <LI> The PowerPC G4 processor on the lab machines is also a 32 bit processor. 
+  </UL>
+
+
+  <LI> Other processors in higher-end machines have already moved 
+to 64 bits
+
+  <UL>
+      <LI>  Intel's 64-bit Itanium chip is an example of such a
+      processor and is used on machines that run as servers.
+      <LI>  The PowerPC G5 seen on Apple's new G5 machines also has a word size of 64 bits. 
+  </UL>
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="registers">More on Registers</a></b></p>
+
+<UL> 
+
+  <LI> The CPU contains small, high-speed memory cells used to store temporary 
+results produced by the ALU as well as certain control information. 
+  <UL>
+      <LI> As we have already seen, this memory is called registers.
+  </UL>
+
+
+  <LI> The early IBM PCs had only 16 registers; the first Pentium chips 
+  moved to 32.
+
+  <LI> Some registers on a CPU always store a  particular type of value.
+
+  <UL>
+      <LI> An example of such a dedicated register is the Program 
+Counter (PC) register 
+
+      <UL>
+        <LI> contains the memory address of the next 
+instruction to be executed.
+        <LI> sometimes called the IP (Instruction Pointer)
+      </UL>
+      <LI> Another is the Instruction Register (IR) 
+
+      <UL>
+        <LI> holds a copy
+      of the next machine instruction to be executed
+      </UL>
+  </UL>
+
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="buses">Buses</a></b></p>
+
+<UL> 
+
+  <LI> A bus is a pathway for sending electrical signals between components. 
+
+  <UL>
+    <LI> it is used for communication between the CPU and 
+other devices, as well as among the devices themselves.
+  </UL>
+
+  <LI> Between memory and the CPU are three main buses
+
+  <UL>
+      <LI> The data bus
+
+      <UL>
+
+          <LI> transfers a word of data at a time between memory and the CPU
+
+      </UL>
+
+
+      <LI> The address bus
+
+      <UL>
+
+          <LI> transfers the address that indicates which location in
+  memory we wish to access
+
+          <LI> Suppose a computer needs to access 4 billion 
+pieces of information with distinct memory addresses
+
+          <UL>
+             <LI> it 
+would need to use a 32 bit (4 byte) address to distinguish each
+location
+
+          </UL> 
+
+          <LI> Why?
+Because each each bit is binary and  2<SUP>32</SUP> is about 4 billion (4 GB).
+
+          <LI> For a processor with a 16-bit wide bus, two transfers would be
+needed to assemble the address for each piece of memory, slowing
+things down considerably.
+
+  </UL>
+
+      <LI> The control bus
+
+      <UL>
+
+          <LI> transfers control signals indicating whether we are
+	  reading to or writing from memory
+
+      </UL>
+
+     
+  </UL>
+
+  <LI> These three buses are often grouped together and called the
+  system bus or external bus (because it handles communication with
+  devices external to the CPU)
+
+  <UL>
+
+    <LI> The system bus may also be connected to other peripherals,
+    such as various disk drives
+
+  </UL>
+
+  <LI> The internal CPU bus and the system bus often operate at 
+different speeds, with the CPU bus being much faster.
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="fetch">Fetch-decode-execute Cycle</a></b></p>
+
+<UL> 
+
+  <LI> Instructions execute within a CPU in a fetch-decode-execute cycle.
+
+  <LI> This is common across all computers (at least at a slightly abstract level).  The cycle proceeds as follows:
+
+
+  <OL>
+      <LI> Fetch the next instruction from memory into the Instruction 
+Register (IR).
+      <LI> Change the Program Counter (PC) to contain the memory 
+address of the following instruction.
+      <LI> Determine the type of instruction.
+      <LI> If the instruction uses data in memory, determine the addresses 
+of the data items.
+      <LI> If needed, fetch the data from the specified memory addresses 
+into the CPU registers.
+      <LI> Execute the instruction.
+      <LI> Store the results into the proper place, whether a register, disk, 
+or main memory.
+      <LI> Return to step 1 and repeat as needed.
+
+  </OL>
+
+  <LI> Note that a single fetch-decode-execute cycle can take several clock
+cycles
+ 
+  <UL>
+    <LI> though modern processors can reach sustained speeds of one
+    instruction per clock cycle (sometimes more!) 
+  </UL>
+  <LI> a fetch-decode-execute cycle is sometimes called a CPU cycle
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="memory">Memory Revisited</a></b></p>
+
+<UL> 
+
+  <LI> When I discussed main memory, I also called it RAM, which stands 
+for Random Access Memory
+
+  <UL>
+      <LI> in random access memory, the time needed to access data is 
+independent of its location
+   </UL>
+
+
+  <LI> This is in contrast to sequential access memory (SAM)
+
+  <UL>
+      <LI> in which the 
+time to access a memory location increases with the distance between 
+the current and desired memory location
+
+      <UL>
+          <LI> Consider a cassette tape 
+          <UL>
+               <LI> to get to a song you need to move 
+through the tape until you reach the song you are looking for
+          </UL>
+	  <LI> In a CD, you can simply jump to the song's location 
+          <UL>
+               <LI> random access 
+               <LI> of course, once you are there you must listen to the 
+song in sequential order, which is why a CD is sometimes called 
+a Direct Access Sequential Disk (DASD)
+          </UL>
+
+     </UL>
+  </UL>
+
+  <LI> A cassette tape is also an example of another way to characterize 
+memory :
+
+  <UL>
+      <LI> since you can store data over the data that is already there, it is 
+called Read/Write (R/W) memory
+      <LI> obviously, a computer's main memory is R/W
+  </UL>
+
+  <LI> A music CD, meanwhile, cannot be overwritten with new data
+
+  <UL>
+
+     <LI> it is an example of a Read-Only Memory (ROM) device
+     <LI> every computer also has a part of memory that is read only; in 
+fact, this part is called ROM
+     <UL> 
+       <LI> technically speaking ROM is 
+random access memory, but the acronym RAM is generally used to mean the 
+area of memory on a machine that is R/W memory
+     </UL>
+     <LI> we already talked about how ROM is utilized when we "boot
+     up" a personal computer
+
+  </UL>
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+
+<HR>
+<p align="left"><b><a name="monitor">How Does a Monitor Work?</a></b></p>
+
+<UL> 
+
+  <LI> Key component: cathode ray tube (CRT)
+
+  <UL>
+      <LI> consists of a screen of phosphorescent dots or phosphors
+      <LI> phosphors are too small to be seen individually, but may be 
+combined to represent individual picture elements (or pixels)
+      <LI> when a phosphor is excited by an electron gun at the end of the 
+tube, it glows at an intensity that is a function of the voltage level 
+fed to the gun
+
+      <LI> this glow lasts for only a short period, so screen must be 
+refreshed
+
+  </UL>
+
+  <LI> Refresh rate is the number of times per second a phosphor is 
+refreshed
+
+  <UL>
+      <LI> monitors refresh by scanning along a horizontal line
+      <LI> lines are scanned from top to bottom
+      <LI> most monitors have rates > 60 Hz (cycles per second); meaning 
+that in 1 second the entire screen is refreshed 60+ times
+
+  </UL>
+
+  <LI> Color
+
+      <UL>
+
+          <LI> each pixel is actually composed of 3 phosphors, each of the 
+three primary colors (red, green, and blue)
+	  <LI> three electron guns are used to produce potentially different 
+intensities for each phosphor
+          <LI> human beings perceive the combination of intensities of these 
+three phosphors as a single pixel
+
+      </UL>
+    
+
+  <LI> Mask
+
+  <UL>
+	<LI> the beams of the electron guns are focused more precisely using 
+a mask that is situated between the guns and the screen
+	<LI> the pitch is the distance between mask apertures
+	<LI> smaller dot pitch gives a crisper image
+  </UL>
+
+  <LI> Display resolution
+
+  <UL>
+	<LI> a 1024 X 768 monitor displays 1024 pixels per line and 768 lines
+  </UL>
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+-->
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+<!--<HR>-->
+<!--<p align="left"><b><a name="intelproc">Summary of Intel Processors</a></b></p>-->
+
+<!--<UL> -->
+
+<!--  <LI> <A-->
+<!--  HREF="http://webinstituteforteachers.org/~dmoore/IntroBasicWebDesign/cpu.htm">-->
+<!--  Table of Intel Processor Features</A> (scroll down for table) [from webinstituteforteachers.org]-->
+
+
+<!--</UL>-->
+<!--</p>-->
+<!--<p align="right">-->
+<!--<A href="#Top">Back to Contents</a>-->
+<!--</p>-->
+<!--<hr>-->
+
+</BODY></HTML>

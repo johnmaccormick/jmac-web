@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-10</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Topic #10
+          &#8211;&nbsp;&nbsp; <span style="mso-spacerun:yes"></span>Printing,
+          <span style="mso-spacerun:yes">&nbsp;</span>String
+          Concatenation and Integer Division<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Recap:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><b style="mso-bidi-font-weight:normal">Accessor Methods </b>-
+        Return information about the object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">non-</span><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">void</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> return type
+        and </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> Statement<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><b style="mso-bidi-font-weight:normal">Mutator Method - </b>Modify
+        the object&#8217;s state<b style="mso-bidi-font-weight:normal"><o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">void</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> return type<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>No return statement needed<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Methods can
+        also &#8220;print&#8221; information, causing it to be displayed in a <b
+          style="mso-bidi-font-weight:normal"><span
+            style="color:#C0504D">Terminal Window</span></b>.<span
+          style="mso-spacerun:yes">&nbsp; </span><span
+          style="mso-tab-count:1">&nbsp; </span>The </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:#3366FF">print</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> method in
+        the </span><span style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Account</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"> class is
+        one such method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>The </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">getBalance</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method uses
+        a </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> statement to
+        return its value.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>The </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">print</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method uses
+      </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">System.out.println</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> to display
+        its output on the terminal.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span style="font-size:
+16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;color:#C0504D">System.out</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> is an object
+        built into Java.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span style="font-size:
+16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;color:#C0504D">println</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> is a method
+        that can be invoked on that object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Invoking the
+      </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">println</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method
+        causes the actual parameter to be printed to the terminal
+        window.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:#3366FF">+</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> <span
+            style="mso-spacerun:yes">&nbsp;&nbsp;</span>is a <span
+            style="color:#C0504D">concatenation</span> operator (when
+          used between Strings).<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">And if one
+        of the operands is a String and the other isn&#8217;t, then a <u>copy</u>
+        of the value of the one that isn&#8217;t a string is first converted
+        to a string and then used in the concatenation.<o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">"Account
+        number: " <span style="color:#3366FF">+</span> acctNumber<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">Assuming
+        that acctNumber is of type int, this causes the value of the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">acctNumber</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> field
+        (copied and converted to a string value) to be concatenated onto
+        the end of the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">&#8220;Account Number&#8221;</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"> and the
+        resulting </span><span style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> is used as
+        the actual parameter to the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">println</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Similarly for the second line: <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">"Balance
+is:
+
+        " <span style="color:#3366FF">+</span> balance <span
+          style="color: #3366FF">+</span> " cents."<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">The value of
+        the </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">balance</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> field to be
+        concatenated onto the end of the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">String &#8220;Balance is&#8221;</span><span
+        style="font-size: 16.0pt;mso-bidi-font-size:10.0pt"> producing </span><span
+        style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">&#8220;Balance
+        is 567&#8221;</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">.<span
+          style="mso-spacerun:yes">&nbsp; </span>The second + <b
+          style="mso-bidi-font-weight: normal">then</b> causes the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">String &#8220; cents.&#8221;</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"> to be
+        concatenated onto the end of <b
+          style="mso-bidi-font-weight:normal">that</b> </span><span
+        style="font-size:
+        16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">String</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> and the
+        whole thing is then used as the actual parameter to the </span><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">println</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">So notice
+        that <b style="mso-bidi-font-weight:normal">+ has two meanings</b>.<span
+          style="mso-spacerun:yes">&nbsp; </span><span
+          style="color:#3366FF">Addition</span> and <span
+          style="color:#3366FF">concatenation</span>.<span
+          style="mso-spacerun:yes">&nbsp; </span>You should be able to
+        tell the difference between the two by the <span
+          style="color:#C0504D">context</span> in which it is used.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span style="font-size:16.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">567 + 321</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>(addition)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">&#8220;testing
+&#8220;
+
+        + 123</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>(concatenation)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">balance
++
+
+        7</span><span style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span><span style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>(addition)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">&#8220;345&#8221;
+
+        + &#8220;876&#8221;</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>(concatenation)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">&#8220;balance&#8221;
++
+
+        &#8220;9&#8221;</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>(concatenation)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Let&#8217;s
+        make an improvement to the </span><span style="font-size:
+16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;color:green">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;color:green">
+        class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">It would be
+        nice if instead of printing out the balance of the account in
+        cents it were printed out in a more natural way such as in
+        dollars and cents.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">There are 2
+        arithmetic operations in Java that will help us with this task:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span><span style="color:#C0504D">Integer Division</span></span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> which is
+        implemented using the <b style="mso-bidi-font-weight:normal"><span
+            style="color:#3366FF">/</span> operator<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span><span style="color:#C0504D">Modulo</span> (remainder)</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> which is
+        implemented using the <b style="mso-bidi-font-weight:normal"><span
+            style="color:#3366FF">%</span> operator</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">In Java when
+        two </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:#C0504D">int</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> values are
+        divided the result is also an </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">int</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">E.g.<span
+          style="mso-tab-count: 1">&nbsp;&nbsp; </span><b
+          style="mso-bidi-font-weight:normal">7/2 is 3<span
+            style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>// truncated = fractional parts are lost<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>9/4 is ???<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>567 / 100 is ???<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">In Java the
+      </span><span style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:#3366FF">%</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> operator
+        computes the <b style="mso-bidi-font-weight:normal">remainder</b>
+        of a division.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>E.g. <span style="mso-tab-count:1">&nbsp; </span><b
+          style="mso-bidi-font-weight:normal">7 % 2 is 1.<span
+            style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+            style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp; </span>// Only
+        </b>remainder is kept<b style="mso-bidi-font-weight:normal"><o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>9 % 4 is ???<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">9 % 5 is
+          ???<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">10 % 5 is
+          ???<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><b
+        style="mso-bidi-font-weight: normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">567 % 100
+          is ???</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">So, we can
+        convert cents to dollars and cents.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Modify the print method:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">System.out.println("Balance
+is:
+
+        $" + (<b style="mso-bidi-font-weight:normal">balance/100</b>) +<span
+          style="mso-spacerun:yes">&nbsp; </span>&#8220;.&#8221;<span
+          style="mso-spacerun:yes">&nbsp; </span>+ (<b
+          style="mso-bidi-font-weight:normal">balance%100</b>) + ".");</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>There is, however, a problem with this code!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">What would
+        the output be if we have a balance of say 307. <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span></span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Balance
+is:
+
+        $3.7.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt">This <b
+          style="mso-bidi-font-weight:normal">can</b> be fixed by just
+        using / and % operations, but we will learn a better way to <span
+          style="color:#C0504D">format</span> output later on.<span
+          style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt; color:green">Do
+        the practice exercises.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">These
+        exercises ask you to create a new class from scratch (the
+        homework then asks you to do a different one).<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>That is you will have to:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Define the
+        fields of the class.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Define the constructor of the class.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </span>Write the methods for the class.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Use this </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> example and
+        the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">TicketMachine</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"> example
+        from the text as a guide.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">The code for
+        the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Account</span><span
+        style="font-size:16.0pt;mso-bidi-font-size: 10.0pt"> example can
+        be downloaded from the course page.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt">The code for
+        the </span><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">TicketMachine</span><span
+        style="font-size:16.0pt; mso-bidi-font-size:10.0pt"> is on your
+        CD (and you may have copied it to your account).<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:16.0pt;mso-bidi-font-size:10.0pt">Having one
+          or both of these projects open to look at while you create
+          your own classes can be a big help</span></b><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"> in
+        remembering exactly what the source code should look like. Try
+        to pay attention to what is the same in each class and what
+        differs from class to class.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:16.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>585</o:Words>
+  <o:Characters>3341</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>27</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>3919</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

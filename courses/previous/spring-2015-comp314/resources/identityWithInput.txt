@@ -1,0 +1,6 @@
+# Python program identityFunction.py
+def identity(input):
+    return input
+##end-of-program##
+wallaby
+wombat

@@ -1,0 +1,114 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Lab #2 - Assembly Language Programming</TITLE>
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+	   <SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+   </SCRIPT>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Lab #2 - Assembly Language Programming</H2>
+<HR>
+</CENTER>
+
+<P>
+Use the <a
+href="javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/machine.html','KSM')">Knob
+&amp; Switch Computer with Assembler</A>  to answer the following questions.
+Middle click to see the
+<a href="http://dickinson.edu/~braught/kands/KandS2/instructions.html">
+assembly language instruction set</A> in another window.
+Hand in a print out of your answers at the start of the next lab period.
+If the answer to a question is an assembly language program, please list the
+memory location that the instruction is stored in before each instruction
+(as in the examples below).
+<OL>
+<LI>Consider the following contents of Main Memory:
+<XMP>
+    0:  LOAD R0 5
+    1:  LOAD R1 6
+    2:  SUB R2 R1 R0
+    3:  STORE 7 R2
+    4:  HALT
+    5:  10
+    6:  5
+    7:  0
+</XMP>
+What is the result of executing this stored program (i.e. what values are
+placed into which memory locations)?
+<br><br>
+<LI>Consider the following contents of Main Memory:
+<XMP>
+    0:  LOAD R0 7
+    1:  LOAD R1 8
+    2:  ADD R2 R1 R0
+    3:  LOAD R3 9
+    4:  SUB R0 R3 R2
+    5:  STORE 10 R0
+    6:  HALT
+    7:  3
+    8:  5
+    9:  10
+   10:  0
+</XMP>
+What is the result of executing this stored program with the given values?<BR><BR>
+Try replacing the contents of memory locations 7, 8, and 9 with other
+values.  Based on your experiments, if we associate the variable name
+<I>a</I> with location 7, the name <I>b</I> with location 8, the name
+<I>c</I> with location 9, and the name <I>d</I> with location 10, what
+value are we computing?  (Your answer should be an equation using the
+variables <i>a</i>, <i>b</i>, <i>c</i> and <i>d</i>.)
+<br>
+<br>
+<LI>List a sequence of assembly language instructions (an assembly language
+ program) for subtracting the content of Main Memory cell 9 from the content
+ of Main Memory cell 8 and storing the result in Main Memory cell 10.
+ In pseudocode:
+<XMP>
+    MM[10] = MM[8] - MM[9]
+</XMP>
+
+<LI> Write an assembly language program to sum the numbers in locations
+ 13, 14, and 15, and store the result in location 16.
+ In pseudocode:
+<XMP>
+    MM[16] = MM[13] + MM[14] + MM[15]
+</XMP>
+
+<LI> Write an assembly language program to find the larger of the numbers
+ stored in locations 13 and 14, and put that number into location 15.
+<br>
+<br>
+
+<LI> Write an assembly language program to store the absolute value of
+ MM[12] + MM[13] into MM[14].  
+<br>
+<br>
+
+<LI> Bonus Question: 
+ Write an assembly language program to compute the sum of all of the numbers
+ between 1 and the number stored in MM[30], and store the result in MM[31].
+ For example, if the value 5 is stored in memory location 30 then your program
+ would store 15 (1 + 2 + 3 + 4 + 5) in memory location 31.
+ You may assume that the value 1 is stored in MM[29] and that the value in 
+ MM[30] is greater than 0.  NOTE: You will have to manually enter values into
+ MM[29] and MM[30].
+<br>
+<br>
+
+</OL>
+</BODY>
+
+</HTML>
+
+
+
+
+

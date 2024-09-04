@@ -1,0 +1,649 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Detailed schedule and class resources</TITLE>
+    <!-- Changed by: , 18-Nov-2010 -->
+  </HEAD>
+  <BODY>
+    <H1>Detailed schedule and class resources</H1>
+
+Notation (applies to the summary schedule also): Any section number
+(e.g. 3.5) refers to the textbook, Russell and Norvig. PA1 =
+Programming assignment 1. E2 = exam 2. PP2 = paper presentation,
+milestone 2. FP1 = final project, milestone 1.
+
+<h4><FONT COLOR="000066">Class 1: Tuesday, August 30</FONT></h4>
+
+Introduction to course and discussion of syllabus.  Elementary notions
+of classical search. Discussion of the missionaries and cannibals
+problem (see Wikipedia for a definition, if desired, but don't read
+about how to solve
+it). <A HREF="SimpleCannibals.java">SimpleCannibals.java</A>
+demonstrates one possible approach -- but note that this code is
+incomplete (look at the end of the <TT>findSolution()</TT> method to
+see where).
+
+<P>Ungraded homework, due by class 2: 
+  <UL>
+    <LI>Read and understand the <A
+HREF="SimpleCannibals.java">SimpleCannibals.java</A> code.</LI>
+
+
+    <LI>Make a list of all questions you have about this code.  The
+    questions need not be related to artificial intelligence -- it
+    is crucial that you understand all of the Java used in this
+    code, so make a note of any Java features that are not clear to
+    you.  We will discuss these questions in class 2.</LI>
+
+    <LI>Complete the two challenges in the code (search for the word
+    "challenge" to find them).</LI>
+  </UL>
+
+<P>Optional reading, for interest only: A good article on
+river-crossing problems is <i>"The Jealous Husbands" and "The
+Missionaries and Cannibals"</i>, Ian Pressman and David Singmaster,
+The Mathematical Gazette, Vol. 73, No. 464 (Jun., 1989),
+pp. 73-81, <a href="http://www.jstor.org/stable/3619658">http://www.jstor.org/stable/3619658</a>.
+
+<h4><FONT COLOR="000066">Class 2: Friday, September 2</FONT></h4>
+
+Required reading: 3.1-3.4
+
+<P>Some elementary notes on terminology for graphs are
+provided: <a href="graph-theory-basics.pdf">graph-theory-basics.pdf</a>.
+
+<P>Stuart Russell's lecture
+notes: <A HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter03.pdf">slides</A>, <A HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter03-6pp.pdf">handouts</A>.
+Warning: these slides correspond to an earlier edition of the
+textbook, so there are some inconsistencies with the latest edition
+(e.g. <i>fringe</i> versus <i>frontier</i>, <i>successor-function</i>
+versus <i>actions</i>).
+
+<P>All algorithms from the latest edition, written in pseudocode, in
+one
+place: <a href="http://aima.cs.berkeley.edu/algorithms.pdf">algorithms.pdf</a>.
+
+  <P>Ungraded homework: read the instructions and code
+  for <A HREF="../prog-assts/prog-asst-1.html">programming assignment
+  1</A>, and bring any questions about the code to the next class.
+
+<P> Sample exam questions: 
+  <UL>
+    <LI>3.6a, 3.10, 3.15a, 3.15b</LI>
+
+    <LI> For each of the uninformed strategies studied
+    (breadth-first, uniform-cost, depth-first, 
+    iterative deepening), explain a chief advantage or a chief
+    disadvantage of the strategy compared to one of the other
+    strategies. (See table on Figure 3.21 in the textbook, and my
+    <a href="uninformed-pros-and-cons.pdf">own solution</a>.)</LI>
+
+
+    <LI> For each of the uninformed strategies studied, given the
+    current state of the algorithm (e.g. the frontier set and the
+    explored set) be able to specify the next node to be expanded.
+    For example, given any of the trees in figure 3.16 or 3.19, be
+    able to specify the next tree in the figure.</LI>
+
+  </UL>
+
+
+<h4><FONT COLOR="000066">Class 3: Tuesday, September 6</FONT></h4>
+
+Required reading: 3.5
+
+<!-- <P>Please see -->
+<!-- this <a href="http://users.dickinson.edu/~jmac/workaround.html">temporary -->
+<!-- workaround for Tome mac permissions issues</a>, especially for -->
+<!-- unzipping .zip files. -->
+
+<P><A HREF="romania-map.pdf">Romania map</A>
+
+  <P><A HREF="uniform-cost-example.pdf">Simple example</A> in which uniform-cost search needs to replace an
+element in the frontier with a lower-cost node.
+
+<P>Table showing <a href="uninformed-pros-and-cons.pdf">advantages and disadvantages of uninformed search algorithms</a>.
+
+
+<P>a very nice animation of A* search in action, created by
+Prof. Graham Kendall of the University of
+Nottingham: <a href="astar-demo.pptx">astar-demo.pptx</a>.
+
+<P>Sample exam question: given a problem and an admissible heuristic
+function, be able to explain the order in which nodes are
+expanded. (e.g.  on the Romania map above.)
+
+<h4><FONT COLOR="000066">Class 4: Friday, September 9</FONT></h4>
+
+Required reading: 3.6
+
+<P><a href="class4-student-notes.pdf">Lecture notes</a> for class 4.
+
+<P>For interest only: <a href="goldberg-pres.pdf">presentation by
+Andrew Goldberg</a> describing some algorithms behind Bing maps route
+planning, and the <a href="goldberg-soda10-paper.pdf">2010
+publication</a> containing the rigorous results behind this work.
+
+<P> Sample exam questions: 3.14, 3.27, "Prove that a consistent
+heuristic is also admissible," "State the optimality properties of A*
+search for consistent, admissible, and inadmissible heuristics."
+
+<h4><FONT COLOR="000066">Class 5: Tuesday, September 13</FONT></h4>
+
+Required reading: 
+<UL>
+  <LI><I><a href="http://www.jstor.org/stable/2251299">Computing
+machinery and intelligence</a></I>, A. M. Turing, Mind 59(236),
+October 1950.  You must bring with you to class
+either an electronic copy (e.g. on a laptop or tablet) or a printout
+of the reading.  Be prepared for an interactive discussion, including
+answers to the following two questions: In your opinion, what is
+the <I>most</I> compelling of the nine objections listed in Section 6?
+What is the <I>least</I> compelling?</LI>
+  <LI>1.1, 1.2, 1.4</LI> </UL> 
+
+<P> Class will consist of
+  discussion of the readings.  
+
+  <P>Here is a link to
+  a <A HREF="http://www.pandorabots.com/pandora/talk?botid=f5d922d97e345aa1">chatbot</A>
+  we can use to try a real live Turing test. Another one we can
+  try: <a href="http://www.cleverbot.com/">cleverbot</a>.
+
+<!-- <P>Many news organizations reported a breakthrough in passing the -->
+<!-- Turing test a couple of years ago. For example, here's a 6/8/14 report -->
+<!-- from The Independent, a reputable mainstream British newspaper: -->
+
+<!-- <ul> -->
+<!--   <li><a href="http://www.independent.co.uk/life-style/gadgets-and-tech/computer-becomes-first-to-pass-turing-test-in-artificial-intelligence-milestone-but-academics-warn-of-dangerous-future-9508370.html">http://www.independent.co.uk/life-style/gadgets-and-tech/computer-becomes-first-to-pass-turing-test-in-artificial-intelligence-milestone-but-academics-warn-of-dangerous-future-9508370.html</a> -->
+<!-- </ul> -->
+
+<!-- <P>However, others are skeptical of the way this "breakthrough" was reported. The following article from techdirt.com takes this skeptical angle: -->
+<!-- <ul> -->
+<!--   <li><a href="https://www.techdirt.com/articles/20140609/07284327524/no-computer-did-not-pass-turing-test-first-time-everyone-should-know-better.shtml">https://www.techdirt.com/articles/20140609/07284327524/no-computer-did-not-pass-turing-test-first-time-everyone-should-know-better.shtml</a> -->
+<!-- </ul> -->
+
+<P> Sample exam questions: 
+
+  <UL>
+    <LI>Do you believe the Turing Test is a valid approach for
+  defining whether a machine can think?  Justify your answer in a few
+  sentences.</LI>
+
+    <LI>Select two of the objections listed in Turing's 1950 paper on
+  AI. For each objection you select, describe the objection itself in
+  one sentence, then explain Turing's rebuttal of the objection in
+  another sentence or two.</LI>
+  </UL>
+
+
+<h4><FONT COLOR="000066">Class 6: Friday, September 16</FONT></h4>
+
+Required reading: 5.1-5.2
+
+<P>Stuart Russell's lecture notes:  <A HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06.pdf">slides</A>, <A HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06-6pp.pdf">handouts</A>.
+
+<P>Sidetrack on simultaneous games with mixed strategies (not
+examinable): Examples
+include <a href="http://en.wikipedia.org/wiki/Matching_pennies">matching
+pennies</a>
+and <a href="http://pricetheory.uchicago.edu/levitt/Papers/ChiapporiGrosecloseLevitt2002.pdf">penalty
+kicks in soccer.</a>
+
+<P> Sample exam questions:
+
+  <UL>
+    <LI>define zero-sum game; give a well-known example of a game
+    that is zero-sum, and a game that is not zero-sum.</LI>
+
+<LI>be able to fill in the minimax values on a game tree, such as
+the one in figure 5.2
+
+<LI>5.8, 5.9a-d
+
+  </UL>
+
+<h4><FONT COLOR="000066">Class 7: Tuesday, September 20</FONT></h4>
+
+Required reading: 5.3
+
+<P>Stuart Russell's lecture notes (same link as previous class): <A
+HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06.pdf">slides</A>,
+<A
+HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06-6pp.pdf">handouts</A>.
+
+<P>My own <A HREF="alpha-beta-pruning-lecture-notes.pdf">lecture notes
+on alpha-beta pruning</A>.
+
+<P>Today's <a href="alpha-beta-pruning-handout.pdf">handout on
+alpha-beta pruning</a>.
+
+<P>Optional reading: Knuth, D. E., and Moore, R. W., An analysis of
+  Alpha-Beta pruning, <I>Artificial Intelligence</I>, 6:293-326, 1975
+  (Available on Moodle).  This is a beautifully-written paper, and is
+  the standard reference for the best-case complexity analysis of
+  alpha-beta pruning. I recommend skimming the math and enjoying the
+  commentary sections.  See the lecture notes for a few more pointers.
+
+
+<P> Sample exam questions:
+
+  <UL>
+<LI>Be able to fill in the alpha and beta values on a game tree, as in the lecture notes above.
+    <LI>5.9, 5.10a, 5.10d (it is fine to make a few additional assumptions for this question) </LI>
+  </UL>
+
+<P>You now have (nearly) all the background you need for programming
+assignment 2!
+
+
+<h4><FONT COLOR="000066">Class 8: Friday, September 23</FONT></h4>
+
+Required reading: 5.4
+
+
+<P>Stuart Russell's lecture notes are again relevant (same link as
+previous
+class): <A HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06.pdf">slides</A>,
+<A
+HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter06-6pp.pdf">handouts</A>.
+
+<P>The instructor's <a href="search-cutoff-notes.pdf">lecture notes on
+search cutoff</a> are available.
+
+<P>Optional reading: Jonathan Schaeffer et al., Checkers is Solved,
+<I>Science</I>, 14 September 2007: Vol. 317. no. 5844, pp. 1518 -
+1522.  Fulltext PDF available electronically from Dickinson Library.
+
+<P>Note that the textbook commentary on computer Go has been
+superseded by striking developments over the last two years. Google's
+DeepMind unit (originally a separate company based in London) has
+created a program called AlphaGo that has beaten the leading human
+player.  For details, see
+the <a href="https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf">technical
+article</a> published in Nature, and
+the <a href="https://deepmind.com/research/alphago/">AlphaGo
+website</a>.
+
+<P> Sample exam questions:
+  <UL>
+    In your own words, give one-sentence informal descriptions
+    of <i>quiescence</i> and <i>horizon effect</i>, as they relate to
+    searching game trees with cutoff.
+    <!-- <LI>5.16, 5.19</LI> -->
+  </UL>
+
+
+<h4><FONT COLOR="000066">Class 9: Tuesday, September 27</FONT></h4>
+
+Required reading: 5.5-5.7.
+
+<P>The instructor's <a href="stochastic-games-notes.pdf">lecture notes on
+stochastic games</a> are available.
+
+
+<P> Sample exam questions:
+  <UL>
+    <LI>5.16, 5.19</LI>
+  </UL>
+
+
+<h4><FONT COLOR="000066">Class 10: Friday, September 30</FONT></h4>
+
+Lab day. Before class begins, make as much progress as possible on
+PA2. In class, you can work on this assignment and receive individual
+help from the instructor.
+
+<h4><FONT COLOR="000066">Class 11: Tuesday, October 4</FONT></h4>
+
+Required reading: 4.1, 4.3, 4.4.
+
+<P>Stuart Russell's lecture notes: <A
+HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter04b.pdf">slides</A>,
+<A
+HREF="http://aima.eecs.berkeley.edu/slides-pdf/chapter04b-6pp.pdf">handouts</A>.
+
+<P>Java code demonstrating some of the algorithms discussed:
+  <UL>
+    <LI><a href="HillClimbing.java">HillClimbing.java</a>
+    <LI><a href="SimulatedAnnealing.java">SimulatedAnnealing.java</a>
+    <LI><a href="GeneticAlgorithm.java">GeneticAlgorithm.java</a>
+  </UL>
+
+
+<P>Handout on <A HREF="non-classical-search-handout.pdf">non
+classical-search</A>. And <a href="other-search-techniques-notes.pdf">my
+lecture notes</a>. Also on Moodle is a file containing a few key
+figures from the textbook,
+called <tt>other-search-techniques-figs.pdf</tt> (it's on Moodle for
+copyright reasons--feel free to download it for personal use).
+
+
+<P> Sample exam questions:
+  <UL>
+    <LI>Be able to give a brief description (a few sentences) of each
+    of the following algorithms: hill-climbing (including stochastic,
+    first choice, random-restart), genetic algorithm.
+    <!-- <LI>4.1 a, b, and e. -->
+    <LI>Be able to specify the solution of an AND-OR tree, such as
+    figure 4.10.
+    <LI>4.10, and the exercises in the link to the handout above
+  </UL>
+
+
+<h4><FONT COLOR="000066">Class 12: Friday, October 7</FONT></h4>
+
+
+Required reading: none.  In class, we will watch approximately the
+    first 45 minutes of the 2001 Steven Spielberg movie <I>AI:
+    Artificial Intelligence</I>. If you're interested in this, you
+    might want to watch the whole movie on your own time, either
+    before or after today's class. In addition, it might be
+    interesting to read the short story on which this movie is based:
+    <i>Super-Toys Last All Summer Long</i>, by Brian Aldiss. A copy of
+    this story is available on Moodle.  This reading is optional, but
+    it's an easy and entertaining 11 pages, so I do recommend it.
+
+<P> Sample exam questions:
+  <ol>
+    <LI>From the opening 45 minutes of Spielberg's movie <I>AI:
+    Artificial Intelligence</I>, give: (a) two examples of a human
+    showing emotional attachment to David (who is a robot), and (b)
+    two examples of a human treating David differently to the way a
+    human would be treated.
+<LI>Suppose that robots such as David in Spielberg's movie <I>AI:
+    Artificial Intelligence</I> could be built.  Do you believe our
+    society would pass laws preventing cruelty to such robots?
+    Justify your answer in 3 to 4 sentences.
+
+    <LI>Do you believe it is possible, in principle, that
+    robots such as David in Spielberg's movie <I>AI: Artificial
+    Intelligence</I> could ever be built? Justify your answer in 3
+    to 4
+    sentences, referring to one or more of the important points in
+    Turing's 1950 paper, <I>Computing Machinery and
+    Intelligence</I>.
+  </ol>
+
+<h4><FONT COLOR="000066">Class 13: Tuesday, October 11</FONT></h4>
+
+Exam revision. Work through as many homework problems as possible,
+consulting the solutions on Moodle when necessary. Bring any questions
+to class.  Also, a handout with additional revision questions is
+available on Moodle.
+
+<h4><FONT COLOR="000066">Class 14: Friday, October 14</FONT></h4>
+
+Exam 1
+
+<h4><FONT COLOR="000066">Class 15: Friday, October 21</FONT></h4>
+
+<P>Please take the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmUJzMReIAW2_01DMMBcmKKs3DlvThIsdMrDpNuZETMpmwvw/viewform?usp=send_form">mid-semester survey</a>.
+
+<P>Required reading: 7.0-7.5.2; 7.7.0-7.7.1.
+
+<!-- <P>My own <a href="propositional-logic-lecture-notes.pdf">lecture -->
+<!-- notes on propositional logic</a> are available. -->
+
+<P>The essentials of propositional logic are covered in Sections 2, 3,
+and 4 of the document describing the third programming assignment,
+available here as <A HREF="clue.pdf">clue.pdf</A>.  In class, we will
+step through the relevant parts of this document.
+
+<P> Sample exam questions:
+  <UL>
+    <LI>7.1; 7.2 (solution must be written in the notation of
+    propositional logic); 7.4 c, e, g, k; 7.7 a, c; 7.12.
+  </UL>
+
+<h4><FONT COLOR="000066">Class 16: Tuesday, October 25</FONT></h4>
+
+<P>Required reading: 7.5.2 (again).
+
+<!-- <P><a href="COMP364 Fall2014 midsemester survey (Responses).xlsx">Feedback results and action plan</a>. -->
+
+<P><a href="resolution-lecture-notes.pdf">Lecture notes on resolution</a> are available.
+
+<P> Sample exam questions: see previous class.
+
+<h4><FONT COLOR="000066">Class 17: Friday, October 28</FONT></h4>
+
+
+<P>Required reading: 8.1-8.5.
+
+<P><a href="first-order-logic-notes-v2.pdf">Lecture notes on first order logic</a> are available.
+
+
+<P> Sample exam questions:
+  <UL>
+    <LI>8.9 a, c, e
+    <LI>8.10 a, e, g
+    <LI>8.11 c(i)
+    <LI>8.23 a, d
+    <LI>8.28 e, l
+  </UL>
+
+<P>(optional) Demo of first-order logic being used in a real system:
+the programming language Prolog. The example file <a href="course-inference.pl">course-inference.pl</a>
+is available if you are interested.
+  
+<P>Examples of realistic applications of first-order logic (taken
+from the textbook's bibliography) -- these are for interest only,
+feel free to glance at the abstracts, but reading the actual papers
+would be excessive:
+  <UL>
+    <LI>Computing access permissions in a filesystem: Joseph Halpern
+    and Vicky Weissman, <I><A
+    HREF="http://arxiv.org/pdf/cs.LO/0601034">Using First-Order
+    Logic to Reason about Policies</A></I>, ACM Transactions on
+    Information and System Security (TISSEC), 11(4) (July 2008).
+    <LI>Validating models of groups of applications: Mike Mannion, <I><A
+    HREF="http://www.springerlink.com/content/j493w6a3uwxbf5l2/">Using
+    First-Order Logic for Product Line Model Validation</A></I>,
+    Lecture Notes in Computer Science (Springer), 2002, Volume 2379,
+    149-202
+  </UL>
+
+<!-- <P>Finally, the <a href="presentation-order.PNG">order of paper -->
+<!-- presentations</a> has been determined using<a href=" -->
+<!-- http://www.random.org/lists/"> http://www.random.org/lists/</a>. -->
+<!-- Teams 1-4 will present on Friday, November 6. Teams 5-8 will present -->
+<!-- on Tuesday, November 10. -->
+
+<h4><FONT COLOR="000066">Class 18: Tuesday, November 1</FONT></h4>
+
+<P>Required reading: 9.1, 9.2.1.
+
+<P><a href="FOL-inference-notes.pdf">Lecture notes on inference in first order logic</a> are available.
+
+<P> Sample exam questions:
+  <UL>
+    <LI>9.3, and <a href="additional-sample-exam-question-for-FOL-inference.pdf">these additional sample questions</a>.
+  </UL>
+
+
+<h4><FONT COLOR="000066">Classes 19 and 20</FONT></h4>
+
+Paper presentations.
+
+<h4><FONT COLOR="000066">Class 21: Friday, November 11</FONT></h4>
+
+<P>Required reading:
+<UL>
+  <LI>Chapter 5 of the book "9 Algorithms That Changed the Future"
+  (available on Moodle).  This is an easy introduction to some aspects
+  of statistical pattern recognition, intended for readers who have no
+  background in computer science. However, it also serves as a useful
+  high-level introduction to the machine learning ideas we will be
+  studying. (Please remember this chapter is for your personal use
+  only; please don't share it with anyone else or make it available on
+  any public website.)
+  <LI>Textbook sections 18.1-18.3 and 18.8.1.
+</UL>
+
+<P><a href="nearest-neighbors-and-decision-trees.pdf">Lecture notes on
+nearest neighbors and decision trees</a> are available.
+
+<P><a href="nearest-nbr-and-dec-trees-sample-exam-questions.pdf">Sample
+exam questions for nearest neighbors and decision trees</a>.
+
+<P>Please start thinking about the final project now. The first
+milestone is due in less than two weeks.
+
+<h4><FONT COLOR="000066">Class 22: Tuesday, November 15</FONT></h4>
+
+<P><a href="bayesian-networks.pdf">Lecture notes on Bayesian
+networks</a> are available.
+
+
+<P>Ungraded homework questions: 13.8, 14.1, 14.6(a)-(d), and the
+exercises in the lecture notes.
+
+<h4><FONT COLOR="000066">Class 23: Friday, November 18</FONT></h4>
+
+<P>Note: Neural networks will not be included in Exam 2, so there
+are no sample exam questions for this topic.
+
+<P>The informal <A HREF="neural-nets-informal.pptx">presentation on
+artificial neural networks</A> is available.  You can also read the
+book chapter available on Moodle (MacCormick 2012, Chapter 5) for some
+additional details.
+
+<P>And check out the incredibly useful interactive demo
+at <a href="http://playground.tensorflow.org">http://playground.tensorflow.org</a>.
+
+  
+<h4><FONT COLOR="000066">Class 24: Tuesday, November 22</FONT></h4>
+
+Required reading:
+<UL>
+  <LI><A
+  HREF="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.5248&rep=rep1&type=pdf">Minds,
+  brains, and programs</A>, John Searle, <I>The Behavioral and Brain
+  Sciences</I> 3(3) 417-457, 1980.  Be prepared to answer
+  the following discussion questions: which of Turing's (1950)
+  "objections" most closely resemble Searle's argument?  How do you
+  think Turing would specifically rebut the Chinese room argument?
+  Who do you side with: Searle or Turing?
+</UL>
+<P>There is an excellent <A HREF="http://en.wikipedia.org/wiki/Chinese_room">Wikipedia page on the Chinese Room</A>.
+
+<h4><FONT COLOR="000066">Class 25: Tuesday, November 29</FONT></h4>
+
+Exam revision. Please bring to class examples of questions that you
+would like to go over in class.
+
+<h4><FONT COLOR="000066">Class 26: Friday, December 2</FONT></h4>
+
+<a href="../exams">Exam 2</a>.
+
+<P>Solutions to sample questions for exam 2 are available on Moodle.
+
+
+<h4><FONT COLOR="000066">Class 27: Tuesday, December 6</FONT></h4>
+
+This discussion class will take place at the instructor's house,
+1:45-2:45pm.  I look forward to seeing you there!  Some light
+refreshments will be served.   
+
+<P><strike>Readings will be posted soon -- check back here for some
+links to contemporary ethical issues in AI.  If you have particular
+areas that you would like to cover, please let me know by 5 PM
+Wednesday, November 30.  Likely areas for discussion include
+driverless cars, robotic warfare, and the ethics of machine learning
+algorithms. (But we can't do all of those, so let me know what you are
+interested in.)</strike>
+
+<P>Optional reading/viewing/thinking for the discussion:
+  <ul>
+    <li><a href="http://nyti.ms/2eGJ7rG">A.I. Inspiration: The Science
+    Fiction That Frames Discussion.</a>  New York Times article by
+    Matthew Rosenberg and John Markoff. Oct. 25, 2016. Online only.
+    <li><a href="http://nyti.ms/2eAs9NA">The Pentagon's "Terminator
+    Conundrum": Robots That Could Kill on Their Own.</a> New York
+    Times article by Matthew Rosenberg and John Markoff. Oct. 25,
+    2016.  Appears in print on October 26, 2016, on page A1 of the New
+    York edition.
+    <li>Think about the following discussion question: Should
+    completely driverless cars (i.e. with no human behind the wheel,
+    even as a backup) be permitted on roads in the USA?  If so, what
+    new laws should be passed?
+    <li>[With thanks to Vy for this suggestion.] Watch one or more
+    of the following episodes from the British TV show <i>Black
+    Mirror</i> (it is available via Netflix streaming):
+      <ul>
+	<li>Series 1 Episode 3: The Entire History of You. (Relevant for human-machine symbiosis.)
+	<li>Series 2 Episode 1: Be Right Back. (Relevant for questions
+	of whether machines can think and generalizations of Turing
+	test.)
+      </ul>
+    <li>[With thanks to Vy for this suggestion.] Also consider
+      watching some episodes of the HBO show <i>Westworld</i>. (This
+      appears to be available only for paid HBO subscribers.)
+  </ul>
+
+
+<!-- Required reading/viewing: -->
+<!-- <UL> -->
+<!--     <LI><a href="http://www.ted.com/talks/pw_singer_on_robots_of_war.html">P. W. Singer's -->
+<!--   2009 TED talk about robotic warfare</a>.   -->
+
+<!-- <LI>Arkin, Ronald (2009) Ethical Robots in Warfare, IEEE Technology -->
+<!-- and Society Magazine, Spring, 2009.  Available on Moodle. -->
+<!-- </UL> -->
+<!-- Be prepared to answer the -->
+<!--   following discussion questions: Who is responsible if a drone kills -->
+<!--   innocent civilians?  Does the US need new laws governing drone -->
+<!--   strikes and other forms of robotic warfare? -->
+
+<!-- <P>Optional reading: -->
+<!-- <UL> -->
+<!--   <LI>The Case Against Robotic Warfare: a response to Arkin. Ryan -->
+<!--   Tonkens, Journal of Military Ethics, Volume 11, Issue 2, 2012. -->
+<!--   Available on Moodle. -->
+<!-- </UL> -->
+
+
+
+<h4><FONT COLOR="000066">Class 28: Friday, December 9</FONT></h4>
+
+Lab day for working on final project.
+
+
+
+
+
+<!-- ************************************************************ -->
+<!-- ************************************************************ -->
+<!-- ************************************************************ -->
+<!-- ************************************************************ -->
+<!-- ************************************************************ -->
+<!-- ************************************************************ -->
+
+
+<!--   <LI>Two New York Times articles about driverless cars: -->
+<!--     <ul> -->
+<!--       <li><A HREF="http://www.nytimes.com/2010/10/10/science/10google.html?_r=1&ref=science">Google Cars Drive Themselves, in Traffic</A>, John Markoff, New York Times, -->
+<!--   October 9, 2010. -->
+<!--       <li><a href="http://bits.blogs.nytimes.com/2012/09/25/with-a-push-from-google-california-legalizes-driverless-cars/?smid=pl-share">With a Push From Google, California Legalizes Driverless Cars</a>, Claire Miller, 10/01/2012. -->
+<!--     </ul> -->
+<!-- Be prepared to answer the following discussion questions: What new -->
+<!--   laws will need to be passed before completely driver-less cars can -->
+<!--   drive on regular roads?  Could/should Google sell their present -->
+<!--   prototype for use by regular citizens on regular roads? -->
+
+<!-- </UL> -->
+
+<!-- <\!--   <LI><A -\-> -->
+<!-- <\!--   HREF="http://www.reuters.com/article/idUSTRE69L5RL20101022">U.N. urged -\-> -->
+<!-- <\!--   to set up panel on ethics of robot weapons</A>, Patrick Worsnip, -\-> -->
+<!-- <\!--   Reuters, Oct 22, 2010.  Discussion questions: Who is responsible -\-> -->
+<!-- <\!--   if a drone kills innocent civilians?  Does the US need -\-> -->
+<!-- <\!--   new laws governing drone strikes? -\-> -->
+
+
+<!-- <P>Sample exam questions: all of the above discussion questions. -->
+
+
+  </BODY>
+</HTML>

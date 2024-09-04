@@ -1,0 +1,90 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Assembly Langauge</TITLE>
+	<!-- Changed by: , 21-Jan-2009 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+
+<SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Assembly Langauge</H2>
+<HR>
+</CENTER>
+
+<h3>Related Web Sites</h3>
+<DL> 
+<DT><a href = "javascript:openIt('http://users.dickinson.edu/~braught/kands/KandS2/machine.html','KSM')">The Knob &amp; Switch Computer with Assembly Programming</a><br>
+<dd>The final version of the Knob &amp; Switch Computer can be programmed using assembly language instructions which are then translated down to their equivalent machine language instructions. For example, the instruction for loading the contents of Main Memory cell 13 into Register R2 is "LOAD R2 13" as opposed to the cryptic machine language instruction "1000000000101101" The assembly language instructions are stored in Main Memory along with data, making this a complete stored-program computer. Thus, you will have to enter instructions into memory locations just as you would data values.
+
+<br><br>
+
+<DT><a href="http://users.dickinson.edu/~braught/kands/KandS2/instructions.html">The Knob &amp; Switch Computer Assembly Language</a>
+<DD>A listing of all of the assembly language instructions that the Knob &amp; Switch Computer recognizes along with examples and their machine language translations.
+</DL>
+
+<HR>
+<h3>Practice Exercises</h3>
+<ol>
+<LI> What assembly language instruction specifies  moving the contents of Main Memory cell 7 into Register R0?
+<LI> List a sequence of assembly language instructions for adding the contents of Register R0 and Register R1 and storing the result in Main Memory cell 5.  In
+pseudocode:
+<XMP>
+    M[5] = R0 + R1
+</XMP>
+<LI>Consider the following contents of Main Memory:
+<XMP>
+    0:  LOAD R0 10
+    1:  LOAD R1 11
+    2:  SUB R2 R1 R0
+    3:  BNEG 7
+    4:  LOAD R3 13
+    5:  STORE 12 R3
+    6:  BRANCH 9
+    7:  LOAD R3 14
+    8:  STORE 12 R3
+    9:  HALT
+   10:  5
+   11:  10
+   12:  0
+   13:  1
+   14:  2
+</XMP>
+                                                                                
+Let us associate the variable name
+<I>a</I> with location 10, the name <I>b</I> with location 11, the name
+<I>c</I> with location 12.
+                                                                                
+Complete the following table:
+<CENTER>
+<TABLE BORDER=2>
+<TR><TH>a</TH><TH>b</TH><TH>c</TH></TR>
+<TR><TD ALIGN="RIGHT">5</TD><TD ALIGN="RIGHT">10</TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;</TD></TR>
+<TR><TD ALIGN="RIGHT">10</TD><TD ALIGN="RIGHT">5</TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;</TD></TR>
+<TR><TD ALIGN="RIGHT">10</TD><TD ALIGN="RIGHT">10</TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE>
+</CENTER>
+                                                                                
+Based on the above table, under what condition does <I>c</I> get
+assigned the value of 1 and under what condition does <I>c</I> get
+assigned the value 2? 
+</ol>
+
+<hr>
+
+<h3>Homework Assignments</h3>
+
+<p>There is no homework for this day. Assembly language programming will be covered again
+in Lab #2.
+</BODY>
+
+</HTML>

@@ -1,0 +1,18 @@
+# Process name: must be unique among all
+# processes for any given simulation.
+PROCESS1
+
+# Process arrival time:
+0
+
+# Process profile.  This must begin with
+# START and end with EXIT.  Also every process
+# must start and end with a CPU burst. That is,
+# The first line after START and the last line 
+# before EXIT must be CPU bursts. In between
+# the lines may be:
+#   CPU <time>
+#   IO <device> <time>
+START
+CPU 20
+EXIT

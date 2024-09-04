@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Programming assignment P4</title>
+    <!-- Changed by: , 13-Apr-2009 -->
+    <META NAME="ROBOTS" CONTENT="NOFOLLOW">
+  </head>
+
+  <body>
+    <h2>Programming assignment P4</h2>
+
+In this assignment, you will extend the TIME protocol
+from the previous assignment, adding the capability to
+set alarms.  
+
+<h4>The  ALARM protocol</h4>
+
+You are provided with two java files, <A
+HREF="AlarmServer.java"><TT>AlarmServer.java</TT></A>
+and <A
+HREF="AlarmClient.java"><TT>AlarmClient.java</TT></A>,
+that implement a good deal of the alarm functionality.
+These two files implement a simple protocol known as the
+ALARM protocol.  The ALARM protocol has a single message
+type, called BEEPNOW. An AlarmServer does nothing but
+listen on a particular port, waiting for a BEEPNOW
+request.  When it receives a BEEPNOW request from any
+AlarmClient, it prints out a message saying "BEEP BEEP
+BEEP BEEP (yes, this is your wake up call)".  It is
+particularly important to note that it is the
+<I>client</I> that triggers the alarm at the appropriate
+time, by sending a BEEPNOW request, whereas the
+<I>server</I> merely beeps when it is told to do so.
+
+<P>You should not make any changes to
+<TT>AlarmServer.java</TT> and <TT>AlarmClient.java</TT>,
+but you will need to read through them and understand
+how they work.  Pay particular attention to the way in
+which the server determines the port it will be
+listening on.
+
+<P>You can practise running the AlarmServer and AlarmClient from the command line, which will help you to understand how they work.
+
+<h4>The extended TIME protocol</h4>
+
+<P>While the AlarmServer and AlarmClient <I>can</I> be
+run from the command line as stand-alone programs, that
+is not their main purpose.  Instead, you will be writing
+your own code (<TT>TimeServerP4.java</TT> and
+<TT>TimeClientP4.java</TT>) to create and use
+AlarmServer and AlarmClient objects in order to extend
+the TIME protocol.  
+
+<P>Previously, the TIME protocol possessed only the
+single message type GETTIME.  In this assignment, you
+will be adding the new message type SETALARM.  When a
+TimeClient sends a SETALARM request to a TimeServer, it
+specifies an "alarm time" in the format HH:MM:SS (using
+the 24-hour clock). The TimeServer immediately responds
+with a simple response indicating that the request was
+processed successfully.  Later, when the TimeServer's
+own time reaches the requested alarm time, the
+TimeClient must be notified, resulting in the TimeClient
+printing out the string "BEEP BEEP BEEP BEEP (yes, this
+is your wake up call)".  The TimeServer must be capable
+of having multiple alarms set to go off in the future,
+possibly from different clients.
+
+<h4>Interactive TimeClient</h4>
+
+<P>You will also be improving the usability of the
+TimeClient by making it interactive.  Instead of issuing
+a single request, getting a response, and then exiting,
+the TimeClient will sit in a loop, accepting requests
+until the user exits.  Specifically, the TimeClient
+should perform a GETTIME when the user enters "g", a
+SETALARM when the user enters "a HH:MM:SS", and should
+exit when the user enters "q".
+
+<h4>Example outputs</h4>
+
+<P> Following is an example of the outputs when the
+server is running on the machine
+blackbird.dickinson.edu, and the client is run on the
+machine albatross.dickinson.edu.
+
+<P>First, we start the server on blackbird:
+<PRE>
+  blackbird:/tmp jmac$ java TimeServerP4 56765
+</PRE>
+
+<P>Then, we run the client on albatross, and start entering commands:
+<PRE>
+  albatross:/tmp jmac$ java TimeClientP4 blackbird 56765
+  Enter 'g' to get the time from the timeserver,
+  or 'a HH:MM:SS' to set an alarm
+  > g
+  TimeServer says time is 17:33:04
+  > g
+  TimeServer says time is 17:33:08
+  > a 17:33:45
+  Received successful response from the TimeServer.
+  Alarm has been set for 17:33:45
+  > g
+  TimeServer says time is 17:33:28
+  > g
+  TimeServer says time is 17:33:34
+  >
+  
+  BEEP BEEP BEEP BEEP (yes, this is your wake up call)
+  
+  g
+  TimeServer says time is 17:33:49
+  > q
+  bye
+  albatross:/tmp jmac$
+</PRE>
+
+<h4>Submitting your solution</h4>
+
+
+<P>Your solution should contain exactly 2 files, called
+<TT>TimeServerP4.java</TT> and
+<TT>TimeClientP4.java</TT>.  If you define any other
+classes, add them to one of these files as we did with
+the <TT>MyHttpRequest</TT> class in assignment
+P2. Submit your code to Web-CAT by first making a zip
+file of these two Java files.  (Do not submit
+<TT>AlarmServer.java</TT> and <TT>AlarmClient.java</TT>;
+remember, you are not permitted to edit these files.)
+
+<h4>Recommended procedure and hints</h4>
+
+<P>Your first step should be to copy your code from
+assignment P3 into new files called
+<TT>TimeServerP4.java</TT> and
+<TT>TimeClientP4.java</TT>.  Search and replace "P3"
+with "P4" to reflect the new class names.  If you were
+unable to complete assignment P3, or are unhappy with
+using your own solution, you may request a solution from
+the instructor.
+
+<P>Your next step should be to carefully plan how you
+will use the AlarmServer and AlarmClient classes.
+Specifically: will TimeServerP4 use AlarmServer objects,
+AlarmClient objects, or both?  Under what circumstances
+will these objects be created?  Now answer the same
+questions for TimeClientP4.  
+
+<P>Next, work through the "Example outputs" above,
+writing out the exact messages that must be sent to and
+from all of your TimeServerP4, TimeClientP4,
+AlarmServer, and AlarmClient objects in order for the
+example to work correctly.
+
+<P>Finally, you are ready to start writing code.  Here
+are a couple of snippets that should help.  Firstly,
+some example code for reading the user's input in a
+loop:
+
+<PRE>
+                 BufferedReader in = new BufferedReader(
+				new InputStreamReader(System.in));
+		boolean quit = false;
+		while (!quit) {
+			System.out.print("> ");
+			System.out.flush();
+			String input = in.readLine();
+			if (input.startsWith("g")) {
+			    ...
+			} else if (input.startsWith("a")) {
+			    ...
+			} else if (input.startsWith("q")) {
+				quit = true;
+				System.out.println("bye");
+			}
+		}
+</PRE>
+Second, a method for computing the number of
+milliseconds between the current time, and another time
+specified as a string:
+<PRE>
+	/**
+	 * Return the offset between the timeVal parameter given
+	 * as a string in 24-hour format HH:MM:SS, and the
+	 * current system time, computed in milliseconds. If
+	 * timeVal is earlier than the current system time, we
+	 * assume it refers to the next day, so the value
+	 * returned is nonnegative.
+	 * 
+	 * @param timeVal
+	 *            in 24-hour format HH:MM:SS
+	 * @return milliseconds between current system time and
+	 *         timeVal
+	 */
+	public long computeTimeOffset(String timeVal) {
+		StringTokenizer tokens = new StringTokenizer(
+				timeVal, ":");
+		int hours = Integer.parseInt(tokens.nextToken());
+		int minutes = Integer.parseInt(tokens.nextToken());
+		int seconds = Integer.parseInt(tokens.nextToken());
+		Calendar now = Calendar.getInstance();
+		long hourDiff = ((long) (hours - now
+				.get(Calendar.HOUR_OF_DAY))) * 3600 * 1000;
+		long minuteDiff = ((long) (minutes - now
+				.get(Calendar.MINUTE))) * 60 * 1000;
+		long secondDiff = ((long) (seconds - now
+				.get(Calendar.SECOND))) * 1000;
+		long totalDiff = hourDiff + minuteDiff + secondDiff;
+		// add a day's worth of milliseconds if the offset
+		// is negative
+		if (totalDiff < 0) {
+			totalDiff += 24 * 3600 * 1000;
+		}
+		return totalDiff;
+	}
+</PRE>
+
+<h4>Extra credit</h4>
+
+For a small amount of extra credit on this assignment
+(at most 5% of the total score), you can attempt the
+following task: reverse engineer the instructor's
+implementation of the TIME protocol, so that your client
+and server are interoperable with the instructor's
+client and server.  In other words, it should be
+possible to run your own client with the instructor's
+server, and vice versa.
+
+<P>The instructor's implementation, available as <A
+HREF="instructorTIME.zip">instructorTIME.zip</A>, is
+provided as Java byte code only, so you will not be able
+to tackle this problem by inspecting the code.  Instead,
+use Wireshark to determine the exact format of the
+messages used in the instructor's TIME protocol, then
+alter your own code to conform to this format.
+  </body>
+</html>
+

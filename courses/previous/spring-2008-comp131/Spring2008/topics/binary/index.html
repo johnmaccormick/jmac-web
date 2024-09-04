@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en"><HEAD><TITLE>Binary Numbers</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2719.2200" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff>
+<DIV align=center><B><FONT size=+2>Binary Numbers
+</B></FONT>
+<a name="Top"></a>
+
+<p align="center"><img border="0" src="../../Images/logo.gif" width="100" height="100"></p>
+<P></P></DIV>
+<HR>
+<H2>Outline</H2><BR>
+<UL>
+  <LI><A href="#decimal">Decimal Numbers</A>  
+  <LI><A href="#binary">Computers and Binary Numbers</A>  
+  <LI><A href="#b2d">Converting from Binary to Decimal</A>  
+  <LI><A href="#d2b">Converting from Decimal to Binary</A>  
+  <LI><A href="#addition">Binary Addition</A>  
+</UL><BR><BR>
+<HR>
+
+<SCRIPT language=Javascript>
+   document.write("Last Updated: " + document.lastModified);
+</SCRIPT>
+ 
+<!-- 
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="decimal">Decimal Numbers</a></b></p>
+
+<UL> 
+
+  <LI> The numbers you see in everyday life are represented in the <B>decimal</B> or <B>base 10</B> number system
+
+  <UL>
+      <LI> In this system numbers are represented by a string of decimal digits and (perhaps) a decimal point
+      <LI> Base 10 means that 10 is the <B>radix</B> or <B>basis</B>
+      for exponentiation
+      <LI> Let's return to grade school for a moment...
+
+<PRE>
+7241 = 7*1000 + 2*100 + 4*10  + 1*1
+     = 7*10<SUP>3</SUP> + 2*10<SUP>2</SUP> + 4*10<SUP>1</SUP> + 1*10<SUP>0</SUP>
+</PRE>
+
+         
+      <LI> Base 10 also means that an individual location can have one of ten possible representations - 0,1,2,...,9
+      <LI> In general, each decimal place has a value of n*10<SUP>k</SUP> , where n is the digit at the decimal place and k is the decimal place itself (numbering starts at 0 and increases right to left)
+
+  </UL>
+    
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+<HR>
+<p align="left"><b><a name="binary">Computers and Binary Numbers</a></b></p>
+
+<UL> 
+
+  <LI> Computers perform operations on numbers and only numbers (even
+  the characters in strings are represented as numbers)
+
+  <LI> Since computer memory is finite, we can only work on numbers
+  that are of finite length
+
+
+  <UL>
+      <LI> that is, numbers can only be represented by a fixed number
+      of digits on a computer 
+      <LI> such numbers are said to have a fixed precision
+  </UL>
+
+  <LI>  Further, because a computer essentially understands only current
+  flowing or not flowing, the number system used by computers is the
+  binary number system
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+
+<!--
+
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="b2d">Converting from Binary to Decimal</a></b></p>
+
+<UL> 
+  <LI> The binary number system uses the radix 2 as its base
+
+      <UL>
+
+          <LI> this means that an individual location can have one of two possible values - 0 or 1
+	  <LI> it also means that each binary place has a value of n*2<SUP>k</SUP> , where n is the bit at the binary place and k is the binary place itself
+          <LI> for example,
+
+
+<PRE>
+110 = 1*2<SUP>2</SUP> + 1*2<SUP>1</SUP> + 0*2<SUP>0</SUP> = 4+2 = 6
+1101 = 1*2<SUP>3</SUP> + 1*2<SUP>2</SUP> + 0*2<SUP>1</SUP> + 1*2<SUP>0</SUP> = 8+4+0+1 = 13
+11011 = 1*2<SUP>4</SUP> + 1*2<SUP>3</SUP> + 0*2<SUP>2</SUP> + 1*2<SUP>1</SUP> + 1*2<SUP>0</SUP> = 16+8+0+2+1 = 27
+</PRE>
+
+         <LI> another way to view things...
+
+<PRE>
+Consider the decimal number 74,238
+</PRE>
+
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">10<SUP>4</SUP></TH><TH ALIGN="CENTER">10<SUP>3</SUP></TH><TH ALIGN="CENTER">10<SUP>2</SUP></TH><TH ALIGN="CENTER">10<SUP>1</SUP></TH><TH ALIGN="CENTER">10<SUP>0</SUP></TH><TH>&nbsp;</TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``10,000s<BR>place''</TH> <TH ALIGN="CENTER">``1,000s<BR>place''</TH> <TH ALIGN="CENTER">``100s<BR>place''</TH> <TH ALIGN="CENTER">``10s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH><TH>&nbsp;</TH></TR>
+
+<TR><TD>Digits of Decimal Number:</TD><TD ALIGN="RIGHT">7</TD> <TD ALIGN="RIGHT">4 </TD> <TD
+ALIGN="RIGHT"> 2</TD> <TD ALIGN="RIGHT"> 3</TD> <TD ALIGN="RIGHT"> 8</TD><TH> Dec Val</TH></TR>
+<TR><TD>Dec. Value Based on Digit & "Place":</TD><TD ALIGN="RIGHT">70,000</TD> <TD ALIGN="RIGHT">4,000</TD> <TD
+ALIGN="RIGHT"> 200</TD> <TD ALIGN="RIGHT"> 30</TD> <TD ALIGN="RIGHT"> 8</TD><TH>74,238</TH></TR>
+<TR><TH>&nbsp;</TH><TH COLSPAN="6"> Sum the above left to right to get --^</TH><TR>
+</TABLE>
+</CENTER>
+<BR>
+
+<PRE>
+Now consider the binary number 10111
+</PRE>
+
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH><TH>&nbsp;</TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH><TH>&nbsp;</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">1</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 1</TD> <TD ALIGN="RIGHT"> 1</TD> <TD ALIGN="RIGHT">
+1</TD><TH> Dec Val</TH></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">16</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 4</TD> <TD ALIGN="RIGHT"> 2</TD> <TD ALIGN="RIGHT"> 1</TD><TH>23</TH></TR>
+<TR><TH>&nbsp;</TH><TH COLSPAN="6"> Sum the above left to right to get --^</TH></TR>
+</TABLE>
+</CENTER>
+<BR>
+
+<PRE>
+Finally, for the binary number 101101
+</PRE>
+
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>5</SUP></TH><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH><TH>&nbsp;</TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``32s<BR>place''</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH><TH>&nbsp;</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">1</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 1</TD> <TD ALIGN="RIGHT"> 1</TD> <TD ALIGN="RIGHT">
+0</TD><TD ALIGN="RIGHT"> 1</TD><TH> Dec Val</TH></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD
+ALIGN="RIGHT">32</TD> <TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">8</TD> <TD
+ALIGN="RIGHT">4</TD> <TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 1</TD><TH>45</TH></TR>
+<TR><TH>&nbsp;</TH><TH COLSPAN="7"> Sum the above left to right to get -------^</TH></TR>
+</TABLE>
+</CENTER>
+<BR>
+
+      </UL>
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+    
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+
+<HR>
+<p align="left"><b><a name="d2b">Converting from Decimal to Binary</a></b></p>
+
+<UL> 
+      <LI> what about converting in the other direction -- from decimal to binary
+
+      <OL>
+
+        <LI> determine  the highest power of 2 less than or equal to the
+        current decimal number 
+
+        <LI> subtract the current decimal number by the value
+        determined in Step 1
+
+	<LI> take the remainder, which becomes the new current decimal
+	number
+
+        <LI> keep track of power of two used and assign a 1 to that
+        binary place (all unassigned places contain a 0)
+
+
+
+        <LI> repeat the process, starting with Step 1 (unless the
+        current decimal value is 0, then end)
+
+      </OL>
+<BR><BR>
+      <LI> Example for decimal value 10
+
+      <UL>
+
+        <LI> (Step 1): 8 is the highest power of two less than or
+        equal to 10
+
+        <LI> (Step 2): 10 - 8 = 2
+
+	<LI> (Step 3): 2 becomes current decimal number
+
+        <LI> (Step 4): place a '1' in the "8s place"
+<BR>
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">0</TD> 
+<TD ALIGN="RIGHT">1 </TD> <TD ALIGN="RIGHT"> 0</TD> 
+<TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT">0</TD></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">8 </TD> <TD
+ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 0</TD></TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+        <LI> (Step 5): 2 != 0, so jump to Step 1
+
+        <LI> (Step 1): 2 is the highest power of two less than or
+        equal to 2
+
+        <LI> (Step 2): 2 - 2 = 0
+
+	<LI> (Step 3): 0 becomes current decimal number
+
+        <LI> (Step 4): place a '1' in the "2s place"
+<BR>
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">0</TD> 
+<TD ALIGN="RIGHT">1 </TD> <TD ALIGN="RIGHT"> 0</TD> 
+<TD ALIGN="RIGHT"> 1</TD> <TD ALIGN="RIGHT">0</TD></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">8 </TD> <TD
+ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 2</TD> <TD ALIGN="RIGHT"> 0</TD></TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+        <LI> (Step 5): 0 == 0, so stop
+
+        <LI> The final value is <TT>1010</TT>
+      </UL>
+
+<BR><BR>
+      <LI> Example for decimal value 37
+
+      <UL>
+
+        <LI> (Step 1): 32 is the highest power of two less than or
+        equal to 37
+
+        <LI> (Step 2): 37 - 32 = 5
+
+	<LI> (Step 3): 5 becomes current decimal number
+
+        <LI> (Step 4): place a '1' in the "32s place"
+<BR>
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>5</SUP></TH><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``32s<BR>place''</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">1</TD><TD ALIGN="RIGHT">0</TD> 
+<TD ALIGN="RIGHT">0 </TD> <TD ALIGN="RIGHT"> 0</TD> 
+<TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT">0</TD></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">32</TD><TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 0</TD></TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+        <LI> (Step 5): 5 != 0, so jump to Step 1
+
+        <LI> (Step 1): 4 is the highest power of two less than or
+        equal to 5
+
+        <LI> (Step 2): 5 - 4 = 1
+
+	<LI> (Step 3): 1 becomes current decimal number
+<BR>
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>5</SUP></TH><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``32s<BR>place''</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">1</TD><TD ALIGN="RIGHT">0</TD> 
+<TD ALIGN="RIGHT">0 </TD> <TD ALIGN="RIGHT"> 1</TD> 
+<TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT">0</TD></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">32</TD><TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 4</TD> <TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 0</TD></TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+        <LI> (Step 4): place a '1' in the "4s place"
+
+        <LI> (Step 5): 1 != 0, so jump to Step 1
+
+        <LI> (Step 1): 1 is the highest power of two less than or
+        equal to 1
+
+        <LI> (Step 2):  1 - 1 = 0
+
+	<LI> (Step 3): 0 becomes current decimal number
+<BR>
+<CENTER>
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>5</SUP></TH><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``32s<BR>place''</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD><TD ALIGN="RIGHT">1</TD><TD ALIGN="RIGHT">0</TD> 
+<TD ALIGN="RIGHT">0 </TD> <TD ALIGN="RIGHT"> 1</TD> 
+<TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT">1</TD></TR>
+<TR><TD>Dec. Value Based on Bit & "Place":</TD><TD ALIGN="RIGHT">32</TD><TD ALIGN="RIGHT">0</TD> <TD ALIGN="RIGHT">0 </TD> <TD
+ALIGN="RIGHT"> 4</TD> <TD ALIGN="RIGHT"> 0</TD> <TD ALIGN="RIGHT"> 1</TD></TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+        <LI> (Step 4): place a '1' in the "1s place"
+
+        <LI> (Step 5): 0 == 0, so stop
+
+        <LI> The final value is <TT>100101</TT>
+      </UL>
+
+<BR><BR>
+
+   <LI> Once you get good at the conversion, you can simply write out
+   a table, listing the different places, and then place 1s in
+   appropriate slots until you produce the decimal number.
+
+   <UL>
+
+      <LI> For example, how would we fill out the following table for the
+      decimal number 79?  Think about what should be in each box and then 
+      click on it to reveal the correct answer.
+
+<BR>
+<CENTER>
+<A NAME="tab79">
+<TABLE BORDER=1>
+<TR><TD ALIGN="LEFT">Positional Value:</TD><TH ALIGN="CENTER">2<SUP>6</SUP></TH><TH ALIGN="CENTER">2<SUP>5</SUP></TH><TH ALIGN="CENTER">2<SUP>4</SUP></TH><TH ALIGN="CENTER">2<SUP>3</SUP></TH><TH ALIGN="CENTER">2<SUP>2</SUP></TH><TH ALIGN="CENTER">2<SUP>1</SUP></TH><TH ALIGN="CENTER">2<SUP>0</SUP></TH></TR>
+<TR><TH>&nbsp;</TH><TH ALIGN="CENTER">``64s<BR>place''</TH><TH ALIGN="CENTER">``32s<BR>place''</TH><TH ALIGN="CENTER">``16s<BR>place''</TH> <TH ALIGN="CENTER">``8s<BR>place''</TH> <TH ALIGN="CENTER">``4s<BR>place''</TH> <TH ALIGN="CENTER">``2s<BR>place''</TH> <TH ALIGN="CENTER">``1s<BR>place''</TH></TR>
+
+<TR><TD>Bits of Binary Number:</TD>
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b64.src="one.png";'> <IMG NAME="b64"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b32.src="zero.png";'> <IMG NAME="b32"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b16.src="zero.png";'> <IMG NAME="b16"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b8.src="one.png";'> <IMG NAME="b8"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b4.src="one.png";'> <IMG NAME="b4"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b2.src="one.png";'> <IMG NAME="b2"
+BORDER="0" SRC="questmark.png"></A> </TD>
+ 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.b1.src="one.png";'> <IMG NAME="b1"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+</TR>
+
+<TR><TD>Dec. Value Based on Bit & "Place":</TD>
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d64.src="64d.png";'> <IMG NAME="d64"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d32.src="0d.png";'> <IMG NAME="d32"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d16.src="0d.png";'> <IMG NAME="d16"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d8.src="8d.png";'> <IMG NAME="d8"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d4.src="4d.png";'> <IMG NAME="d4"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d2.src="2d.png";'> <IMG NAME="d2"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+<TD ALIGN="CENTER"> <A HREF="#tab79"
+ONCLICK='document.images.d1.src="1d.png";'> <IMG NAME="d1"
+BORDER="0" SRC="questmark.png"></A> </TD> 
+
+
+</TR>
+
+</TABLE>
+</CENTER>
+<BR>
+
+      </UL>
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+<!--
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+<p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p><p align="left">&nbsp</p>
+-->
+<HR>
+<p align="left"><b><a name="addition">Binary Addition</a></b></p>
+
+<UL> 
+
+  <LI> Addition in Base 10
+
+<PRE>
+                        11
+                       +19
+                      ----
+                        30 
+</PRE>
+
+
+  <UL>
+      <LI> what do we do when we add 1+9?
+      <UL>
+
+          <LI>  write down a 0 and carry the 1 to the next place
+
+      </UL>
+  </UL>
+
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+
+  <LI> Addition in Base 2
+
+      <UL>
+
+          <LI> in binary, what do we do when we add 1+1?
+      <UL>
+
+          <LI>  write down a 0 and carry the 1 to the next place
+
+          <LI>  that is,
+
+<PRE>
+                        1
+                       +1
+                     ----
+                       10
+</PRE>
+
+          <LI> Note to make it clear which base we are using, we
+          sometimes write the radix of the base as a subscript for
+          each number, so the above may also be written as
+<PRE>
+                        1<SUB>2</SUB>
+                       +1<SUB>2</SUB>
+                     ----
+                       10<SUB>2</SUB>
+</PRE>
+
+
+      </UL>
+
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+ 
+      <LI> An example of binary addition:
+
+<PRE>
+  0001 (1 in base 2)
++ 0101 (5 in base 2)
+</PRE>
+including the carries, we get
+<PRE>
+    <I>1</I>  (carry)
+  0001 (1 in base 2)
++ 0101 (5 in base 2)
+------
+  0110 (6 in base 2)
+</PRE>
+
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+
+      <LI> Another example of binary addition:
+
+<PRE>
+  0011 (3 in base 2)
++ 0101 (5 in base 2)
+</PRE>
+including the carries, we get
+<PRE>
+   <I>11</I>  (carry)
+  0011 (3 in base 2)
++ 0101 (5 in base 2)
+------
+  1000 (8 in base 2)
+</PRE>
+
+      </UL>
+
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+      <LI> Addition in a computer deals with fixed precision values
+
+
+      <UL>
+        <LI> Suppose we are only storing 4 bits worth of data, what if
+        the following occurs?
+        <UL>
+<PRE>
+  <I>1</I>    (carry)
+  1101 (13 in base 2)
++ 0101 (5 in base 2)
+------
+  0010 (2 in base 2, since the 1 is discarded)
+</PRE>
+        <LI> In this case the carry is discarded since there is no place to put it!
+
+      </UL>
+
+      <LI> Thus, it is possible to add two numbers that are of fixed
+      size and produce a value beyond the range of the possible numbers in the system
+
+
+      <UL>
+
+          <LI> 13+5 = 18, but the maximum integer that can be
+	  represented with four bits (1111) is 15 (i.e., 4 bits
+	  represent 16 possible positive values 0-15)
+	  <LI> In the above example, we have what is called an <B>overflow error</B>.
+          <LI> This <B>overflow condition</B> is usually flagged in the CPU as a bit within a register that is either 0 or 1
+
+      </UL>
+    
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+
+<!--
+      <LI> We can also have an <B>underflow error</B> 
+
+      <UL>
+
+        <LI> when the result of an operation is less than the smallest
+        representable number
+
+        <LI> In our examples, the smallest number is 0, so an underflow would occur if we got a negative result
+
+        <LI> For example, 3-4 = -1, which cannot be represented using
+        our binary representation scheme, since we are not allowing
+        negative numbers!
+      </UL>
+-->
+
+    </UL>
+
+<BR><BR><BR><BR>
+<BR><BR><BR><BR>
+
+  <LI> Obviously, a computer can represent negative integers
+
+      <UL>
+
+        <LI> this involves a completely different representation
+  scheme that takes into account the sign of the numbers
+
+      </UL>
+
+  <LI> Similarly, a computer can represent numbers having fractional
+  parts
+
+      <UL>
+
+        <LI> for example, 10.259
+
+        <LI> such numbers use a representation quite different from
+        the one used for integers
+
+      </UL>
+
+
+  <LI> Both of these representations are beyond the scope of this course
+
+  <LI> For what we are doing, it is enough to know that we can
+  represent such numbers
+
+
+</UL>
+</p>
+<p align="right">
+<A href="#Top">Back to Contents</a>
+</p>
+<hr>
+
+
+</BODY></HTML>
+
+
+
+
+
+
+
+
+
+

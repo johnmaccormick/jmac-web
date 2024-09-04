@@ -1,0 +1,110 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Conditional Statements</TITLE>
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Conditional Statements</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 2.11 - 2.12 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Account-v3.zip"><i>Account-v3</i></a><br>
+<a href = "../examples/EmployeePay.zip"><i>EmployeePay</i></a>
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Modify the <code>deposit</code> method in the
+    <code>Account</code> class from the <i>Account-v3</i> project
+    so that it prints an error message and does not update the balance
+    if a negative amount of money is deposited.
+<li> Write test cases that achieve statement coverage for the 
+    <code>deposit</code> method in the 
+    <code>Account</code> class from the <i>Account-v3</i> project.
+<li> Modify the <code>print</code> method in the
+    <code>Account</code> class from the <i>Account-v3</i> project
+    so that it prints the account balance in cents if the balance is 
+    less than 1 dollar, and in dollars (as it does now) if the balance is a 
+    dollar or more.
+<li> (Challenge Exercise) 
+ The <code>withdraw</code> method of the <i>Account-v3</i> project
+ currently displays the error message "Error: there are only 1 cents
+ in this account!" if the account has a balance of one cent and the user
+ tries to withdraw more than that.  Modify the method so that it displays
+ "Error: there is only 1 cent in this account!" in this situation, but
+ still uses the original error message for any other account balance.
+ <p>
+ Hint: you can nest if statements inside other if statements.
+<li> Add additional test case(s) as needed to achieve statement coverage
+ for the modified <code>withdraw</code> method from the previous exercise.
+<li> Use the <i>better-ticket-machine</i> project (from Chapter 2) to
+do Exercises 2.43, 2.44 and 2.47
+ in Barnes &amp; Kolling
+<li>  Add a test class for the <i>better-ticket-machine</i>
+ project and write test cases for the 
+ <code>insertMoney</code> method that cover all statements in 
+  the method.
+</ol>
+<p>
+<hr>
+<H3>Homework Assignments</H3>
+<p>
+Download and unzip the BlueJ project <a href = "../examples/EmployeePay.zip">
+ <i>EmployeePay</i></a>, open it in BlueJ and examine the code for class
+<code>Employee</code> within this project.  This class will be used
+ to calculate weekly paycheck amounts, with hours worked above and beyond
+ the normal work week being payed a higher rate.  The fields of the
+ class, the constructor and four accessor methods are provided for you:
+<ul>
+<li> the <code>name</code> field holds the name of the employee
+<li> the <code>rate</code> field holds the hourly pay rate (in dollars)
+     for this employee
+<li> the <code>standardHours</code> field holds the minimum number of hours
+     worked per week needed to qualify for overtime pay
+     (i.e. any hours worked beyond this will be paid at the overtime rate)
+<li> the <code>multiplier</code> field holds the amount to multiply the 
+     hourly wage by for overtime hours.
+       For example, to pay "time and a half" for overtime hours, this 
+       field should be set to 1.5.
+</ul>
+
+Use this project to complete the following tasks:
+<ul>
+<li> complete the implementation of the <code>giveRaise</code> method, 
+     which increases the employee's pay rate by the specified amount
+<li> complete the implementation of the <code>calculateWeeklyPay</code> method
+     that takes the number of hours
+     worked for the week as a parameter, and returns the paycheck amount
+     for the week.  For example, suppose we are using 
+     using an <code>Employee</code>  with a 40 hour work week,
+     an $8/hr pay rate and a pay multiplier of 1.5.  
+     If this method is passed 45 (hours) when called using this employee, it
+     should return 380.0, which is 40 * 8 + (45 - 40) * 8 * 1.5.
+     On the other hand, if the method is passed 30 (hours) 
+     in this situation, it should return 240.0, which is just 30 * 8 (i.e.,
+     no overtime hours were worked).
+    <p>
+    Hint: you will need to use an if statement in this method!
+<li> add a test class for class <code>Employee</code>
+  that tests the constructor and covers all statements of 
+  the <code>giveRaise</code> and <code>calculateWeeklyPay</code> methods.
+</ul>
+<p>
+Submit this project via WebCAT.  Note that WebCAT will not accept your
+submission if you have not created a test class for class 
+<code>Employee</code>.
+</BODY>
+
+</HTML>
+

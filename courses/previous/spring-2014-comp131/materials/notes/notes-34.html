@@ -1,0 +1,1312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-34</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Class 34:
+          Class Constants
+          and </span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:
+          14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt"><o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">(continue
+        with <i style="mso-bidi-font-style:normal">StudentDatabase-Start</i>)<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Last
+        time we ran into a problem with <b
+          style="mso-bidi-font-weight:normal">changing
+          &#8220;sophomores&#8221; to &#8220;second years.&#8221;<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The problem was that we changed the
+        term in one
+        place and then &#8220;forgot&#8221; to change it in another.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Now
+        we could just fix our code in the other place, but this problem
+        comes up a
+        lot.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>It came up before with <b
+          style="mso-bidi-font-weight:normal">repeated code</b>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>It comes up here with <b
+          style="mso-bidi-font-weight:normal">constant values being
+          repeated</b> at
+        multiple places.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">You can imagine this one being pretty
+        bad in a real
+        registrar&#8217;s database system.<span style="mso-spacerun:yes">&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">It
+        would be much better if we could define these types of values in
+        just one
+        place.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">It would be easier to find<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">We would only need to make <b
+          style="mso-bidi-font-weight:
+          normal">one</b> change to adjust for changing college policies<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">It would be a bonus if this
+        definition <b style="mso-bidi-font-weight:normal">could not be
+          changed by accident</b><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Java
+        (and most other languages as well) provides a means for defining
+        <b style="mso-bidi-font-weight:normal"><span
+            style="color:maroon">constants</span>
+        </b>which are exactly what we want.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Example:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">public static final String
+          FOURTH_YEAR =
+          "senior";</span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Now
+        anytime we want to talk about fourth year students we can use </span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">Student.FOURTH_YEAR</span></b><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">
+      </span><span style="font-size:14.0pt;mso-bidi-font-size:10.0pt">to
+        refer to this value
+        ("senior") anywhere in the program. Further, if the term
+        &#8220;senior&#8221;
+        becomes politically incorrect and we change the value assigned
+        to the constant,
+        to say &#8220;supreme ruler&#8221; instead of &#8220;senior&#8221; then any code that
+        uses the constant
+        will still work!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">For
+        example:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Declare the 5 constants in </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Student</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">public
+static
+        final String FOURTH_YEAR = "senior";<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>public
+static
+        final String THIRD_YEAR = "junior";<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>public
+static
+        final String SECOND_YEAR = "sophomore";<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>public
+static
+        final String FIRST_YEAR = "first year";<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>public
+static
+        final String ALUMNUS = "potential donor";<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Replace the standings in
+      </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">Student</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> <span style="color:green">and </span></span><span
+        style="font-size:
+14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;color:green">printStandingStats</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Note two
+        things:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Constants
+        declared public
+        can be used in other classes.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">We use the name of the class when referencing
+          constants</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">So
+        let&#8217;s take a closer look at the constant declaration now &#8211; in
+        particular the
+        new Java keywords that appear in the definition.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-tab-count:
+            1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+          color:maroon">static</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+            style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+            style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>All
+          instances of the class <u>share one copy</u> of the field</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Recall that if a field is not static
+        every instance
+        of a class has its own copy of the field.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">This is helpful because there is no
+        need to waste
+        memory by having every instance of the Student class store
+        possible standings<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">A static
+        field <b style="mso-bidi-font-weight:normal">belongs to the
+          class, not to instances</b>
+        of the class<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Because of this a static field is
+        referred to using
+        the name of the class (not the name of an instance).<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">e.g. </span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Student.</span></b><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">FIRST_YEAR</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> <span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>not </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">current.FIRST_YEAR</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier;color:maroon">final</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">The field can NOT be modified after being initialized<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">This is helpful because we do not
+        want any code to
+        change the standings.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier;color:maroon">static final</span></b><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Called a <b
+          style="mso-bidi-font-weight:normal">constant
+        </b>or<b style="mso-bidi-font-weight:normal"> class constant</b>
+        because it
+        belongs to the class and it cannot be changed<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Writing
+        constants in all capital letters (with underscores between
+        words) is a common
+        Java style (a Java convention) and <b
+          style="mso-bidi-font-weight:normal">will
+          be checked by WebCAT</b>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Constants
+        of any Java type can be used - the type is specified in the
+        constant
+        declaration<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:maroon">Hash
+          Maps</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Potential
+          problem</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> with our
+        solution so far:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Each time a student adds or drops a
+        course, we must
+        search the list of all students<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">If there are hundreds or thousands of
+        students, this
+        could take a long time<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">It would be great if we had a <b
+          style="mso-bidi-font-weight:
+          normal">more efficient way to find a </b></span><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">Student</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> object</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> based on the
+        student ID<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The solution is something called a </span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">HashMap</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">.<span style="mso-spacerun:yes">&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">A <span style="mso-spacerun:yes">&nbsp;</span></span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">, <span
+          style="mso-spacerun:yes">&nbsp;</span>given a <span
+          style="color:maroon">key value</span>
+        like a student ID, can find the </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">Student</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> with that ID
+        without
+        looking through all of the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">Students</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">We won&#8217;t see how it works here, we
+        are just going to
+        use abstraction to allow us to <span style="color:#000090">make
+          use of a </span></span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:#000090">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> to improve our </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">RegistrarsOffice</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> class. If you end up really wanting
+        to know how it
+        works &#8211; you can continue on to CS132 and then 232 where we talk
+        about how to
+        implement </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">HashMaps</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">The
+      </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        Class<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> class is located in package </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">java.util</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> (just like </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">So in any class that uses a </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">, we will
+        have to put the
+        line:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp; </span><b
+          style="mso-bidi-font-weight:normal"><span
+            style="mso-spacerun:yes">&nbsp;</span><span
+            style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></b></span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">import java.util.HashMap;</span></b><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>at
+        the beginning of the class definition (again, just like </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">).<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">A </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> object <b
+          style="mso-bidi-font-weight:normal">holds
+          a collection of key and value pairs</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">A key is used to "look up" the value.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">For example: <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">In a telephone book, a name is the
+        key and their
+        telephone number is the value.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>In a dictionary a word would
+        be the key and the definition the value.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">We can draw a 2 column table with key
+        / value as the
+        columns.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Put in
+        names and phone numbers.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The thing about a </span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> is that when
+        given a key,
+        it doesn&#8217;t have to scan through the key&#8217;s one by one<b
+          style="mso-bidi-font-weight:
+          normal">.<span style="mso-spacerun:yes">&nbsp; </span>It is
+          able to just jump right
+          to the correct spot for the key and get the associated value</b>.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:14.0pt;mso-bidi-font-size:10.0pt">If
+          we have the
+          key it is much more efficient to find the value in a </span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">HashMap</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> that it would be to find it in an </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> by simply
+        starting at the
+        beginning and checking each entry in the list one-by-one.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">The
+        most important methods in class </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> are:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier;color:maroon">put</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">: takes a <u>key</u>
+          and <u>value</u>
+          and adds them to the </span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt"><o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier;color:maroon">get</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">: takes a <u>key</u>
+          and
+          returns the associated value (or </span></b><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">null</span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt">)</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">The </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">get</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> operation is very efficient - much more so than
+        searching an </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">. To find a
+        value in an </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> we&#8217;d look at
+        about 1/2 of
+        the objects in the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">ArrayList</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"> on average.<span
+          style="mso-spacerun:yes">&nbsp;
+        </span>The amazing thing is that a </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> will have to
+        look at only 1
+        or 2 objects on average before finding the value.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>If you
+        find that amazing and wonder how... take a few more CS classes!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;color:green">See <i
+          style="mso-bidi-font-style:normal">FirstHashMap</i>
+        project</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> for an
+        example of using </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">put</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> and </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">get<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>One
+        field of type </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Like arrays and </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">ArrayLists</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">, the
+        constructor must
+        initialize the field by creating a new </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> object.<span
+          style="mso-spacerun:yes">&nbsp; </span>The </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> constructor
+        does not take
+        any parameters.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">If there is no value associated with
+        the key used in
+        a call to </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">get</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">, the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">get</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> method returns </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">null</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        color:green">Refactoring </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier;color:green">RegistrarsOffice</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green">:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">How can a </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> help us
+        improve the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">RegistrarsOffice</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> class?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">We frequently
+        need to find </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Student</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> objects
+        based on the
+        student ID.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">We can use
+        the student IDs
+        as keys, and the </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">Student</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> objects as values.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">So let&#8217;s refactor the </span><span
+        style="font-size:
+        14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">RegistrarsOffice</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> class <b
+          style="mso-bidi-font-weight:
+          normal">using a </b></span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt"> to store the </span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">Students</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt">.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Add import </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">java.util.HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">; to the top
+        of the file <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">(leave the
+        other imports for
+        the moment)<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Change students to be of type </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span><b
+          style="mso-bidi-font-weight:normal">private
+          HashMap&lt;String,Student&gt;
+          students;<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">And initialize it with a new </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> in the
+        constructor:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span><b
+          style="mso-bidi-font-weight:normal">students = new
+          HashMap&lt;String,
+          Student&gt;();<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Try
+        to compile:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Will fail on </span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">addStudent</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">How do we fix
+        this.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Using the </span><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Courier">put</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">
+        method of </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">):<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green">Comment
+        out the
+        previous method body and add:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">students.<b
+          style="mso-bidi-font-weight:normal">put</b>(newStudent.getStudentID(),
+        newStudent);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Comment on "commenting out"<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">This is typical of what professional
+        programmers
+        might do during a refactoring - leave the old version of the
+        code in the class
+        as a comment so that it is still available in case the
+        refactoring doesn't
+        work.<span style="mso-spacerun:yes">&nbsp; </span>The
+        programmer would then go back
+        and delete the old code once the refactoring has been completed
+        and tested.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Note
+          that in
+          the homework for today we are asking you to comment out the
+          old versions of the
+          method bodies, instead of deleting them, so that we can grade
+          both the original
+          version and the refactored one.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Try to compile:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Will fail on
+      </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">print</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Turns out
+        that we cannot
+        just use a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">for</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt"> loop to go through a </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">HashMap</span><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;color:green">Just
+        comment out
+        code in the body of the method for now<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Try to compile again:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Will fail on
+      </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">getStudent</span></b><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Comment out
+        the old version
+        and add:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public Student
+        getStudent(String
+        stuID) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">return
+        students.get(stuID);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Try to compile again:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Will fail on
+      </span><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">printStandingStats</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> method<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">Same problem
+        with </span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">for</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> loop.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;color:green">Comment out body of </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:green">printStandingStats</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;color:green">, for now</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">We&#8217;ll come back to it.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">Compile and run tests:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt">All will
+        pass!<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt">But note that the tests for </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">print</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> and </span><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">printStandingStats</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt"> just call
+        the methods -
+        they do not automatically check the results because those
+        methods do not return
+        any value about which an assertion can be made. <o:p></o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>1155</o:Words>
+  <o:Characters>6590</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>54</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7730</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0/clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

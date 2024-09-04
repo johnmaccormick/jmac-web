@@ -1,0 +1,1412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>Notes-19</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri">Topic #19: Method Calls and Test
+          Fixtures<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri;color:green"><span
+            style="mso-spacerun:yes">&nbsp;</span>Open Bank-start
+          project <o:p></o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:green">Look
+        at the
+        methods in the BankCustomer class <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:green">Recap:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">BankCustomer
+        also has methods
+        that manipulate the Account objects<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>depositChecking &#8211; deposits money into the checking
+        account.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>withdrawChecking&#8211; withdraws money from the checking
+        account.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>And comparable methods for the savings account.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">Because the
+        checking and
+        savings fields are Accounts<b
+          style="mso-bidi-font-weight:normal">, it is
+          possible to use the methods already defined in the Account
+          class to do work of
+          depositing and withdrawing for us</b>. <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">For
+example,
+        in <b style="mso-bidi-font-weight:normal">depositChecking</b>
+        we will
+        want to invoke the deposit method on the Account object referred
+        to by the
+        checking field.<span style="mso-spacerun:yes">&nbsp; </span>If
+        we recall, invoking
+        the deposit method causes the balance to be adjusted
+        appropriately.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">To invoke a
+        method on a
+        specific object:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>In BlueJ we right click on the object we want to invoke
+        the method on.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>e.g. on the check or save object.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">What
+we
+        need is a <b style="mso-bidi-font-weight:normal">way to do the
+          same thing
+          automatically in the code</b> for depositChecking or
+        withdrawSavings etc...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">To
+invoke
+        a method on an object we us what is called <b
+          style="mso-bidi-font-weight:
+          normal"><span style="color:#C00000">Dot Notation</span></b>:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">&lt;object
+          reference&gt;<span style="color:#1F497D">.</span>&lt;method
+          name&gt;(&lt;actual
+          parameters&gt;);<o:p></o:p></b></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">e.g.
+          checking<span style="color:#1F497D">.</span>deposit(100);<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Another
+important
+        term is:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:
+10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;color:#C00000">Calling
+          Object</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#C00000">
+        <o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">The
+calling
+        object is the object on which the method should operate. I.e.
+        which
+        account do we want to deposit to?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><u><span
+          style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">In
+          code</span></u><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"> we give the <b
+          style="mso-bidi-font-weight:normal">name of the calling ob</b>ject
+        followed by
+        a <b style="mso-bidi-font-weight:normal">dot</b> to tell the
+        computer which
+        object to use.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">When
+working
+        manually in BlueJ, we point and right click on the object to
+        tell the
+        computer which object should be used as the calling object.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">So let&#8217;s look
+        at how we would
+        write the depositChecking method:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        deposit into checking account <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @param depCheckAmount the amount to
+        deposit<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>public
+        void depositChecking(int depCheckAmount)
+        {<o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>checking.deposit</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">(depCheckAmount);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">The line in
+        the body of this
+        method invokes the deposit method on the checking object and
+        passes the amount
+        to be deposited as the parameter.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">Essentially
+        this line asks
+        the Account object referred to by the reference in the checking
+        field to
+        perform the deposit for us.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Now
+let&#8217;s
+        see if it actually works:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Create 2
+          Account objects (cAcct and sAcct)<o:p></o:p></span></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Create a
+          BankCustomer<o:p></o:p></span></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050">Call depositChecking with an argument of 500<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Let&#8217;s look and see if
+        that worked:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri;color:#00B050">Drill into
+        BankCustomer with object
+        inspector</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">Note that we can also <span
+          style="color:#00B050">call
+          getBalance</span> on the cAcct object.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">Now let&#8217;s see
+        how it works:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri;color:#00B050">Trace</span></b><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri;color:#00B050"> the execution of
+        depositChecking
+        using the debugge</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">r:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Place breakpoint</span>
+        in depositChecking method<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Open
+Object
+        Inspector for the Account objects referred to by both checking
+        and
+        savings so we can see what is happening.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Call
+          depositChecking and deposit another 500<o:p></o:p></span></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Step into deposit
+          method<o:p></o:p></span></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Notice
+that
+        when the deposit method ran the debugger uses the balance,
+        acctNumber and
+        interestRate fields of Account referred to by checking!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>This is because checking is listed
+        as the calling object!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri">&#8220;Code-a-little-Test-a-little&#8221;<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Let&#8217;s develop a test method for depositChecking<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Create
+          a test class.<o:p></o:p></span></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create
+        a test method.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create
+        the save object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create
+        the check object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create
+        the BankCutomer object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Call
+        depositChecking<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050">Call getBalance on the checking Account object
+        and make an
+        assertion.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#00B050">Write
+        the
+        withdrawSavings method</span><span
+        style="font-size:14.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"> <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        withdraw from savings account<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*
+        @param withSaveAmount the amount to
+        withdraw<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>public
+        void withdrawSavings(int
+        withSaveAmount) {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>savings.withdraw(withSaveAmount);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>How would we create a test for the withdrawChecking
+        method?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create two Account objects and a
+        BankCustomer... <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">What
+about
+        for the depositSavings?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Same thing...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">What
+about
+        for the withdrawChecking?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Same thing...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#000090">Creating all of the little objects needed for
+        testing with
+        composition can become seriously tedious...</span><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>----<span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal">Test Fixtures</b><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">A
+        <b style="mso-bidi-font-weight:normal"><span
+            style="color:#C00000">test fixture</span></b>
+        is a <b style="mso-bidi-font-weight:normal">collection of
+          objects that are
+          automatically recreated before each test method is run</b>.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri">Creating a test fixture:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri">Create a set of objects
+          that you will use
+          for testing.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri">Right click a test
+          class.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri">Select &#8220;Object Bench to
+          Test Fixture&#8221;</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri;
+        color:#00B050">Create a set of objects for testing the
+        depositChecking and
+        withdrawSavings methods.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#00B050"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create the sAcct object.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#00B050"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create the cAcct object.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#00B050"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Create the BankCutomer
+        object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Move
+          them to the test fixture<o:p></o:p></span></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+          Calibri;mso-bidi-font-family:Calibri">What happens if we go to
+          create a new
+          test method</span></b><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Create
+another
+        test method for the depositChecking method.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Use same name as before to replace
+        what we had.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><u><span
+            style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:
+            Calibri;mso-bidi-font-family:Calibri">The objects are
+            automatically created for
+            us when we create the test method.<o:p></o:p></span></u></b></p>
+    <p class="MsoNormal" style="margin-left:2.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Call
+        depositChecking<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Call
+getBalance
+        on check Account object.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:2.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Stop
+the
+        recording - The objects go away.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#00B050">Create a test for
+          the withdrawSavings method</span>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>The objects are again created
+        automatically before the test.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Note
+that
+        the objects are in their default state &#8211; the actions on the
+        objects in the
+        previous tests do not affect them.<span style="mso-spacerun:yes">&nbsp;
+        </span>They
+        are <b style="mso-bidi-font-weight:normal">recreated fresh for
+          every test
+          method.<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>So the balance is 0!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Use depositSavings to
+        put some money in the acct.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Don&#8217;t
+        need to check if it worked, we already tested that.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Then call
+        withdrawChecking.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Then call getBalance.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">Sometimes you
+        may discover
+        later that you need to add more objects to your test fixture. To
+        do this you
+        need to be a little careful:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><u>Adding
+            to a Test Fixture</u>:<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Move
+          &#8220;Test Fixture to Object Bench&#8221;<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Add
+          new objects<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>Move
+          &#8220;Object Bench to Test Fixture&#8221;<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><u><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri">Failure to do it this way will
+          lead to much pain
+          and suffering!<o:p></o:p></span></u></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><u><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+          mso-bidi-font-family:Calibri"><o:p><span
+              style="text-decoration:none">&nbsp;</span></o:p></span></u></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">So we&#8217;ve seen
+        how to use
+        mutators with composition.<span style="mso-spacerun:yes">&nbsp;
+        </span>Let&#8217;s take a
+        look at using accessors with composition now.<span
+          style="mso-spacerun:yes">&nbsp;
+        </span>Recall that accessors return values when they are called.<span
+          style="mso-spacerun:yes">&nbsp; </span>We will often want to
+        do something with the
+        value that is returned.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri">For example,
+        consider a
+        method to compute a customer&#8217;s total balance. To implement this
+        method we&#8217;ll
+        want something like:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>* Get the
+        total
+        balance of this customer&#8217;s checking and<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>* savings
+        accounts.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>* @return the
+        total balance.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>*/ <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>public int getTotalBalance() {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// get the checking balance<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// get the savings balance<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// add them together<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:
+          2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// return the result<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">}<span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>To do this we can use a local
+        variable:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>int checkBal =
+        checking.getBalance();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>What would we write to get the
+        savings balance?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>int saveBal =
+        savings.getBalance();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>And add them together?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>int totalBal = checkBal
+        + saveBal;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Then return the result:<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return totalBal;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Code-a-little,
+        Test-a-little.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">Now
+note
+        that we could also write this without the use of local
+        variables.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return checking.getBalance() +
+        savings.getBalance();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">How
+do
+        I know if this new and improved version works?<span
+          style="mso-spacerun:yes">&nbsp; </span>Re-run the test!<span
+          style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri;color:#00B050">Write
+        the
+        print() method:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;</span>* print all customer
+        info<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;</span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">public
+void
+        print()<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:14.0pt;
+mso-bidi-font-size:10.0pt;font-family:Calibri;mso-bidi-font-family:Calibri">{<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">System.out.println("Account
+        information for
+        customer:"<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">+ name);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">System.out.println("Address: " +
+        address);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">System.out.println("Telephone
+        number: "
+        + phoneNum);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">System.out.println("Checking
+        account:");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">checking.print();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">System.out.println("Savings
+        account:");<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+style="font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Calibri;
+        mso-bidi-font-family:Calibri">savings.print();<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Calibri;mso-bidi-font-family:Calibri"><span
+          style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>1041</o:Words>
+  <o:Characters>5935</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>49</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>6963</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-520092929 1073786111 9 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:"Times New Roman";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-ascii-font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-hansi-font-family:Times;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Times;}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

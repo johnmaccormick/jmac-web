@@ -1,0 +1,162 @@
+html {
+	font-family: Cabin, Calibri, 'Lucida Grande', sans-serif;
+	background-color: #222222;
+	color: #dddddd;
+}
+
+a {
+	color: #7777bb;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #aaaaff;
+}
+
+/************************* Header *************************/
+
+#siteHeader1 {
+	font-size: 42px;
+	margin-bottom: -20px;
+}
+
+#siteHeader2 {
+	font-size: 18px;
+	margin-bottom: -14px;
+}
+
+#siteHeader3 {
+	font-size: 16px;
+	margin-bottom: -10px;
+}
+
+#siteHeader4 {
+	font-size: 10px;
+}
+
+.page_header {
+	margin-bottom:30px;
+}
+
+.title_hr {
+	margin-top:-20px; 
+	margin-bottom:20px; 
+	width:700px;
+}
+
+/************************* Home Page *************************/
+
+#portfolioTable {
+	width: 700px;
+}
+
+.portfolioItem {
+	opacity: .7;
+}
+
+.portfolioItem:hover {
+	opacity: 1;
+}
+
+.portfolioItem .img-text-left {
+	transition: width .2s linear;
+	-webkit-trainsition: width .2s linear;
+	-moz-transition: width .2s linear;
+	-o-transition: width .2s linear;
+	width: 150px;
+	opacity: 1;
+}
+
+.portfolioItem:hover .img-text-left {
+	transition: width .3s linear;
+	-webkit-trainsition: width .3s linear;
+	-moz-transition: width .3s linear;
+	-o-transition: width .3s linear;
+	width: 300px;
+	opacity: .8;
+}
+
+#otherTable {
+	width: 700px;
+	margin-top: 50px;
+}
+
+.otherItem {
+	opacity: .7;
+}
+
+.otherItem:hover {
+	opacity: 1;
+}
+
+.front_page_picture {
+	position: relative;
+	left: 75px;
+	top: 20px;
+}
+
+.img-text-left {
+	height: 85px;
+	padding-top: 66px;
+
+	position: relative;
+	bottom: 130px;
+	margin-bottom: -150px;
+
+	float: left;
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/************************* Employment *************************/
+
+#employment_table_header {
+	width: 700px;
+}
+
+#employment_table_body {
+	width: 650px;
+	font-size: 14px;
+}
+
+.employment_employer {
+	margin-bottom: 0px;
+	font-size: 18px;
+}
+
+.employment_title {
+	margin: 0px;
+	font-size: 16px;
+}
+
+.employment_date {
+	margin-bottom: 0px;
+	margin-right: 50px;
+	font-size: 16px;
+}
+
+/************************* Websites *************************/
+
+.picture {
+	position: relative;
+	top: 20px;
+	opacity: .8;
+}
+
+.picture:hover {
+	opacity: 1;
+}
+
+.img-text-bottom {
+	color: white;
+	background-color: black;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: -63px;
+	font-weight: bold;
+	font-size: 20px;
+	opacity: .7;
+}

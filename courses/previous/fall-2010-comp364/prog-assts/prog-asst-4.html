@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <TITLE>Programming assignment 4</TITLE>
+  <!-- Changed by: , 08-Nov-2010 -->
+
+<H2>Programming assignment 4: Decision trees</H2>
+
+<P>In this assignment, you will complete the implementation a
+decision tree.  All the resources you need are provided in a single
+zip file: <A HREF="pa4-resources.zip">pa4-resources.zip</A>.  
+
+<P>The resources comprise three directories: the Java source files
+for a code framework, the Javadoc for the code framework, and some
+data for your experiments.  You should first read all the Javadoc,
+concentrating especially on <TT>AttributeSet</TT>,
+<TT>InstanceSet</TT>, and <TT>Distribution</TT>. (Click on
+<TT>index.html</TT> to start reading.)  Don't bother reading all of
+the source files; consult these as needed, if and when the Javadoc
+proves to be insufficient.
+
+<P>Glance at the data files (each has the extension <TT>.arff</TT>)
+using a text editor. A constructor for <TT>InstanceSet</TT>
+automatically reads a <TT>.arff</TT> file, so you need not interact
+with these files directly, but it will help to have some familiarity
+with these files when debugging your code. The file format is fairly
+obvious and is not described further here.
+
+<P>The three data files provided are <TT>weather.nominal.arff</TT>,
+<TT>contact-lenses.arff</TT>, and <TT>soybeanB.arff</TT>.  The first
+file is a fake data set for deciding whether or not to play tennis
+based on the current weather conditions, authored by Witten and
+Frank and provided with their Weka machine learning software. This
+is a small, almost trivial machine learning problem; it's not very
+interesting, but an extremely useful file for debugging. The second
+file is a real data set for determining what type of contact lenses
+to prescribe to a patient based on their condition. The third file
+is a real data set for determining what type of disease a soybean
+has (although the file has been edited to remove so-called missing
+data, which we don't deal with in this assignment).  Both the second
+and third files are part of a well-known collection of machine
+learning data collated and distributed by the University of
+California, Irvine, and known as the UC Irvine Machine Learning
+Repository.
+
+<P>To complete the assignment, add and/or alter code at the nine
+locations of the string "TODO" in the three source files
+<TT>DecisionTree.java</TT>, <TT>DecisionTreeInternal.java</TT>, and
+<TT>DecisionTreeLeaf.java</TT>.  When finished, your code should
+successfully and correctly generate decision trees for all three
+provided data files.  This is accomplished in the <TT>main</TT>
+method of DecisionTree, which accepts a single commandline argument:
+the name of the <TT>.arff</TT> file to be used.  Do not edit or add
+code at any location other than the "TODO" markers.
+
+<P>To turn in this assignment, submit a single ZIP file containing
+the three source files <TT>DecisionTree.java</TT>,
+<TT>DecisionTreeInternal.java</TT>, <TT>DecisionTreeLeaf.java</TT>
+to Moodle.  Grading will be based on the standard criteria for
+grading code in this course, as listed on the main assignments page.
+
+</HTML>

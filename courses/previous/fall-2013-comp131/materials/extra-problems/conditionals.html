@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html;charset=US-ASCII">
+<title>COMP131 Extra Problems: Conditionals</title>
+
+<link rel="stylesheet" type="text/css" href="style_files/espresso.css"></head>
+<body>
+
+<h4>COMP131: Computer Science I<br>
+Dickinson College</h4>
+
+<div class="NOPRINT">
+<hr class="topsep">
+</div><!--noprint-->
+
+<h2>Extra Problems: Conditionals</h2>
+
+<ol>
+  <li>
+  Open BlueJ and, unless you have one already, create a new project called 
+  ExtraProblems. Then create a
+  new class within your project called Conditionals. This class does
+  not need to have any fields or a constructor to initialize them.
+
+  <li>
+  <p>
+  A nonnegative integer <i>K</i> is divisible by a positive integer <i>L</i>,
+  if the remainder after dividing <i>K</i> by <i>L</i> is zero.
+  </p>
+
+  <p>
+  Write a method called <code>divisible()</code> in your Conditionals
+  class that accepts two arguments, <i>M</i> and <i>N</i>. It should
+  then return a boolean value reporting whether either of the input
+  values is a divisor of the other. <em>Note that when you call this
+  method by selecting it from the BlueJ interface, a window will
+  automatically pop up in which you can type the argument values.</em>
+
+  <li>
+  <p>
+  Add the following method to your Conditionals class. Then experiment
+  with it and explain why the code probably does not do what the
+  programmer intended. 
+
+<pre>
+  public String mystery(int num) {
+     //if even, increment; if odd, decrement
+     if (num % 2 == 0) {
+        num++;
+     }
+     if (num % 2 != 0) {
+        num--;
+     }
+
+     String result = "Result = " + num;
+     return result;
+  }
+</pre>
+
+  <li>
+  <p>
+  [This problem comes from "C Programming: A Modern Approach" by K.N. King.]
+  <br>In one state, single residents are subject to the following
+  income tax:
+
+  <p>
+  <table border="1">
+    <tr><th>Income</th><th>Amount of tax</th></tr>
+    <tr><td>Not over $750</td><td>1% of income</td></tr>
+    <tr><td>$750-$2,250</td><td>$7.50 plus 2% of amount over $750</td></tr>
+    <tr><td>$2,250-$3,750</td><td>$37.50 plus 3% of amount over $,2250</td></tr>
+    <tr><td>$3,750-$5,250</td><td>$82.50 plus 4% of amount over $3,750</td></tr>
+    <tr><td>$,5250-$7,000</td><td>$142.50 plus 5% of amount over $5,250</td></tr>
+    <tr><td>Over $,7000</td><td>$230.00 plus 6% of amount over $7,000</td></tr>
+</table>
+
+  <p>
+  Write a method called <code>incomeTax()</code> that accepts an
+  amount of taxable income as a parameter, and returns the amount of
+  tax due.
+  
+  
+<li>
+<p>
+<b>Classifying Triangles:</b>
+<br>[This problem is based on an exercise by Darrah Chavey, Beloit
+College.]
+</p>
+
+<p>
+Write a method that accepts the lengths of three sides of a triangle
+  as parameters, and then returns the classification of the triangle as follows:
+
+  <ul>
+    <li>
+    <i>invalid input:</i>  all sides must have lengths that are
+    strictly positive
+    <li>
+    <i>not a triangle:</i>  the sum of any two sides must be greater than the
+    length of the third
+    <li>
+    <i>scalene triangle:</i>  no two sides have equal length
+    <li>
+    <i>isosceles triangle:</i>  two sides (but not the third) are equal
+    <li>
+    <i>equilateral triangle:</i>  all three sides are equal
+  </ul>
+
+</ol>
+
+<p>
+<hr>
+<em><small>Some material in this laboratory comes from Henry Walker (Grinnell College).</small></em>
+
+</body>
+</html>

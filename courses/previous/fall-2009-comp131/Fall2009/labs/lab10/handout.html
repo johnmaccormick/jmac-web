@@ -1,0 +1,136 @@
+<html lang="en">
+<head><Title>Lab #10 - Maze Runner</title>
+  <!-- Changed by: , 14-Oct-2008 -->
+                                                                               
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+                     
+<H4 align="center">COMP 131</H4>
+                                                          
+<font size=+2 color='#006400'>
+<center><b>Lab #10 - Maze Runner</b></center>
+</font>
+
+<font size=+1 color='#006400'>
+<p><b>Introduction:</b>
+</font>
+
+<p>In nature, the process of evolution shapes species such that they are well adapted to their environments. This idea, often referred to as "natural selection" or "survival of the fittest," basically works as follows. In each generation, the "fittest" individuals in a population, that is those that are best adapted to their environment, are the ones that typically survive to maturity and thus have the opportunity to reproduce. When these "fittest" individuals reproduce their offspring inherit their genes. Thus, the offspring tend to have traits that are similar to their parents. However, due to random variation some offspring are better adapted to their environments than were their parents, while others are less well adapted. It is then typically the "fittest" of the offspring that go on to become the parents of the next generation. The continuation of this process over many generations tends to result in populations that are increasingly well adapted to their environments.
+
+<p>As just described, evolution can be thought of as a process for solving a problem. In nature the problem that the process of evolution solves is that of finding a species that is well adapted to a particular environment. It is this view of evolution as a process for finding solutions to problems that makes it of interest to computer scientists. In particular, computer scientists use programs called <i>genetic algorithms</i> that model the evolutionary process. These genetic algorithms use the idea of "survival of the fittest" to evolve solutions for problems that are difficult to solve using more conventional programming techniques.
+
+<p>In this lab you will develop several Java classes that form an integral part of a genetic algorithm. The genetic algorithm that you will be completing solves the problem of finding a path through a maze. You will then perform an experiment investigating the role of competition in evolution. The classes that you need to implement and test as well as the role that they play in the genetic algorithm are described below.  In addition, the experiment that you are to perform is also described below.
+
+<font size=+1 color='#006400'>
+<p><b>Setup:</b>
+</font>
+								       
+<p>Create a <code>Lab10</code> folder in your <code>CS131</code> folder.
+Download and unpack the <a href="MazeRunner.zip"><i>MazeRunner</i> project</a>
+into your <code>Lab10</code> folder, and use BlueJ to open the 
+<i>MazeRunner</i> project.  
+
+<p>To execute the Maze Runner application, open the <i>MazeRunner</i> project in BlueJ.  Then create an object of type <code>MazeRunnerGUI</code> and invoke its <code>showGUI</code> method. When executed the Maze Runner application will look as shown in Figure 1. Note that until you complete the assignment, trying to execute an experiment will result in a <code>NullPointerException</code>.
+
+<center>
+<img src="MazeRunner.jpg">
+<p><b>Figure 1:</b> The Maze Runner application.  Note that the start of the maze<br>
+is always in the upper left corner and the finish is always in the <br>
+lower right corner.
+</center>
+
+<font size=+1 color='#006400'>
+<p><b>The Assignment:</b>
+</font>
+
+<p>The <i>MazeRunner</i> project contains two classes that you must implement and test. The <code>Individual</code> class, as its name suggests, represents a unique individual in an evolving population. The <code>Population</code> class is a collection of <code>Individual</code>s. Each of these classes and its role in the genetic algorithm is described in more detail in the following sections.
+
+<p><b>The <code>Individual</code> class:</b>
+
+<p>Each object of type <code>Individual</code> will contain an array of integer values representing the "DNA" of the individual.  Each integer in this array is analogous a gene in biological DNA.  In biological organisms, genes encode the physical traits of the individuals such as eye color, hair color and height. In our individuals each gene will specify one move in the maze. A gene with a value of 0 indicates a move to the North (up), a 1 is a move to the East (right), a 2 is a move to the South (down) and a 3 is a move to the West (left). For example, an <code>Individual</code> with the virtual DNA string: <code>03230</code> would first move North, then West, then South, then West and then finally North again. In this way, each individual's DNA specifies a possible path through the maze. In practice the DNA strings will be much longer than this one, making it possible to specify a complete path through the maze.
+
+<p>Now recall that it is the fittest individuals (i.e. those that are best adapted to their environment) that typically have the opportunity to reproduce and pass on their genes. In our problem the maze is the environment and the fittest individuals are those whose DNA specify paths that take them closest to the finish of the maze while colliding with the fewest walls<sup>1</sup>. Thus, an individual whose DNA specifies a more complete path through the maze will be more likely to reproduce than an individual whose DNA specifies a less complete path.
+
+<p>When individuals are selected for reproduction they are reproduced either asexually or sexually, as indicated by the drop down menu in the user interface. When an individual is reproduced asexually, the offspring initially contains a perfect copy of the DNA from the parent individual. When sexual reproduction is used, the DNA in the offspring is a combination of the DNA from both of the parent individuals. The first part of the offspring's DNA is copied from one parent and the second part is copied from the other parent. The point at which the copying switches from one parent to the other is called the <i>crossover point</i>. After an offspring individual has been created via asexual or sexual reproduction, genetic <i>mutations</i> are introduced to model the random variation that occurs during biological reproduction. 
+
+<p>All of the behavior just described is implemented by the methods of the <code>Individual</code> class. Each method in the <code>Individual</code> class is described in detail by the javadoc comments just above the method signature.
+
+<p><b>The <code>Population</code> class:</b>
+
+<p>The <code>Population</code> class is a collection of <code>Individuals</code> that make up the evolving population. Two of the main functions of this class are to keep track of the individuals in the population and to compute some useful information about the population. Keeping track of the individuals can be done most easily with an <code>ArrayList</code>. The information that must be computed about the population includes the average population fitness and finding the fittest individual in the population.
+
+<p>In addition to the two functions just described, the <code>Population</code> class is also responsible for selecting the individuals that will become the parents for the next generation. Most of the process of creating the next generation is handled by code provided for you in the <code>GeneticAlgorithm</code> class. However, each time this code needs a parent (or parents) to produce offspring, it calls the <code>pickParent</code> method in the <code>Population</code> class. It is the responsibility of this method to find and return a suitable parent.  
+
+<p>In our genetic algorithm, parents chosen by the <code>pickParent</code> method will be chosen using a process known as <i>tournament selection</i>. In tournament selection a specified number of individuals from the population are chosen at random. These individuals then compete based on their fitness for the opportunity to reproduce.  The fittest of of them is chosen to become a parent. Thus, tournament selection makes it more likely for individuals with high fitness to reproduce than for individuals with low fitness. The precise method for implementing the <code>pickParent</code> method as well as for implementing all of the other methods in the <code>Population</code> class is described in javadoc comments contained in the class.
+
+<font size=+1 color='#006400'>
+<p><b>Running the Genetic Algorithm:</b>
+</font>
+
+<p>Once you have implemented and tested the <code>Individual</code> and the <code>Population</code> classes, you will be able to see the genetic algorithm in action. To do this, create an object of type <code>MazeRunnerGUI</code> and invoke the <code>showGUI</code> method. Clicking on the "Run Experiment" button will cause the application to produce a new population of individuals with randomly generated DNA and then execute the genetic algorithm starting with those individuals. As the genetic algorithm runs, the path encoded by the fittest individual of each generation is displayed as a red line on the maze. The algorithm terminates as soon as an individual whose DNA encodes a solution to the maze evolves.
+
+<p>Above the "Run Experiment" button are a collection of settings that each affect the way that the genetic algorithm is executed.  These settings include:
+<UL>
+<LI>Reproduce: This setting determines if reproduction of the individuals is asexual or sexual. Depending on this setting the code in the <code>GeneticAlgorithm</code> class will use the <code>asexualReproduction</code> method or the <code>sexualReproduction</code> method in your <code>Individual</code> class when producing offspring for the next generation.
+<LI>Population Size: This setting determines the number of individuals that make up the population.
+<LI>Mutation Rate: This setting specifies the probability that each gene will be mutated following reproduction.  For example, the default mutation rate of 0.08 specifies that 8% of the genes in the DNA of each offspring will be mutated. The code in the <code>GeneticAlgorithm</code> class generates these mutations by calling the <code>mutate</code> method that you wrote in your <code>Individual</code> class.
+<LI>Tournament Size: This setting determines the size of the tournament used to pick each parent (i.e. how much competition there is for each reproductive opportunity).  The <code>GeneticAlgorithm</code> class passes this value to the <code>pickParent</code> method that you wrote in your <code>Population</code> class.
+<LI>Maze Size: Allows the size of the maze to be set to be small (7x7), medium (12x12) or large (17x17).
+<LI>Trials: This setting determines the number of trials to run with the specified settings.  The results from each trial are reported in a data table that can be displayed by invoking the <code>showDataTable</code> method on the <code>MazeRunnerGUI</code> object.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>The Experiment:</b>
+</font>
+
+<p>The experiment that you are to perform is to investigate the role that tournament size plays in the evolution of solutions.  In particular, you will investigate the following question: Will a solution to a maze evolve in fewer generations when the tournament size is 2, 10 or 90?  In doing so answer each of the following questions:
+
+<UL>
+<p><font color='#FF0000'>Exercise 1:</font> State a hypothesis about which tournament size (2, 10 or 90) will allow solutions to a small maze to evolve in the fewest generations.  Also, state a hypothesis about which tournament size (2, 10 or 90) will require the most generations to evolve solutions to a small maze. Briefly describe the rationale behind your hypotheses.
+
+<p><p><font color='#FF0000'>Exercise 2:</font> Run at least 10 trials for each tournament size using the same small maze, a population size of 100, asexual reproduction and a mutation rate of 0.08.  The trials for all tournament sizes must be run using the same maze. Present a table of data indicating the mean and standard deviation of the number of generations required for a solution to evolve for each tournament size.  Note that some trials may take hundreds or even thousands of generations to find a solution. To keep the time required for this experiment reasonable, you may halt any trial that exceeds 400 generations.  To halt a trial, but continue the experiment, click on the "Halt Trial" button.
+
+     <p><font color='#FF0000'>Exercise 3:</font> Do the results of your experiment support the hypothesis that you stated in Exercise 1?  Explain why or why not.  Note: do <B>not</B>  use the rule of thumb about overlapping 1-standard-deviation-intervals  that we learned earlier this semester -- that rule of thumb  is often useful, but does not apply to this experiment, due to the unusual statistical distribution of the outputs.  Instead, justify your answer based on a commonsense assessment of the results.
+
+<p><font color='#FF0000'>Exercise 4:</font> If your results do not support your hypothesis then repeat exercise 1 in light of the data that you have collected.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>Bonus:</b>
+</font>
+
+<p>Develop and conduct another experiment of your own design.  State the question that you are investigating and then complete Exercises 1-4 from above for your experiment.  In addition, when completing Exercise 2 be sure to state what the parameters were for your experiment and how many trials you conducted.
+
+<font size=+1 color='#006400'>
+<p><b>Submission:</b>
+</font>
+
+<p>Submit your <i>MazeRunner</i> project via Web-CAT. You must include test cases that achieve statement coverage for the <code>Individual</code> and the <code>Population</code> class.
+
+<p>At the start of the next lab period, turn in written answers to the exercises associated with the experiment that you performed. 
+
+<font size=+1 color='#006400'>
+<p><b>Further Reading:</b>
+</font>
+
+<p>Note that everything you needed to complete this lab was contained in this document. However, if you are interested in learning more about genetic algorithms or other biologically inspired computing techniques, the following links will get you started:
+<UL>
+<LI><a href="http://en.wikipedia.org/wiki/Genetic_algorithms">Genetic Algorithms</a> - The Wikipedia page discussing genetic algorithms.
+<LI><a href="http://cs.felk.cvut.cz/~xobitko/ga/">Introduction to Genetic Algorithms</a> - A page that uses Java Applets to demonstrate and introduce genetic algorithms.
+<LI><a href="http://www.talkorigins.org/faqs/genalg/genalg.html">Genetic Algorithms and Evolutionary Computation</a> - An interesting page that introduces genetic algorithms and discusses their impact on the creation vs. evolution debate.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>Credits:</b>
+</font>
+
+<p>The <i>MazeRunner</i> project uses portions of code from an assignment named <a href="http://www.ics.uci.edu/~thornton/ics23/LabManual/Dark/">"Dark at the end of the tunnel,"</a> created by Dr. Alex Thornton who is on the CS faculty at the University of California Irvine. In particular, the maze generator, the maze display and the depth-first search solver for the maze used to determine individual fitness have all been adopted/adapted from Dr. Thornton's original work.
+
+
+<font size=+1 color='#006400'>
+<p><b>Footnotes:</b>
+</font>
+
+<p>1. The <code>GeneticAlgorithm</code> class calculates an individual's fitness as 1000 minus 25 times the number of steps from the end of the path specified by the individual's DNA to the end of the maze, minus ten times the number of times the individual's path collides with walls.
+</body>
+</html>

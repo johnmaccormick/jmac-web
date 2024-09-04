@@ -1,0 +1,109 @@
+1. Tail calls
+-------------
+
+example 1 -- f does NOT use a tail call:
+
+int g(int u, int v) {
+    return (2 * u) + v;
+}
+
+int f(int a, int b) {
+    int c, d, e, x;
+    c = 5 + a + b;
+    d = 9 + c;
+    e = g(c, d);
+    c = c - 1;
+    x = e + c;
+    return x;
+}
+
+
+example 2 -- f DOES use a tail call:
+
+int g(int u, int v) {
+    return (2 * u) + v;
+}
+
+int f(int a, int b) {
+    int c, d, e, x;
+    c = 5 + a + b;
+    d = 9 + c;
+    x = 8;
+    return g(c, d + x);
+}
+
+2. Tail recursion
+-----------------
+
+example 3 -- this factorial function is not tail recursive
+
+int factorial(int n) {
+    if (n==1) return 1;
+    else return n * factorial(n-1);
+}
+
+example 4 -- iterative version of factorial
+
+int factorial(int n) {
+    int i, productSoFar = 1;
+    for(i=1; i<=n, i++) {
+	productSoFar *= i;
+    }
+    return productSoFar;
+}
+
+example 5 -- tail recursive version of factorial
+
+int factorialHelper(int productSoFar, int i, int n) {
+    int nextProductSoFar = i * productSoFar;
+    if (i==n) return nextProductSoFar;
+    else  return factorialHelper(nextProductSoFar, i+1);
+}
+
+int factorial(int n) {
+    return factorialHelper(1, 1, n);
+}
+
+exercise: translate into scheme
+
+3. rewriting an arbitrary loop using recursion
+----------------------------------------------
+
+example 6 -- Here is a loop that uses some local variables to keep track of its state:
+
+int loop(int start, int stop, int step )
+{
+  int a = 2, b = 5, total = 0;
+  for(int i=start; i<stop; i+=step){
+    a = a + b - 2 + i;
+    b = 2 * b - 1;
+    total = total + a + b;
+  }
+  return total;
+}
+
+example 7 -- To rewrite example 6 using recursion, define a helper function with extra parameters that play the role of all the needed variables (in this case: a, b, total, i):
+
+
+  int loopHelper(start, stop, step, a, b, total, i) {
+    if (i >= stop) {
+      return total;
+    }
+    else {
+      int newA = a + b - 2 + i;
+      int newB = 2 * b - 1;
+      int newTotal = total + a + b;
+      int newI = i + step;
+      return loopHelper(start, stop, step, newA, newB, newTotal, newI);
+    }
+  }
+
+int loop(int start, int stop, int step )
+{
+  int a = 2, b = 5, total = 0, i = start;
+  loopHelper(start, stop, step, a, b, total, i);
+}
+
+exercise: translate this example into scheme
+
+exercise: write a scheme function that adds the elements of a list

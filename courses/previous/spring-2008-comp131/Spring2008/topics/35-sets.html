@@ -1,0 +1,80 @@
+<html lang="en"><head><title>Sets and for each loops</title>
+	
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2><code>Set</code>s and <code>for</code> each loops<hr></h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 5.3, 5.4.4, 5.7, 5.10 and 5.12 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/StudentDatabase-v1.zip"><i>StudentDatabase-v1</i></a> (<code>ArrayList</code> based)<br>
+<a href="../examples/StudentDatabase-v2.zip"><i>StudentDatabase-v2</i></a> (<code>HashMap</code> based)<br>
+<a href="../examples/FirstForEach.zip"><i>FirstForEach</i></a><br>
+<a href="../examples/LibraryDB.zip"><i>LibraryDB</i></a>
+<hr>
+
+<h3>Practice Exercises</h3>
+<p>
+    Use the <i>StudentDatabase-v2</i></a>
+    project to complete the following refactorings:
+    <ul>
+    <li> update the <code>toString</code> and <code>print</code>
+    methods of the <code>Student</code> class to work correctly with the 
+    changes from the practice exercises of the last class meeting.
+    <li> add a method called <code>deleteCourseByInstructor</code>
+     to the <code>Student</code> class.  This method should take the name
+    of an instructor as a parameter, and should delete the first course taught
+    by that instructor from a student's schedule.
+    Note that the <code>HashMap</code> class does have a <code>remove</code>
+    method - consult the javadoc documentation for <code>HashMap</code> to
+    see how to use this method.
+    <li> record test cases for <code>deleteCourseByInstructor</code>
+     method.  Note that you can check whether a course is in a student's
+     schedule by using the <code>isTaking</code> method.
+    </ul>
+
+<p>
+<hr>
+<h3>Homework Assignments</h3>
+<p>
+    Using the <i>LibraryDB</i>
+    project that you have been developing for the last three homeworks,
+    complete the refactoring that you began in the previous homework.
+    That is, update the <code>hasBookByAuthor</code>, 
+    <code>deleteBookByAuthor</code>, <code>print</code> and
+    <code>countBooksBySubject</code> methods of the <code>Library</code> class
+    to work correctly with the <code>books</code> field as a 
+    <code>HashMap</code>.
+<p>
+    Hint: comment out the method you had previously added when refactoring
+    <code>hasBookByAuthor</code> and <code>deleteBookByAuthor</code>
+    (for finding the position of a <code>Book</code> by author), and
+    replace it with a method that takes an author's name as a parameter and
+    returns a call number or
+    an indication that the <code>Book</code> was not found.  Be sure to include
+    a javadoc comment for this new method.
+<p>
+    NOTE: for any method definition that you need to change, do NOT delete
+    the previous version of the method body.  Instead, simply comment it out
+    using <code>/*</code> and <code>*/</code> comments so that it will be
+    ignored by the compiler, and then put the new version of the method below
+    the old version.  Failure to comply with these instructions will result in
+    an immediate 15 point deduction.
+<p>
+    Hints:
+    <ul>
+    <li> the <code>HashMap</code> class does have a remove method - consult
+     the documentation to see how the method works.
+    <li> run your tests to verify that the program still works correctly.
+    </ul>
+<p>
+Submit your <i>LibraryDB</i> project via Web-CAT.
+</OL>
+
+</div></body></html>

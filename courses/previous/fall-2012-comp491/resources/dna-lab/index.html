@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Instructions for DNA lab</TITLE>
+    <!-- Changed by: , 27-Aug-2010 -->
+  </HEAD>
+  <BODY>
+    <H2>Instructions for DNA lab</H2>
+
+    <H4>Background</H4>
+
+You will be implementing a simple simulator for DNA splicing, using
+the test-first software engineering methodology.  Don't worry about
+the scientific details of DNA splicing.  For us, a strand of DNA is
+modeled by a Java <TT>String</TT> consisting of the characters
+C,G,T, and A (repeated any number of times in any order).  When
+implementing the splicing methods in the interface
+<TT>IDnaStrand</TT>, read the JavaDoc carefully, and implement the
+method to the best of your ability, but you can just ignore any
+details that you find confusing.  The real point of this lab is the
+test-first methodology, not the science of DNA splicing.
+
+<H4>Instructions</H4>
+
+
+<OL>
+ <LI>Create a new Java project in Eclipse. Make sure to add JUnit as
+ a library for this project. Any version of JUnit should be
+ fine.</LI>
+
+ <LI>Import the file <A HREF="IDnaStrand.java">IDnaStrand.java</A>
+ into the project.</LI>
+
+ <LI>Create a new class, called <TT>SimpleStrand</TT>, which
+ implements the interface <TT>IDnaStrand</TT>.  If you use the
+ features of Eclipse correctly to do this, Eclipse will
+ automatically create stubs of all the methods that need to be
+ implemented.</LI> 
+
+ <LI>Remember, the whole point of this lab is to write the tests
+   first.  Do <I>not</I> edit the stubs of the methods in
+ <TT>SimpleStrand</TT>!</LI>
+
+ <LI>Create a new JUnit Test Case (search around for this option
+ under File|New).  Make sure to specify <TT>SimpleStrand</TT> as the
+ class being tested.  Your test class can be given any reasonable
+ name, such as <TT>SimpleStrandTest</TT>.</LI>
+
+ <LI>Now for the interesting part.  Write one or more tests! Easy
+ challenge:
+ which method(s) need to be tested first? These are the tests you
+ will need to write first.</LI>
+
+ <LI>Implement the method(s) for which you have written test(s).</LI>
+
+ <LI>Continue with this pattern: write one or more tests, then
+ implement the corresponding methods. Do not edit any method in
+ <TT>SimpleStrand</TT> until you have written a comprehensive test
+ for it.</LI>
+
+</OL>
+
+<P>Acknowledgment: <TT>IDnaStrand.java</TT> is taken from the Stanford <A
+HREF="http://nifty.stanford.edu/">Nifty
+  Assignments repository</A>, and this lab appears to have been
+  originally authored by Richard E. Pattis of UC Irvine. However,
+  the file is used for a completely different purpose here.  If
+  you're interested, you can see the full context for this file in
+  Duke University's <A
+  HREF="http://nifty.stanford.edu/2009/astrachan-dna/">DNA splicing
+  lab</A>.
+
+  </BODY>
+</HTML>

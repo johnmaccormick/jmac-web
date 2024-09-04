@@ -1,0 +1,11 @@
+# List of all of the devices that
+# the system supports.  You may 
+# add or delete devices at will.
+# However, processes may only use 
+# the devices specified in this 
+# file.
+
+# List of I/O Devices.
+I/O DISK1
+I/O DISK2
+I/O CDROM

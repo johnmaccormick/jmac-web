@@ -1,0 +1,134 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Fields, Constructors and Assignment Statements</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Fields, Constructors and Assignment Statements</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 2.1 - 2.5 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Account-v1.zip"><i>Account-v1</i></a>
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Use the <i>naive-ticket-machine</i> project (from Chapter 2) to 
+do Exercises 2.1 - 2.7, 2.9 - 2.15 in Barnes &amp; Kolling
+<li> Do Exercise 2.19 in Barnes &amp; Kolling
+<li> The following definition of class <code>Widget</code> contains
+ at least three errors that would prevent the class from compiling.
+ Identify each error, and explain why it is an error.
+ Do NOT use BlueJ to find the errors.
+<pre>
+public class Widget {
+    private int stockNum;  // stock number used for tracking product
+    private String name    // name of the widget
+    int private quantity;  // number in the warehouse
+
+    /** create a new Widget with the specific field values
+      * @param initStockNum the stock number
+      * @param initName the widget name
+      * @param initQuantity the number in the warehouse
+      */
+    public Widget(int initStockNum, String initName, int initQuantity) {
+        stockNum = initStockNum;
+        name = initName;
+        quantity = initQuantity;
+    }
+
+    /** set the stock number of the widget */
+    public void setStockNum() {
+        stockNum = initStockNum;
+    }
+
+    /** decrease the quantity by 1 */
+    public void decreaseQuantity() {
+        quantity = quantity - 1;
+    }
+}
+</pre>
+</ol>
+<HR>
+<H3>Homework Assignment 3a</H3>
+<p>
+<ol>
+<li> Download the 
+<a href = "../examples/Account-v1.zip"><i>Account-v1</i></a>
+sample project, unzip it, open it in BlueJ and 
+use it to answer the following questions.
+<ol type = "a">
+<li> Create an instance of the <code>Account</code> class with account
+ number 12345, and then deposit $5 into the account.  What information
+ is displayed when you call the <code>print</code> method?
+ What value is returned when you call the <code>getBalance</code> method?
+<li> Deposit another $3 into the account.  Now what information is displayed
+ when you call the <code>print</code> method?  Does the <code>Account</code>
+ object seem to behave like a real bank account in this situation?
+<li> Withdraw $10 from the account.  Now what information is displayed
+ when you call the <code>print</code> method?  Does the <code>Account</code>
+ object seem to behave like a real bank account in this situation?
+<li> Add a field <code>customerName</code> of type <code>String</code> to the
+ <code>Account</code> class.  Copy and paste your field declaration as your
+ answer to this question.  Be sure to check your work by compiling the
+ <code>Account</code> class after adding this field.
+<li> Now create an instance of the <code>Account</code> class, and then
+  view it in the object inspector.  How does this object differ from
+ <code>Account</code> objects that you created before doing part d. of this
+ exercise?
+</ol>
+<li> Do Exercise 2.16 in Barnes &amp; Kolling
+<li> Do Exercise 2.17 in Barnes &amp; Kolling
+<li> Bonus Question: Do Exercise 2.20 in Barnes &amp; Kolling
+<li> The following definition of class <code>Book</code> contains
+ at least four errors that would prevent the class from compiling.
+ Identify each error, and explain why it is an error.
+ Do NOT use BlueJ to find the errors.
+<pre>
+class public Book {
+    private String title;  // title of the book
+    private String author; // author of the book
+    private int numPages   // number of pages
+
+    /** create a new Book with the specific field values
+      * @param initTitle the title
+      * @param initAuthor the author
+      * @param initNumPages the number of pages
+      */
+    public NewBook(String initTitle, String initAuthor, int initNumPages) {
+        title = initTitle;
+        author = initAuthor;
+        numPages = initNumPages;
+    }
+
+    /** get the title of the book
+      * @return the title of the book */
+    public String getTitle() {
+        return title;
+    }
+
+    /** set the author of the book
+      * @param newAuthor the new author of the book */
+    public void setAuthor(String newAuthor) {
+        initAuthor = newAuthor;
+    }
+
+}
+</pre>
+</ol>
+</BODY>
+
+</HTML>
+

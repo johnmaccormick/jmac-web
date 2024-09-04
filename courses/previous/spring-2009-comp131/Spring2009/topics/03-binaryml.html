@@ -1,0 +1,105 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Binary Numbers and Machine Language</TITLE>
+	<!-- Changed by: , 21-Jan-2009 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+
+<SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Binary Numbers and Machine Language</H2>
+<HR>
+</CENTER>
+<h3>Reading Assignments</h3>
+<p>
+<a href = "binary/index.html">Binary Numbers</a><br>
+
+<h3>Related Web Sites</h3>
+<P>
+<DL> 
+<DT><a
+href="http://www.math.grin.edu/~rebelsky/Courses/152/97F/Readings/student-binary.html">The Binary
+System</a>
+<DD>As the authors themselves put it "A pretty damn clear guide to a quite confusing concept by Christine R. Wright with some help from Samuel A. Rebelsky."  The section on 'Basic Concepts Behind the Binary System and 'Conversion from Decimal to Binary' is
+most relevant to what we did today in class.
+<br><br>
+<DT><a href = "javascript:openIt('http://users.dickinson.edu/~braught/kands/KandS2/micromachine.html', 'KS')">The Knob &amp; Switch Computer with Control Unit</a>
+<dd>The this version of the Knob &amp; Switch Computer adds a Control Unit allows for up to 5 instructions to be entered using the 1's and 0's of machine language. The patterns of 1's and 0's in the machine language instructions correspond to the knob and switch settings in the CPU . You can experiment with this extended simulator by entering machine language instructions directly, or it is also possible generate the instructions automatically by setting the knobs and switches then clicking on the green arrow next to an instruction. You can play with this version of the Knob &amp; and Switch simulator until you have a better feel for how machine language instructions can control the operation of the computer's CPU and memory.
+</DL>
+
+<HR>
+<H3>Practice Exercises</H3>  
+<OL> 
+<li> For binary numbers:
+   <ol type = "a">
+<LI>How are each of the following decimal numbers represented in binary?
+                                                                                
+<XMP>
+    2    12    16
+</XMP>
+<LI>What decimal values are represented by the following binary numbers?
+                                                                                
+<XMP>
+    101    1000111
+</XMP>
+   </ol>
+<li> For the Knob &amp; Switch Computer with Control Unit:
+   <OL type = "a">
+<LI> What machine language instruction specifies  moving the contents of Main Memory cell 7 into Register R0?
+
+<LI>Give the machine language instruction that subtracts the contents of 
+ Register R1 from 
+ the contents of Register R0 and stores the
+ result in  Main Memory Cell 4.  In pseudocode:
+<XMP>
+    MM[4] = R0 - R1
+</XMP>
+   </ol>
+</ol>
+<HR>
+<H3>Homework Assignment 1c</H3>
+
+<OL> 
+<li> For binary numbers:
+   <ol type = "a">
+<LI>How are each of the following decimal numbers represented in binary?
+                                                                                
+<XMP>
+    5    17
+</XMP>
+<LI>What decimal values are represented by the following binary numbers?
+                                                                                
+<XMP>
+    100001    1101111
+</XMP>
+                                                                                
+<LI>Using 1 bit it is possible to write down 2 different patterns of 1's and 0's (e.g. 0 and 1).  Using 2 bits, how many different patterns of 1's and 0's can you write down?  What are they?  Using 3 bits what are the patterns you can write down? <I>Hint: each of the patterns using 2 bits can have a third bit added to
+them and the third bit can be either a 1 or a 0.</I>
+   </ol>
+<li> For the Knob &amp; Switch Computer with Control Unit:
+   <OL type = "a">
+
+<LI>List a sequence of machine language instructions (a machine language 
+program) for adding the contents of
+Main Memory cells 1 and 2 and storing the result in Main memory cell 3.  In pseudocode:
+<XMP>
+    MM[3] = MM[1] + MM[2]
+</XMP>
+
+<LI> Write a machine language program that stores 4 times the number in 
+ Main Memory cell 1 into Main Memory cell 2.  (Hint: it is easy to double
+ the value of a number stored in a register.)
+</OL>
+</BODY> 
+</HTML>      
+

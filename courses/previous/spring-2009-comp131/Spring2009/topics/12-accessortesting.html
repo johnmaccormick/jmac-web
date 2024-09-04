@@ -1,0 +1,86 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Unit Testing Accessor Methods</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Unit Testing Accessor Methods</h2>
+<HR>
+
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Review Sections 2.1-2.10 of Barnes &amp; Kolling.
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href="../examples/Turtle.zip">Turtle</a>
+<HR>
+
+<H3>Practice Exercises</H3>
+<p>
+<OL>
+<LI>Download and unpack the Turtle project. 
+<LI>Develop a test method for the four argument <code>Turtle</code> constructor: <code>Turtle(double initX, double initY, int initAngle, String initColor)</code>. Be sure to test that the initial values of all 5 fields of the <code>Turtle</code> are set correctly.
+<LI>Open the <i>naive-ticket-machine</i> project from chapter 2 of Barnes &amp; Kolling.
+<LI>Create a test class for the <code>TicketMachine</code> class.
+<LI>Create a test method for the constructor of the <code>TicketMachine</code> class. Can you fully test the constructor? Why not?
+<LI>Add an accessor method for the <code>total</code> field of the <code>TicketMachine</code>.  Be sure to include a JavaDoc comment for your method. 
+<LI>Now replace your test method from Exercise 2 with one that fully tests the constructor.  If you create a new test method and give it the same name as an existing test method BlueJ gives the option of replacing the old method.
+<LI>Add a second constructor to the <code>TicketMachine</code> class. This new constructor should not take any arguments and should set the cost of a ticket to $5.00 (500 cents). Be sure to include a JavaDoc comment for your new constructor. 
+<LI>Create a test method for your new constructor.
+</OL>
+<HR>
+
+<H3>Homework Assignment 4b</H3>
+<ol>
+<!--
+<li> Using the <i>Car</i> project, create a test method for the constructor in the <code>Car</code> class. Copy and paste the test method that BlueJ generated as your solution for this question.
+-->
+
+Using your <code>Account</code> class from the 
+homework assignment from <a href="09-methods.html">Class #9</a> complete the following tasks:
+
+<p><LI>Add an accessor that returns the interest rate of an <code>Account</code>. Copy and paste your new method as your solution to this question.
+<li> Create test methods for the three constructors in your <code>Account</code> 
+class from the previous homework assignment. Note two constructors were provided (one with no parameters and one with the <code>initAcctNumber</code> parameter).  You added the third constructor to the <code>Account</code> class in the first problem of the homework assignment from <a href="09-methods.html">Class #9</a>.  If you did not complete this earlier problem successfully, see the solution posted outside Professor Braught's door, and add the third constructor to the class.
+
+<p>To complete these exercises, you must first configure BlueJ for unit testing
+(unless you have already done so in class).  Go to the BlueJ menu, select 
+Preferences, then the Miscellaneous tab, and then check "Show unit testing
+tools".  Next, create a test class for the 
+<code>Account</code> class.  Compile the class (if it is not already compiled),
+and then right-click on it and select "Create Test Class" from the pop-up
+menu.  To create a test method, right-click on the test class and select
+"Create test method" from the pop-up menu.  Your test methods should use
+the accessor methods of the <code>Account</code> class to check that the
+constructors have set the fields of the new objects correctly.  Make sure
+that the values returned by the accessor methods are the ones that you
+expect!
+<p>
+ Copy and paste the test methods that BlueJ generated as your solution for
+ this question.  To find these methods, open the test class in the editor.
+ The methods will have the names that you specified when you created them.
+
+<li> Create a test method for the constructor in the <code>Student</code>
+ class. Recall that the <code>Student</code> class is contained in the 
+ <i>lab-classes</i> project from Chapter 1 in Barnes &amp; Kolling. Copy 
+ and paste the test method that BlueJ generated as your solution for this
+ question.  You will need to create a test class and test method as 
+ described in the previous question.
+<LI> Create a test method for the <code>getLoginName</code> method in the
+ <code>Student</code> class. Your test method should call the 
+ <code>getLoginName</code> method and verify that the return value is as 
+ expected.  Copy and paste the test method that BlueJ generated as your
+ solution for this question.
+</ol>
+</BODY>
+
+</HTML>

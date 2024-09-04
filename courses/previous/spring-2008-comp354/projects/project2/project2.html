@@ -1,0 +1,248 @@
+<html lang="en">
+<HEAD>
+<Title>Process Scheduling Simulation</Title>
+<!-- Changed by: , 12-Feb-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<center>
+<font size=+1 color='#000064'>
+<b>Process Scheduling Simulation</b>
+</center>
+</font>
+
+<font size=+1 color='#006400'>
+<p><b>Introduction</b>
+</font>
+
+<p>Simulation is a powerful tool that can be employed when designing and selecting scheduling strategies for an operating system. Such simulations allow the consideration of far more details and far more processes than manual or theoretical comparisons. In this project you will implement and test a simulation for round robin process scheduling.
+
+<font size=+1 color='#006400'>
+<p><b>Simulation Development</b>
+</font>
+
+<p>You will be implementing your scheduling strategies using the simulation framework provided below.  This simulation framework accepts as input a specification of a collection of processes. The framework then simulates the system calls and interrupts that an OS kernel would receive when executing the specified processes. The following sub-sections provide an overview of the simulation framework and outline what you must do to complete this project.
+
+<p><b>Downloading the Simulator</b>
+<UL>
+<p>In order to execute the simulator you will need to download each of the following Java files to a directory:
+<br><br>
+<UL>
+<LI><a href="code/SystemDriver.java">SystemDriver.java</a>
+<LI><a href="code/SystemTimer.java">SystemTimer.java</a>
+<LI><a href="code/Event.java">Event.java</a>
+<LI><a href="code/EventQueue.java">EventQueue.java</a>
+<LI><a href="code/Process.java">Process.java</a>
+<LI><a href="code/ProcessOperation.java">ProcessOperation.java</a>
+<LI><a href="code/Kernel.java">Kernel.java</a>
+<LI><a href="code/ProcessControlBlock.java">ProcessControlBlock.java</a>
+<LI><a href="code/FCFSnoIO.java">FCFSnoIO.java</a>
+</UL>
+
+<p>You should also download the following data files into the same directory as the simulator code:
+<br><br>
+<UL>
+<LI><a href="code/processes.dat">processes.dat</a>
+<LI><a href="code/process1.dat">process1.dat</a>
+<LI><a href="code/process2.dat">process2.dat</a>
+<LI><a href="code/process3.dat">process3.dat</a>
+<LI><a href="code/devices.dat">devices.dat</a>
+</UL>
+</UL>
+
+<p><b>Compiling the Simulator</b>
+<UL>
+<p>To compile the simulator use the command:
+<UL><xmp>
+javac *.java
+</xmp></ul>
+</UL>
+
+<p><b>Running the Simulator</b>
+<UL>
+<p>The general form of the command line to run the simulator is:
+<UL><xmp>
+java SystemDriver <processes file> <device file> <scheduler type>
+</xmp></UL>
+
+<p>The command line parameters have the following effects:
+<br><br>
+<UL>
+<DL>
+<dt><i><code>&lt;processes file&gt;</code></i>
+<dd>Filename of a file containing a list of the files that describe the processes to be executed by the simulator. For example, the <code>processes.dat</code> that you downloaded earlier contains two (non-comment) lines indicating that the processes in the files <code>process1.dat</code>, <code>process2.dat</code> and <code>process3.dat</code> should be executed by the simulator.  Lines beginning with <code>#</code> are comments. All comments and all blank lines are ignored by the simulator.  The format for the contents of process files will be described below.
+<br><br>
+<dt><i><code>&lt;device file&gt;</code></i>
+<dd>Filename of a file containing a list of the devices that the system supports. For example the file <code>devices.dat</code> that you downloaded earlier contains lines indicating three <code>I/O</code> devices (two disks and a cd-rom).  Each line in this file specifies one device.  Such a line must begin with <code>I/O</code> and must conclude with the name of the device.  Device names may not contain spaces.
+<br><br>
+<dt><i><code>&lt;scheduler type&gt;</code></i>
+<dd>The type of scheduler to use when scheduling the processes. The value used here must be the name of a class that implements the <code>Kernel</code> interface.  Currently, the <code>FCFSnoIO</code> class is the only such class that you have. As part of this project, you will create a new class that implements round robin scheduling.
+</DL>
+</UL>
+
+<p>To run the simulator with the data files downloaded above use the command line:
+<UL><xmp>
+java SystemDriver processes.dat devices.dat FCFSnoIO
+</xmp></UL>
+
+<p>If you successfully downloaded and compiled all of the above files, the output of the program will appear as:
+<UL><xmp>
+System Time: 64
+Kernel Time: 12
+  User Time: 45
+  Idle Time: 7
+CPU Utilization: 70.31%
+</xmp></UL>
+
+<p>This output indicates that the execution of the processes listed in the <code>processes.dat</code> file required a total of 64 time units.  12 of those time units were spent performing kernel operations (i.e. scheduling overhead), 45 were spent performing user operations and for 7 time units there were no runnable user processes and the <code>Idle</code> process was executed.  The final line indicates that the CPU spent 70.31% of its time executing user code (i.e. not kernel code and not the idle process).
+</UL>
+
+<p><b>The Process Data Files</b>
+<UL>
+<p>Each file listed in the <i><code>&lt;processes file&gt;</code></i> indicated by the command line parameter describes a single process to be executed during the simulation. The syntax of these process data files is documented in the <code>process1.dat</code> file. An example of such a file is shown below.
+<UL><xmp>
+# Process name: must be unique among all
+# processes for any given simulation.
+PROCESS5
+
+# Process arrival time:
+15
+
+# Process profile.  This must begin with
+# START and end with EXIT.  Also every process
+# must start and end with a CPU burst. That is,
+# the first line after START and the last line 
+# before EXIT must be CPU bursts. In between
+# the lines may be:
+#   CPU <time>
+#   IO <device> <time>
+START
+CPU 25
+IO DISK1 100
+CPU 15
+IO CDROM 50
+CPU 25
+EXIT
+</xmp></UL>
+
+<p>The above process file describes a process named <code>PROCESS5</code>.  Each process in a simulation must have a unique name.  <code>PROCESSS5</code> arrives in the system at time 15.  This means that the system call for creating <code>PROCESS5</code> will occur at time 15.  <code>PROCESS5</code> then goes on to have a CPU burst of 25 time units, followed by an I/O burst on <code>DISK1</code> of 100 time units, followed by another CPU burst of 15 time units.  The process then has a 50 time unit I/O burst using the <code>CDROM</code> and a final CPU burst of 25 time units. <code>PROCESS5</code> is an example of a very simple process. You will need to carefully create a variety of user processes such as this in order to verify that your round robin scheduling algorithm is working correctly.
+</UL>
+
+<p><b>The <code>Kernel</code> Interface</b>
+<UL>
+<p>The file <code>Kernel.java</code> defines the interface that the system uses to interact with your scheduling strategies. Thus, all of the programming that you do for this project will take place in classes that implement the <code>Kernel</code> interface.  You should study the <code>FCFSnoIO</code> class as a example. This class implements the <code>Kernel</code> interface and performs a simple First Come First Serve scheduling strategy with the assumption that none of the processes make I/O requests. You will need to write a similar class in order to implement round robin scheduling.
+
+<p>The methods defined in the <code>Kernel</code> interface are designed to emulate the way real processes interact with an operating system. The <code>SystemDriver</code> and the other classes provided above read the device and process data files and then make calls to the <code>Kernel</code> methods to simulate the system calls and interrupts that would occur when executing the processes. In addition to the methods defined in the <code>Kernel</code> interface, your scheduler code must contain a no-argument constructor. The purpose and use of each of the four methods defined by the <code>Kernel</code> interface is discussed below:
+<br><br>
+<UL>
+<DL>
+<dt><i><code>public void systemCall(int callID, String param, SystemTimer timer)</code></i>
+<dd>A <code>Kernel</code>'s <code>systemCall</code> method will be invoked when the services of the kernel are required. More specifically the <code>systemCall</code> method is invoked in three circumstances:
+<br><br>
+<OL>
+<LI>At startup the <code>SystemDriver</code> invokes the <code>systemCall</code> method once for each device listed in the <code>&lt;devices file&gt;</code>.  These system calls simulate the initialization of the system as would occur during the bootstrap process.  System calls related to initializing new devices are indicated by a <code>callID</code> of <code>MAKE_DEVICE</code>.  The kernel must respond to these system calls by creating a waiting queue for the device. The <code>param</code> will contain the name of the device as it was indicated in the <code>&lt;devices file&gt;</code>.  The <code>timer</code> parameter will contain a reference to a <code>SystemTimer</code> object which provides access to timing information.  The <code>SystemTimer</code> class is described in more detail below.
+<br><br>
+<LI>When a new process arrives in the system (as indicated by the arrival time in its process data file) the <code>systemCall</code> method will be invoked with <code>callID</code> of <code>START_PROCESS</code>.  The <code>param</code> will contain the name of the new process as was indicated in the process' data file. The kernel must respond to this system call by creating a new process descriptor for the process and adding it to the ready queue.
+<br><br>
+<LI>Each time the currently executing process generates a system call (e.g. I/O request or exit) the <code>systemCall</code> method will be invoked with the appropriate <code>callID</code> and <code>param</code>. When a process makes an I/O request (<code>callID</code> will be <code>IO_REQUEST</code>) the process control block for that process must be moved to the end of the waiting queue associated with the I/O Device.  For simplicity, you should assume that all devices process requests in FIFO order.  Thus, the waiting queues for the I/O devices can be FIFO queues. When a process exits (i.e <code>callID</code> is <code>TERMINATE_PROCESS</code>) it should be removed from the running state and should no longer be considered by the scheduler.
+</OL>
+
+<p>The following table summarizes all of the <code>callID</code> and <code>param</code> values that may be passed to the <code>systemCall</code> method:
+
+<UL><xmp>
+callID:	              param:
+----------------------------------
+MAKE_DEVICE           Device ID
+START_PROCESS         Process Name
+IO_REQUEST            Device ID
+TERMINATE_PROCESS     null
+</xmp></UL>
+ 
+<dt><i><code>public void interrupt(String deviceId, SystemTimer timer)</code></i>
+<dd>The kernel's <code>interrupt</code> method is invoked under two conditions:
+<br><br>
+<OL>
+<LI>Each time one of the I/O devices in the system completes an I/O operation the <code>interrupt</code> method is invoked with the <code>deviceId</code> parameter set to the name of the device that generated the interrupt.  The kernel must remove the process descriptor from the head of the device's waiting queue and move it to the appropriate location in the ready queue.
+<br><br>
+<LI>The interrupt method can be invoked by the system timer device. When invoked by the system timer the <code>deviceID</code> will be set to the string <code>TIMER</code>. The kernel will need to use the system timer to generate the interrupts necessary to implement the time-slicing for round robin scheduling. The method by which timer interrupts are set is described below when the details of the <code>SystemTimer</code> class are presented.
+</OL>
+<br>
+<dt><i><code>public String running(SystemTimer timer)</code></i>
+<dd>The <code>running</code> method must return the name of the process that is currently in the running state. If no process is currently ready to run this method must return the string "Idle" indicating that the idle process is running.  This information is used by the simulator to keep track of how much CPU time has been allocated to each process.
+
+<br><br>
+<dt><i><code>public void terminate(SystemTimer timer)</code></i>
+<dd>The <code>terminate</code> method is called automatically when all of the processes in the simulation have completed.  You should use the <code>terminate</code> method to calculate and report the statistics necessary for comparing your scheduling algorithms.
+</DL>
+</UL>
+</UL>
+
+<p><b>The <code>SystemTimer</code> Class</b>
+<UL>
+<p>Each time a method in a <code>Kernel</code> class is called it is passed a reference to an object of type <code>SystemTimer</code>.  This object contains a number of public methods that will be useful for performing scheduling and for computing the metrics that are useful for evaluating schedulers.  These methods are:
+<br><br>
+<UL>
+<DL>
+<dt><i><code>getSystemTime()</code></i>
+<dd>This method returns the number of time units that have elapsed since the simulation began.
+<br><br>
+<dt><i><code>getKernelTime()</code></i>
+<dd>This method returns the number of time units that the CPU has been dedicated to kernel operations such as processing system calls and handling interrupts.  For the purposes of this simulation, all system calls and interrupts are assumed to take two time units each. 
+<br><br>
+<dt><i><code>getUserTime()</code></i>
+<dd>This method returns the number of time units that the CPU has been dedicated to processing user operations.
+<br><br>
+<dt><i><code>getIdleTime()</code></i>
+<dd>This method returns the number of time units that the CPU has been idle.
+<br><br>
+<dt><i><code>scheduleTimerInterrupt(int delay)</code></i>
+<dd>This method sets the system timer to generate an interrupt <code>delay</code> time units in the future.
+<br><br>
+<dt><i><code>cancelTimerInterrupt()</code></i>
+<dd>This method cancels a pending system timer interrupt if there is one.  If there is not a pending timer interrupt then this method does nothing.
+</DL>
+</UL>
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>The Assignment</b>
+</font>
+
+<p>Implement a <code>Kernel</code> class that performs round robin scheduling using the following policies:
+<UL>
+<LI>Time-slices should be 50 time-units in length.
+<LI>When a new process arrives it should preempt the currently running process. That is, the new process should immediately receive a time slice.  The process that was preempted should then run in the time slice immediately following the new process.
+<LI>Any process that becomes unblocked should preempt the currently running process. The process that was preempted should then run in the time slice immediately following the process that became unblocked.
+</UL>
+
+<p>Your simulation must also compute and display the following performance metrics when the simulation terminates: CPU Utilization, Throughput, Turnaround Time, Wait Time, Waiting Time and Response Time.  For each of these metrics, use the definition given in the lecture slides, not the textbook.
+
+<p><b>Helpful Hint</b>
+
+<p>To help with testing and debugging your scheduling strategies the simulator is capable of generating additional debugging output.  To turn on this additional output set the <code>debug</code> variable to <code>true</code> in the <code>SystemTimer</code> class.  When <code>debug</code> is set to <code>true</code> the simulator will display messages indicating what is happening at each time step of the simulation. These messages can be quite helpful in determining if your scheduling algorithm is working correctly.
+
+<p><b>Turning in Your Solution</b>
+
+<p>Submit your solution by giving me your class that implements round
+robin scheduling, and your new version of
+ProcessControlBlock.java (if you changed it).  Please submit
+both a hard copy and an electronic copy by e-mail.
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+
+<hr>
+<font size=-2>
+<script language="JavaScript">
+          <!---//hide script from old browsers
+          document.write( "This document was last updated "+ document.lastModified + "<br><br>" );
+          //end hiding contents --->
+          </script>
+</font>
+
+</BODY>
+</HTML>

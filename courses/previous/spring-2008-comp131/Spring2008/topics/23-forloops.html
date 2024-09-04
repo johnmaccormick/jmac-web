@@ -1,0 +1,88 @@
+<html lang="en"><head>
+	<title>Iteration with for Loops</title>
+	<link href="../cs131.css" type="text/css" rel="stylesheet">
+</head>
+
+<body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Iteration with for Loops<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 4.8-4.8.1 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/CoinCollection.zip"><i>CoinCollection</i></a><br>
+<a href="../examples/VideoStore-Start.zip"><i>VideoStore-Start</i></a><br>
+<a href="../examples/VideoStore.zip"><i>VideoStore</i></a><br>
+<a href="../examples/FirstForLoop.zip"><i>FirstForLoop</i></a><br>
+</p><hr>
+
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<LI>Complete the method body of the <code>revPrintAllDVDs</code> method in the <code>VideoStore</code> class.  Also be sure to create a test method for your <code> revPrintAllDVDs </code> method.
+<LI>Complete the method body of the <code>printTitleList</code> method in the <code>VideoStore</code> class.  Also be sure to create a test method for your <code>printTitleList</code> method.
+<LI>What output, if any, would be produced by the following code snippets? (You need to figure these out by hand - do not run them on a computer.)
+<OL type="a">
+<li><xmp>
+for (int i=2; i<=6; i++) {
+    System.out.println(i);
+}
+</xmp></li>
+<li><xmp>
+for (int j=10; j>5; j=j-2) {
+    System.out.println(j);
+}
+</xmp></li>
+</ol>
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignments</h3>
+<p>
+</p><ol>
+<LI>What output, if any, would be produced by the following code snippets? (You need to figure these out by hand - do not run them on a computer.)
+<OL type="a">
+<li><xmp>
+for (int i=3; i>=7; i++) {
+    System.out.println(i);
+}
+</xmp></li>
+<li><xmp>
+int x = 1;
+for (int k=24; k>0; k=k-x) {
+    System.out.println(k);
+    x++;
+}
+</xmp></li>
+</OL>
+
+
+<li>Make the following additions to the the <i>CoinCollection</i> project that you have been working with for the last several assignments. Be sure that you use the specified names and that your method signatures are consistent with what is described below.
+
+<OL type="a">
+<LI>Add a method named <code>printAllCoins</code>.  This method does not return a value and does not accept any parameters.  When invoked it prints all of the coins in the collection. Be sure to include a javadoc comment describing your method.
+
+<LI>Create a test method for your <code>printAllCoins</code> method.
+
+<LI>Add a method named <code>sillyPrintMethod</code>. This method does not return a value and does not accept any parameters.  When invoked it prints out the coins in the even numbered locations (0, 2, 4...) going forward through the collection.  It then prints all of the coins in the odd numbered positions going backwards through the collection (...5, 3, 1). Be sure to include a javadoc comment describing your method.
+
+<LI>Create a test method for your <code> sillyPrintMethod </code> method.
+</OL>
+
+<p>Save this project. You will be adding additional methods to it in the next homework assignment. Once that assignment is complete, you will submit your
+project via Web-CAT.
+<!--
+Submit your project <i>CoinCollection-v1</i> project via Web-CAT.
+-->
+</ol>
+
+</div></body></html>

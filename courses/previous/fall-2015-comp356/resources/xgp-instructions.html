@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Instructions for using XGP</TITLE>
+  </HEAD>
+  <BODY>
+    <H1>Instructions for using XGP on the Tome Macs</H1>
+
+<ul>
+  <li>Run XGP from Applications | XGP | XGP
+  <li>Using your favorite text editor (such as Aquamacs), or XGP's
+  built-in editor, open or create a text file.
+    <ul>
+      <!-- <li>Do not use XGP's built-in editor -- for technical reasons, this -->
+      <!-- 	editor is unable to save your files. -->
+      <li>By convention, the name of the text file should end in the
+      .pl extension.  In the remainder of these instructions, we will
+      assume that your file is called source.pl, and that you have put
+      some Prolog statements in the file.
+      <li>XGP insists that your file uses UNIX-style line endings. If
+      you created your file on a Tome Mac, it will have the right kind
+      of line endings. If you downloaded it from somewhere else, and
+      the file was originally created on a Windows machine, then it
+      probably doesn't have the right kind of line endings. To fix
+      this in Aquamacs, type Alt-x
+      set-buffer-file-coding-system[Enter]utf-8-unix[Enter].  Then
+      save the file.  Interested in this crazy problem? Read about it
+      in the <a href="http://en.wikipedia.org/wiki/Newline">Wikipedia
+      Newline page</a>.
+    </ul>
+    
+  <li>In XGP:
+    <ul>
+      <li>consult the file by choosing "Tools | Load or Consult file..."
+      <li>check for any errors in the XGP Console window.  If necessary, fix any errors, save the file, then choose "Tools | Load or Consult file..." again.
+      <li>choose "Tools | Evaluate Query..."
+    </ul>
+  <li>In the XGP "Evaluate Query..." window:
+    <ul>
+      <li>Type a query.
+      <li>Depending on what kind of response you want, click Once, First, Next, or All
+    </ul>
+  <li>Now make some kind of change to source.pl in your text editor,
+  and save the file.
+    <ul>
+      <li>Note that XGP will not automatically notice that the file
+      has been updated. The "Consult Changes Before Evaluating"
+      feature does not work. The only way to evaluate queries on the
+      new file consulted again from the "Tools" menu.
+    </ul>
+  <li>Note that the Halt button in the "Evaluate Query..." window does not work.  To
+  halt a long-running query, select "Tools | Halt Running Thread".
+</ul>
+
+<P>Instructions for using tracing facilities with XGP:
+<ul>
+  <li>These instructions use the
+  file <a href="course-inference.pl">course-inference.pl</a> as an
+  example.  We assume you would like to trace the query <code>
+      teachingStudent(maccormick,gao).
+      </code>
+  <li>Consult the file course-inference.pl, then evaluate the query
+  "trace, teachingStudent(maccormick,gao)."
+  <li>In the XGP Console window, repeatedly press the Enter key to
+  step through the evaluation.
+  <li>To terminate tracing, enter "n" (followed by Enter) in the XGP Console window.
+</ul>
+
+
+  
+</body>

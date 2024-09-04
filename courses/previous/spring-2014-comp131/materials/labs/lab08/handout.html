@@ -1,0 +1,347 @@
+<html lang="en">
+<head><Title>Lab #8 - Darwin's World</title>
+                                                                                
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+               
+<H4 align="center">COMP 131</H4>
+                                                                 
+<font size=+2 color='#006400'>
+<center><b>Lab #8 - Darwin's World</b></center>
+</font>
+                                                                                
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+
+<p>
+  Darwin's World is a game that was invented and first described by Nick 
+ Parlante at Stanford University, and later extended by Eric Roberts
+ and others.  The following descriptions are adapted from their work.
+<p>
+
+ The game simulates a two-dimensional world divided up into 
+ small squares and populated by a number of creatures. Each of the creatures
+ lives in one of the squares, faces in one of four directions (up, down,
+ left or right) and belongs to a particular species, which determines  what
+ color the creature is and how that creature behaves. For example, one 
+ possible configuration of the world is shown in Figure 1.
+
+<center>
+<p>
+<img src="darwin.jpg">
+<br><b>Figure 1:</b> Darwin's World.
+</center>
+
+
+ The dark squares in the world represent walls.  Note in particular that the
+ world is completely surrounded by walls, so that no creatures can escape.
+<p>
+
+ This sample world is populated with 20 creatures, ten of a species
+ called Rover and 10 of a species called Flytrap. In each case, the creature
+ is identified in the graphics world with its color and the first letter in 
+ its species name. The orientation is indicated by the figure
+ surrounding the identifying letter; the creature points in the direction 
+ of the arrow. The behavior of each creature - which you can think of as a 
+ small robot - is controlled by a program that is particular to each species.
+ Thus, all of the Rovers behave in the same way,
+ as do all of the Flytraps, but the behavior of each species is different 
+ from the other.
+ As the simulation proceeds, every creature gets a turn.
+ On its turn, a creature executes a
+ short piece of its program in which it may look in front of itself
+ to see what's there and then take some action. The possible actions are
+ moving forward, turning left or right, or infecting
+ some other creature standing immediately in front, which transforms that
+ creature into a member of the infecting species. As soon as one of these
+ actions is completed, the turn for that creature ends, and some other
+ creature gets its turn. When every creature has had a turn, 
+ the process begins all over again with each creature taking a second turn,
+ and so on.  The goal of the game is to infect as many creatures as possible
+ to increase the population of your own species.
+
+<font size=+1 color='#000064'>
+<p><b>Species Programming:</b>
+</font>
+
+<p>
+ In order to know what to do on any particular turn, a creature executes
+ some number of instructions in an internal program specific to its species.
+ For example, the program for the Flytrap species is shown in
+ Table 1.  The step numbers and comments are not part of the actual program,
+ but are included here to make it easier
+ to understand the program.  The Flytrap program as it would appear in
+ an actual file is shown in Figure 2.
+
+<p>
+On its turn, a Flytrap first checks to see if it
+is facing an enemy creature in the adjacent square. If so, the program
+jumps ahead to step 3 and infects the
+hapless creature that happened to be there. If not, the program instead
+goes on to step 1, in
+which it simply turns left. In either case, the next instruction is a go
+instruction that will
+cause the program to start over again at the beginning of the program.
+<p>
+
+<center>
+<table border>
+<tr><th>step number</th> <th>instruction</th> <th>comment</th></tr>
+<tr><td align="center"> 0 </td> <td>ifenemy 3 </td> 
+    <td> If there is an enemy ahead, go to step 3</td></tr>
+
+<tr><td align="center"> 1 </td> <td>left </td> <td> turn left</td></tr>
+
+<tr><td align="center"> 2 </td> <td>go 0 </td> <td> go back to step 0</td></tr>
+
+<tr><td align="center"> 3 </td> <td>infect </td> 
+    <td> infect the adjacent creature</td></tr>
+
+<tr><td align="center"> 4 </td> <td>go 0 </td> <td> go back to step 0</td></tr>
+
+</table>
+<br>
+<caption><b>Table 1:</b> Flytrap specicies program.</caption>
+</center>
+
+<p>
+Programs are executed beginning with the instruction in step 0 and ordinarily
+continue with each new instruction in sequence, although this order can be
+changed by certain instructions in the program. Each creature is responsible
+for remembering the number of the next step to be executed. The instructions
+that can be part of a Darwin program are listed in Table 2.
+<p>
+
+<center>
+<table border>
+<tr> <th>instruction</th> <th align="center">meaning</th></tr>
+<tr> <td>hop</td>  <td>The creature moves forward if the square it is
+                      facing is empty. If moving forward 
+                      would cause the creature to land on 
+                      top of another creature or a wall,
+                      the hop instruction 
+                      does nothing. </td></tr>
+<tr> <td>left</td>  <td>The creature turns left 90 degrees to face in a 
+                        new direction.</td></tr>
+<tr> <td>right</td>  <td>The creature turns right 90 degrees. </td></tr>
+<tr> <td>infect</td> <td>If the square immediately in front of this creature is 
+                      occupied by a creature of a different 
+                      species (an "enemy") that creature is
+                      infected to become the same as the infecting species.
+                      When a creature is infected, it keeps its position and 
+                      orientation, but changes its internal 
+                      species indicator and begins executing the
+                      same program as the infecting creature, starting
+                      at step 0.</td></tr>
+
+<tr> <td>ifempty <i>n</i></td> <td>If the square in front of the creature 
+                     is unoccupied (by a wall or another creature), 
+                      update the next instruction field in the
+                      creature so that the program
+                      continues from step <i>n</i>. If that square is occupied,
+                      go on with the next instruction in sequence.</td></tr>
+<tr> <td>ifwall <i>n</i></td>  <td>If the creature is facing a wall,
+                      jump to step <i>n</i>; otherwise,
+                      go on with the next instruction 
+                      in sequence.</td></tr>
+<tr> <td>ifsame <i>n</i></td>  <td>If the square the creature is facing
+                      is occupied by a 
+                      creature of the same species, jump to 
+                      step <i>n</i>; otherwise, go on with the next
+                      instruction.</td></tr>
+<tr> <td>ifenemy <i>n</i></td> <td>If the square the creature is facing 
+                      is occupied by a 
+                      creature of an enemy species, jump to 
+                      step <i>n</i>; otherwise, go on with the next
+                      instruction.</td></tr>
+<tr> <td>ifrandom <i>n</i></td> <td> In order to make it possible to write 
+                      some creatures 
+                      capable of exercising what might be 
+                      called the rudiments of "free will",
+                      this instruction jumps to step <i>n</i> half the 
+                      time and 
+                      continues with the next instruction the other half 
+                      of the time.</td></tr>
+<tr> <td>go <i>n</i></td>  <td>This instruction always jumps to step 
+                           <i>n</i>, independent of any condition.</td></tr>
+</table>
+<br>
+<caption><b>Table 2:</b> Darwin's World programming language 
+ instructions.</caption>
+</center>
+
+<p>
+A creature can execute any number of if or go instructions without 
+relinquishing its turn.  The turn ends only when the program executes one 
+of the instructions hop, left, right, or infect. On subsequent turns,
+the program starts up from the point in the program at
+which it ended its previous turn.
+<p>
+The program for each species is stored in a file in the <i>Darwin</i> project
+directory.  Each species file consists of the species name, followed
+by the species color (on the next line), followed by the species program.
+Darwin's World creatures can be of the following colors:
+blue, cyan, gray, green, magenta, orange, pink, red, or yellow.
+The instructions in the program appear in order and one per line. 
+The program ends with a blank
+line. Comments may appear after the blank line or at the end of each 
+instruction line. For example, the file for the Flytrap creature appears in 
+Figure 2.
+<p>
+
+<pre>
+Flytrap
+green
+ifenemy 3
+left
+go 0
+infect
+go 0
+
+The flytrap sits in one place and spins.
+It infects anything which comes in front.
+Flytraps do well when they clump.
+</pre>
+<br>
+<caption><b>Figure 2:</b> File <code>Flytrap.txt</code> containing the species
+  name, color and program for Flytraps.</caption>
+<p>
+There are several presupplied creature files (in the <i>Darwin</i> project
+directory) - see Table 3.
+You can also create your own creatures by creating a text file in
+this format.  On Windows machines, use NotePad or WordPad for this. On Apple machines, use TextEdit (available via the Finder under 
+Applications).
+<!--
+In particular, you can design a 
+creature for the Darwin Contest as described later in this assignment.
+-->
+
+<center>
+<table border>
+<tr><td> <code>Food.txt</code></td>            
+                   <td> This creature spins in a square but never infects 
+                        anything. Its only purpose is to serve as food 
+                        for other creatures. As Nick Parlante explains, 
+                        "the life of the Food creature is so boring that
+                        its only hope in life is to be infected by something 
+                        else so that it gets reincarnated as something
+                        more interesting."</td></tr>
+<tr><td> <code>Hop.txt</code></td>   
+                    <td>This creature just keeps hopping forward until it 
+                        reaches a wall. Not very interesting, but it
+                        is useful to see if your program is working.</td></tr>
+<tr><td> <code>Flytrap.txt</code></td>            
+                   <td> This creature spins in one square, infecting any enemy
+                        creature it sees.</td></tr>
+
+<tr><td> <code>Rover.txt</code></td> 
+                    <td>This creature walks in straight lines until it is 
+                        blocked, infecting any enemy creature it sees.
+                        If it can't move forward, it turns.</td></tr>
+</table>
+<br>
+<caption><b>Table 3:</b> Presupplied creature files.</caption>
+</center>
+
+<font size=+1 color='#000064'>
+<p><b>The User Interface:</b>
+</font>
+
+<p>
+  The buttons in the user interface (see Figure 1) have
+ the following functionality:
+<p>
+<center>
+<table border>
+<tr><td>Add Creatures</td> <td> add creatures to the world.  
+ After clicking this button, you will be prompted for
+  a file name (containing the species program)
+ and the number of the species to add.
+ The file containing the species
+ program must be located in the <i>Darwin</i> project directory.</td></tr>
+<tr><td>Default Creatures</td> <td> add 10 each of the presupplied creatures
+ to the world.
+ Note that for both Add Creatures and Default Creatures, any creature
+ that is added on top of a wall or another creature dies instantly.</td></tr>
+<tr><td>(Re)Start</td> <td> begin a new simulation.  This button can be 
+  clicked before the current simulation
+  has ended if nothing interesting is happening. </td></tr>
+<tr><td> Next Turn</td> <td>  allow each creature to have one turn.  The simulation
+ ends after 200 turns for  each creature.</td></tr>
+<tr><td> Continue</td> <td> run the simulation to the end (so that the 
+ user does not have to click Next Turn  200 times).</td></tr>
+<tr><td> Pause</td> <td>  used after Continue has been clicked to allow 
+ the world to be inspected in detail.</td></tr>
+</table>
+</center>
+
+<p>
+  The slider can be used to control the speed of the simulation (when
+ Continue has been clicked).  The user interface displays the current
+ turn, the total number of creatures, and, after the simulation is
+ complete, the number of each kind of creature remaining.
+
+<font size=+1 color='#000064'>
+<p><b>The Assignment:</b>
+</font>
+
+<p>
+  Your task is to complete the implementation of Darwin's World creatures,
+ and to design a creature of your own.
+ Create a <code>Lab08</code> folder in your <code>COMP131</code> folder.
+ Download and unpack the <a href="Darwin.zip"><i>Darwin</i></a> project
+ into your <code>Lab08</code> folder.
+ After opening the <i>Darwin</i> project in BlueJ, you can start the 
+ program by creating an instance of the <code>DarwinGUI</code> class.
+ Of course, the program will not work correctly (yet).
+
+<p>
+ Do the following to complete this lab:
+<ol>
+<li> Complete the <code>Program</code> class, and create a test class and
+ write test cases that achieve statement coverage for the 
+ <code>Program</code> class.  You will need to 
+ choose one or more fields for this class, and implement all methods
+ and the constructor.  You will find it helpful to look at the interface
+ view of the <code>Instruction</code> class, as a <code>Program</code>
+ is a list of <code>Instruction</code>s.  Your test case for the 
+ <code>print</code> method should simply call the method in order to
+ achieve statement coverage.  Your instructor will check the correctness of
+ your <code>print</code> method manually.
+<li> Complete the <code>Creature</code> class, and create a test class and
+ write test cases that achieve statement coverage.
+ You will need to choose the fields for this class, and implement all methods
+ and the constructor.
+ Your test case for the 
+ <code>print</code> method should simply call the method in order to
+ achieve statement coverage.  Your instructor will check the correctness of
+ your <code>print</code> method manually.
+<li> Design your own Darwin's World creature.  The species name, color
+     and program for this creature must be in the file 
+    <code>MyCreature.txt</code> in the Darwin folder.  A stub version
+    of this file has been provided for you.  Edit it with a text editor
+    such as NotePad, WordPad, or TextEdit to add the information about your creature.
+</ol>
+
+<p>
+<!---
+ After this lab has been graded, we will hold a  Darwin's World tournament.
+ Your creature will compete against those designed by your classmates, and
+ the winning creature will earn 5 extra credit points for its designer.
+--->
+
+<p>
+
+
+<font size=+1 color='#000064'>
+<p><b>Submitting Your Solution:</b>
+</font>
+                                                                                
+<p>Submit your <i>Darwin</i> project via Web-CAT.   You must include test
+cases that achieve statement coverage for the <code>Program</code> and
+<code>Creature</code> classes.  You must also include a creature of your own
+design in a file called <code>MyCreature.txt</code> in the Darwin folder.
+</body>
+</html>
+

@@ -1,0 +1,709 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+ <HEAD>
+<title>Detailed schedule and resources for COMP251</title>
+<!-- Changed by: , 02-Dec-2010 -->
+<SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+</SCRIPT>
+</HEAD>
+<BODY>
+<h2>Detailed schedule and resources for COMP251</h2>
+
+<h4><FONT COLOR="000066">Class 1: Monday, August 27</FONT></h4>
+
+Brief introduction to syllabus.
+
+<P>Minilab: 
+<UL>
+
+<LI>Read, then run each of the methods in <A
+HREF="CodeParadoxes.java">CodeParadoxes.java</A>.  Make sure you
+clearly understand the output you would expect from an "ideal"
+computer (whatever that means!).  Then make a note of the different
+output that was actually produced.  </LI>
+
+<LI>Choose one of the code paradoxes you just observed. (I recommend
+choosing the infinite loop, unless you already know the answer.)  By
+editing, debugging, and investigating the code, see if you can come
+up with an explanation resolving the paradox.  If you cannot fully
+explain the paradox, at least try to determine some of the
+circumstances which trigger it. </LI>
+
+</UL>
+
+<P>We may also have time to discuss the paradox in <A
+HREF="SheepTracker.java">SheepTracker.java</A>.
+
+
+<h4><FONT COLOR="000066">Class 2: Thursday, August 30</FONT></h4>
+
+These links will help us understand the von Neumann architecture
+(and give us a blast from the past for those who are nostalgic about
+COMP131):
+    <UL>
+      <LI><a href="http://dickinson.edu/~braught/kands/KandS2/instructions.html">The Knob &amp; Switch Computer Assembly Language</a></LI>
+<!--      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/datapath.html');">The Basic Knob &amp; Switch Computer</a></LI>-->
+<!--      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/dpandmem.html')">The Knob &amp; Switch Computer with Memory</a></LI>-->
+<!--      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/micromachine.html', 'KS')">The Knob &amp; Switch Computer with Control Unit</a></LI>-->
+      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/machine.html','KSM')">The Knob &amp; Switch Computer with Assembly Programming</a></LI>
+    </UL>
+
+<P>Challenge 1: implement MM[9] = MM[8] - MM[7] on the knob and
+switch computer above.
+
+<P>Challenge 2: find out as much as you can about the hardware of
+the computer you're working on (CPU specs, memory specs, disk drive,
+and anything else you can think of).
+
+<P>If there's time, we'll do a quick mini-lab that will get you
+started on Homework exercise 1.5, using <A HREF="SmallProgram.java">SmallProgram.java</A>  as a starting point.  As a reminder, here are some basic terminal commands useful for compiling a Java program:
+<ul>
+  <li><tt>pwd</tt>: print working directory i.e. print the name of the directory you are currently in
+  <li><tt>cd somewhere</tt>: change directory to the folder "somewhere" e.g. <tt>cd Desktop</tt> if you have saved your Java file on the desktop.
+<li><tt>ls</tt>: list contents of current directory
+<li><tt>ls -l</tt>: detailed listing of current directory
+<li><tt>ls -l *.java</tt>: list details of all Java files in the current directory
+<li><tt>ls -l SmallProgram.*</tt>: list details of all files whose names start with "SmallProgram"
+<li><tt>javac SmallProgram.java</tt>: compile the Java file SmallProgram.java
+<li><tt>java SmallProgram</tt>: run the main method in SmallProgram
+<li>Don't forget, you can use the up-arrow key to go back to previous commands. And you can use the tab key to complete most commands.
+    </ul>
+
+<h4><FONT COLOR="000066">Class 3: Monday, September 3</FONT></h4>
+
+Interesting background on why binary numbers are used in computers:
+the designers of one of the earliest computers give their reasoning in
+section 5.2 of <i>Preliminary Discussion of the Logical Design of an
+Electronic Computing Instrument</i>, by Burks, Goldstine, and von
+Neumann (1947), available on Moodle.
+
+<P>
+Minilab 1:
+
+<UL>
+  <LI>code:  <A HREF="unsigned.c">unsigned.c</A></LI>
+  <LI>to compile, use <TT>gcc -o unsigned.exe unsigned.c</TT> (ignore the warning message)
+    <LI>to run, use <TT>./unsigned.exe</TT>
+<LI> attempt the challenges given as comments in the code
+</UL>
+
+Minilab 2:
+
+<UL>
+
+<LI>code:  <A HREF="ascii.c">ascii.c</A>
+<LI> attempt the challenges given as comments in the code
+</UL>
+
+Minilab 3:
+
+<UL>
+<LI>Create a short text file containing a few characters, such as your name.</LI>
+
+<LI>View the contents of the file in hexadecimal using the UNIX
+command "<tt>od -x</tt>  <i>filename</i>"</LI>
+
+<li>Experiment with other options to <tt>od</tt>, e.g. <tt>-o</tt>
+and <tt>-s</tt>.  Read the man page ("<tt>man od</tt>") for more
+details.</LI>
+</UL>
+
+<h4><FONT COLOR="000066">Class 4: Thursday, September 6</FONT></h4>
+
+Discussion of <A HREF="../projects">Project 1</A>.  Review your
+knowledge of big-O notation by describing the two methods
+in <A HREF="BigODemo.java">BigODemo.java</A> using this notation.
+Then begin work on the project in class if time allows; or catch up on
+previous minilabs; or brush up on elementary terminal commands
+(<tt>cd</tt>, <tt>ls</tt>, etc).
+
+<h4><FONT COLOR="000066">Class 5: Monday, September 10</FONT></h4>
+
+Cancelled due to illness.
+
+
+
+
+<h4><FONT COLOR="000066">Class 6: Thursday, September 13</FONT></h4>
+
+Cancelled due to illness.
+
+
+<h4><FONT COLOR="000066">Class 7: Monday, September 17</FONT></h4>
+
+
+<P>Announcement: solutions to homework assignment 1 are now available
+on Moodle.
+
+<P>The textbook's table 2.2 (page 63 in 2nd edition, page 71 in 3nd
+edition) is extremely important, but difficult to
+understand. Here's <A HREF="carry-in-and-out.pdf">my explanation</A>
+of the table.
+
+<P>Minilab using <A
+HREF="SignedIntExperiments.java">SignedIntExperiments.java</A>:
+  <OL>
+    <LI>Don't try to understand the code.  Skip to the
+<TT>main</TT> method, and make sure you understand its output.</LI>
+
+<LI>Do
+the challenge exercise in the comments at the end of the code.
+
+<LI>Now go back and try to understand the code, especially
+<TT>makeBitString()</TT>.
+
+  </OL>
+
+<P>As discussed in the lecture, Java gives no warnings about integer
+overflows. <A HREF="http://www.drdobbs.com/java/210500001">This
+article</A> discusses one way of adding such warnings to Java -- it
+is rather advanced, and requires you to learn something about Java
+byte code, but if you're interested in this kind of thing, is well
+worth it.
+
+
+
+<P>Minilab code:
+<A HREF="FloatingPointExperiments.java">FloatingPointExperiments.java</A>
+
+<P>Some further experiments to try at home:
+  <OL>
+    <LI>Compute (0.1+0.2)+0.3 and 0.1+(0.2+0.3) in Java. Are they the same? Explain your result.</LI>
+
+<LI>Write some Java code that will initialize a double to 1.0,
+then repeatedly multiply its value by 10, printing out the result
+each time.  What happens?  Why?  Can you explain the exact time at
+which things start to go wrong?
+  </OL>
+
+<h4><FONT COLOR="000066">Class 8: Thursday, September 20</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="boolean-alg-and-gates-lecture.pdf">Boolean algebra and
+logic gates</a>.
+
+<P>For interest only: Some brief excerpts from George Boole's  <A HREF="laws-of-thought.pdf">Laws of Thought</A> (1854).
+
+<P>Minilab 1: Use
+<A HREF="TruthTable.java">TruthTable.java</A> to check your own
+    computation of the truth table for a Boolean function of three
+    variables.
+
+<P>Minilab 2: If we have time, we will acquaint ourselves with
+<A HREF="http://www.d-project.com/simcir/index.html">SimCir</A>, a
+nifty circuit simulator by Kazuhiko Arase.  Instructions:
+<ol>
+  <li>Download simcir.zip by clicking on the "binary" link on the SimCir page.
+  <li>If it does not unzip automatically, double-click on simcir.zip;
+  you should now see simcir.jar and a few other files.
+  <li>Double-click on simcir.jar. (If that doesn't work, use the command line "java -jar simcir.jar".)
+  <li>Create inputs A, B, C by dragging the "toggle switch" tool, then double-click to rename.
+  <li>Send some power to the inputs by dragging the "D.C. 5V" tool, and connecting it to each of the inputs.
+  <li>Create an output by dragging the "LED" tool.
+  <li>Connect the inputs to the output using your favorite
+  circuit. Click on the inputs to toggle them on or off.  Check that
+  the output lights up when you expect it to.
+    </ol>
+
+
+<h4><FONT COLOR="000066">Class 9: Monday, September 24</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="combinational-circuits-lecture-notes3.pdf">combinational
+circuits</a>.
+
+
+
+<P>
+  Some beautiful JavaScript demos
+    of important circuits by Ken Bigelow:
+    <A
+       HREF="http://www.play-hookey.com/digital/combinational/adder.html">half
+      and full adders</A>, 
+    <A HREF="http://www.play-hookey.com/digital/combinational/multiplexer_four_input.html">multiplexer</A>,
+     <A HREF="http://www.play-hookey.com/digital/combinational/decoder_demux_four.html">decoder</A>.
+
+
+<P><A HREF="combinational-circuit-puzzles.pdf">Circuit puzzles</A>
+from the textbook authors.
+
+<P>Minilabs: See previous class for instructions on
+	installing and using SimCir. Then use SimCir for the following
+	(save these in separate files for later use):
+	  <UL>
+	    <LI>create a 1-to-2 decoder in SimCir</LI>
+	    <LI>create a 2-to-1 multiplexer in SimCir</LI>
+	    <LI>build a ripple carry adder with several digits in SimCir</LI>
+	    <LI>expand your decoder and multiplexer to more digits</LI>
+	  </UL>
+
+
+
+<!-- Peer-review of Project 1.  Please bring a hard copy of your -->
+<!-- assignment to class. -->
+
+
+<h4><FONT COLOR="000066">Class 10: Thursday, September 27</FONT></h4>
+
+
+    <UL>
+<LI><a href="sequential-circuits-lecture-notes.pdf">Lecture notes on
+sequential circuits</a>.
+      <LI>An explanation of the <A
+      HREF="instability-of-SR-flip-flop.pdf">instability
+      of the SR flip-flop</A>.  
+<!-- Also note that, in my -->
+<!--       opinion, the first paragraph of page 134 in the -->
+<!--       text book (the discussion of instability of the SR -->
+<!--       flip-flop) is potentially misleading: an SR -->
+<!--       flip-flop without a clock is perfectly stable when -->
+<!--       S=R=1, and results in Q = Qbar = -->
+<!--       0.  It is only when we have a clock that S=R=1 -->
+<!--       becomes a problem, because immediately after the -->
+<!--       clock cycle, the inputs S, R are killed and the -->
+<!--       resulting state depends on which one happens to -->
+<!--       die off first, resulting in either Q=0 or Q=1. -->
+<!--       Please see the linked document above for a more -->
+<!--       detailed explanation.  The difference between the -->
+<!--       first two links below should also make this -->
+<!--       distinction clear. -->
+</LI>
+
+      <!-- <LI>An <A HREF="clock-lesson.pdf">important lesson about -->
+      <!-- clocks</A>. -->
+
+      <LI>
+More circuits by Ken Bigelow:
+<UL>
+  <LI><A HREF="http://www.play-hookey.com/digital/sequential/rs_nor_latch.html">SR
+        flip-flop</A></LI>
+  <LI><A HREF="http://www.play-hookey.com/digital/sequential/clocked_rs_latch.html">
+	SR flip-flop with a clock</A></LI>
+  <LI><A HREF=
+      "http://www.play-hookey.com/digital/sequential/rs_nand_flip-flop.html">
+	edge-triggered SR flip-flop</A> -- how does this
+	differ from the immediately previous link, "SR
+	flip-flop with a clock"?  What are
+	its advantages and disadvantages?</LI>
+  <LI><A HREF="http://www.play-hookey.com/digital/counters/ripple_counter.html">
+	ripple counter</A> -- how does this differ from
+	the binary counter studied in class?  What are
+	its advantages and disadvantages?</LI>
+</UL>
+      </LI>
+
+<!--       <LI>Please note the error on slide 50 of the -->
+<!--       textbook authors' PowerPoint slides for chapter 3. -->
+<!--       A corrected version is available from the <A -->
+<!--       HREF="../book-powerpoints">PowerPoint slides</A> -->
+<!--       link.</LI> -->
+
+
+<LI><A HREF="sequential-circuit-puzzles.pdf">circuit puzzles handout</A></LI>
+    </UL>
+
+<h4><FONT COLOR="000066">Class 11: Monday, October 1</FONT></h4>
+
+<P>An interesting experiment with word sizes: can we explain the output
+of the
+program <A HREF="WordSizeExperiment.c">WordSizeExperiment.c</A>, in
+terms of the word size of the machine it is run on?  Additional
+exercise: (i) add some code that performs a similar comparison of the
+cost of performing addition on bytes; (ii) run the same experiment
+using multiplication rather than addition.
+
+<P>Check out
+the <a href="http://download.intel.com/products/processor/manual/325462.pdf">Intel
+spec</a> for examples of what kinds of registers are present (fig 3-1
+on p59 is a great place to start; see also the 64-bit setup in fig
+3-2).
+
+
+<h4><FONT COLOR="000066">Class 12: Thursday, October 4</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="assembly-language-intro-lecture-notes.pdf">introduction to
+assembly language</a>.
+
+<P>You'll need
+the <a href="http://samples.jbpub.com/9781449600068/MARIE_Datapath_Simulators.zip">MARIE
+simulator</a> from the
+textbook's <A HREF="http://computerscience.jbpub.com/ecoa/3e/">student
+resource page</A>.  Steps to create and run an assembly language
+program:
+    <OL>
+      <LI>run MarieSim.jar</LI>
+      <LI>in simulator: File | Edit</LI>
+      <LI>in editor: Type program</LI>
+      <LI>in editor: File | Save (saves text file as *.mas; if it does not automatically give your file a ".mas" extention, then manually add ".mas" to the end of the filename)</LI>
+      <LI>in editor: Assemble | Assemble current file (creates machine language file as *.mex) </LI>
+      <LI>[optional] in editor: Assemble |  Show assembly listing</LI>
+      <LI>in simulator: File | Load (load the .mex file)</LI>
+      <LI>in simulator: Run | Run (you can experiment with single stepping)</LI>
+    </OL>
+
+<P>Here's a zip file containing a simple example program that adds two
+numbers, and another program that we will discuss in
+class: <A HREF="simpleAdd.zip">simpleAdd.zip</A>.  
+
+<h4><FONT COLOR="000066">Class 13: Monday, October 8</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="assemblers.pdf">assemblers and symbol tables</a>.
+
+
+<P>Here's a zip file containing a simple example program demonstrating
+the skipcond instruction: <A HREF="simpleSkip.zip">simpleSkip.zip</A>.
+
+<P>Here's a much more readable version of the same program using labels: <A HREF="simpleSkip2.zip">simpleSkip2.zip</A>.
+
+<h4><FONT COLOR="000066">Class 14: Thursday, October 11</FONT></h4>
+
+Exam 1. See the exam web page for details. Don't forget that
+homework solutions are available on Moodle.
+
+<h4><FONT COLOR="000066">Class 15: Thursday, October 18</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="subroutines-and-loops.pdf">subroutines and loops</a>.
+
+<P>ZIP file of <A HREF="assemblyDemos.zip">assembly language
+demos</A> for the JumpI, AddI, JnS, and Clear instructions, and a
+subroutine.
+
+<P>Fixed version of subroutine demo: <A HREF="subroutineDemo2.zip">subroutineDemo2.zip</A>
+
+<P>Instructions for minilab:
+
+<OL>
+<LI>Download the above zip file of assembly language demos.
+<LI>Extract and open the file subroutineDemo.mas in MARIE.
+<LI>Run the code and make sure you understand the result.
+<LI>Complete the challenge exercise given at the bottom of the code listing. That is, alter subroutineDemo.mas to achieve the result X=(4*X-1)*4*4.
+<LI>Write subroutine that multiplies two positive integers X and Y, storing the result in Z.
+<LI>Use your answer to write an assembly program that computes the product of five numbers.
+<LI>Can one subroutine call another subroutine?  Give examples or counterexamples.
+<LI>Can a subroutine call itself?  Why or why not?
+
+</OL>
+
+<h4><FONT COLOR="000066">Class 16: Monday, October 22</FONT></h4>
+
+<P>Please take the <a href="http://www.surveymonkey.com/s/9TX6MSR">mid-semester survey</a>.
+
+<P>Project 3 has been posted -- please read it and bring any questions
+to the next class.
+
+<P>Today's lecture notes
+on <a href="further-assembly-language.pdf">further assembly language</a>
+(specifically, describing one reason we learn assembly language, and
+self-modifying code).
+
+
+<P>Demo of the importance of understanding assembly language: <A
+HREF="Counter.java">Counter.java</A>.  The strange behavior of this
+program can only be explained by understanding the instruction set
+of the computer on which it's run.
+
+<P>Demos of <a href="selfModifyDemos.zip">self-modifying code</a>.
+
+<P>Special homework question (label this as "class 16 homework"):
+Write a MARIE assembly language program with the following
+properties. There is a location labelled <TT>N</TT> storing a
+positive integer <TT>n</TT>. There is a label <TT>Array</TT> marking
+the start of an array containing <TT>n</TT> integers. There is a
+location labelled <TT>Value</TT> storing an integer
+<TT>value</TT>. There is a label <TT>Answer</TT> that will store the
+answer of the computation. The program must output (i.e. store in
+<TT>Anwser</TT>) the number of elements of the array which are greater
+than <TT>value</TT>. <font COLOR="000066">You may assume
+that <TT>Value</TT> and all elements of the array are
+nonnegative <i>[added 11/5/12]</i>.</font>  The program must use the
+subroutine you wrote as the solution to the textbook exercise 4.20
+(2nd ed.)/4.32 (3rd ed.).  <B>Important hint:</B> manipulating arrays
+in MARIE requires some special tricks. Look carefully
+at <A HREF="arrayDemo.zip">arrayDemo.zip</A> in order to understand
+the techniques you will need.
+
+<h4><FONT COLOR="000066">Class 17: Thursday, October 25</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="real-world-architectures.pdf">real world architectures</a>.
+
+<P>Examining this java program in the Eclipse debugger shows some aspects of the call stack: <A HREF="StackDemo.java">StackDemo.java</A>.
+
+<P>Examining the assembly language from the following C programs
+gives some interesting clues about real-world assembly language: <A
+HREF="variables.c">variables.c</A>, <A
+HREF="subroutine.c">subroutine.c</A>, <A HREF="loop.c">loop.c</A>.
+
+<P>The 
+<a href="http://download.intel.com/products/processor/manual/325462.pdf">Intel
+spec</a>
+<!-- <A HREF="IA32-instruction-set-reference.pdf">IA32 instruction -->
+<!-- set reference</A>  -->
+contains all the gory details of a real assembly
+language. Glance at this for interest only; there is nothing in this
+document that you need to know.
+
+<h4><FONT COLOR="000066">Class 18: Monday, October 29</FONT></h4>
+
+Canceled due to storm.
+
+<h4><FONT COLOR="000066">Class 19: Thursday, November 1</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="instruction-set-design2.pdf">instruction set design</a>.
+
+<P>Here is a C program we can use to determine the endianness of the
+lab machines: <A HREF="endian.c">endian.c</A>.
+<UL>
+  <LI>To compile, use <TT>gcc -o endian.exe endian.c</TT>
+  <LI>Ignore any warning messages.
+  <LI>To run, use <TT>./endian.exe</TT>
+</UL>
+
+
+<P>Suggested extra practice exercises (3rd edition): Ch 5, exercises
+1a, 1b, 4, 8, 17.  Solutions are in the back of the textbook.
+
+<!-- <P>A <A HREF="expanding-opcodes.pdf">simple example of expanding -->
+<!-- opcodes</A> is provided. This example also demonstrates several -->
+<!-- different addressing modes. -->
+
+
+<h4><FONT COLOR="000066">Class 20: Monday, November 4</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="pipelining-etc.pdf">pipelining and real-world ISAs</a>.
+
+
+<P>Suggested extra practice exercises (3rd edition): Ch 5, exercises 19 and 25.
+
+
+<h5>Java bytecode minilab</h5>
+
+<P>Here is a simple Java program that we can compile, then disassemble,
+to understand something about Java bytecode: <A
+HREF="Mult.java">Mult.java</A>.
+
+<P>Here are the steps to follow for this minilab:
+<ul>
+  <li><i>Compile</i> the Java source code: <TT>javac Mult.java</TT>.
+  As you know, this produces a Java class file called <TT>Mult.class</TT>.
+
+  <li><i>Disassemble</i> the Java class file: <TT>javap -c Mult</TT>.  This
+  will show on the screen the complete listing of JVM instructions
+  (also known as Java bytecode) in the class file.  For convenience,
+  save the bytecode in a text file called <tt>bytecode.txt</tt> so you
+  can examine it later. Do this by redirecting the output using the
+  "&gt;" character: <blockquote><TT>javap -c Mult &gt; bytecode.txt</TT></blockquote>
+
+  <li><i>View</i> the raw contents of the Java class file.  To do this, we
+  will use a simple program called "od" which stands for "octal dump."
+  The precise command line to use is: <tt>od -Ax -t x1
+  Mult.class</tt>.  This will show on the screen a listing of the
+  binary content of the class file.  The left-hand column shows the
+  hexadecimal addresses within the file, and in each row we see 16
+  bytes of the file's contents displayed in hexadecimal.  Again, let's
+  use redirection to save the output to a text file so we can easily
+  examine it later: <blockquote>
+      <tt>od -Ax -t x1 Mult.class &gt; rawBytes.txt</tt>
+      </blockquote>
+
+  <li>Now open the two text files <tt>bytecode.txt</tt>
+  and <tt>rawBytes.txt</tt> in any text editor, such as
+  TextEdit. Notice the sequence of instructions 4-6
+  in <tt>bytecode.txt</tt> is iload_1, iload_2, imul.  As you can see
+  from
+  the <a href="http://en.wikipedia.org/wiki/Java_bytecode_instruction_listings">Java
+  bytecode listings on Wikipedia</a>, the opcode for iload_1 is 1b,
+  the opcode for iload_2 is 1c, and the opcode for imul is 68. So,
+  verify that the sequence "1b 1c 68" occurs somewhere in the
+  file <tt>rawBytes.txt</tt>.  What other Java bytecode instructions
+  can you find?
+
+  <li>If you are interested, read a little bit
+  about <a href="http://en.wikipedia.org/wiki/Java_bytecode">Java
+  bytecode</a> on Wikipedia.  One interesting point is that the
+  instruction set employs a stack, and so there are many instructions
+  that do not need any explicit operands.  For example, the imul
+  instruction doesn't need any operands. It simply pops the two top
+  elements off the stack, multiplies them together, and pushes the
+  result back onto the stack.
+
+</ul>
+
+
+
+<h4><FONT COLOR="000066">Class 21: Thursday, November 8</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="memory-systems.pdf">memory systems and performance</a>.
+
+
+<P>A simple program for empirically determining cache
+sizes: <A HREF="CacheTimer.java">CacheTimer.java</A>.  Compile it,
+then run using the commandline <tt>java CacheTimer N</tt>,
+where <tt>N</tt> is the size of an array of integers whose random
+access time you want to estimate.
+
+<P>Some <A HREF="access-times.pdf">cool results</A> from CacheTimer.java.
+
+
+<h4><FONT COLOR="000066">Class 22: Monday, November 12</FONT></h4>
+
+No lecture. Individual work on <a href="final-project.html">final project</a> instead.
+
+<h4><FONT COLOR="000066">Class 23: Thursday, November 15</FONT></h4>
+
+Exam.
+
+<h4><FONT COLOR="000066">Class 24: Monday, November 19</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="cache-mapping-schemes.pdf">cache mapping schemes</a>.
+
+
+<P>The <A HREF="caching-worksheet.pdf">caching worksheet</A> should
+help you to understand the three main cache mapping techniques.
+
+
+<h4><FONT COLOR="000066">Class 22: Monday, November 26</FONT></h4>
+
+<P>Today's lecture notes
+on <a href="virtual-memory.pdf">virtual-memory</a>.
+
+<P>A worksheet to help understand virtual memory: <A HREF="vm-worksheet.pdf">vm-worksheet.pdf</A>.
+
+<P>A C program that can provide some interesting experimentation with virtual memory: <A HREF="bigarray.c">bigarray.c</A>.
+
+
+<!-- <h4><FONT COLOR="000066">Class 23: Thursday, November 11</FONT></h4> -->
+
+<!-- Exam 2. Covers classes 12-21 inclusive. -->
+
+<!-- <h4><FONT COLOR="000066">Class 24: Monday, November 23</FONT></h4> -->
+
+<!-- Minilab options: -->
+<!-- <UL> -->
+<!--   <LI>Use different array sizes to understand the effect of virtual -->
+<!--   memory on the performance of your machine, using <A -->
+<!--   HREF="bigarray.c">bigarray.c</A>. -->
+<!--   <LI>Predict the new time taken when recompiling this file with different values for <TT>chunkSize</TT>  and <TT>numComputations</TT> in the <TT>main()</TT> method: <A HREF="Amdahl.java">Amdahl.java</A>. -->
+<!-- </UL> -->
+
+<h4><FONT COLOR="000066">Class 26: Thursday, November 29</FONT></h4>
+
+<P>Today's lecture notes on <a href="IO-and-disks3.pdf">I/O and disk
+systems</a>.
+
+
+<!-- Minilab: use <A HREF="DiskSpeed.java">DiskSpeed.java</A> to estimate -->
+<!-- disk access time and transfer rate on the lab machines.   -->
+
+
+<h4><FONT COLOR="000066">Class 27: Monday, December 3</FONT></h4>
+
+No lecture. Individual work on <a href="final-project.html">final project</a> instead.  Also, revision for final exam: bring any questions to class.
+
+<h4><FONT COLOR="000066">Class 28: Thursday, December 6</FONT></h4>
+
+<P>Brief discussion of whether or not the course achieved its goals
+and what were the high-level lessons of the course: a
+ <a href="architecture-goals.pptx">presentation</a> on this topic is
+available.
+
+<P>Remainder of time: individual work
+on <a href="final-project.html">final project</a> instead.  Also,
+revision for final exam: bring any questions to class.
+
+<!-- Required reading: From the book <i>The Elements of Computing -->
+<!-- Systems</i>, by Noam Nisan and Shimon Schocken, read the -->
+<!-- publicly-available online versions -->
+<!-- of <a href="http://www1.idc.ac.il/tecs/book/chapter%2001.pdf">Chapter -->
+<!-- 1</a> -->
+<!-- and <a href="http://www1.idc.ac.il/tecs/book/appendix_a.pdf">Appendix -->
+<!-- A</a> (Sections 1-6 only). -->
+
+<!-- <P>Check out the <a href="http://www1.idc.ac.il/tecs/plan.html">Study -->
+<!-- Plan</a> page for more resources, such as lecture slides. -->
+
+<!-- <P><B>Final Project:</B> The bulk of the last three classes will -->
+<!--   be spent on an ungraded final project. In these classes, we will -->
+<!--   also spend a little time doing revision for the final exam, and -->
+<!--   mentioning one or two interesting (but non-examinable) topics in -->
+<!--   computer architecture.  The primary recommended project is Project -->
+<!--   1 from Nisan and Schocken's <i>Elements of Computing Systems</i>. -->
+<!--   All the necessary resources are available on this book's <a -->
+<!--   href="http://www1.idc.ac.il/tecs/plan.html">Study Plan</a> page. -->
+<!--   You will need to download the necessary software from the -->
+<!--   "Software" link on that page. Then, go to the "Project 1" link and -->
+<!--   follow the instructions there. -->
+
+<!-- <P>Project 1 concerns designing logic gates. If you're already -->
+<!-- familiar with this topic, or perhaps you just prefer to do something -->
+<!-- different, you might consider tackling Project 6 instead. This is a -->
+<!-- very interesting and educational project in which you write an -->
+<!-- assembler program for a particular instruction set.  Before starting -->
+<!-- the project, you will need to read Chapter 6 of the book (and -->
+<!-- possibly refer back to some earlier parts of the book too).  This -->
+<!-- project is a little more challenging than Project 1. -->
+
+<!-- <P>If you enjoy these projects, why not try some of the others? They -->
+<!-- are all extremely worthwhile and will increase the depth of your -->
+<!-- knowledge and experience as a computer scientist.  Almost all the -->
+<!-- resources you need are provided online. In addition, you can -->
+<!-- purchase a copy of the book, or use the copy that will soon arrive -->
+<!-- in the Tome library. -->
+
+<!-- <h4><FONT COLOR="000066">Class 27: Monday, December 7</FONT></h4> -->
+
+<!-- An example of self-modifying -->
+<!-- code: <a href="self-modifying-code.zip">self-modifying-code.zip</a>. -->
+<!-- The subroutine in this particular file implements an indirect store -->
+<!-- for MARIE. -->
+
+<!-- <h4><FONT COLOR="000066">Class 28: Thursday, December 7</FONT></h4> -->
+
+<!-- <a href="raid5-after-failure.pdf">RAID5 example discussed in class</a>. -->
+
+
+
+
+
+<!--  <LI>Lecture 14: <A HREF="endian.c">endian.c</A></LI>-->
+<!--  <LI>Lecture 15: <UL>-->
+<!--		    <LI><A HREF="Mult.java">Mult.java</A></LI>-->
+<!--		    <LI>Command line for disassembling a java file: <br>javap -c ClassName</LI>-->
+<!--		    <LI>Command line for dumping literal contents of a file in numeric format, eight bytes per line, with decimal addresses and values: <br>od -w8 -Ad -t d1 filename</LI>-->
+<!--		  </UL></LI>-->
+<!--  <LI>Lecture 16: <A HREF="CacheTimer.java">CacheTimer.java</A>,  <A HREF="access-times.pdf">cool results</A> from CacheTimer.java</LI> -->
+<!--  <LI>Lecture 17: <A HREF="caching-worksheet.pdf">caching-worksheet.pdf</A></LI>-->
+<!--  <LI>Lecture 18: <A HREF="vm-worksheet.pdf">vm-worksheet.pdf</A></LI>-->
+<!--  <LI>Lecture 19: <A HREF="Amdahl.java">Amdahl.java</A></LI>-->
+<!--  <LI>Lecture 20: <A HREF="DiskSpeed.java">DiskSpeed.java</A></LI>-->
+
+
+
+
+
+
+
+
+
+<div class=body>
+<HR>
+<I>Last updated:&nbsp;</I>
+<SCRIPT LANGUAGE="JavaScript">
+   document.write(document.lastModified );
+</SCRIPT>
+</div>
+
+</BODY>
+
+</HTML>

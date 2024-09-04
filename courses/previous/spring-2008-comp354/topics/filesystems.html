@@ -1,0 +1,73 @@
+<html lang="en">
+<HEAD>
+<Title>CS354 - Operating Systems</Title>
+<!-- Changed by: , 15-Jan-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<hr>
+<center>
+<font size=+2 color='#006400'>
+<b>
+Computer Science 354<br>
+Operating Systems<br>
+</b>
+</font>
+<font size=-1>
+<br>
+Dickinson College<br>
+Spring Semester 2006<br>
+John MacCormick
+</font>
+</center>
+
+<hr>
+
+<center>
+<font size=+2 color='#000064'>
+
+<b>File Systems</b>
+
+</font>
+</center>
+
+<h3><img src="../images/reading.gif"> Reading Assignment <img src="../images/reading.gif"></h3>
+<UL>
+<LI>Operating Systems Concepts: Chapters 10 &amp; 11.
+</UL>
+
+<h3><img src="../images/slides.gif"> Lecture Slides <img src="../images/slides.gif"></h3>
+<UL>
+<LI><a href="../slides/filesystems.pdf">File Systems</a>
+ 
+</UL>
+
+<h3><img src="../images/hw.gif"> Homework Assignment <img src="../images/hw.gif"></h3>
+<UL>
+Due Date: 4/07/08
+<br><br>
+<LI>Operating Systems Concepts: #11.1, #11.2, #11.6.
+<LI>Compare the benefits and drawbacks of building support for user accessible structured files into an OS.
+<LI>How would you set the permissions of a file in Unix to create a drop box for other members of the same group?  A drop box is a directory into which specified users can place files, but the contents of the directory can only be seen by the user.
+<LI>When discussing the File System Data Structures we placed links to the buffered disk blocks in the File Structure.  An alternative would have been to place the buffered disk blocks in the Open File Structure.  Compare the benefits and drawbacks of these two alternatives.
+<LI>In the File System Data Structures that we studied, the Open File ID Table was a single array that held references to all of the Open File Structures. Compare this approach to one in which each File Structure stores a direct link to the associated Open File Structure instead of storing an index into the Open File ID Table.  In particular, be sure to discuss why using an Open File ID Table might be preferable.
+<LI>Consider a file system that uses a 2 level indexed allocation scheme for keeping track of the disk blocks.  Each file descriptor will have 16 direct blocks and 2 indirect blocks.  Assume the disk is 32MB and the block size is 1kb.  What is the maximum file size (in kb) that this system supports?  Show your work.
+</UL>
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+<hr>
+<font size=-2>
+<script language="JavaScript">
+          <!---//hide script from old browsers
+          document.write( "This document was last updated "+ document.lastModified + "<br><br>" );
+          //end hiding contents --->
+          </script>
+</FONT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,7 @@
+# These three processes have a variety of 
+# arrival times and CPU burst length. 
+# The processes do not perform any I/O.
+
+process1.dat
+process2.dat
+process3.dat

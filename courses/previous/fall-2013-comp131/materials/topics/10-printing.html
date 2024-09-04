@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+   	<TITLE>Printing, Strings and Integer Division</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Printing, Strings and Integer Division </h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 2.9 - 2.11 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Account-v2.zip"><i>Account-v2</i></a>
+<p>Just in case you're curious, here is a version of the Account class
+with a main()
+method: <a href="../examples/Account.java">Account.java</a>, as
+demonstrated in class.  This is just for interest -- you will not
+understand most of the code in this main() method until much later in
+the semester. The point of the demo is to show how a program can
+receive input from the command line and print out the results of a
+computation based on the input, all in a terminal window.
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> Implement a <code>Pet</code> class that represents pets as follows:
+<ol type = "a">
+<li> use BlueJ to create a new project called <i>MyPet</i> that is stored in
+ your <code>CS131</code> directory.
+<li> create a new class called <code>Pet</code> in your <i>MyPet</i> project.
+<li> in the <code>Pet</code> class, declare fields so that each instance of
+ the class can keep track of the name, age (in months), weight, color and
+ species of a pet.  Make sure that your class compiles correctly.
+ Note that the fields should all be <code>private</code>.
+<li> add a constructor that initializes all fields of a <code>Pet</code>
+ object using parameters.  Compile your class, and create an instance of
+ the class using the constructor that you just wrote.
+<li> add a method called <code>print</code> that prints all information about
+  a <code>Pet</code> on
+     the screen.  Create an instance of the class and use it to call
+     this method.
+<li> add a mutator method called <code>increaseAge</code> to increase the age
+ of a <code>Pet</code>.  This method should take the number of months to 
+ increase the <code>Pet</code>'s age by as a parameter.
+<li> add a method called <code>getAgeInYears</code> that returns the number
+ of years old a <code>Pet</code> is, ignoring any fractional part.  For 
+ example, if a
+ <code>Pet</code> object having an age of 20 months is used to call this
+ method, it should return 1.
+<li> add a method called <code>printAge</code> that prints the age of the
+ <code>Pet</code> in years and months.  For example, if a
+ <code>Pet</code> object having an age of 20 months is used to call this
+ method, it should print <code>1 year and 8 months</code>.
+</ol>
+Be sure to write javadoc comments for each constructor and method in your
+<code>Pet</code> class.
+<li> Use the <i>naive-ticket-machine</i> project (from Chapter 2) to
+do Exercises 2.34 - 2.36
+ in Barnes &amp; Kolling
+</ol>
+<p>
+<HR>
+<H3>Homework Assignment 3c</H3>
+<p>
+<ol>
+<li> Using the <a href = "../examples/Account-v2.zip"><i>Account-v2</i></a>
+sample project, modify the <code>print</code> method so that it does not use 
+     <code>+</code> to concatenate any Strings, but still produces 
+     exactly the same output.  Copy and paste your
+     revised method definition into your answer for this exercise.
+<p>
+     Hints: use <code>System.out.print</code>, rather than 
+      <code>System.out.println</code>.
+ The following code:
+
+<pre>
+System.out.print("Using print");
+System.out.println("instead");
+System.out.print("of println");
+</pre>
+
+will produce this output:
+<pre>
+Using print instead
+of println.
+</pre>
+<p>
+You can also print out the value of a field by passing it as a
+parameter to print.
+For example: <code>System.out.print(balance);</code>
+ will display the value of the <code>balance</code> field.
+<li> In Java, what is the value of the following expression?: 
+   <code>99 / 100</code><br>
+    Describe how you could you use the <code>Account</code> class to check your answer without changing any of its code?
+<li> In Java, what is the value of the following expression?: 
+     <code>99 % 21</code>
+<li> Implement a <code>Computer</code> class that represents computers as
+  follows:
+<ol type = "a">
+<li> use BlueJ to create a new project called <i>MyComputer</i> that is stored
+  in your <code>CS131</code> directory.
+<li> create a new class called <code>Computer</code> in your <i>MyComputer</i>
+  project.
+<li> in the <code>Computer</code> class, declare fields so that each instance of
+ the class can keep track of the manufacturer,
+ amount of main memory (in MB or millions of bytes),
+ and amount of hard drive storage (in GB or billions of bytes) of a computer.
+ Make sure that your class compiles correctly.
+ Note that the fields should all be <code>private</code>.
+<li> add a constructor that initializes all fields of a <code>Computer</code>
+ using parameters.  
+<li> add a method called <code>getMainMemory</code> that returns the 
+ amount of main memory in the computer in gigabytes (GB or billions of bytes),
+ not megabytes (MB).  Note that 1 GB is 1024 MB.  Any fractional part of
+ a gigabyte should be ignored.  For example, if the computer has 1500 MB
+ of main memory, the <code>getMainMemory</code> method should return 1.
+<li> add a method called <code>print</code> that prints all information about
+  a <code>Computer</code> on the screen. 
+  For example, for a Dell computer with 
+  512 MB of main memory and a 40 GB hard drive, the method 
+ could print: "A Dell computer with 512 MB of memory and a
+ 40 GB hard drive."
+</ol>
+Be sure to write comments for each constructor and method in your
+<code>Computer</code> class (use those in the <code>Account</code> class as a guide.
+Also be sure to test the constructor and each method to be sure they work.
+  Turn in a printout of your <code>Computer</code> class as your answer
+ for this problem.
+</ol>
+</BODY>
+
+</HTML>
+

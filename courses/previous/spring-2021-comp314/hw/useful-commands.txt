@@ -1,0 +1,1 @@
+cat hwB.html | sed -nr 's/(.*\(([0-9]*) point.*)/\2/p'  | paste -sd+ - | bc

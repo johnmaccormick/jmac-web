@@ -1,0 +1,6 @@
+# Python program printTwiceFunction.py
+def printTwice(input):
+    return input + input
+##end-of-program##
+wallaby
+wombat

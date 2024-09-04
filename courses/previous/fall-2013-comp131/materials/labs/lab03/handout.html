@@ -1,0 +1,334 @@
+<html>
+<head><Title>Lab #3 - Epidemiology Simulations</title>
+  <!-- Changed by: , 06-Feb-2008 -->
+
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<H4 align="center">COMP 131</H4>
+
+<font size=+2 color='#006400'>
+<center><b>Lab #3 - Epidemiology Simulations</b></center>
+</font>
+
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+
+<p>The <a href="http://www.m-w.com/">Merriam-Webster Online Dictionary</a>, defines epidemiology as "a branch of medical science that deals with the incidence, distribution, and control of disease in a population." For obvious reasons, studies of the spread of a disease in human populations must be based upon data collected during prior outbreaks.  Unfortunately, this data may be of limited use in predicting the effects that different containment methods such as quarantine or vaccination will have on future outbreaks. Further, historical data may be of limited use in predicting how new, yet unseen, diseases might spread and how they might be contained. To help with these types of questions, epidemiologists have developed mathematical and computer models of disease spreading. Using these models, scientists can unleash virtual diseases into virtual populations. Thus these scientists are able to study how diseases spread and the effectiveness of different containment methods, without jeopardizing human life. In this lab you will be experimenting with several Java objects that implement one such epidemiological model, the SEIR Model. This model and the associated Java objects that you will be using are discussed in the following sections.
+
+<font size=+1 color='#000064'>
+<p><b>The SEIR Model of Disease Spreading:</b>
+</font>
+
+<p>The SEIR (Susceptible-Exposed-Infected-Recovered) model is used to model infectious diseases such as measles, mumps, chicken pox and rubella. In this model each individual in a population is classified into one of four categories:
+<UL>
+<LI><i>Susceptible</i>: The person is susceptible to the disease.  A person that is susceptible has not yet had the disease. All susceptible people have a specified probability of contracting the disease from contact with a person that is <i>Infectious</i>. This probability of contracting the disease is determined by the specific disease being modeled.
+<LI><i>Exposed</i>: The person has contracted the disease from contact with an <i>Infectious</i> person.  However, an exposed person is not yet capable of spreading the disease. After a specified period of time any person exposed to the disease will become <i>Infectious</i>. Like the probability of contracting the disease, the length of time before a person becomes infectious also depends on the specific disease being modeled.
+<LI><i>Infectious</i>: The person has contracted the disease and is now capable of spreading the disease to other susceptible people. After a specified period of time, also dependent on the disease, an infectious person will become <i>Recovered</i>.
+<LI><i>Recovered</i>: The person has recovered from the disease. Recovered people are no longer infectious and have a life-time immunity to the disease. 
+</UL>
+
+<p>In the SEIR model, everyone begins in the <i>Susceptible</i> state.  A single <i>Exposed</i> person is then introduced to the population. Over time, the exposed person becomes <i>Infectious</i> and begins spreading the disease to susceptible people. Some of those susceptible people in turn become exposed and then infectious, thus spreading the disease even further. Eventually, the infectious people become <i>Recovered</i> and can no longer contract or spread the disease. This process is illustrated graphically in Figure 1.
+
+<p><center><img src="SEIRFlowChart.jpg">
+<p><b>Figure 1:</b> Graphical depiction of the SEIR model.
+</center>
+
+<font size=+1 color='#000064'>
+<p><b>Getting Started:</b>
+</font>
+
+<p>There are several more details about the SEIR model that will become important to us as we continue. However, before getting into those details you will begin to familiarize yourself with a Java implementation of the SEIR model.
+
+<UL>
+<p><font color='#FF0000'>Exercise 0:</font>  Create a Lab03 folder inside your CS131 folder in your Home Directory.  Download the <a href="EpidemiologySimulator.zip">Epidemiology Simulator BlueJ Project</a> to your Lab03 directory.  This file may automatically unpack itself to create an EpidemiologySimulator folder.  If this does not happen, double click on the EpidemiologySimulator.zip icon to unpack it. Finally, open BlueJ and use it to open the EpidemiologySimulator project.  Once you have opened the simulator you should see a window like the one shown in figure 1.  Note that there is nothing to turn in for this exercise.
+</UL>
+
+<p><center><img src="BlueJProject.jpg">
+<p><b>Figure 2:</b> The EpidemiologySimulator Project in BlueJ.
+</center>
+
+<font size=+1 color='#000064'>
+<p><b>The Classes:</b>
+</font>
+
+<p>The BlueJ project you have opened contains eight classes that define the objects used by the simulation.  For the purposes of this lab, we will only be concerned with the three classes in the top row, <code>Disease</code>, <code>Population</code> and <code>DiseaseSimulator</code>. The other five classes are used by these three to create objects used in the simulation and also to display the graphical user interface.  The rest of this section will guide you through an exploration of each of three classes in the top row.
+
+<p><b>The <code>Disease</code> Class:</b>
+
+<p>As its name suggests, the <code>Disease</code> class models a disease. Each object of type <code>Disease</code> can model of a different disease depending upon the values of its attributes.
+
+<UL>
+<p><font color='#FF0000'>Exercise 1:</font> Create a new <code>Disease</code> object using the <code>Disease()</code> constructor. Give this <code>Disease</code> instance the name <code>EX1</code>. List the steps that you used to create this object.  
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 2:</font> What attributes does a <code>Disease</code> object have? (Hint: Use BlueJ's object inspector.) What are the values of the attributes in the <code>Disease</code> object that you created?
+</UL>
+
+<p>The attributes of a <code>Disease</code> object describe how that disease will behave when it is released into a population. The role of several of these attributes was hinted at earlier when the categories of the SEIR model were discussed.  
+
+<UL>
+<LI><i><code>infectivity</code></i>: The infectivity of a <code>Disease</code> indicates the probability that an individual will become exposed following contact with an infectious individual.  For example, if the infectivity is 10, then there is a 10% chance that a susceptible individual will become exposed each time he comes into contact with an infectious individual.
+<LI><i><code>incubationPeriod</code></i>: The incubation period of a <code>Disease</code> indicates the length of time before symptoms appear in a person that has been exposed to the disease. For example, a person exposed to chicken pox may not show any symptoms of the disease for up to 21 days.  
+<LI><i><code>latencyPeriod</code></i>: The latency period of a <code>Disease</code> indicates the length of time between when a person is exposed to the disease and when he becomes infectious.  For example, with chicken pox, the latency period is typically 1 to 2 days shorter than the incubation period.  Thus, a person that has been exposed to chicken pox will become infectious before he begins to show any symptoms.
+<LI><i><code>infectiousPeriod</code></i>: The infectious period of a <code>Disease</code> indicates the length of time that a person with the disease will remain infectious.  For example, the infectious period for chicken pox is between 5 and 7 days, starting 1 to 2 days before symptoms appear and continuing for 4 to 5 days while the lesions break out and crust over.
+</UL>
+
+<p>Figure 3, shown below, gives a graphical representation of the SEIR model of a disease. The blue boxes show how the <code>latencyPeriod</code>, the <code>incubationPeriod</code> and the <code>infectiousPeriod</code> relate to the SEIR model. Note that in the figure shown, the incubation period is longer than the latency period. Thus, in the disease shown a person will become infectious before he begins to show symptoms. In another disease, it may be the case that the incubation period would be shorter than the latency period and symptoms would appear before a person becomes infectious.
+
+<p><center><img src="SEIR.jpg">
+<p><b>Figure 3:</b> The relationship of the latency, incubation <br>and infectious periods to the states of the SEIR model.
+</center>
+
+<UL>
+<p><font color='#FF0000'>Exercise 3:</font> Create a new <code>Disease</code> object to model a disease with the following characteristics. Twenty percent of individuals who come into contact with an infectious person should contract the disease.  Once contracting the disease a person should begin to show symptoms 5 days after exposure, become infectious 2 days after exposure and remain infectious for 3 days.  Give this <code>Disease</code> the name <code>EX3</code>. Describe the steps that you used to create this object.
+<EM>Hint: Do not modify the source code to complete this exercise or the next one.</EM>
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 4:</font> Create a new <code>Disease</code> object to model a disease with the following characteristics. Twenty-three percent of individuals who come into contact with an infectious person should contract the disease.  A person exposed to this disease should be infectious for 2 days, starting 3 days after exposure.  Symptoms for this disease appear 2 days after exposure. Give this <code>Disease</code> the name <code>EX4</code>. Do not describe every step that you used to create this object, but instead just list the values you used as parameters to the constructor.
+</UL>
+
+<!--
+<UL>
+<p><font color='#FF0000'>Exercise 5:</font> Create a new <code>Disease</code> object to model a disease the following characteristics. Twelve percent of individuals who come into contact with an infectious person should contract the disesae.  Once contracting the disease a person should begin to show symptoms 5 days after exposure, become infectious 2 days after exposure and remain infectious for 5 days.  Give this <code>Disease</code> the name <code>EX4</code>. Do not describe every step that you used to create this object, but instead just list the values you used as parameters to the constructor.
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 5:</font> List two of the methods that can be called on a <code>Disease</code> object?  Based on their names give a short explanation of what you think each of these methods will do if you were to call them. 
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 6:</font> Pick one of the methods that you listed in Exercise 5 and call it on each of the three <code>Disease</code> objects that you have created. Does each object have its own independent set of attributes? How can you tell?
+</UL>
+-->
+
+<p><b>The <code>Population</code> Class:</b>
+
+<p>The <code>Population</code> class models a population of people and how they interact with each other. In this model, people are arranged into rows and columns forming a 2-dimensional grid, like a checker board but with many more squares. When a simulation is carried out, every person will interact with each of their 8 closest neighbors during each day of the simulation.  Figure 4 shows the neighbors with whom an individual will interact.  Individuals along the edges of the grid have fewer than 8 neighbors. To compensate for having fewer neighbors, these individuals interact with a corresponding individual on the opposite edge of the grid.  Imagine rolling the grid into a tube. An individual on the edge will interact with the individual that he contacts on the opposing edge.  Also imagine connecting the top and bottom of the tube, the result looks like a doughnut (technically a <a href="http://mathworld.wolfram.com/Torus.html">torus</a>). In a torus all individuals will have exactly 8 neighbors.  
+
+<p><center><img src="Popgrid.jpg">
+<p><b>Figure 4:</b> Every person in the population<br>will interact with their 8 closest neighbors<br>during each day of the simulation.
+</center>
+
+<p>There are several other features of <code>Population</code> objects that will be useful as you continue through this lab.  The next few exercises will highlight a few of these features. Other features will be introduced later as they are needed.
+
+<UL>
+<p><font color='#FF0000'>Exercise 5:</font> When using a simulation to study a natural phenomenon, such as disease spreading, it is important to understand the strengths and weaknesses of the model that is being used. What are the strengths and weaknesses of our population as a model of how people interact in the real world?  In other words, what aspects of the simulation are similar to the real world and what aspects are different from the real world? Describe at least one strength of the model and at least one weakness of the model.
+</UL>
+
+<!--
+<UL>
+<p><font color='#FF0000'>Exercise 6:</font> Create a new <code>Population</code> object using the <code>Population()</code> constructor.  Look at the methods that can be called on a <code>Population</code> object. Based on their names, you should be able to determine what some of these methods do. List three of these methods and give a short description of what you think they do.
+</UL>
+-->
+
+<UL>
+<p><font color='#FF0000'>Exercise 6:</font> Create a new <code>Population</code> object using the <code>Population()</code> constructor. How many people are in a population? How did you determine this?
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 7:</font> What value is returned by a call to the <code>getPercentSusceptible()</code> method? Explain why that exact value makes sense.  What value do you think will be returned from the <code>getPercentExposed()</code> method? Why?  Hint: Recall that a simulation using the SEIR model begins by introducing a single exposed individual into a population of susceptible individuals.
+</UL>
+
+<p><b>The <code>DiseaseSimulator</code> Class:</b>
+
+<p>The <code>DiseaseSimulator</code> class controls the interaction between a particular <code>Disease</code> and a particular <code>Population</code>.  
+
+<UL>
+<p><font color='#FF0000'>Exercise 8:</font> Create a new <code>DiseaseSimulator</code> object using the disease <code>EX1</code> and the <code>Population</code> that you created in Exercise 6. Notice that the constructor for the <code>DiseaseSimulator</code> class requires a <code>Disease</code> object, a <code>Population</code> object and a <code>String</code> as parameters.  To enter the <code>Disease</code> and <code>Population</code> parameters you can type their names in the provided fields.  Alternatively, you can highlight the field and click the mouse on the object that you would like to use as a parameter. Doing this will cause BlueJ to fill in the name of the object for you. The <code>String</code> parameter provides a name for the <code>DiseaseSimulator</code>.  It is used as a label to distinguish results from different experiments. You may use any name you like for your disease simulator.  Note: There is nothing to turn in for this exercise.
+
+<!--
+List three of the methods that can be called on a <code>DiseaseSimulator</code> object.
+-->
+
+</UL>
+
+<p>The <code>DiseaseSimulator</code> has a method that, when called, will display a graphical user interface (GUI) that provides a visualization of the population. This method is called <code>showGUI()</code>.  Invoke the <code>showGUI()</code> method on your <code>DiseaseSimulator</code> object from Exercise 8. When you do this, a window like the one shown in Figure 5 will appear (Note: It may appear behind other windows, so you may have to move some windows around in order to find it.) Each square in the window represents an individual in the population. The color of each square indicates the state of that individual using the color key shown at the bottom of the GUI. The <code>Population</code> shown in Figure 5 has a single exposed individual and the rest of the population is susceptible.
+
+<p><center><img src="popGUI.jpg">
+<p><b>Figure 5:</b> GUI providing a visualization of the population.
+</center>
+
+<p>Calling the <code>step()</code> method in the <code>DiseaseSimulator</code> class simulates a single day in the life of the <code>Population</code>. 
+
+<UL>
+<p><font color='#FF0000'>Exercise 9:</font> Call the <code>step()</code> method once. What happens? How many times do you have to call <code>step()</code> before something happens? Why? What happens the next two times you call <code>step()</code>? Why? (Hint: Think about the <code>Disease</code> that is spreading in the <code>Population</code>.)
+</UL>
+
+<p>You could advance the <code>Population</code> through as many days as you want by repeatedly calling the <code>step()</code> method. However, that would be extremely tedious.  This process is automated for you by the <code>step(int days)</code> method. This method takes an <code>int</code> as a parameter to specify the number of days by which to advance the <code>Population</code>.
+
+<UL>
+<p><font color='#FF0000'>Exercise 10:</font> Use the <code>step(int days)</code> method to run the simulation for 20 more days.  Now call the <code>getPercentInfectious()</code> and the <code>getPercentExposed()</code> methods on the <code>Population</code>. What values did these functions return? Explain these results in terms of what you see in the GUI. Be sure to use specific numbers in your explanation.
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 11:</font> Reset the <code>Population</code> that you used in Exercise 10 to its initial condition by calling the <code>reset()</code> method on it.  Now run the simulation for 50 days. What percentage of the <code>Population</code> is affected by the <code>Disease</code> after 50 days? Note: You should consider anyone in the exposed, infected or recovered states to have been affected by the disease.
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 12:</font> If you repeat this simulation several times do you get exactly the same result each time? Explain why not.
+</UL>
+
+<p>Because you get a different result each time you run the simulation, if you want to know what percentage of the population will be affected by the disease <i>on average</i> you will need to run many trials. The <code>DiseaseSimulator</code> class provides two methods that are useful for running multiple trials and collecting the associated data. The <code>runTrials(int days, int trials)</code> method will run <i>trials</i> simulations, each lasting for <i>days</i> days.  The results of each trial can be displayed in tabular form by calling the <code>showDataTable()</code> method.  The data table also contains the mean and standard deviation for each column of results.
+
+<UL>
+<p><font color='#FF0000'>Exercise 13:</font> Using the same <code>DiseaseSimulator</code>, run 25 trials of 50 days each.  Note that the trials run much much faster if you hide the GUI (Use the <code>hideGUI()</code> method in the <code>DiseaseSimulator</code> class).  You will also probably want to show the data table so that you can watch the progress as the results of each trial are posted. Report the mean and standard deviation for the percentage of people that have been affected by the disease.  Note: The column labeled "EIQR" contains the total number of people in the exposed, infected, quarantined and recovered states.
+</UL>
+
+<font size=+1 color='#000064'>
+<p><b>An Experiment:</b>
+</font>
+
+<p>Now that you are familiar with the operation of the <code>Disease</code>, <code>Population</code> and <code>DiseaseSimulator</code> classes, it is time to do some comparative epidemiology. In doing so, you will make hypotheses about which diseases affect more of the population within 50 days. You will also collect the data necessary to test your hypotheses.
+
+<UL>
+<p><font color='#FF0000'>Exercise 14:</font> In Exercise 13 you collected data about the percentage of a population that would be affected by the disease <code>EX1</code> within 50 days. Do you think that the disease <code>EX3</code> will affect a larger or smaller percentage of the population than disease <code>EX1</code> within 50 days? What about disease <code>EX4</code>, will it affect a larger or smaller percentage of the population than disease <code>EX1</code>?  Briefly justify your answers.
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 15:</font> In order to test the hypotheses that you made in Exercise 14, you will need to repeat the experiment that you performed for disease <code>EX1</code> in Exercise 13 for the diseases <code>EX3</code> and <code>EX4</code>. Repeating these experiments will require that you create new <code>Population</code> objects and also new <code>DiseaseSimulator</code> objects using the diseases <code>EX3</code> and <code>EX4</code>. Report the mean and standard deviation for the percentage of people affected by each of the diseases.
+</UL>
+
+<p><b>Testing Your Hypotheses</b>
+
+<p>When testing hypotheses about mean values, it is rarely sufficient to consider only the mean values.  It is important to also consider the distribution of the experimental results used to calculate the mean values.  Recall that the standard deviation of a set of results is related to the distribution of the results. In particular, it is expected that most of the results from the set (specifically 68% of them) lie within one standard deviation of the mean value. Or thinking about it another way, if the experiment were run another 100 times, we should expect that about 68 of the 100 results obtained to be within one standard deviation of the mean value.
+
+<p>With the above notion of standard deviation in mind, the following example should illustrate why considering mean values alone is not sufficient when testing hypotheses.  Imagine two experiments, like those that you just did, but using two other diseases, call them 'A' and 'B'. Also, imagine that our hypothesis for this experiment is that within 50 days disease A will affect a larger percentage of the population than disease B.
+
+<p>Table 1 shows some hypothetical experimental results for comparing diseases A and B.  These results can also be illustrated graphically as shown in Figure 6.  The yellow box indicates the range where we would expect to find most (68%) of the results for disease A.  The red box indicates the range in which we would expect to find most of the results for disease B. In this case, most of the results for disease A are different from most of the results for disease B.  Thus, we can be quite certain that disease A will affect a larger percentage of the population than will disease B.  Under these circumstances, we would conclude that the data supports our hypothesis.
+
+<center>
+<b>Table 1:</b> Hypothetical experimental results for<br>
+diseases A and B. Values are percentage of the<br>
+population affected by the disease.
+
+<table border>
+<tr><th>Disease</th><th>Mean</th><th>Std. Dev.</th></tr>
+<tr><td>A</td><td>58%</td><td>3%</td></tr>
+<tr><td>B</td><td>49%</td><td>5%</td></tr>
+</table>
+</center>
+
+<p><center><img src="disAB1.jpg">
+<p><p><b>Figure 6:</b> A graphical representation of the results in Table 1.
+</center>
+
+<p>To see that it is important to consider not only the mean but also the distribution of the data, consider the results of experiments comparing diseases C and D shown in Table 2. The mean values for these diseases are identical to those for A and B, however the distribution of the results and thus the standard deviations are different. Graphically these results look like those shown in Figure 7. Unlike with diseases A and B, many of the results from disease C look similar to those from disease D and vice versa.  In fact the mean value for disease C falls into the same range as most of the results for disease D, and vice versa. Thus, we can not be very certain that disease C will affect a larger percentage of the population than will disease D.  So in this case, if our hypothesis had been that disease C would affect a larger percentage of the population than disease D, then under these circumstances we would have to conclude that the data does not support our hypothesis.
+
+<center>
+<b>Table 2:</b> Hypothetical experimental results for<br>
+diseases C and D. Values are percentage of the<br>
+population affected by the disease.
+<p><table border>
+<tr><th>Disease</th><th>Mean</th><th>Std. Dev.</th></tr>
+<tr><td>C</td><td>58%</td><td>15%</td></tr>
+<tr><td>D</td><td>49%</td><td>20%</td></tr>
+</table>
+</center>
+
+<p><center><img src="disAB2.jpg">
+<p><p><b>Figure 7:</b> A graphical representation of the results in Table 2.
+</center>
+
+<p>When testing hypotheses in this course we will consider three cases.  Each of these cases is described and illustrated in Table 3.
+
+<center>
+<b>Table 3:</b> Three cases for hypothesis testing.
+<table border>
+<tr><th>Description</th><th> Illustration </th><th>Conclusion</th></tr>
+<tr><td>The range of values within one standard deviation of the mean of each experiment do not overlap at all with those of the other experiment.
+</td>
+<td><img src="hypTestStrong.jpg"></td>
+<td>This data <b>strongly supports</b> the hypothesis that A is larger than B.
+</td></tr>
+<tr><td>The range of values within one standard deviation of the mean of each experiment overlap but neither contain the mean value of the other experiment.
+</td>
+<td><img src="hypTestWeak.jpg"></td>
+<td>This data <b>weakly supports</b> the hypothesis that A is larger than B.
+</td></tr>
+<tr><td>The range of values within one standard deviation of the mean of at least one experiment contains the mean of the other experiment.
+</td>
+<td><img src="hypTestNot.jpg"></td>
+<td>This data <b>does not support</b> the hypothesis that A is larger than B.
+</td></tr>
+</table>
+</center>
+
+<UL>
+<p><font color='#FF0000'>Exercise 16:</font> Consider the experimental results shown in the table below:
+
+<center>
+<p><table border>
+<tr><th>Disease</th><th>Mean</th><th>Std. Dev.</th></tr>
+<tr><td>X</td><td>50%</td><td>3%</td></tr>
+<tr><td>Y</td><td>35%</td><td>10%</td></tr>
+<tr><td>Z</td><td>40%</td><td>8%</td></tr>
+</table>
+</center>
+
+<p>Indicate if the data in the table strongly supports, weakly supports or does not support each of the following hypotheses.
+Show your work.
+<OL type="a">
+<LI>X affects a larger percentage of the population than Y.
+<LI>Z affects a larger percentage of the population than Y.
+<LI>Y affects a larger percentage of the population than Z.
+<LI>Z affects a smaller percentage of the population than X.
+</OL>
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 17:</font> Does the data that you collected in Exercises 13 and 15 strongly support, weakly support or not support the hypotheses you made in Exercise 14? Be sure to fully explain your answers.
+</UL>
+
+<font size=+1 color='#000064'>
+<p><b>Disease Control with Quarantine:</b>
+</font>
+
+<p>Researchers have extended the SEIR model that you have been working with to include the use of quarantine. When quarantine is used, individuals are separated from the population (i.e. they are quarantined) as soon as they begin to show symptoms of the disease. Once quarantined, an individual will not be able to infect any other members of the population.  This, and similar, notions of <a href="http://en.wikipedia.org/wiki/Quarantine">quarantine</a> have been used for centuries to curtail or prevent the spread of diseases.
+
+<p>The diagram of the SEIR model from Figure 3 can be modified to show how quarantine works in the model.  This modified diagram is shown in Figure 8. When quarantine is being used, an individual is moved to the quarantine state immediately following the end of the incubation period. That is, as soon as they begin to show symptoms of the disease.  In Figure 8, this has the effect of significantly shortening the amount of time that the individual spends in the infectious state. Thus, fewer individuals will be infected by each infectious individual, effectively slowing or halting the spread of the disease.
+
+<p><center><img src="quarantine.jpg">
+<p><b>Figure 8:</b> The SEIR model extended to include quarantine.
+</center>
+
+<UL>
+<p><font color='#FF0000'>Exercise 18:</font>In our disease model it is possible for the incubation period to be shorter than the latency period. The disease <code>EX4</code> had this property. What effect would quarantine have on the spread of such a disease? Briefly justify your answer.
+</UL>
+
+<p>In the simulations, quarantine is a property of a <code>Population</code>. The <code>Population(booelan useQuarantine)</code> constructor allows you to create a <code>Population</code> object that either uses or does not use quarantine.  The <code>useQuarantine</code> parameter is of type <code>boolean</code>.  Parameters of type <code>boolean</code> can take one of two values: <code>true</code> or <code>false</code>. To create a population that uses quarantine, create it using the <code>Population(boolean useQuarantine)</code> constructor and provide it with the value <code>true</code> as a parameter. Note that providing the value <code>false</code> as a parameter to this constructor does the same thing as using the <code>Population()</code> constructor.
+
+<UL>
+<p><font color='#FF0000'>Exercise 19:</font> Does quarantine limit the spread of the disease <code>EX1</code>? To complete this exercise, you will need to create a new <code>Population</code> that uses quarantine and a new <code>DiseaseSimulator</code>. Report the mean and standard deviation for this experiment. Then compare your results to those obtained in Exercise 13 using the criterion in Table 3.  State whether the data strongly supports, weakly supports or does not support the hypothesis that a smaller percentage of the population is affected by disease <code>EX1</code> when quarantine is used.
+Show your work.  Can you explain your result in terms of the properties of
+the disease <code>EX1</code>?
+</UL>
+
+<UL>
+<p><font color='#FF0000'>Exercise 20 (bonus):</font> From the last two exercises it should be apparent that quarantine is effective in slowing the spread of some diseases but not others. Design a disease for which quarantine will decrease the number of people who are affected by the disease but will not entirely halt the spread of the disease. Describe the disease you have designed and provide data showing at least weak support for the hypothesis that quarantine slows the spread of your disease. To do this, you'll need to create the new <code>Disease</code> and two <code>Populations</code> (one using quarantine, the other not). Then create a <code>DiseaseSimulator</code> for each <code>Population</code> so that you can simulate the spread of the your disease both with and without quarantine.
+</UL>
+
+<font size=+1 color='#000064'>
+<p><b>Further Reading:</b>
+</font>
+
+<p>Note that everything you needed to complete this lab was contained in this document. However, if you are interested in learning more about epidemiology and some of the other models that are used, the following links will get you started:
+<UL>
+<LI><a href="http://www.bmj.com/about-bmj/resources-readers/publications/epidemiology-uninitiated">
+<!--
+http://resources.bmj.com/bmj/readers/epidemiology-for-the-uninitiated/epidemiology-for-the-uninitiated-fourth-edition">
+-->
+<!--- old:  http://bmj.bmjjournals.com/epidem/epid.html"> --->
+  Epidemiology for the Uninitiated</a>: An online text that provides a very accessible introduction to epidemiology.
+<LI><a href="http://www.ncbi.nlm.nih.gov/books/NBK7993/">Medical Microbiology - Chapter 9</a>: A chapter dealing with epidemiology from an online text.
+<LI><a href="http://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">Compartmental models in epidemiology</a>: A Wikipedia page that introduces several epidemiological models including the SEIR model that you used in this lab.
+<LI><a href="http://en.wikipedia.org/wiki/Mathematical_modelling_in_epidemiology">Mathematical modeling in epidemiology</a>: A Wikipedia page discussing a more mathematical approach to modeling disease spreading using differential equations.
+</UL>
+
+<p>The grid type model that we used for the population is called a Cellular Automata (CA). These CA have lots of other applications and have been used to model all sorts of interesting phenomenon from epidemiology, to forest fires, to pattern formation on mollusk shells. If you are interested, you can begin to learn more about CA on the <a href="http://en.wikipedia.org/wiki/Cellular_automata">Wikipedia Cellular Automata page</a>.
+
+</body>
+</html>

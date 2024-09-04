@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Password lab</title>
+    <!-- Changed by: , 30-Aug-2010 -->
+  </head>
+
+  <body>
+    <h2>Password lab</h2>
+
+This lab provides a superficial investigation into how quickly a
+computer can crack different types of passwords. The password-cracking
+method used here is the simplest possible type of attack: the computer
+just randomly guesses possible passwords until it finds the right one.
+
+The lab may be completed in teams of two, so you may collaborate with
+your team members on the answers to homework questions for this class.
+To complete the lab, please perform the following steps:
+
+<ol>
+  <li>Familiarize yourself with how
+  to <a href="../python-overview.html">execute and edit Python
+  programs</a>.
+  <li>Download the <a href="password-lab.zip">password lab zip
+  file</a>, and unzip it (by double-clicking it) into a new folder somewhere.
+  <li><b>Cracking numeric passwords:</b> We first investigate the
+  cracking of numeric passwords (i.e. passwords that consist only of
+  numeric digits, like "34259"). The program <tt>guess-numeric.py</tt>
+  accepts one commandline argument specifying the number of digits in
+  your password.  For example, the command <tt>python guess-numeric.py 6</tt>
+  will ask you to enter a six-digit numeric password. It then tries to
+  guess your password (by randomly selecting six-digit numbers until
+  it finds the right one) and tells you how long it took to do so.
+    <ul>
+      <li><b>Activity:</b> By repeatedly
+      running <tt>guess-numeric.py</tt> with different inputs, and
+      recording the results, estimate the average time required to
+      crack numeric passwords of length 5, 6, and 7.  
+      <li><b>Homework exercise 1.1:</b> State the average times you
+      recorded in the previous activity, for lengths 5, 6, and 7.
+      <li><b>Homework exercise 1.2:</b> By approximately what factor
+      does the time taken to guess the password increase, whenever an
+      extra digit is added to the length of the password?
+    </ul>
+  <li><b>Cracking alphabetic passwords:</b> Next we investigate the
+  cracking of lowercase alphabetic passwords (i.e. passwords that
+  consist only of the lowercase letters a-z, like "fudjfdo"). The
+  program <tt>guess-alphabetic.py</tt> accepts one commandline
+  argument specifying the number of letters in your password.  For
+  example, the command <tt>python guess-alphabetic.py 6</tt> will ask you
+  to enter a six-letter lowercase password. It then tries to guess
+  your password (by randomly selecting six-letter strings until it
+  finds the right one) and tells you how long it took to do so.
+    <ul>
+      <li><b>Activity:</b> By repeatedly
+      running <tt>guess-alphabetic.py</tt> with different inputs, and
+      recording the results, estimate the average time required to
+      crack numeric passwords of length 4 and 5.  (If it's taking a long time, note that you can run multiple experiments simultaneously by opening up new Terminal windows.)
+      <li><b>Homework exercise 1.3:</b> State the average times you
+      recorded in the previous activity, for lengths 4 and 5.
+      <li><b>Homework exercise 1.4:</b> By approximately what factor
+      does the time taken to guess the password increase, when you
+      lengthen the password from 4 characters to 5 characters?
+      <li><b>Homework exercise 1.5:</b> By approximately what factor
+      does the time taken to guess the password increase, when you
+      switch from a 5-digit numeric password to a 5-character
+      alphabetic password?
+    </ul>
+  <li><b>(Optional) Cracking dictionary word passwords:</b> Next we investigate
+  the cracking of passwords that are words in English
+  (e.g. "dog"). The program <tt>guess-word.py</tt> requires no
+  commandline arguments.  It loads a dictionary of about 250,000
+  English words, and asks you to enter an English word as your
+  password. It then tries to guess your password (by randomly
+  selecting words from its dictionary until it finds the right one)
+  and tells you how long it took to do so.
+    <ul>
+      <li><b>Activity:</b> By repeatedly
+      running <tt>guess-word.py</tt> with different inputs, and
+      recording the results, estimate the average time required to
+      crack dictionary word passwords.
+      <li><b>Homework exercise 1.6:</b> State the average time you
+      recorded in the previous activity.
+      <li><b>Homework exercise 1.7:</b> By approximately what factor
+      does the time taken to guess the password increase, when you
+      switch from a dictionary word password to a 5-character
+      alphabetic password?
+      <li><b>Discussion question A:</b> (Discussion questions are not
+      graded and you do not have to submit the answer. Please just
+      write down your answer somewhere so that we can discuss it in
+      class.)  There seems to be a paradox here. If we use the same
+      5-character alphabetic password "robot" as input
+      to <tt>guess-word.py</tt> and <tt>guess-alphabetic.py</tt>, the
+      results are very different. Why do we get such different results
+      when using exactly the same password?
+    </ul>
+  <li><b>(Optional) Cracking word+digit passwords:</b> Next we investigate the
+  cracking of passwords that consist of an English word followed by a
+  single digit (e.g. "tree7"). The
+  program <tt>guess-word-and-digit.py</tt> requires no commandline
+  arguments.  It loads a dictionary of about 250,000 English words,
+  and asks you to enter an English word plus one digit as your
+  password. It then tries to guess your password (by randomly
+  selecting words from its dictionary followed by a random digit, until
+  it finds the right combination) and tells you how long it took to do
+  so.
+    <ul>
+      <li><b>Activity:</b> By repeatedly
+      running <tt>guess-word-and-digit.py</tt> with different inputs,
+      and recording the results, estimate the average time required to
+      crack word+digit passwords.
+      <li><b>Homework exercise 1.8:</b> State the average time you
+      recorded in the previous activity.
+      <li><b>Homework exercise 1.9:</b> By approximately what factor
+      does the time taken to guess the password increase, when you
+      switch from a dictionary word password to a word+digit password?
+      <li><b>Discussion question B:</b> Which is the most secure of
+      all the types of passwords investigated in this lab?  Which is
+      the least secure?
+      <li><b>Discussion question C:</b> What high-level lesson did you
+      learn from this lab, if anything?
+    </ul>
+  <li><b>(Optional) Cracking word+2digits passwords:</b> (This part of
+  the lab is optional.  No extra credit is available.) Save the
+  file <tt>guess-word-and-digit.py</tt> as a new file
+  called <tt>guess-word-and-2digits.py</tt>.  Now edit your new file
+  so that it guesses passwords consisting of a dictionary word plus 2
+  digits (e.g. "robot73").  Hint: you should only need to change the
+  lines in the file marked with "#####".  Once you have made the
+  necessary changes, run the new program and determine approximately
+  how much longer it takes to guess these word+2digits passwords,
+  compared to the word+digit passwords.
+</ol>
+
+
+
+    <hr>
+  </body>
+</html>

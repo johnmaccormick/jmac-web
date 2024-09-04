@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=initMonth\ initDay\ initYear
+comment0.target=Date(String,\ int,\ int)
+comment0.text=\nCreate\ a\ date\n@param\ initMonth\ the\ month\n@param\ initDay\ the\ day\n@param\ initYear\ the\ year\n\n
+comment1.target=boolean\ has30Days()
+comment1.text=\nReturn\ true\ if\ the\ month\ in\ this\ Date\ object\ has\n30\ days\ and\ false\ otherwise.\n@return\ if\ the\ month\ has\ 30\ days.\n\n
+comment2.target=void\ print()
+comment2.text=\nprint\ a\ date\n\n
+comment3.target=boolean\ isLeap()
+comment3.text=\nreturn\ whether\ or\ not\ the\ date\ occurs\ in\ a\ leap\ year\n@return\ whether\ or\ not\ the\ date\ occurs\ in\ a\ leap\ year\n\n
+numComments=4

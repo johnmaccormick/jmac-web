@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>COMP364 Final Project</TITLE>
+    <!-- Created by: , 01-Oct-2010 -->
+    <!-- Changed by: , 29-Nov-2010 -->
+
+
+  </HEAD>
+  <BODY>
+    <H2>COMP364 Final Project</H2>
+
+    <H3>Introduction</H3>
+
+
+The objective of the final project is to implement, write up, and
+present an AI-related experiment involving creativity, research,
+experimentation, and programming.  Students must work in teams of two
+or three people.  Any suitable AI-related topic may be selected for
+the project.  A number of suggested topics are provided below, but
+other topics are also possible -- please consult with the instructor
+to ensure the suitability of your choice of topic.  The main
+requirements for a good topic are: (i) it provides potential for
+substantial programming, and (ii) it provides potential for conducting
+interesting experiments.
+
+<P>A substantial fraction of class time for the final two weeks of the
+semester will involve work on the final project. There will be no
+other homework assignments during this time. Students will present the
+results of their projects in the final exam slot.  Thus, the project
+should represent three weeks of work for this course, or (very
+roughly) 25-30 hours of work.
+
+<H3>Grading</H3>
+
+
+Grading will be as follows:
+<UL>
+  <LI>Code (45 points): The project must involve a substantial
+  programming component.  Any programming language may be used. The
+  programming may build on an existing code base from a previous
+  assignment or downloaded from any suitable source. Code written
+  for the final project should be clearly marked using comments that
+  contain the string "final project".  Although the amount of code
+  written will vary considerably between projects, this part of the
+  project should represent 10-15 hours' work, which would typically
+  translate into a few hundred lines of code.  Code will be graded
+  on the same criteria as the programming assignments in this
+  course, as listed on the course web pages.
+
+<LI>Written report (45 points): The objectives, methods, and results
+of the project should be described in a formal written report. The
+overall style of the report should be that of a scientific
+publication, such as the ones we have studied in this course.  The
+audience of the report should be the instructor and other students
+in the course. Thus, notions covered in the course may be assumed
+without definition, but other concepts should be carefully described
+in the report.  As with any college-level writing, suitable
+citations should be used wherever appropriate, and a complete
+bibliography must be included.  Any suitable structure for the
+document may be used. One possible structure is to use the following
+section headings: <UL>
+  <LI>Introduction: describe the goals your project and any context or background  required.
+  <LI>Methods: describe the design of your code and your experiments.
+  <LI>Results: describes the results of your experiments, including
+  tables and charts if appropriate.  
+  <LI>Conclusions: summarize what you learned from the experiments; optionally, discuss alternative approaches and further work that could be done.
+  <LI>Bibliography: list the sources used.
+</UL>
+
+Any reasonable spacing and formatting conventions may be used. The
+suggested length of the report is 5-10 pages, but longer reports
+will not be penalized.  
+
+<P>At the end of your report, please add a short appendix (2-3
+sentences should be sufficient) describing the contributions of each
+team member to the project. The purpose of this appendix is to provide
+evidence that each team member has made a reasonable level of
+contribution to the project.  Except in extraordinary circumstances,
+each team member will receive the same grade for the project.
+
+<P>The report will be graded on the usual
+characteristics for writing (clarity, correctness of spelling and
+grammar, completeness in addressing the above requirements, logical
+structure), together with the overall intellectual merit of the
+project.
+
+<LI>Presentation (10 points): In the final exam slot, the project
+and its results must be described in a presentation of approximately
+10 minutes' duration (presentations shorter than 7 minutes or longer
+than 15 minutes will be penalized).  A <A HREF="presentation-rubric.pdf">rubric</A> for this presentation
+is provided; it is very similar to the rubric for the paper
+presentation earlier in the semester.
+
+</UL>
+
+<H3>Milestones</H3>
+
+
+<P> The project consists of three milestones: FP1, FP2, and FP3. FP1
+and FP2 are ungraded, but are designed to assist with keeping the
+project on track. FP3 consists of the submission of code, report,
+and giving the presentation in the final exam slot.  Specifics of the milestones are as follows:
+<UL>
+  <LI>FP1: Submit to Moodle a 100-300 word paragraph describing:
+    <UL>
+      <LI>The topic of your project.
+      
+<LI>A minimal coding milestone that you are
+  absolutely sure will be achievable within one week of work,
+  <B>and</B>
+  will permit some interesting experiments to be conducted and
+  written up.  (Obviously, it would be preferable to achieve more
+  than your minimal milestone, but the objective here is to ensure
+  you have <I>something</I> to write about in your report, since you
+  will
+  need to start writing the report well in advance of the final
+  deadline.)
+
+<LI>A brief description of the proposed experiments that will be
+written up.
+    </UL>
+
+<LI>FP2: Submit to Moodle a zip file of the code written so far, and
+a brief written update describing your progress relative to the
+minimal milestone identified in FP1.
+
+<LI>FP3: Submit to Moodle a zip file of all the code you wrote, and
+the written report.
+
+</UL>
+
+
+
+<H3>Potential project topics</H3>
+
+
+<P>
+Here is a list of potential projects:
+<UL>
+  <LI>Implement A* search with a landmark-based heuristic, and
+  compare performance with other search algorithms using real road
+  data.
+  <LI>Further improve your Othello player using one or more of the
+  additional tricks mentioned in the textbook (quiescence, forward
+  pruning, beam search, ProbCut, adding a database of openings
+  and/or endgames).
+  <LI>Implement expectiminimax for a simple stochastic game and
+  investigate the performance of various evaluation functions,
+  including one based on Monte Carlo simulation.
+  <UL>
+    <LI>Note: For this project and the next one, here is one simple
+    two-player
+    stochastic game that might be suitable for analysis.  The game, which we'll call <I>Monopole</I>,
+    is played on a board with 20 locations in a circuit (think
+    Monopoly).  Both players begin on the designated start
+    location. Every time you pass the start square, you receive
+    $200 from the other player (similar to, but not the same as,
+    Monopoly).  At each turn, you may choose to remain where you
+    are, or to move by rolling two 6-sided dice. If you choose to
+    move, you roll the dice and move forward by the number of
+    locations which is the
+    sum of the two dice.  However, if you end up on the same
+    location as the other player, you must immediately pay that
+    player $1000.  The game ends after each player has had 10 turns.
+  </UL>
+  <LI>[Adapted from textbook exercise 5.17] Implement expectiminimax
+  and *-alpha-beta (as described by
+  Ballard (1983) -- see the textbook bibliography) for a simple
+  stochastic game; compare their performance and analyze how well
+  the pruning works.
+  <LI>Implement simulated annealing and/or a genetic algorithm on
+  one or more interesting problems (for
+  example, image denoising, traveling salesman) and conduct
+  experiments on their effectiveness.  See textbook exercises 4.3
+  and 4.4 for more specific ideas.
+  <LI>Tackle one of the projects suggested in Section 10 of the
+  document describing the Clue programming assignment: counting
+  cards, a DPLL implementation, or a stochastic local search
+  implementation.
+  <LI>Extend your decision tree implementation from programming
+  assignment 4 to handle missing data and numeric data, and
+  implement some version of pruning. Conduct experiments to
+  determine whether pruning improves the performance of the tree
+  and if so by how much.
+  <LI>Implement the back-propagation learning algorithm for a simple
+  neural network, and conduct experiments to determine its efficacy.
+  <LI>Use one of the topics from our paper presentations earlier in
+  the semester as your starting point. Implement a simplified or
+  altered version of the technique proposed in the paper, and conduct
+  experiments on it. For example, do you agree with the authors'
+  conclusions? Or, were you able to reproduce the authors' results?
+  Why/why not? 
+
+</UL>
+
+<H3>Final remarks</H3>
+
+Your project should not have significant overlap with any other work
+done at Dickinson. Late days may not be used for the presentation,
+but may be used for the code and written report submissions.
+
+  </BODY>
+</HTML>

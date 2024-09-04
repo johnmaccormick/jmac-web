@@ -1,0 +1,114 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Nested Conditional Statements</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Nested Conditional Statements</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Review Sections 2.1 - 2.17 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/IfExamples-start.zip"><i>IfExamples-start</i></a> <br>
+<a href = "../examples/IfExamples-v1.zip"><i>IfExamples-v1</i></a> <br>
+<a href = "../examples/Account-v3.zip"><i>Account-v3</i></a>
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+<ol>
+<li> The  <i>IfExamples-v1</i> project contains the test methods for
+the <code>max3</code> method that we created in class. Add the two additional 
+test methods that are needed to achieve statement coverage for the <code>max3</code>
+ method.
+ 
+<li> Modify the <code>withdraw</code> method from the <i>Account-v3</i>
+ project so that if a negative amount of money is withdrawn, the method 
+ prints an error message and does not change the account balance.
+ Then update your testing code as follows:
+ <ol type="a">
+ <li> test that your modified method still passes all existing test cases.
+  If not, modify your method or tests, as appropriate.
+ <li> add new test cases to achieve statement coverage for the new version
+      of the method
+</ol>
+
+<li> The <code>isLeap</code> method from 
+  the <code>Date</code> class in the <i>IfExamples-start</i> project
+  determines whether a year is a leap year (according to the
+rules established in 1384 by Pope Gregory the 13th.) 
+Can you, after reading the body of the method, express these rules (in English) for determining if a year is a leap year?  Note that <code>year % 4 == 0</code>
+ (for example) is true exactly when <code>year</code> is divisible by 4.
+
+<LI>Create test methods that achieve statement coverage for the <code>isLeap</code> method.
+
+<LI>Prior to Pope Gregory the 13th's decree in 1384, any year that was divisible
+ by 4 was a leap year.  Modify the <code>isLeap</code> method from 
+  the <code>Date</code> class in the <i>IfExamples-start</i> project
+ to correctly determine whether years before 1384 were leap years. For
+ the years 1384 and later, the method should still work exactly as it did
+ before your modification.  Add additional test cases as needed to achieve
+ statement coverage for the modified method. 
+</ol>
+<p>
+<HR>
+<H3>Homework Assignment 5b</H3>
+<p>
+<ol>
+<li> The following problems all refer to the <code>grade</code>
+ method from the <code>GradeCalculator</code> class in the
+ <i>IfExamples-v1</i> project:
+<ol type="a">
+<li> 
+ Write test cases that achieve statement coverage for the <code>grade</code>
+ method.
+ Copy and paste the test method(s) that BlueJ generated into your solution for 
+ this part of this exercise.
+<li> Change the first line of the <code>grade</code> method to:
+<pre>
+   int pct = (score / numPoints) * 100;
+</pre>
+ and run your unit tests for this method.  Explain what happens
+ and why.  Before continuing be sure to undo this change.
+
+<li> Now change the order of the <code>if</code> statements in the <code>grade</code>
+method as shown below:
+<pre>
+        if (pct &gt;= 90) {
+            letGrade = "A";
+        } else if (pct &gt;= 70) {
+            letGrade = "C";
+        } else if (pct &gt;= 80) {
+            letGrade = "B";
+        } else {
+            letGrade = "other";
+        }
+</pre>
+Run your tests from part a again. Which of your test methods fail when you run your tests? Explain why each of those tests failed.  Be sure to undo this change before continuing.
+
+</ol>
+<li> Complete the implementation of the <code>passingGrade</code> method
+ in the <code>GradeCalculator</code> class in
+ the <i>IfExamples-v1</i> project according to the given specification.
+ Copy and paste the <code>passingGrade</code> method into your solution
+ for this exercise.
+<li> Write test cases that achieve statement coverage for the
+ <code>passingGrade</code> method that you implemented in the previous
+ exercise.
+ Copy and paste the test method(s) that BlueJ generated into your solution for 
+ this exercise.
+</ol>
+</BODY>
+
+</HTML>
+

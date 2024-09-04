@@ -1,0 +1,93 @@
+<html lang="en">
+<head><Title>Lab #4 - Pong</title>
+
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<H4 align="center">COMP 131</H4>
+
+<font size=+2 color='#006400'>
+<center><b>Lab #4 - Pong</b></center>
+</font>
+
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+
+<p>You have just been hired by the Object-Oriented Language Development Company (OLD Co.) They have begun development of what they believe to be a radically new computer game, with the wholly original name of Pong. Figure 1 shows a picture of the OLD Co. Pong game:
+<br><br>
+<center><img src="pong.jpg">
+<p><b>Figure 1:</b> The OLD Co. Pong game.
+</center>
+
+<p>Pong is a two player game in which each player attempts to prevent the pong-ball from reaching the wall behind his pong-paddle.  A player deflects the pong-ball before it reaches the wall by placing his pong-paddle into the path of the pong-ball. This causes the ball to bounce off of the paddle in the opposite direction. If the ball reaches the wall behind a player's paddle, the opponent scores.  The number of points scored depends on the region of the wall that is contacted by the ball.  The closer to the center of the wall the greater the number of points scored.
+
+<p>The high-paid software engineers at OLD Co. have spent years designing the Pong program.  They have identified the classes that describe the objects the program will use.  They have carefully defined the interfaces of each of the objects.  The specifications for these classes were handed off to the programmers who completed the majority of the implementation. However, just before the project was completed, all of the programmers were offered huge salaries by start-up dot com companies and simply quit on the spot!  In exchange for a big check I agreed to write these classes for OLD Co.  But being, ever the educator, I decided that writing these classes would be a good experience for you. Of course, I keep the check from OLD Co!
+
+<font size=+1 color='#006400'>
+<p><b>Setup:</b>
+</font>
+
+<p>Create a <code>Lab04</code> folder in your <code>CS131</code> folder. Download and unpack the <a href="Pong.zip"><i>Pong</i> project</a> into your <code>Lab04</code> folder. Use BlueJ to open the <i>Pong</i> project.  When you open the <i>Pong</i> project your BlueJ screen should look as shown below in Figure 2.
+
+<center>
+<img src="BlueJPong.jpg">
+<p><b>Figure 2:</b> The <i>Pong</i> project in BlueJ
+</center>
+
+<p>To run the Pong game create an instance of the <code>PongGame</code> class and invoke the <code>show()</code> method on that object.  This will bring up a window similar to the one in Figure 1.  However, because some important parts of the Pong game have not yet been implemented, the game does not quite look right, nor does it actually work.  Your assignment, as described below, is to complete the implementation of the Pong game, ultimately leading to a fully functional game!
+
+<font size=+1 color='#006400'>
+<p><b>The Assignment:</b>
+</font>
+
+<p>The <i>Pong</i> project contains 6 classes.  In this assignment you will  be concerned with only three: <code>PongBall</code>, <code>PongScore</code> and <code>PongPaddle</code>. You will be writing the source code that defines the fields, constructors, and methods of these classes.
+
+<p>However, before you are able to write the source code for these classes you will need to understand what they are required to do. You will also need to determine what fields each class will need to contain (i.e. what state each object will need).  To learn about each class you will use the documentation view in BlueJ.
+
+<p>Begin with the <code>PongBall</code> class.  To view the documentation view of the <code>PongBall</code> class, double click it to open its source code. Then choose "Documentation" from the pop-up menu in the upper right corner of the source code window. This view displays a table showing the signature for the constructor and each of the methods in the <code>PongBall</code> class.  Each method signature is accompanied by a short comment describing what the method must do.  More detailed information about each method can be obtained by clicking on its name.
+
+<P>One important hint for this assignment is that the coordinate system (that is, the x and y values) is not the same as is usually used in mathematics. In math, we normally have the origin (0,0) positioned at the bottom left. Positive x-values are to the right of the origin, and positive y-values are above the origin. In computer graphics, the y-direction is flipped.  The origin (0,0) is positioned at the <i>top</i> left. Positive x-values are to the right of the origin (just as in math), but positive y-values are <i>below</i> the origin and as the value of y increases, the corresponding point moves <i>down</i> the screen.
+
+<p>Study the documentation for the <code>PongBall</code> class until you understand what each of the methods is supposed to do. The documentation view does not indicate the fields for the class, so you will need to use your understanding of the class to infer the fields that it will need.  When you  understand the behavior of the class and have settled on its fields, change back to the "Source Code" view.  In this view you will complete the source code for the <code>PongBall</code> class.  Note, do not change any of the method signatures. You should simply add your field definitions and fill in the body of the constructor and each of the methods so that they perform their required functions.
+
+
+<p>Once you have completed the source code for the <code>PongBall</code> class, compile the project.  If you have made any typos or syntax errors, the compiler will point them out to you and you will have to fix them.  Now if you have correctly implemented the <code>PongBall</code> class, the ball in the Pong game should become operational. To find out, create an instance of the <code>PongGame</code> class and invoke its <code>show()</code> method. Pressing the 'B' key on the keyboard should set the ball in motion.  If the ball doesn't move, or doesn't seem to move correctly, you'll have to go back and make sure that your source code correctly implements the behavior required of the <code>PongBall</code>.
+
+<p>After implementing the <code>PongBall</code> class, go on to the <code>PongScore</code> and <code>PongPaddle</code> classes.  As you complete the implementation for each of these classes (and recompile) the corresponding part of the Pong game will become operational. When you finish the <code>PongScore</code> object, the score for each player will be kept at the bottom of the window.  When you finish the <code>PongPaddle</code> class, you will be able to move the paddles.  Note that the left paddle is moved using the 'A' (up) and 'Z' (down) keys.  The right paddle is moved using the 'K' (up) and 'M' (down) keys.
+
+<font size=+1 color='#006400'>
+<p><b>Submitting Your Solution:</b>
+</font>
+
+<p>When you have completed the implementation of all three classes, submit your solution using the WebCAT system.  
+
+<!--
+
+However, before you can submit your solution to WebCAT you will need to configure the Submitter extension in BlueJ.
+
+<p>To configure the Submitter extension, choose "Preferences" from the "BlueJ" menu. This will bring up the "BlueJ: Preferences" window. Click on the "Extensions" tab. On the "Extensions" tab, configure the Submitter extension by entering the requested information.  A sample is shown below in Figure 3.  You will need to use the same "Email SMTP host" as shown below.  You will also need to customize the "Email address" and "Username" to be your Dickinson e-mail and username.  Once you have entered the settings, choose OK to close the "BlueJ: Preferences" window.
+
+<center>
+<img src="Submitter.jpg">
+<p><b>Figure 3:</b> Configuring the BlueJ Submitter extension.
+</center>
+
+<p>Now to submit your solution, choose "Submit" from the "Tools" menu. Choosing "Submit" will bring up the "Submitter" window shown in Figure 4. If the "Scheme" text field is empty in your window, click the "Browse" button and select "Submission to WebCAT".  Then just click "Submit".  When you click "Submit" you will be prompted for your WebCAT password.  Once you enter your WebCAT password, your solution will be packaged up and sent off to the WebCAT server.
+
+<center>
+<img src="Submit.jpg">
+<p><b>Figure 4:</b> Submitting a solution to WebCAT.
+</center
+
+<p>When WebCAT has received your submission BlueJ will display a window containing a link labeled "view your graded results." Clicking on this link will take you to the WebCAT web page in a browser.  Once WebCAT has finished processing your submission, you will be taken to a page like the one shown in Figure 5, which shows your results.
+
+<center>
+<img src="Results.jpg">
+<p><b>Figure 5:</b> Results in WebCAT.
+</center>
+-->
+
+
+</body>
+</html>

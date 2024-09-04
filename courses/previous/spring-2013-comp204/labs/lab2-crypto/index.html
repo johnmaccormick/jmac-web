@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Cryptography lab</title>
+    <!-- Changed by: , 30-Aug-2010 -->
+  </head>
+
+  <body>
+    <h2>Cryptography lab</h2>
+
+<P>Don't sit too near your partner during this lab.  If possible, sit
+on opposite sides of the room. Communicate with your partner only via
+e-mail.  Each person will need a computer with Web access. You can use
+your own computer or one of the lab machines.
+
+<P>
+<ul>
+  <li><b>Homework exercise 8.0:</b> Who is your lab partner?
+</ul>
+
+<P>In this lab, you will be using cryptography to send your phone
+number to your lab partner via e-mail.  (To protect your privacy, you
+can of course use a fake phone number).  You will use encryption, so
+that even someone who has access to all of your e-mail (and all of
+your partner's e-mail) cannot determine your phone number.  In
+addition, you will only communicate with your partner via e-mail!  In
+other words, even someone who has access to all of the communication
+between you and your partner cannot determine your phone number.
+
+<P>In fact, you're going to send your phone number twice. In Part 1 of
+the lab, you will use Diffie-Hellman key exchange to establish a shared
+secret key, and then use that key to encrypt the phone number.  In
+Part 2 of the lab, you will encrypt and send your phone number using
+RSA public-key cryptography.
+
+<P>For all numerical calculations in this lab, it is recommended that
+you use Wolfram Alpha
+(<a href="http://wolframalpha.com">http://wolframalpha.com</a>).  This
+site is capable of computing a vast range of mathematical expressions.
+In particular, we can use it for doing exponentiation and clock
+arithmetic with very large numbers.  As an initial example, compute
+3453342^2134462 (mod 37865763), by entering "<tt>3453342^2134462 mod
+37865763</tt>" at Wolfram Alpha.  You should obtain the answer
+28627686.  Note that you can copy and paste the answer by hovering
+over the results, and then hovering over "A" symbol below the result.
+Make sure to practice this so that you don't have to type out long
+numbers manually.
+
+   <ul>
+      <li><b>Homework exercise 8.1:</b> Let b=54376845678265437,
+      e=3473443267, and m=25367532678235867. What is b^e (mod m)?
+      <li><b>Homework exercise 8.2:</b> What is the 10-digit phone
+      number you plan to use for this lab? (This can be a fake phone
+      number, or your real phone number.)
+    </ul>
+ 
+
+
+<h3>Part 1: Diffie-Hellman key exchange and symmetric key cryptography</h3>
+
+<ol>
+  <li>Choose a private number.  This should be random, 8-digit number.
+  You can just make one up, or you can
+  enter <tt>RandomInteger(10^8)</tt> into Wolfram Alpha.
+   <ul>
+      <li><b>Homework exercise 8.3:</b> What is your private number?
+    </ul>
+  <li>If your partner hasn't already done it for you, create the
+  public numbers for this exchange and send them to your
+  partner. Specifically, choose a random base (5 digits) and a random
+  modulus (15 digits) and e-mail them to your partner.  You can use
+  Wolfram Alpha for the random numbers, or just make them up yourself.
+  (By the way, this lab deliberately simplifies the process of
+  selecting a modulus---in fact, using a random modulus doesn't
+  guarantee that the key exchange will be secure. See below for
+  an optional extension exercise that tells you how to make the
+  exchange secure.)
+   <ul>
+      <li><b>Homework exercise 8.4:</b> What is your public base?
+      <li><b>Homework exercise 8.5:</b> What is your public modulus?
+    </ul>
+  <li>Compute your public-private mixture, and e-mail it to your partner.
+   <ul>
+      <li><b>Homework exercise 8.6:</b> What is your public-private mixture?
+      <li><b>Homework exercise 8.7:</b> What is your partner's public-private mixture?
+    </ul>
+  <li>Compute the shared secret key.
+   <ul>
+      <li><b>Homework exercise 8.8:</b> What is the shared secret key?
+    </ul>
+  <li>We will be using the secret key as a one-time pad. In class, we
+  used a one-time pad with the XOR operation, but in this lab we will
+  make things even easier by using ordinary addition.  So, to encrypt
+  your phone number, just add your 10-digit phone number to the secret
+  key (use Wolfram Alpha), and send the result to your partner by
+  e-mail.
+   <ul>
+      <li><b>Homework exercise 8.9:</b> What is your ciphertext
+      (i.e. the encrypted version of your phone number)?
+    </ul>
+  <li>Wait until your partner sends you their encrypted phone number.
+  Decrypt it. (Ask for help if you can't see how to do this.)
+   <ul>
+      <li><b>Homework exercise 8.10:</b> What is your partner's plaintext
+      (i.e. the decrypted version of your partner's phone number)?
+    </ul>
+</ol>
+
+<h3>Part 2: Public key cryptography using RSA</h3>
+
+<ol>
+  <li><b>Generate your RSA public and private keys.</b>  <br>We will do
+  this using the
+  site <a href="http://www.mobilefish.com/services/rsa_key_generation/rsa_key_generation.php">Mobilefish
+  RSA key generation service</a>.  Recall that you need three numbers
+  for RSA: (i) a private exponent; (ii) a public exponent; and (iii) a
+  public modulus.  The method for generating these depends on some
+  mathematical details that we did not cover in class. The following
+  instructions walk you through the process. You are not required to
+  understand how or why it works.
+    <ul>
+      <li>(a) On the Mobilefish page linked above, scroll down to
+      "Step 1: Enter or generate prime numbers."  Leave the key size
+      as 1024 bits. <b><font color="red">Update, 10:05am, 2/14: use
+      128 bits instead.</font></b>  Click on the button labeled "Auto
+      generate prime number p and q."
+      <li>(b) Scroll down to "Step 2: Enter public exponent." In the
+      drop-down box next to "Public exponent (e) is a," select
+      "decimal."  You should now see the default value "65537" entered
+      in the box next to "Public exponent (e)."  Delete the default
+      value, and enter your own random 10-digit public exponent.  
+      <li>(c) Scroll down to "Step 3: Generate public / private keys
+      based on prime numbers and exponent."  In the drop-down box next
+      to "Convert generated keys to," select "decimal."  Now click the
+      button labeled "Generates keys."  At this point, you may see an
+      error message, stating "Exponent e and phi are no comprimes,
+      select another e."  If you get this error message, return to
+      step (b) and select a different random public exponent.  Repeat
+      steps (b) and (c) as necessary until the key generation
+      succeeds.  Hint: don't use an even number for your public
+      exponent, since even numbers will always produce the error
+      message.
+      <li>(d) Record all your keys (the format should be set to
+      "decimal" for each one):
+	<ul>
+	  <li><b>Homework exercise 8.11:</b> What is your modulus?  (This is shown under "Step 3" next to the box that says "Enter modulus (n).")
+	  <li><b>Homework exercise 8.12:</b> What is your public exponent? (This is shown under "Step 3" next to the box that says "Public exponent (e).")
+	  <li><b>Homework exercise 8.13:</b> What is your private exponent?
+	  (This is shown under "Step 3" next to the box that says
+	  "Enter private exponent (d)."  The web page refers to your
+	  private key as "Private key A."  You can ignore the entries
+	  under "Private key B.")
+	</ul>
+    </ul>Once you've recorded your public and private keys, close the
+  Mobilefish RSA page. There are encryption and decryption facilities
+  further down the page, but we won't use them in this lab.  We will
+  be encrypting and decrypting using Wolfram Alpha.  Note that because
+  of the way the Mobilefish site translates messages into binary
+  numbers before encrypting them, it produces different answers than
+  Wolfram Alpha, so don't use Mobilefish to check your answers either.
+
+  <li>E-mail your modulus and public exponent to your partner.  Keep your private exponent secret, of course.
+
+  <li>Once your partner has sent you their modulus and public
+  exponent, use this information to encrypt your 10-digit phone
+  number.  Send the resulting ciphertext to your partner. 
+<b><font color="red">Update, 10:05am, 2/14: All remaining questions are optional.</font></b>
+   <ul>
+      <li><b>Homework exercise 8.14:</b> What is your ciphertext
+      (i.e. the encrypted version of your phone number)?
+    </ul>
+
+  <li>Once your partner has sent you their encrypted phone number, decrypt it.
+   <ul>
+      <li><b>Homework exercise 8.15:</b> What is the ciphertext you
+      received from your partner (i.e. the encrypted version of your
+      partner's phone number)?
+      <li><b>Homework exercise 8.16:</b> What is the plaintext you
+      received from your partner (i.e. the decrypted version of your
+      partner's phone number)?
+      <li><b>Homework exercise 8.17:</b> Is the received plaintext the
+      same as you computed in Part 1 of this lab?  Why or why not?
+      (Give a one-sentence answer.)
+    </ul>
+</ol>
+
+<h3>Part 3: Optional extensions</h3>
+
+This part of the lab is optional.
+
+<ol>
+  <li>As mentioned above, choosing a random modulus for Diffie-Hellman
+  doesn't guarantee the usual level of security for the key
+  exchange. To achieve that level of security, the modulus must be
+  a <i>prime number</i>. That is, the modulus must be a number that
+  has no factors, other than 1 and itself.  Wolfram Alpha does have a
+  function called <tt>isprime</tt> (e.g. try <tt>isprime(17)</tt>,
+  and <tt>isprime(26)</tt>).  But it could take you a long time to
+  guess a 15-digit prime number (only about 3% of 15-digit numbers are
+  prime). Instead, think of a way of generating a random 15-digit
+  prime number that employs the Wolfram Alpha
+  function <tt>NextPrime</tt>.
+  <li>Use your new, secure modulus to generate a new secret key via
+  Diffie-Hellman.  If your partner isn't ready, do both ends of the
+  key exchange yourself.
+  <li>Above, we used the shared secret key as a one-time pad
+  by <i>adding</i> the key to the plaintext. In class, however, we
+  learned that a more usual application of one-time pads is to XOR the
+  key and the plaintext.  Wolfram Alpha can do this XOR for you (for
+  example, try <tt>234 xor 543</tt>).  Use this XOR functionality to
+  encrypt your phone number.  How would you decrypt the resulting
+  ciphertext?  If your partner is working on this part of the lab,
+  send each other your XOR-encrypted phone numbers and verify that you
+  can decrypt them correctly.
+  <li>Our method of generating an RSA modulus omitted some of the
+  important details.  The correct way to generate an RSA modulus is to
+  select two large random primes <i>p</i> and <i>q</i>, then use the
+  modulus <i>n=pq</i>.  Using this fact, generate a new RSA modulus,
+  roughly 30 digits in length.  Generate the public and private
+  exponents
+  via <a href="http://www.mobilefish.com/services/rsa_key_generation/rsa_key_generation.php">Mobilefish</a>.
+  Verify that you can encrypt and decrypt your phone number using
+  these new keys.
+  <li>How do we know that about 3% of 15-digit numbers are prime?
+  (Hint: look up the Prime Number Theorem on Wikipedia.)
+</ol>
+
+
+
+
+    <hr>
+  </body>
+</html>

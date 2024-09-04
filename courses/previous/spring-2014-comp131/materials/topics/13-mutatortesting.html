@@ -1,0 +1,63 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Multiple tests and local variables</TITLE>
+	<!-- Changed by: , 20-May-2008 -->
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Unit Testing Mutator Methods</h2>
+<HR>
+
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 2.16 - 2.17 of Barnes &amp; Kolling.
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href="../examples/Turtle.zip">Turtle</a>
+<HR>
+
+<H3>Practice Exercises</H3>
+<p>
+<OL>
+<!--
+<li> Create test methods for the <code>setMake</code> and <code>setYear</code> methods of the <code>Car</code> class.
+<li> Create test methods for the <code>deposit</code> and <code>withdraw</code> methods of the <code>Account</code> class from the <code>Account-v2</code> project.
+-->
+<LI>Create a test method for the <code>insertMoney</code> method in the <code>TicketMachine</code> class from the <i>naive-ticket-machine</i> project from chapter 2 of Barnes &amp; Kolling.
+<LI>Add a method named <code>discount</code> to the <code>TicketMachine</code> class. This method does not return a value and accepts one integer parameter. Its parameter indicates a discount that should be applied to the price of all future ticket purchases (i.e. the price of a ticket should be reduced by the amount of the discount). Be sure to include a JavaDoc comment for your <code>discount</code> method. Copy and paste the source code for your <code>discount</code> method as your solution to this question.
+<LI>Create a test method for the <code>discount</code> method that you just added to the <code>TicketMachine</code>. Copy and paste the test method that BlueJ generated as your solution for this question.
+<LI>Create a new method named <code>empty</code> in the <code>TicketMachine</code> class. This method does not have any parameters and does not return a value. When called it removes all of the money from the machine (i.e. it set the machine's balance to 0). Be sure to include a JavaDoc comment for your <code>empty</code> method. Copy and paste the source code for your <code>empty</code> method as your solution to this question.
+<LI>Create a test method for the <code>empty</code> method that you just added to the <code>TicketMachine</code>. Copy and paste the test method that BlueJ generated as your solution for this question.
+<!--
+<li> Create test methods for the <code>changeName</code> and <code>addCredits</code> methods in the <code>Student</code> class from the <i>lab-class</i> project in Chapter 1 of Barnes &amp; Kolling. 
+-->
+</OL>
+
+<HR>
+
+<H3>Homework Assignment 4c</H3>
+
+<ol>
+<LI>Add a method named <code>getDollars</code> to the <code>Account</code> class. This method does not accept any parameters and returns an integer indicating the number of whole dollars there are in the account.  For example, if the balance of the account is 754 cents, the a call to <code>getDollars</code> will return 7.  Be sure to include a JavaDoc comment for your <code>getDollars</code> method. Copy and paste the source code for your <code>getDollars</code> method as your solution to this question.
+<LI>Create two test methods for your <code>getDollars</code> method. One case should test when there are 0 dollars and one where there is at least 1 dollar. Copy and paste the test methods that BlueJ generated as your solution for this question.
+
+<LI>Add a method named <code>addInterest</code> to the <code>Account</code> class. This method does not return a value and accepts no parameters. A call to this method should increase the balance of the account according to the interest rate. 
+For example, if the balance is 200 and the interest rate is 20, then
+ 200 * 20 / 100 gives the number of cents to increase the balance by.
+Use a local variable to hold the amount that the balance should increase by. Be sure to include a JavaDoc comment for your <code>addInterest</code> method.
+ Copy and paste the source code for your <code>addInterest</code> method as your solution to this question.
+<LI>Create a test method for your <code>addInterest</code> method. Copy and paste the test method that BlueJ generated as your solution for this question.
+
+<li> Add a method named <code>jump</code> to the <code>Turtle</code> class.  This method does not return a value and accepts two <code>double</code> values as parameters.  The first parameter specifies a new x position for the turtle and the second parameter specifies a new y position for the turtle.  The result of calling this method is that the turtle's x and y positions are changed to the specified value - i.e. the turtle "jumps" to the new position.  Be sure to include a JavaDoc comment for your <code>jump</code> method. Copy and paste the source code for your <code>jump</code> method as your solution to this question.
+<li> Create a test method for the <code>jump</code> method that you just added to the <code>Turtle</code> class. Copy and paste the test method that BlueJ generated as your solution for this question.
+</ol>
+</BODY>
+</HTML>

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Cloud Computing Lab: Implementing a Backup Utility</title>
+  </head>
+
+  <body>
+    <h2>Cloud Computing Lab: Implementing a Backup Utility</h2>
+
+The objective of this lab is to implement a simple backup utility
+using cloud computing services.  You may work in pairs or individually. 
+
+<h4>Background</h4>
+
+<P>We will be using the cloud computing provided by Amazon, known
+as <i><a href="http://aws.amazon.com/">Amazon Web Services</a></i>
+(AWS).  The specific AWS service used in this lab is
+the <i><a href="http://aws.amazon.com/s3/">Amazon Simple Storage
+Service</a></i> (S3).  S3 allows users to store data items, known
+as <i>objects</i>, in locations known as <i>buckets</i>.  Technically,
+an object is an arbitrary array of bytes, but it's best to think of an
+object as being the same thing as a file stored on a computer's hard
+drive.  Each object has a <i>key</i>, which is a string that can be
+used to retrieve the object, and is analogous to the full name of a
+file, including its parent folders.  The data in an object is
+analogous to the contents of a file.  Is S3, a bucket is an abstract
+concept that can be thought of as a location where objects are
+stored. Very roughly, a bucket is analogous to a disk drive attached
+to a computer: just as you can store files on the disk drives attached
+to your computer, you can store S3 objects in the buckets in an S3
+account.  One important difference between S3 buckets and the file
+systems we are used to is that buckets have no notion of hierarchy: a
+bucket has no folders or directories, so its namespace is flat and
+every object has a unique key in the bucket's namespace.
+
+<P>
+Certain credentials are required interacting with S3. Specifically,
+you need an <i>access key</i> and a <i>secret key</i>.  The access key
+is similar to a login name; it allows S3 to identify you. The secret
+key is similar to a password.  For this lab, you have been provided
+with an access key, a secret key, and the name of a bucket.  You have
+full privileges to read, write, and list objects within this bucket.
+
+<P>
+Please note that your bucket resides within the instructor's personal
+AWS account.  Amazon charges the instructor real money for use of this
+account.  For any reasonable usage, the charges are minuscule: about
+10 cents per gigabyte per month for storage, and one cent for every
+thousand objects transferred into or out of S3.  Thus, please limit
+your backup experiments to at most a few thousand objects whose total
+size is less than a gigabyte. As with any other unacceptable behavior
+at the college, any abuse of your S3 access will be dealt with through
+the college disciplinary system.  After the lab has been graded, your
+S3 credentials will be revoked and all objects in your bucket will be
+deleted.
+
+<h4>Basic Requirements</h4>
+
+The final product of your lab should be an executable program that can
+be run from the command line, in two different modes: <i>backup</i>
+mode and <i>restore</i> mode. The first commandline argument should
+specify the mode, and the remaining arguments and program behavior
+will depend on the mode, as follows:
+<ul>
+  <li>In backup mode, the program should take two additional commandline
+arguments specifying (i) the name of a folder on the local computer,
+and (ii) the name of a label that will be used to identify the backup
+within S3. The program will then store a complete backup of the local
+folder (and any subfolders, of course) in your S3 bucket, using the
+given label.  For example, if you are using Java and your main method
+is in a class called MyS3Backup, the command <tt>java MyS3Backup
+backup wombat wombat-version2.6</tt> will backup the
+folder <tt>wombat</tt> in the current directory, labeling it
+as <tt>wombat-version2.6</tt> in the S3 system.
+  <li>In restore mode, the program should take 2 or 3 additional
+commandline arguments specifying (i) the label of a backup to be
+restored, (ii) the name of a destination folder on the local computer,
+and (iii) an optional argument specifying the name of a file or folder
+within the backup. The program will then copy the contents of the
+desired folder or file (including any subfolders) from S3 to the
+specified destination.  For example, if you are using Java and your
+main method is in a class called MyS3Backup, the command <tt>java
+MyS3Backup restore wombat-version2.6 emptyFolder</tt> will retrieve the entire
+contents of the S3 backup labeled <tt>wombat-version2.6</tt>, placing
+it in <tt>emptyFolder</tt>.  The command <tt>java MyS3Backup
+restore wombat-version2.6 emptyFolder wombat/source/kangaroo.txt</tt> will
+retrieve just the file <tt>wombat/source/kangaroo.txt</tt> from the S3
+backup labeled <tt>wombat-version2.6</tt>, placing it
+in <tt>emptyFolder</tt>.
+</ul>
+
+
+<P>
+Apart from these high-level requirements, the behavior of the program
+is left unspecified. You are free to use creativity in designing a
+useful, robust, and user-friendly backup utility.  In particular, your
+program may use additional commandline arguments.
+
+<h4>Possible extensions</h4>
+
+The requirements given above describe a bare-bones backup utility.
+Some optional possible extensions to make this utility more useful
+include the following:
+<ul>
+  <li>Incremental backup: don't backup files that have not changed
+  since the last backup.  A simple, acceptable approach here would be
+  to examine the last modified date of a file, and assume it does not
+  need to be backed up if this date is earlier than the date of the
+  most recent backup.
+  <li>Retain previous versions: keep a fixed number of previous
+  versions of every file. 
+  <li>Support for unusually long path names: S3 object keys are
+  limited to 1024 characters, so your program may run into trouble
+  when backing up files with unusually long path names. Add support
+  for your backup utility to handle this case gracefully.  Would this
+  ever be needed in practice?
+  <li>Keep some file metadata in the backup: it would be nice to
+  backup and restore some of the metadata associated with files, such
+  as creation time and last modified time. S3 supports attaching
+  metadata to objects. Use this feature to incorporate metadata in
+  your backups.
+</ul>
+
+<h4>Hints for using S3 with Java</h4>
+
+<P>
+Amazon provides many ways of interacting with S3, including Java,
+Perl, PHP, C#, Python, and Ruby.  You are welcome to use any
+programming language and programming tools for this lab, but these
+notes will provide tips only for Java, and will assume you're
+developing within the Eclipse environment.
+
+<P>
+Assuming you are using Java, you'll need the following zip file of
+code libraries and
+documentation: <a href="CloudLab.zip"><tt>CloudLab.zip</tt></a>.  Unzip the
+file, create a new Eclipse project, and add the four .jar files to its
+build path ("add External JARs" in Java Build Path properties).  Add
+the AWS JavaDoc to the project by associating it with the file
+<tt>aws-java-sdk-1.1.1.jar</tt> (Java Build Path again, then the
+Libraries tab, expand the aws-java-sdk-1.1.1.jar node, select JavaDoc
+location and click edit, then browse to the location of your
+downloaded aws-javadoc folder..
+
+<P>
+Following are some code snippets that provide simple examples of some
+of the basic functionality you will need from S3.
+
+
+
+
+<ul>
+  <li>Initializing an S3 client
+<code><pre>
+    String accessKey = "????????????";
+    String secretKey = "?????????????????????";
+    AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+    AmazonS3 s3 = new AmazonS3Client(credentials);
+</pre></code>
+
+  <li>Uploading an object to S3
+<code><pre>
+    String bucketName = "????????????????????????";
+    String objectKey = "backup-of-MyFile.txt";
+    String fileName = "MyFile.txt";
+    File file = new File(fileName);
+    s3.putObject(bucketName, objectKey, file);
+</pre></code>
+
+  <li>Downloading the contents of an object
+<code><pre>
+    S3Object object = s3.getObject(bucketName, objectKey);
+    InputStream input = object.getObjectContent();
+    /* read and save the data from the input stream */
+    input.close();
+</pre></code>
+
+  <li>Listing the objects in a bucket whose keys begin with a given prefix
+<code><pre>
+    String prefix = "backup-1-5-2011";
+    ObjectListing listing = s3.listObjects(bucketName, prefix);
+    for (S3ObjectSummary objectSummary : listing.getObjectSummaries()) {
+        String key = objectSummary.getKey();
+        /* do something with the key */
+    }
+</pre></code>
+
+</ul>
+
+<P>
+For further details, consult
+the <a href="http://docs.amazonwebservices.com/AWSJavaSDK/latest/javadoc/index.html">online
+JavaDoc for AWS</a>, and other documents as needed from
+Amazon's <a href="http://aws.amazon.com/documentation/s3/">online S3
+documentation</a>.
+
+<h4>Submission</h4>
+
+Submit a single zip file of all your source files to Moodle.
+
+<h4>Grading</h4>
+
+The code will be graded on the following criteria: correctness,
+clarity, elegance, and efficiency. Documentation is particularly
+important in this assignment. Make sure to include comments explaining
+how to run your utility, including the precise meaning of all
+commandline arguments.  
+
+<P>It will be possible to achieve an excellent grade on the assignment
+by implementing only the bare-bones utility described above in the
+"Basic Requirements" section.  A reasonable attempt at any of the
+extensions suggested in the "Possible extensions" section above will
+receive up to 10% extra credit.  If you attempt any of the extensions,
+clearly indicate this in the comments at the top of your main code
+source file.
+
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<head>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+
+<center>
+	<div>
+		<p id='siteHeader1'><a href='/' class='undecorated_link'>Maurice Royce</a></p>
+		<p id='siteHeader2'>Computer Science Student</p>
+		<p id='siteHeader3'>at <a href='http://www.dickinson.edu/' target='_blank' class='undecorated_link'>Dickinson College</a></p>
+	</div>
+</center>
+
+<center>
+	<table width='700'>
+		<tr height='15'></tr>
+		<tr>
+			<td>
+				<center>
+					<h1>Beat Ninja</h1>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<center>
+					<button type='button' onclick='goLeft()' id='left_button' style='position:relative; right:400px; top:215px; height:50px; width:50px; margin-top:-50px'><</button>
+					<img id='display_picture' src='screenshot1.png' width='700' height='380'>
+					<button type='button' onclick='goRight()' id='right_button' style='position:relative; left:400px; bottom:215px; height:50px; width:50px; margin-bottom:-50px'>></button>
+				</center>
+			</td>
+		</tr>
+		<tr height='10'></tr>
+		<tr>
+			<td>
+				<b>Description:</b></br></br>
+				A classic beat game where you slice and dice music to the beat of the music!
+			</td>
+		</tr>
+		<tr height='10'></tr>
+		<tr>
+			<td>
+				<b>Controls:</b>
+				<ul>
+					<li><b>LEFT:</b> Slice fruits coming from the left</li>
+					<li><b>RIGHT:</b> Slice fruits coming from the right</li>
+					<li><b>SPACE: </b> Slice fruits coming from above</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Technology Used:</b> 
+				<ul>
+					<li>Visual Studio C++</li>
+					<li><a href='http://sfml-dev.org/' target='_blank'>SFML</a></li>
+					<li><a href='http://web.audacityteam.org/' target='_blank'>Audacity Free Audio Editor and Recorder</a></li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Music:</b></br></br>
+				<a href='https://www.youtube.com/watch?v=jrSHRMyLkio' target='_blank'>Miche - Hungarian Dance Techno Remix</a> with some slight modifications.
+			</td>
+		</tr>
+	</table>
+</center>
+
+<script type='text/javascript'>
+
+var current_index = 1;
+
+function goLeft()
+{
+	var pic = document.getElementById("display_picture");
+	console.log(current_index);
+
+	switch(current_index){
+		case 1:
+			current_index = 4;
+			pic.src='screenshot4.png';
+			break;
+		case 2:
+			current_index = 1;
+			pic.src='screenshot1.png';
+			break;
+		case 3:
+			current_index = 2;
+			pic.src='screenshot2.png';
+			break;
+		case 4:
+			current_index = 3;
+			pic.src='screenshot3.png';
+			break;
+		default:
+			current_index = 1;
+			pic.src='screenshot1.png';
+	}
+}
+
+function goRight()
+{
+	var pic = document.getElementById("display_picture");
+	console.log(current_index);
+
+	switch(current_index){
+		case 1:
+			current_index = 2;
+			pic.src='screenshot2.png';
+			break;
+		case 2:
+			current_index = 3;
+			pic.src='screenshot3.png';
+			break;
+		case 3:
+			current_index = 4;
+			pic.src='screenshot4.png';
+			break;
+		case 4:
+			current_index = 1;
+			pic.src='screenshot1.png';
+			break;
+		default:
+			current_index = 1;
+			pic.src='screenshot1.png';
+	}
+}
+
+</script>

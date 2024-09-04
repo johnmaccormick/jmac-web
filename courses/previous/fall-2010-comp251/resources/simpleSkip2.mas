@@ -1,0 +1,12 @@
+         load     testval
+         skipcond 000
+         jump     else
+if,      load     data1
+         jump     endif
+else,    load     data2
+endif,   store    dest
+         halt
+testval, dec       -5
+data1,   dec        8
+data2,   dec       15
+dest,    dec        0

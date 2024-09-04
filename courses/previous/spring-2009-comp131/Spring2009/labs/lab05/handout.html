@@ -1,0 +1,111 @@
+<html lang="en">
+<head><Title>Tribbles</title>
+                                                                               
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+                                                                               
+<font size=+2 color='#006400'>
+<center><b>Tribbles</b></center>
+</font>
+
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+
+<p>
+  <a href = 
+   "http://www.startrek.com/startrek/view/series/TOS/episode/68744.html">
+ Tribbles</a> are simple creatures who live on a rectangular world.
+ Each day, a tribble moves about on the world and ages.  A tribble
+ will occasionally reproduce (by budding - only one tribble is required)
+ and eventually die.  Each tribble has a number (the first
+ tribble "born" is 1, the second is 2 and so on), a color, an age
+ and a position on the world.  Figure 1 shows a picture of the tribble
+ world as the tribbles go about their daily lives:
+<br><br>
+<center><img src="Tribbles.jpg">
+<p><b>Figure 1:</b> Happy tribbles on the tribble world.
+</center>
+</body>
+<p>
+The behavior of tribbles is implemented in a Java class.  Unfortunately,
+that class has not yet been finished!
+
+<font size=+1 color='#006400'>
+<p><b>Setup:</b>
+</font>
+								       
+<p>Create a <code>Lab5</code> folder in your <code>CS131</code> folder.
+Download and unpack the <a href="Tribbles.zip"><i>Tribbles</i> project</a>
+into your <code>Lab5</code> folder. Use BlueJ to open the <i>Tribbles</i>
+project. 
+
+<p>
+To see the tribble world, create an instance of the <code>TribbleGUI</code>
+class, and then use this instance to invoke the <code>display</code> method.
+You can then click the "Start" button in the user interface to make the
+tribbles appear.  However, because the behavior of these tribbles has not yet
+been implemented, all of the tribbles will appear in the upper left corner
+of the world and all will be green.  Additionally, when you click
+the "Next Day" button, the tribbles will not be able to move.
+
+<font size=+1 color='#006400'>
+<p><b>The Assignment:</b>
+</font>
+								       
+<p>The <i>Tribbles</i> project contains 2 classes.  In this lab, you should
+only be concerned with the <code>Tribble</code> class - you will be
+writing the fields, constructors and methods for this class, as well
+as test cases that achieve statement coverage for the constructors and
+methods.
+<p>
+After opening the project in BlueJ, double click the <code>Tribble</code> 
+class to bring it up in the editor.  Use the interface view to determine
+what the methods and constructors for the class need to do, and to infer
+what the fields of the class should be.  Then switch to the implementation
+view to complete the source code for the class.  Add the necessary field
+definitions, and fill in the code for each constructor and method.
+Do NOT change any of the method or constructor signatures, as the 
+methods and constructors are used by the <code>TribbleGUI</code> class.
+Note that several of the methods have return statements that simply
+return some constant value.  The only purpose of these statements is
+to allow the class to compile.  You will need to replace these return 
+statements when you begin working on those methods.
+<p>
+Note that the upper left corner of the tribble world is position (0, 0),
+and that the lower right is position (75, 15).  When a tribble moves, you
+MUST ensure that the tribble does not fall off of the world.  Instead,
+the tribble should ``wrap around'' - for example, if the tribble attempts
+to move off of the bottom of the world, it should reappear at the top.
+<p>
+You must also write test cases to ensure that your tribbles behave 
+correctly.  The best approach is to implement one constructor and the
+accessor methods first, and then write one or more test cases for that
+constructor.  Then implement the next constructor and test case(s) for it.
+Finally, move on to the mutator methods, writing test case(s) as you
+complete each mutator.  Rerun your tests as you complete each method or
+constructor.
+<p>
+Grading will be based on three criteria:
+<ul>
+<li> style
+<li> correctness
+<li> whether or not your test
+cases achieve statement coverage for all constructors and methods in
+the <code>Tribble</code> class.
+</ul>
+
+<font size=+1 color='#006400'>
+<p><b>Submitting Your Solution:</b>
+</font>
+								       
+<p>When you have completed the implementation the <code>Tribble</code> class,
+submit your solution using the WebCAT system.  Note that WebCAT will not
+accept your submission if you have not created a test class for the
+<code>Tribble</code> class.
+You are allowed to submit your solution as many times as you like, and
+you are encouraged to begin submitting your solution as soon as you have
+created the test class.
+
+</body>
+</html>

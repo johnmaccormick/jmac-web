@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+    <TITLE>Detailed schedule and class resources</TITLE>
+    <!-- Changed by: , 07-May-2010 -->
+  </HEAD>
+  <BODY>
+    <H1>Detailed schedule and class resources</H1>
+
+
+<h4><FONT COLOR="000066">Class 1: Tuesday, January 26</FONT></h4>
+
+Brief introduction to what we will be studying and why.  Very brief
+discussion of the syllabus.
+
+Lecture on the existence of impossible programs: we'll see why it is
+impossible to write a computer program that detects all potential
+crashes in all other programs.  
+
+Optional background reading: the instructor's book chapter entitled
+"What is computable?", available on Moodle.
+
+
+
+<h4><FONT COLOR="000066">Class 2: Friday, January 29</FONT></h4>
+
+Required reading: Linz 1.1. 
+
+<P>You can ignore the discussion of "order at most", "order at
+least", and "same order of magnitude" on page 6.  In class, we will
+concentrate on the definition of a graph, and on revising proof by
+induction (previously covered in the discrete math course).  Most of
+the other material in this section will be required later, but we
+will revisit such material when needed.
+
+<h4><FONT COLOR="000066">Class 3: Tuesday, February 02</FONT></h4>
+
+Required reading: Linz 1.2.  
+
+<P>Note the definition of "language" given near the bottom of page
+18.  The lecture will emphasize two different views of what a
+"language" can mean to a computer scientist: 1. a programming
+language, and 2. the answer to a mathematical problem (more
+specifically, a list of numbers that satisfy some given property,
+such as being prime or being even).
+
+<P>We will be using the following five languages as running examples
+throughout the course:
+<ol>
+    <li><b>Java programs</b>, written in ASCII
+      <ul>
+	<li>an ASCII string is in the language if it can be compiled
+	by the Java compiler with no errors
+      </ul>
+    <li><b>HTML pages</b>, written in ASCII
+      <ul>
+	<li>an ASCII string is in the language if it is accepted by
+	the HTML validator
+	at <a href="http://validator.w3.org/">http://validator.w3.org/</a>. (Example
+	of page with an	error: <a href="deliberate-error.html">deliberate-error.html</a>)
+      </ul>
+    <li><b>multiples of 5</b>, written in decimal
+      <ul>
+	<li>a string of decimal digits is in the language if it
+	represents an integer that is a multiple of five
+      </ul>
+    <li><b>prime numbers</b>, written in decimal
+      <ul>
+	<li>a string of decimal digits is in the language if it
+	represents an integer that is a prime number
+      </ul>
+    <li><b>Java programs that can't crash</b> (i.e. throw a runtime exception)
+      <ul>
+	<li>an ASCII string is in the language if it can be compiled
+	by the Java compiler with no errors, and the resulting program
+	will never throw a runtime exception, no matter what input it
+	receives.
+      </ul>
+      </ol>
+The main question is: what type of computers (i.e. automata)
+can <i>recognize</i> these languages?
+
+
+<P>Mini-lab to understand basics about grammars:
+  <UL>
+    <LI>fire up JFLAP.  Click on grammar.  Create your own grammar.  (Use S as the start symbol. Use uppercase letters as variables, lowercase letters as terminal symbols.) </LI>
+
+<LI>Choose "multiple brute force parse".  In the frame on the right, in the input column, enter a string you believe is in the language defined by your grammar.  Click "run inputs" and check that "accept" is the result.  </LI>
+
+<LI>Now click "start" in the top-left frame.  Click "step" a few times.  Switch between inverted tree and derivation table, try to understand what is being shown here.  </LI>
+
+<LI>Step through the derivation of another string that is in your language; this time ensure the string has length at least 4.  </LI>
+
+<LI>Find a string that is not in your language; make sure that the result is "reject".  Find several more strings that get rejected.  </LI>
+
+<LI>Find the three shortest strings that are accepted. Find the three shortest strings that are rejected.</LI>
+  </UL>
+
+<h4><FONT COLOR="000066">Class 4: Friday, February 05</FONT></h4>
+
+Required reading: Linz 2.1.  
+
+<!-- <P>The lecture will briefly mention some of the material in Linz -->
+<!-- 1.3, but this section is not required reading. -->
+
+<P>Mini-lab using JFLAP to investigate
+some rudimentary dfas:
+<ul>
+  <li>In JFLAP, create a dfa that accepts strings of one or more 'a's, optionally preceded by a single 'b'.
+  <li>Test your dfa using "multiple run".
+  <li>Does your dfa have transitions for every possible input?  If
+  not, it is incomplete, according to the definition given in our
+  textbook, but JFLAP allows this kind of incomplete dfa.  What is the
+  interpretation of a missing transition?
+  <li>If your dfa is complete, delete a few transitions to make it
+  incomplete.  Now use the "add trap state" functionality to complete
+  it.
+</ul>
+
+<h4><FONT COLOR="000066">Class 5: Monday, February 7</FONT></h4>
+
+Required reading: Linz 2.2.
+
+<P><b>A note on nondeterminism:</b> Nondeterminism does not exist in
+any real computer. It is a theoretical concept that we introduce for
+<i>convenience</i>, because it is often much easier to prove facts
+about nondeterministic automata, compared to deterministic automata.
+There are two useful ways to think about nondeterminism:
+<ol>
+  <li>Imagine a computer with supernatural powers that can examine
+  multiple possibilities at the same time. For example, consider a
+  supernatural chess computer that could simultaneously analyze the
+  consequences of 10 different possible moves.  Instead of having to
+  make a
+  <i>deterministic</i> choice about which of the 10 moves to analyze,
+  this computer can make a <i>nondeterministic</i> choice to analyze
+  all 10 moves at once!
+  <li>It is always possible to simulate nondeterminism on a real
+  computer, in the following way. Whenever a (supernatural) computer
+  wants to make a nondeterministic choice, we just make a list of the
+  possible choices available, and store them in a queue in our (real)
+  computer's memory.  Then, analyze each of the choices one at time.
+  If further nondeterministic choices are encountered, add them to the
+  queue and analyze them later too.
+</ol>
+
+<P>JFLAP mini-lab to investigate
+non-determinism:
+<ol>
+  <li>In JFLAP, implement an nfa that accepts the language: {<i>aaa</i> or an
+  even number of <i>a</i>'s}
+  <li>Use the "step with closure" option to see how the nfa processes
+  the following two strings: <i>aaaaa</i>, and <i>aaaa</i>.  You will
+  repeatedly click on the "step" button to do this. Once you
+  understand the effect of the "step" button, investigate the effect
+  of the other buttons (reset, freeze, thaw, trace, and remove).
+  <li>Now practice using nondeterminism that arises from transitions
+  on the empty string. Implement an nfa for the language
+  {<i>aaaa</i>, <i>aaaba</i>}, using at least one transition on the
+  empty string.  Use "step with closure" to investigate the workings
+  of this nfa.
+  <li>Add more nondeterminism to your nfa.  Practice stepping through
+  sets of states, freezing and/or removing some of them.
+</ol>
+
+
+<h4><FONT COLOR="000066">Class 6: Thursday, February 10</FONT></h4>
+
+Required reading: Linz 2.3.
+
+<P>We will do two JFLAP mini-labs to practice converting between nfas
+and dfas, based on examples from Linz. JFLAP files for these Linz
+examples are available:
+<A HREF="fig2.12.jff">fig2.12.jff</A>, and <A
+HREF="fig2.14.jff">fig2.14.jff</A>.
+
+<P>Important hints for using JFLAP to convert from an nfa to a dfa:
+<ul>
+  <li>Typically, you will only use the second tool, labeled "expand
+  group on terminal".  To use this tool, always click on an existing
+  state that needs a new transition, drag away from that state, and
+  release.
+  <li>The other tools can be used to skip some steps and complete the
+  conversion more quickly, but they won't help you to learn the
+  algorithm.
+  <li>JFLAP doesn't let you insert trap states during the conversion
+  from nfa to dfa, so you can ignore transitions that end in the empty
+  set of states.  Once the conversion is complete, use the "add trap
+  state" functionality to obtain a complete dfa.
+  <li>More help is available from the
+  online <a href="http://www.jflap.org/tutorial/">JFLAP tutorial</a>
+  (click on "Finite Automata", then "Convert to DFA").
+</ul>
+
+<P>Optional extension to this minilab: play around with the "minimize
+dfa" functionality. One very interesting example is the one we tried
+in Class 5: first create an nfa for the language on {a,b} that accepts
+any string containing "aaaba".  Now convert that nfa to a dfa.  Now
+minimize the resulting dfa.  Do you get the same results we got by
+hand?
+
+<h4><FONT COLOR="000066">Class 7: Monday, February 14</FONT></h4>
+
+Required reading: Linz 3.1.
+
+<P><A HREF="grep-minilab.pdf">grep minilab</A>
+
+<h4><FONT COLOR="000066">Class 8: Thursday, February 17</FONT></h4>
+
+Required reading: Linz 3.2.
+
+<P>Minilab: use JFLAP to convert the regular expression a+(bc)* to a
+finite automaton, then back to a regexp&mdash;what happened?  Repeat the
+whole process, but this time convert your automaton into a dfa and
+minimize it before converting back to a regexp.  Experiment with more
+complex regular expressions.
+
+<!-- <P>If time permits, continue with the same <A -->
+<!-- HREF="grep-minilab.pdf">grep minilab</A> as last time. -->
+
+<h4><FONT COLOR="000066">Class 9: Monday, February 21</FONT></h4>
+
+
+
+Required reading: Linz 3.3.
+
+<P>A <A HREF="regular-languages-summary.pdf">summary of converting
+between different descriptions of regular languages</A> is provided.
+
+<P>Minilab suggestion: JFLAP provides interactive demos of almost
+every conversion in the summary mentioned above.  We have covered
+some of them in previous minilabs. Explore as many of the other
+conversions as possible, both in the lecture today and in your own
+time.
+
+<h4><FONT COLOR="000066">Class 10: Thursday, February 24</FONT></h4>
+
+Required reading: Linz 4.1.
+
+<P>Minilab: Start working on question 0.2 of programming assignment
+2.  Run the example code as given, and experiment with
+metacharacters such as \s, \w, \S, \W, \b. Now change the code so
+that the regular expression is hardwired as a literal string in the
+code itself.  Again experiment with a range of metacharacters.
+
+
+<h4><FONT COLOR="000066">Class 11: Monday, February 28</FONT></h4>
+
+Required reading: Linz 4.2.
+
+<P>No minilab.  Instead, we work on examples demonstrating more
+interesting closure properties.
+
+<h4><FONT COLOR="000066">Class 12: Thursday, March 03</FONT></h4>
+
+Required reading: Linz 4.3.
+
+<P>Here is a <A HREF="example4-6-proof.pdf">proof of Linz example
+4.6</A> (p114) that resembles the pumping lemma more closely than
+the proof given in the book.  It is strongly recommended you master
+this proof (you should be able to write out the second, abbreviated
+version).
+
+
+<h4><FONT COLOR="000066">Class 13: Monday, March 07</FONT></h4>
+
+No new required reading, but this would be a great time to reread
+Linz 4.3.
+
+<P>Check out the cool math in today's <A
+HREF="pumping-lemma-handout.pdf">pumping lemma handout</A>.
+
+<P>Minilab if time: try as many examples as possible on the regular
+pumping lemma.  Always select the option "computer goes first", as
+this mimics your role in proving that a language isn't regular.
+
+<h4><FONT COLOR="000066">Class 14: Thursday, March 10</FONT></h4>
+
+In-class exam &ndash; no required reading.
+
+<h4><FONT COLOR="000066">Class 15: Monday, March 21</FONT></h4>
+
+Required reading: reread Linz 4.3.
+
+<P>minilab: Try out a few of the pumping lemma examples on JFLAP.
+Until you have a good understanding of how the game works, always
+select the option "computer goes first", as this mimics your role in
+proving that a language isn't regular.  Once you have tried that a few
+times, you can amplify your understanding by choosing to go first
+yourself, thus playing the role of the opponent in a typical proof
+that the language isn't regular.
+
+<h4><FONT COLOR="000066">Class 16: Thursday, March 24</FONT></h4>
+
+<b>Important note: for the remainder of the course, required reading
+does not include the proofs of theorems unless specifically stated.</b>
+
+<P>Required reading: Linz 5.1, 5.2. Section 5.3 is optional but
+interesting, and therefore recommended.  Also, you can skip the
+following topics from Section 5.2, which will not be covered in this
+course: s-grammar (definition 5.4 and example 5.9); inherently
+ambiguous grammars (definition 5.6 and example 5.13)
+
+
+<!-- <P>Note that there will be some changes based on the <A -->
+<!-- HREF="mid-semester-feedback-results.pdf">midsemester feedback</A>. -->
+
+<P>minilab: Explore brute force parsing in JFLAP: 1. run JFLAP's
+brute force parser on the grammar S->aA|AbS,A->a|SA, with w=abaa &ndash;
+ensure you understand the result. 2. create a grammar, and a string
+that you are sure is in the grammar, such that JFLAP needs more than
+20 seconds to find it using brute force parse. 3. same as (2), but
+your grammar may have only two rules. 4. same as (3), but make the
+string as short as possible.  5. plot time as function of string
+length.  Explain.
+
+
+<h4><FONT COLOR="000066">Class 17: Monday, March 28</FONT></h4>
+
+Required reading: Linz 6.1 and 6.2.  Skip Greibach Normal Form
+(pages 167-169).
+
+<P>minilab: practice each type of grammar transformation in JFLAP. Here are some simple grammars on which to try each type of transformation:
+  <A HREF="useless1.jff">useless1.jff</A>,
+  <A HREF="useless2.jff">useless2.jff</A>,
+  <A HREF="lambda.jff">lambda.jff</A>,
+  <A HREF="unit.jff">unit.jff</A>,
+  <A HREF="chomsky.jff">chomsky.jff</A>,
+  <A HREF="grammar-to-reduce.jff">combine everything</A>.
+
+<h4><FONT COLOR="000066">Class 18: Thursday, March 31</FONT></h4>
+
+Required reading: Linz 7.1 and 7.2.
+
+<P>minilab: Implement an npda for a^n b^n in JFLAP.
+
+
+<h4><FONT COLOR="000066">Class 19: Monday, April 4</FONT></h4>
+
+Required reading: Linz 8.2.
+
+<P>minilab: 1. (if didn't already do last time) Implement an npda for
+a^n b^n in JFLAP.  2. implement an npda for the language generated by
+the grammar S->aSbbb|aab (Hint: Try to write out a description of the
+language in set notation first.) 3.  continue work on the minilab from
+class 16.
+
+
+<h4><FONT COLOR="000066">Class 20: Thursday, April 7</FONT></h4>
+
+Required reading: Linz 9.1.
+
+<h4><FONT COLOR="000066">Class 21: Monday, April 11</FONT></h4>
+
+Required reading: Linz 9.2 and 9.3.
+
+<h4><FONT COLOR="000066">Class 22: Thursday, April 14</FONT></h4>
+
+No required reading.  Discussion of programming assignment 3.
+Minilab: Building Turing machines for (a) binary incrementor, and
+(b) unary-to-binary converter.
+
+<h4><FONT COLOR="000066">Class 23: Monday, April 18</FONT></h4>
+
+Required reading: Linz 10.1, 10.2, and 10.3.
+
+<P>Minilab:
+
+  <UL>
+
+    <LI>Download the 
+<!-- <A -->
+<!--     HREF="http://www.itss.brockport.edu/~jlucas/jarvis/JFLAP/examples/e2/tu.jff">Universal -->
+<!--     Turing machine</A> -->
+<A
+    HREF="tu.jff">Universal
+    Turing machine</A>
+ of Lucas and Jarvis (see also their <A
+    HREF="http://www.itss.brockport.edu/~jlucas/jarvis/JFLAP/examples/e2/pg0.html">explanatory
+    webpage</A> if you're interested).</LI>
+
+
+    <LI>Encode your binary incrementor machine (or
+      use <a href="binary-incrementor.jff">mine</a>) as an input for
+      the Lucas and Jarvis Universal Turing machine.
+      An <A HREF="example-encoding-of-turing-machine.pdf">explanation
+      of the encoding</A> is provided.  Lucas and Jarvis
+      provide <A HREF="http://www.itss.brockport.edu/~jlucas/jarvis/JFLAP/examples/e2/pg1.html">another
+      explanation</A> on their website.</LI>
+
+    <LI>Test your encoding: for each of the binary numbers from 0 to
+    8, increment the number using the Universal Turing machine and
+    an appropriate input string.</LI>
+
+</UL>
+
+
+
+
+<h4><FONT COLOR="000066">Class 24: Thursday, April 21</FONT></h4>
+
+Required reading: Linz 11.1.
+
+<P>Main thing to think about from today's class: recall our five running
+examples of interesting languages (Java programs, HTML pages,
+multiples of 5, prime numbers, Java programs that can't crash), and
+add to this list a 6th important example, which is just the complement
+of number 5: Java programs that <i>can</i> crash.  Of these six
+languages, which ones are recursively enumerable? Which ones are
+recursive?
+
+
+<h4><FONT COLOR="000066">Class 25: Monday, April 25</FONT></h4>
+
+Required reading: Linz 11.2.
+
+<P>Minilab:
+<OL>
+  <LI>Create an unrestricted grammar in JFLAP.  Do a brute force
+  parse of at least one string that is in the language and requires
+  use of one of your unrestricted productions.</LI>
+
+  <LI>Design an unrestricted grammar for a^n b^n c^n and test it in
+  JFLAP using brute force parsing. Be prepared to explain your
+  design to the rest of the class.  Move on to the next question if
+  no progress after 10 minutes or so.</LI>
+
+  <LI>Download two possible solutions for a^n b^n c^n (<A
+  HREF="anbncn-1.jff">solution 1</A>,
+    <A HREF="anbncn-2.jff"> solution 2</A>). Explore them in
+    JFLAP. For at least one of the
+  solutions, be prepared to explain how it works to the rest of the
+  class. What is the main practical difference between these two
+  solutions? </LI>
+
+
+</OL>
+
+<h4><FONT COLOR="000066">Class 26: Thursday, April 28</FONT></h4>
+
+Required reading: Linz 12.1.
+
+<P><a href="undecidability-lecture-notes.pdf">Lecture notes on
+undecidability</a> are available.
+
+<h4><FONT COLOR="000066">Class 27: Monday, May 02</FONT></h4>
+
+<A HREF="http://webofstories.com/play/17089">Knuth clip on
+context-free languages</A>
+
+<h4><FONT COLOR="000066">Class 28: Thursday, May 05</FONT></h4>
+
+<A HREF="ComplexityDemos.java">ComplexityDemos.java</A>
+
+<P> Chris Bishop's <A
+HREF="http://research.microsoft.com/en-us/um/people/cmbishop/outreach.htm">2008
+Royal Institution Christmas Lectures</A>.  We watched segment 3 of
+lecture 3.
+
+  </BODY>
+</HTML>

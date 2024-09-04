@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Programming assignment P1</title>
+    <!-- Changed by: , 18-Feb-2009 -->
+    <META NAME="ROBOTS" CONTENT="NOFOLLOW">
+  </head>
+
+  <body>
+    <h2>Programming assignment P1</h2>
+
+P1 consists of two K&R Programming assignments:
+&quot;Assignment 2a: A Simplified Mail User Agent:
+Without GUI&quot;, and &quot;Assignment 3: UDP
+Pinger&quot;.  A few hints and additional details
+follow.
+    <UL>
+      <LI><B>Simplified Mail User Agent</B>
+	<UL>
+	  <LI>The standard Dickinson mail server
+	  (<TT>exmail.dickinson.edu</TT>) does not
+	  permit unauthenticated sending of messages.
+	  For this lab, you should use Dickinson's
+	  legacy mail server, which is
+	  <TT>mail.dickinson.edu</TT>.</LI>
+
+	  <LI>Estimated completion time: one hour</LI>
+	</UL>
+      </LI>
+      
+      <LI><B>UDP Pinger</B>
+	<UL>
+	  <LI>Although the assignment does not
+	  explicitly say so, your client program should
+	  print out the contents and round-trip time for
+	  each packet that yields a response, and a
+	  suitable error message for packets that do not
+	  yield a response.  So your output should look
+	  something like this:
+	  <PRE>
+     Received from 127.0.0.1: PING 0 Fri Jan 16 12:26:53 EST 2009
+     Round-trip time was 168 milliseconds
+     
+     Received from 127.0.0.1: PING 1 Fri Jan 16 12:26:54 EST 2009
+     Round-trip time was 17 milliseconds
+     
+     receive timed out -- packet assumed lost
+     
+     Received from 127.0.0.1: PING 3 Fri Jan 16 12:26:59 EST 2009
+     Round-trip time was 58 milliseconds
+     
+     Received from 127.0.0.1: PING 4 Fri Jan 16 12:27:00 EST 2009
+     Round-trip time was 88 milliseconds
+     
+     Received from 127.0.0.1: PING 5 Fri Jan 16 12:27:01 EST 2009
+     Round-trip time was 132 milliseconds
+     
+     receive timed out -- packet assumed lost
+     
+     Received from 127.0.0.1: PING 7 Fri Jan 16 12:27:06 EST 2009
+     Round-trip time was 87 milliseconds
+     
+     ...</PRE>
+	  </LI>
+
+	  <LI>A useful snippet for producing a string with the current date and time is:
+	    <PRE>
+	      Date now = new Date(System.currentTimeMillis());
+	      String nowString = now.toString();</PRE>
+</LI>
+      
+
+      <LI>As stated in the assignment, you will need
+      to investigate the API of <TT>DatagramSocket</TT>
+      in order to implement the receive timeout.  Hint:
+      you will need to surround the <TT>receive</TT>
+      call with an appropriate try/catch block.</LI>
+
+      <LI>Estimated completion time: two hours</LI>
+	</UL>
+      </LI>
+    </UL>
+
+
+  </body>
+</html>
+

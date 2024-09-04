@@ -1,0 +1,60 @@
+<html lang="en">
+<head><Title>Lab Exam 1</title>
+                                                                                
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+                                                                                
+<font size=+2 color='#006400'>
+<center><b>Lab Exam 1</b></center>
+</font>
+<p>
+
+  Download and unpack the <a href="Meteorology.zip"><i>Meteorology</i>
+  project</a>, and complete the implementation of the 
+ <code>SiteObservation</code> class as specified in the documentation for
+ that class.  In particular, you must choose the fields and implement
+ all of the constructors and methods for the class.
+ You must also create a test class and write test cases that achieve
+ statement coverage for all of the methods and constructors that you
+ have defined.
+<p>
+ For the <code>calculateWindchill</code> method, the windchill is calculated
+ from the temperature and wind speed.  In the following table, each column
+ represents a range of temperatures (in degrees Fahrenheit), and each row 
+ represents a range of wind speeds (in miles per hour).  The table entries
+ contain the number
+ that should be subtracted from the temperature to compute the windchill.
+ For example, if the temperature is 27 degrees and the wind speed is 16 MPH,
+ the corresponding table entry is 10 and so the windchill is 17 degrees
+ (27 - 10).  If the temperature is 12 degrees and the wind speed is
+ 35 MPH, the windchill is -8 degrees (12 - 20).
+ 
+<p>
+<center>
+<table border cellpadding = 5>
+<caption>Value to Subtract to Compute Windchill</caption>
+<tr> <th rowspan = 2>wind speed<br>(MPH)</th> 
+     <th colspan = 5> Temperature (degrees Fahreinheit)</th></tr>
+<tr><th>&lt; 0</th> <th>0 - 9</th> <th>10 - 19</th>
+    <th>20 - 29</th><th>&ge; 30</tr>
+<tr><th align="center">0 - 4</th> <td align="center">0</td> 
+    <td align="center">0</td> <td align="center">0</td>
+    <td align="center">0</td> <td align="center">0</td> </tr>
+<tr><th align="center">5 - 14</th> <td align="center">10</td> 
+    <td align="center">10</td> <td align="center">5</td>
+    <td align="center">5</td> <td align="center">5</td> </tr>
+<tr><th align="center">15 - 24</th> <td align="center">15</td> 
+    <td align="center">15</td> <td align="center">10</td>
+    <td align="center">10</td> <td align="center">5</td> </tr>
+<tr><th align="center">&ge; 25</th> <td align="center">20</td> 
+    <td align="center">20</td> <td align="center">20</td>
+    <td align="center">20</td> <td align="center">20</td> </tr>
+</table>
+</center>
+<p>
+ Submit your solution via WebCAT.  You are allowed to submit your 
+ solution as many times as you like within the two hours allotted for
+ the exam.
+</body>
+</html>
+ 

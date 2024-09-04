@@ -1,0 +1,139 @@
+<html lang="en"><head>
+	<title>Returning Collections</title>
+	<!-- Changed by: , 12-Aug-2009 -->
+	<link href="../cs131.css" type="text/css" rel="stylesheet">
+</head>
+
+<body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Returning Collections<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+
+<p>
+Sections 4.9-4.11 and 5.3.3 of Barnes &amp; Kolling
+</p><hr>
+
+
+
+<h3>Sample Code</h3>
+
+<p>
+<a href="../examples/CoinCollection.zip"><i>CoinCollection</i></a><br>
+<a href="../examples/VideoStore-Start.zip"><i>VideoStore-Start</i></a><br>
+<a href="../examples/VideoStore.zip"><i>VideoStore</i></a><br>
+<a href="../examples/VideoStore-Advanced.zip"><i>VideoStore-Advanced</i></a><br>
+<a href="../examples/EqualityExamples.zip"><i>EqualityExamples</i></a><br>
+</p><hr>
+
+<h3>Practice Exercises</h3>
+
+<p>
+</p><ol>
+
+<li>Complete the definition of the <code>getAllOverdueDVDs()</code> method in the <code>VideoStore</code> class.  Note: Test methods already exist for this method, so you can test your implementation by running the existing tests.
+</li>
+
+<li>Complete the definition of the <code>getMoreOverdueThan(int days)</code> method in the <code>VideoStore</code> class.  Note: Test methods already exist for this method, so you can test your implementation by running the existing tests.
+</li>
+
+<li>In order to answer this question you will need to read section 5.3.3 in the text. Consider the following snippet of code:
+
+<ul><xmp>
+String str1 = "Testing123";
+String str2 = "Testing123";
+String str3 = "Bob";
+String str4 = str1;
+</xmp></ul>
+
+Given the above snippet of code, which of the following Boolean
+expressions will evaluate to true? Briefly explain each of your
+answers.
+
+<ol type="a">
+<li><code>str1 == str2</code>
+</li><li><code>str2.equals(str1)</code>
+</li><li><code>str3.equals(str2)</code>
+</li><li><code>str4.equals(str2)</code>
+</li><li><code>str4 == str1</code>
+</li></ol>
+
+</li>
+
+</ol>
+<p>
+</p><hr>
+
+<h3>Homework Assignment 8c</h3>
+
+
+<p>
+
+</p><ol>
+<!--<LI>What happens if you change the condition <code>cond.equals(condition)</code> in the <code>findAllCoinsInCondition</code> method in the <i>CoinCollection-v2</code> project to <code>cond == condition</code>? Make the change in the code.  Does the <code>CoinCollection</code> class still compile? Does the <code>findAllCoinsInCoindition</code> method still return the correct results? Describe how you determined your answer.</li>
+
+
+
+NOTE: Great question... but BlueJ screws it up!  == actually works here! BlueJ must pickup on fact that a String constant already exists in the constant table in the JVM when the parameter is entered and just reuse that object as the parameter.
+
+-->
+
+
+
+<li>In order to answer this question you will need to read section 5.3.3 in the text. Consider the following snippet of code:
+
+<ul><xmp>
+String str1 = "Computer Science 131";
+String str2 = str1;
+String str3 = "Computer Science 131";
+String str4 = "Spanish 116";
+</xmp></ul>
+
+Given the above snippet of code, which of the following
+Boolean expressions will evaluate to true? Briefly explain each of your
+answers.
+
+<p><ol type="a">
+<li><code>str1 == str2</code>
+</li><li><code>str2.equals(str1)</code>
+</li><li><code>str3.equals(str2)</code>
+</li><li><code>str4.equals(str2)</code>
+</li><li><code>str4 == str1</code>
+</li></ol>
+
+</li>
+
+
+
+<p><li>Using the <i>CoinCollection</i> project, perform the tasks described below.
+
+<ol type="a">
+
+<li>Add a method named <code>getCoinsInCondition</code> to the <code>CoinCollection</code> class.  This method should return a <code>CoinCollection</code>
+containing all coins in a specified condition (e.g. "good", "fair"). If
+there are no coins in the specified condition, this method should
+return an empty <code>CoinCollection</code>. The name of the returned <code>CoinCollection</code> will be the condition of the <code>Coins</code> that it contains (e.g. "good"). Be sure to include a javadoc comment for your method.</li>
+
+<li>Create test methods for your <code>getCoinsInCondition</code>
+method. These test methods should achieve statement coverage and should
+also follow the <a href="testing.html">Testing Rule</a> for methods that return a collection.
+
+<li>Add a method named <code>getCoinsMintedBefore</code> to the <code>CoinCollection</code> class. This method should return a <code>CoinCollection</code> containing all <code>Coin</code>s minted before a specified year. If there are no <code>Coin</code>s minted before the specified year, this method should return an empty <code>CoinCollection</code>. The name of the <code>CoinCollection</code>
+that is returned will be "Minted Before &lt;year&gt;" where
+&lt;year&gt; is replaced by the specified year. Be sure to include a
+javadoc comment for your method.
+
+<li>Create test methods for your <code>getCoinsMintedBefore</code> method.
+These test methods should achieve statement coverage and should also
+follow the <a href="testing.html">Testing Rule</a> for methods that return a collection.
+
+</ol>
+
+<p>Submit your project <i>CoinCollection</i> project via Web-CAT. In order to submit you will have to click the "Browse..." button in the Submitter and then select the "Coin Collection HW Part 2" assignment within the COSCI 131 folder.
+
+</li></ol>
+</div></body></html>
+

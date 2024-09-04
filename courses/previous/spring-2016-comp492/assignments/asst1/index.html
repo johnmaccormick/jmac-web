@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Design Patterns Lab</title>
+  </head>
+
+  <body>
+    <h2>Design Patterns Lab</h2>
+
+
+<P>Acknowledgment: This lab was authored by Professor Tim Wahls, with
+minor modifications by John MacCormick.
+    
+<P>The objective of this lab is to refresh your knowledge of design
+patterns from last semester, and get some practical experience
+implementing a few of these patterns. Requirements for this lab:
+<ul>
+  <li>You may work alone or in pairs. If you choose to work in a pair,
+    <b>you may not work with someone who is on your senior project team</b>.
+  <li>To submit your work, please submit to Moodle a single ZIP file of
+    the <tt>.java</tt> files.
+  <li>You are not required to document your code in this lab. The code
+    will be graded on correctness and elegance of design only.
+</ul>
+  
+<P>The design patterns involved in this lab are:
+<ul>
+<li> the adapter pattern
+<li> the factory pattern
+<li> the singleton pattern
+<li> the visitor pattern
+</ul>
+Your textbook from last semester will provide additional background on
+these patterns if necessary, but this assignment is self-contained and
+all the information you need is provided in brief summaries below.
+Read each of the descriptions and complete the assignment described
+for each design pattern.
+
+<h3>The Adapter Pattern</h3>
+<p>
+Situation: some existing class provides much of the functionality
+needed in a particular situation, but does not have the exact
+interface required.  We are not allowed to change the existing class
+(probably because it is used by other applications), and we are also
+not allowed to inherit directly from it (perhaps because it is final,
+or because the class we are implementing must inherit from some other
+class).
+<p>
+Solution: use <b>delegation</b> (which is a form of composition).  Our class
+will have a field of the existing class type, and many of the methods will
+be implemented by calling methods of the existing class.  Note that this
+design allows our class to inherit from some other superclass, and still
+allows us to adapt the existing class to meet the interface that we need.
+<p>
+The assignment: download the code
+in <a href="design.zip">design.zip</a>.  You may create an Eclipse
+project and import this code, or simply work from the command line.
+Create a <code>SalableCar</code> class that inherits from the
+abstract <code>SalableVehicle</code> class and implements all of the
+abstract methods of that class.  Your <code>SalableCar</code> class
+must delegate as much work as possible to the
+existing <code>Car</code> class (using a field of that class type).
+Additionally, the constructor of your
+<code>SalableCar</code> class must take the VIN, make, model, color, year,
+mileage and price of the car as parameters.
+Finally, add code in the <code>main</code> method of the
+<code>CarDealership</code> class that creates a car dealership, adds
+several <code>SalableCar</code>s to the lot, and then calls the
+<code>showCars</code> method to display the cars.
+<p>
+<h3>The Factory Pattern</h3>
+<p>
+Situation: we need to use several classes to represent closely related
+objects, but we do not want programmers writing client code to be
+concerned with the details of those classes&mdash;in fact, we may want to
+change their implementations (or even their names) at some later
+point.
+<p>
+Solution: use a <b>factory</b> class that creates and returns instances of
+all of the necessary classes, depending on the factory method called or the
+parameters passed to the factory method(s).  The return type of the factory
+method(s) should be some common superclass of those classes.
+<p>
+The assignment: add a new <code>CarFactory</code> class with static
+factory methods that return a new car, a new sportscar and a new SUV.
+The return type of all of these methods should
+be <code>SalableVehicle</code>.  In addition to the fields of an
+ordinary vehicle, a sportscar has an engine horsepower and an SUV has
+a maximum cargo capacity and a ground clearance.  This additional
+information should be displayed when a sportscar or SUV is printed.
+Finally, in the <code>main</code> method of the
+ <code>CarDealership</code> class:
+<ul>
+<li> replace the code for creating <code>SalableCar</code>s directly with
+ calls to the appropriate factory method
+<li> add at least one sportscar and at
+least one SUV (created using the factory class)
+to the dealership's inventory
+<li> verify that the <code>showCars</code> method displays the additional 
+ information about sportscars and SUVs.
+</ul>
+<p>
+Hint: you will probably want to add two additional classes.
+<p>
+<h3>The Visitor Pattern</h3>
+<p>
+Situation: 
+<ul>
+<li> you have many instances of a small number of classes (which need not
+ be related by inheritance)
+<li> several common operations need to be applied to all of these instances
+ (and you wish to have the flexibility to add more such operations easily
+ in the future)
+<li> adding these operations could require adding additional fields to the 
+ classes (or some class that uses these classes)&mdash;and these fields are not
+ naturally part of the class(es)
+</ul>
+In the car dealership example, we may want to do things like counting the
+number of sportscars, calculating the average cargo capacity of all of the
+SUVs, and so on.  These tasks are complicated by our use of the factory
+pattern&mdash;to the programmer implementing the <code>CarDealership</code> class,
+it is not even clear that there is a class representing SUVs.
+<p>
+Solution: use a <b>visitor</b> class.  An instance of the visitor
+class visits each object and performs the required computation (using only
+its public fields and methods).
+<p>
+To use the visitor pattern, each class whose instances will be visited must
+include a method such as the following:
+<pre>
+public void accept(Visitor v) {
+    v.visit(this);
+}
+</pre>
+This method must be included directly in each class (not inherited) because
+each class must typically be visited in a different way, and which 
+<code>visit</code> method to call is determined by the type of the parameter
+<code>this</code> (which will be different in each class).
+<p>
+<code>Visitor</code> is usually an interface or abstract class that will
+be implemented or extended to perform the required computation.  A typical
+example is:
+<pre>
+public interface Visitor {
+  public void visit(ObjectClass1 oc1);
+  public void visit(ObjectClass2 oc2);
+  public void visit(ObjectClass3 oc3);
+}
+</pre>
+with one <code>visit</code> method for each class whose instances can be
+visited. This requires the implementing class to define the necessary
+<code>visit</code> methods.
+<p>
+The assignment:
+<ol>
+<li> Edit the <code>CarVisitor</code> interface, by adding a
+<code>visit</code> method for class <code>SalableCar</code>
+and for the other types of car you have created.
+<li> Add an <code>accept</code> method to <code>SalableCar</code> and
+ to each of its subclasses.  These methods should all be as follows:
+<pre>
+public void accept(CarVisitor v) {
+    v.visit(this);
+}
+</pre>
+<li> Create a class <code>CountSportsCarsVisitor</code>
+ that implements the <code>CarVisitor</code> interface, and use this class
+ to add a <code>countSportsCars</code> method (that returns the number of
+ sports cars in inventory) to the <code>CarDealership</code> class.  Hints:
+ <ul>
+ <li> your <code>CountSportsCarsVisitor</code> class should have a counter
+      field that is incremented when a sports car object is visited.  Visiting
+      any other kind of vehicle should have no effect.
+ <li> your <code>countSportsCars</code> method should create an instance
+     of <code>CountSportsCarsVisitor</code> and use that instance to visit
+     every car in inventory (using the <code>accept</code> method that each
+     car now has).
+ <li> after visiting all the cars in inventory, retrieve the count of the 
+      number of sports cars from the <code>CountSportsCarsVisitor</code>
+      object and return it.
+ </ul>
+<li> Using a new visitor class, add
+  an <code>averageCargoCapacity</code> method to
+  the <code>CarDealership</code> class which computes and returns the
+  average cargo capacity of all SUVs in the inventory.  If there are
+  no SUVs in the inventory, this method should return 0.
+<li> Add code to the <code>main</code> method of the <code>CarDealership</code>
+  class that calls these new methods and displays the results.
+</ol>
+<p>
+<h3>The Singleton Pattern</h3>
+<p>
+Situation: some classes should have only one instance.  Examples:
+<ul>
+<li> a process scheduler for an operating system (because scheduling of
+   all processes should be centrally coordinated)
+<li> a print spooler (see above)
+<li> a class that manages the free list of memory cells that can be
+  allocated dynamically (see above)
+</ul>
+Sometimes, only one instance of a class is needed.  For example, most
+exceptions are thrown, caught and then immediately become garbage.
+Hence, having more than one instance of such a class is somewhat inefficient.
+<p>
+Solution: use a <b>singleton</b> class&mdash;a class that can have only one
+instance.  To implement a singleton class:
+<ul>
+<li> make all constructors <code>private</code> so that client code can not
+ create instances.  In particular, the default (0-argument) constructor
+ should be private.
+<li> add a <code>static</code> field of the class type and initialize it with
+ the (only) instance of the class.
+<li> add a <code>static</code> method to return the instance.  This
+  method is usually called <code>instance</code>.
+</ul>
+<p>
+The assignment: modify the 
+<code>NoSuchCarException</code> to make it a singleton
+class as described above.  You will also need to update the
+<code>findCar</code> and <code>sellCar</code> methods of class
+<code>CarDealership</code> so that they use the only instance of class
+<code>NoSuchCarException</code>, rather than creating new instances.
+Finally, add code in the <code>main</code> method of <code>CarDealership</code>
+that calls one of these methods with an invalid VIN to verify that the 
+exception is thrown correctly.
+  
+<h3>Bonus question</h3>
+
+A small amount of extra credit is available for a written answer to
+the bonus question given in the next paragraph.  If you attempt this
+extra credit question, put your written answer in a separate file
+(.txt, .pdf, .docx, or any other easily readable format) and submit it
+to Moodle in the same ZIP file as your code.  Do not submit an altered
+version of your code.  Now, here is the bonus question:
+
+<P>The visitor pattern, as described in this lab, applies to any set
+of classes, including classes that are not related by inheritance. If,
+on the other hand, the set of classes we may wish to visit all inherit
+from a common superclass or interface to which we can make changes,
+the visitor pattern can be simplified somewhat. Write a few paragraphs
+describing how you can simplify the pattern in this case, including
+some example code to clarify your explanation if necessary.  (Hint:
+fewer code changes are required, and you will need to use
+Java's <tt>instanceof</tt> keyword.)
+
+  
+</body>
+</html>

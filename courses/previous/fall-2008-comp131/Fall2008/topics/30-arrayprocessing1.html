@@ -1,0 +1,60 @@
+<html lang="en"><head><title>Array Processing</title>
+	<!-- Changed by: , 20-May-2008 -->
+	
+	<link href="25-Searching_files/cs131.css" type="text/css" rel="stylesheet"></head><body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Array Processing<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review 4.12.5-4.13 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/NestedFor.zip"><i>NestedFor</i></a><br>
+<a href="../examples/StockAnalyzer-Start.zip"><i>StockAnalyzer-Start</i></a><br>
+<a href="../examples/StockAnalyzer.zip"><i>StockAnalyzer</i></a><br>
+<a href="../examples/GradeBook.zip"><i>GradeBook</i></a><br>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<li>Using the <i>StockAnalyzer</i> project complete the following exercises:
+<ol type="a">
+<li>Add a method named <code>maxProfitPerShare</code> to the <code>StockAnalyzer</code> class. This method does not accept any parameters and returns a <code>double</code> value indicating that maximum profit that could be made using a single buy and a single sell of the stock being analyzed during the period being analyzed.  If it is not possible to make a profit on the stock during the period being analyzed, this method returns 0.  Complete this method without using this to call any methods of the <code>StockAnalyzer</code> class.
+Note: The <i>StockAnalyzer</i> project contains test methods that you can run to check if your solution to this exercise works correctly.
+<li>Add a method named <code>sillyTrader</code> to the <code>StockAnalyzer</code> class.  This method accepts a single parameter indicating a number of shares of stock. It returns the profit or loss that would be experienced if the following trading strategy is used: Buy the specified number of shares on the first day of the period, sell the specified number of shares on the second day of the period, buy again on the third day, sell again on the fourth day, etc...  You can assume that there are at least two days in the period and that the number of days in the period is even. Note: The <i>StockAnalyzer</i> project contains test methods that you can run to check if your solution to this exercise works correctly.
+</ol>
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 9c</h3>
+<p>
+</p>
+<OL>
+<!--
+<LI>Download and unpack the 
+<a href="../Examples/GradeBook-v2.zip"><i>GradeBook-v2</i></a> project and use it to complete the following exercises. Note that the <i>GradeBook-v2</i> project contains working solutions and test cases for all of the methods that you were asked to add to the <i>GradeBook-v1</i> project in the previous homework assignments.
+-->
+<LI>Continue using the <i>GradeBook</i> project from the previous homework assignment to complete the following exercises.  
+
+<!-- Note that if you had problems with the previous homework assignment, you should use the available solutions to correct your work before completing this assignment.
+-->
+<ol type="a">
+<li>Add a method named <code>hasDuplicateScore</code> to the <code>GradeBook</code> class. This method checks to see if the student received the same score on a homework and a quiz.  If any homework score is equal to any quiz score this method returns <code>true</code>, otherwise it returns <code>false</code>.
+<li>Create test methods for the <code>hasDuplicateScore</code> method that you added to the <code>GradeBook</code> class. Your test methods must achieve statement coverage.
+<li>Add a method named <code>findBiggestHWJump</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the biggest positive difference in scores between any two successive homework grades.  For example if the homework scores are {75, 80, 97, 78, 68} then the result of this method would be 17, because the jump from 80 to 97 is the largest jump. If the homework scores contain no increases (e.g. {95, 87, 87, 53}) then this method should return -1.</li>
+<li>Create test methods for the <code>findBiggestHWJump</code> method that you added to the <code>GradeBook</code> class. Your test methods must achieve statement coverage.
+</li>
+</ol>
+<p>Save your <code>GradeBook</code> project, you will be adding to it in the next homework and then submitting it via WebCAT.
+</OL>
+</OL>
+
+</div></body></html>

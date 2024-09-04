@@ -1,0 +1,147 @@
+<html lang="en">
+<HEAD>
+<Title>CS354 - Operating Systems</Title>
+<!-- Changed by: , 04-Apr-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<hr>
+<center>
+<font size=+2 color='#006400'>
+<b>
+Computer Science 354<br>
+Operating Systems<br>
+</b>
+</font>
+<font size=-1>
+<br>
+Dickinson College<br>
+Spring Semester 2006<br>
+John MacCormick
+</font>
+</center>
+
+<hr>
+
+<center>
+<font size=+2 color='#000064'>
+
+<b>Memory Management</b>
+
+</font>
+</center>
+
+<h3><img src="../images/reading.gif"> Reading Assignment <img src="../images/reading.gif"></h3>
+<UL>
+<LI>Operating Systems Concepts: Chapters 8 and 9.
+</UL>
+
+<h3><img src="../images/slides.gif"> Lecture Slides <img src="../images/slides.gif"></h3>
+<UL>
+<LI><a href="../slides/memory.pdf">Memory Management</a>
+ 
+</UL>
+
+<h3><img src="../images/hw.gif"> Homework Assignment <img src="../images/hw.gif"></h3>
+<UL type='1'>
+Due Date: 4/28/08
+<br><br>
+<LI>Briefly discuss the benefits and drawbacks of each of the following address binding schemes: Compile Time, Load Time, Run Time.
+<LI>Consider a virtual memory system using paging and a single level page table for address binding. Assume that the system is byte addressable, has 15 bit logical addresses, 12 bit physical addresses, and 128 byte pages. Assume that the page table for the current process holds the following values:
+<UL>
+<table border>
+<tr><TH>Entry</th><th>Frame</th><th>Valid</th></tr>
+<tr><td>0</td><td>10010</td><td>V</td></tr>
+<tr><td>1</td><td>01001</td><td>V</td></tr>
+<tr><td>2</td><td>11100</td><td>I</td></tr>
+<tr><td>3</td><td>00101</td><td>V</td></tr>
+<tr><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>52</td><td>10110</td><td>I</td></tr>
+<tr><td>53</td><td>00000</td><td>V</td></tr>
+<tr><td>54</td><td>10110</td><td>V</td></tr>
+<tr><td>...</td><td>...</td><td>...</td></tr>
+</table>
+</UL>
+
+Answer each of the following questions with regard to the above system:
+<UL type='a'>
+<LI>How many entries would the page table for this system have?
+<LI>What is the maximum amount of physical memory that this system could have?
+<LI>Give the physical address, in binary, corresponding to each of the following logical addresses assuming that the page table is as shown below. Indicate any address translations that would result in page faults.
+<UL type='i'>
+<LI>000000000000000
+<LI>000000101010101
+<LI>001101010011101
+</UL>
+<LI>Give a logical address that would translate into a physical address located in page frame 22.
+</UL>
+<LI>Consider the following compressed page reference string:
+<UL><code>1,4,5,4,3,7,2,1,4,1,4,5,3,4,5</code></UL>
+Assuming this process has been allocated 3 page frames, show the contents of its page frames following each reference using the optimal page replacement scheme.  Also assume that all of the frames are initially empty.
+
+<LI>Consider the following page reference string:
+<UL><code>1,1,1,<b>1</b>,3,3,5,3,5,<b>3</b>,5,6,6,6,2,3,4,<b>5</b>,4,3,2</code></UL>
+<UL type ='a'>
+<LI>If a working set frame allocation scheme is being used with a window size of 4, how many frames would be allocated to this process at each of the times indicated in bold?
+<LI>Give a page reference string that would cause thrashing if the working set frame allocation scheme from part a were used in combination with least recently used page replacement.
+</UL>
+
+<LI>Consider a machine based on the load-and-store architecture that
+uses a virtual memory system with a two level page table. The first
+level page table for every process is always held in main memory,
+while the second level page table is managed by the virtual memory
+system (i.e. entries are loaded only when referenced and are removed
+from memory according to the page replacement algorithm). Every time
+an address translation results in a page fault, that page fault is
+handled and the address translation is restarted from the beginning.
+Also assume the following about this system: it takes 5ms to read a
+page from the disk, and it takes 100ns to access main memory.
+
+<p>Answer each of the following questions with respect to this system:
+<UL type='a'>
+<LI>What is the maximum number of page faults that could be generated during the fetching and execution of a single instruction on this machine? Briefly explain your answer.
+<LI>Give an expression for the effective memory access time for this system under the following assumptions:
+<UL>
+<LI>0.2% of all address translations result in a page fault when trying to access the second level page table. 
+<LI>0.3% of all address translations that do not result in a page fault when accessing the second level page table do result in a page fault when accessing the required physical memory frame. 
+<LI>Whenever a page from the second level page table is evicted from memory, all pages it refers to are also evicted.
+</UL>
+
+
+</UL>
+</UL>
+
+<!--
+<h3><img src="../images/web.gif"> Related Web Sites <img src="../images/web.gif"></h3>
+<UL>
+<dl>
+<dt>
+<dd>
+</dl>
+</UL>
+
+<!--
+<h3><img src="../images/mouse.gif"> Sample Code <img src="../images/mouse.gif"></h3>
+<UL>
+<LI>TBA
+</UL>
+-->
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+
+<hr>
+<font size=-2>
+<script language="JavaScript">
+          <!---//hide script from old browsers
+          document.write( "This document was last updated "+ document.lastModified + "<br><br>" );
+          //end hiding contents --->
+          </script>
+</FONT>
+
+</BODY>
+</HTML>

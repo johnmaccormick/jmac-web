@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html lang="en">
+  <HEAD>
+    <TITLE>JML minilab </TITLE>
+    <!-- Changed by: , 05-Oct-2010 -->
+
+  </HEAD>
+  <BODY>
+    <H2>JML minilab</H2>
+
+    <OL>
+
+<LI>    Save <A HREF="jml4c.jar">jml4c.jar</A>, <A HREF="jml4rt.jar">jml4rt.jar</A>, and 
+<A HREF="Purse.java">Purse.java</A> into an empty folder.
+
+<LI>Read through Purse.java (adapted from figure 1 in Burdy2005),
+and write down predictions for what will happen when each of the
+four test methods is executed, in two different cases: (a) when
+compiling and running using regular Java; (b) when compiling and
+running using jml4c, a tool that checks JML assertions while a
+program is running.
+
+<LI>Find out whether your predictions were correct.  For (a), compile and run Purse.java as usual:
+  <PRE>
+javac Purse.java
+java Purse 1
+java Purse 2
+java Purse 3
+java Purse 4
+</PRE>
+For (b), compile and run Purse.java using the following commands (on Windows, replace any colon (:) with a semicolon (;)):
+
+<PRE>
+java -jar jml4c.jar -cp "jml4c.jar:." Purse.java
+java -cp "jml4rt.jar:." Purse 1
+java -cp "jml4rt.jar:." Purse 2
+java -cp "jml4rt.jar:." Purse 3
+java -cp "jml4rt.jar:." Purse 4
+</PRE>
+
+<LI>Introduce a deliberate error into the body of one of the methods.  You should choose an error that will be detected by the JML spec, and demonstrate this.  Be prepared to show this demonstration to the rest of the class.
+
+<LI>Fix the previously-introduced error. Now introduce a deliberate error into the JML spec itself.  You should choose an error that will be detected by jml4c, and demonstrate this. Be prepared to show this demonstration to the rest of the class.
+
+</OL>
+  </BODY>
+</HTML>

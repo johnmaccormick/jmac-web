@@ -1,0 +1,198 @@
+<html lang="en">
+<HEAD>
+        <TITLE>Testing Rules</TITLE>
+        <LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+                                                                                
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>COMP 131 Testing Rules</H2>
+<HR>
+</CENTER>
+
+<h3>General Testing Rules</h3>
+<ul>
+<li> always give a test method a descriptive name that starts with the
+ word "test"
+<li> always record test cases for each constructor or method immediately
+ after writing it
+<!--
+<li> for methods that contain if statements:
+  <ul>
+  <li> make sure that you have statement coverage (all statements are 
+       executed by your tests)
+  <li> write a separate test method for each possible behavior (different
+       section of code that could be executed)
+  </ul>
+-->
+</ul>
+
+<h3>Testing Constructors and Accessors</h3>
+<ol>
+<li> use one test method for each constructor
+<li> create an object using the constructor
+<li> call an accessor method to check the value of each field
+</ol>
+<p>
+Note that you do not need to create a separate test method for each
+accessor.
+
+<h3>Testing Mutators</h3>
+<ol>
+<li> use at least one test method for each mutator
+<li> create an object using a constructor
+<li> call the mutator
+<li> call an accessor method to check the value of the field that was
+     changed
+</ol>
+
+<h3>Testing Methods that Contain <code>if</code> statements</h3>
+<ol>
+<li> write sufficient tests to achieve statement coverage
+<li> use a different test method for each different segment of code
+     that can be executed when the method is called. <p>
+  Examples:
+  <ul>
+  <li> the following method:
+<pre>
+public int spindle(int x) {
+    if (x < 3) {
+        return x + 1;
+    } else {
+        return x + 2;
+    }
+}
+</pre>
+ requires at least two test methods: one for <code>x < 3</code> and one
+ for <code>x >= 3</code>
+  <li> the following method:
+<pre>
+public int mutilate(int x, int y) {
+    if (x < 3) {
+        if (y > 4) {
+            return y;
+        } else {
+            return x + 2;
+        }
+    } else if (y < 3) {
+        return y + 1;
+    } else {
+        return x - y;
+    }
+}
+</pre>
+ requires at least four test methods:
+ <ul>
+ <li> one for <code>x < 3 && y > 4</code>
+ <li> one for <code>x < 3 && y <= 4</code>
+ <li> one for <code>x >= 3 && y < 3</code>
+ <li> one for <code>x >= 3 && y >= 3</code>
+ </ul>
+  
+  </ul>
+</ol>
+
+<h3>Testing Methods that Only Print</h3>
+For methods that only print to the terminal window (no return value
+or change of field values):
+<ol>
+<li> call the method
+<li> manually inspect the output in the terminal window
+</ol>
+It is a good idea to clear the terminal window before running your tests
+when you have this kind of test cases.
+
+<h3>Testing Constructors that Create a Collection</h3>
+<ol>
+<li> create a test method for the constructor (see the rule for Constructors above)
+<li> in that test method, check the size of the new collection to 
+ensure that the <code>ArrayList</code> or the Array was created 
+correctly by the constructor.
+</ol>
+
+<h3>Testing Methods that Add to a Collection</h3>
+<ol>
+<li> add several elements to the collection
+<li> check the size of the collection
+<li> get the first element of the collection, and check enough fields
+     to be sure it is the one you expect
+<li> get the last element of the collection, and check enough fields
+     to be sure it is the one you expect
+
+<p>
+Note that you must also have a method that gets an element from the 
+collection (by index).
+</ol>
+
+
+<h3>Testing Methods that Get an Element from a Collection by Index</h3>
+<ol>
+<li> create a test method to test getting an element at a negative index
+<li> create another test method to test getting an element at an index that
+     is too large
+</ol>
+Note that it is not necessary to test getting from
+a valid index if you already tested adding elements to a
+collection as described above.
+
+<h3>Testing Methods that Remove an Element from a Collection by Index</h3>
+<ol>
+<li> add several elements to the collection
+<li> remove an element from the middle of the collection
+<li> check the size of the collection
+<li> check the element that is now at the index you removed from
+     (check enough fields to be sure it is the one you expect)
+<li> in separate test methods:
+  <ol type = "a">
+  <li> test removing an element at a negative index
+  <li> test removing an element at an index that is too large
+  <li> in these cases, just check that the size of the collection was not
+       changed
+  </ol>
+</ol>
+
+<h3>Testing Methods that Modify Elements of a Collection</h3>
+<ol>
+<li> modify the elements (call the method)
+<li> check at least one modified element
+<li> check at least one unmodified element (if any)
+<li> in each case, check the field(s) that could have been modified
+</ol>
+
+<h3>Testing Methods that Compute An Aggregate Result over a Collection</h3>
+This rule applies to methods that find the average of some field of
+the collection's elements, count the number of elements of the collection
+that satisfy some property, ...
+<ol>
+<li> in one test method, add several elements to the collection, then
+ call the "aggregate" method and check that the result is correct
+<li> in another test method, use an empty collection to call the 
+ "aggregate" method and check that the result is correct
+</ol>
+
+<h3>Testing Methods that Search a Collection</h3>
+<ol>
+<li> use one test method to test searching an empty collection
+<li> use another test method to test searching a collection that does not
+     contain the searched-for object
+<li> use a third test method to test searching a collection that does
+     contain the searched-for object
+</ol>
+
+<h3>Testing Methods that Return Collections</h3>
+<ol>
+<li> use one test method to check that the empty collection is 
+     returned correctly
+<li> in another test method, check that a non-empty collection is returned
+     correctly:
+  <ol type = "a">
+  <li> check the size of the collection
+  <li> check the first and last elements (check enough fields to be sure they
+       are the ones you expect)
+  </ol>
+</ol>
+
+</body>
+</html>

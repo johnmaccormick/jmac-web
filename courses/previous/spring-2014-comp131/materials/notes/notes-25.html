@@ -1,0 +1,1185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>notes-25</title>
+  </head>
+  <body>
+    <meta name="Title" content="">
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Topic #25:
+          Modifying
+          Elements &amp; Searching Collections<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        color:#00B050">Recap</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt;color:#4F6228">:</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt"> In the last several classes we saw how to iterate over
+        the elements of
+        a collection:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>E.g. <span style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp; </span></span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">printAllDVDs<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">countRentalNights<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Sometimes
+        it might be useful to do something to either all of the elements
+        of a
+        collection or to the <b style="mso-bidi-font-weight:normal">elements</b>
+        of the
+        collection <b style="mso-bidi-font-weight:normal">that meet
+          some criterion</b>:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">For example, every night at midnight
+        it might be
+        useful to have a method that goes through the collection and <b
+          style="mso-bidi-font-weight:normal">increases the number of
+          rental nights of
+          each checked out </b></span><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt"> by 1.</span></b><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+        </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">* Increase the
+        number of rental
+        nights on each rented<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">* DVD by 1 night.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public void <span
+          style="color:#0070C0">increaseRentalNights</span>() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>//
+        For each DVD in the store.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>//
+        if it is checked out.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>//
+        increase its rental nights.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;;mso-bidi-font-family:
+        Times"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:14.0pt;
+        mso-bidi-font-size:10.0pt;font-family:&quot;Times New
+        Roman&quot;;mso-bidi-font-family:
+        Times">Translate that into java <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:14.0pt;mso-bidi-font-size:10.0pt;
+        font-family:&quot;Times New
+        Roman&quot;;mso-bidi-font-family:Times"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+        </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">* Increase the
+        number of rental
+        nights on each rented<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">* DVD by 1 night.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">*/<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public void
+        increaseRentalNights() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>//
+        For each DVD in the store.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>for
+        (int i=0; i&lt;dvdList.size(); i++) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>DVD
+        aDVD = dvdList.get(i);<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>//
+        if it is checked out.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (aDVD.getNightsRented() &gt; 0) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>//
+        increase its rental nights.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>aDVD.addRentalNight();<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">Trace this and inspect.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">When
+        a method modifies the elements of a collection we will want to
+        be a little more
+        careful when testing it.<span style="mso-spacerun:yes">&nbsp; </span>Just
+        making
+        sure that we have statement coverage is not really sufficient
+        for checking that
+        the method works correctly. So we have a testing rule for this
+        type of method:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Testing
+          Rule
+          for Methods that modify the elements of a Collection:<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt">Modify the elements collection<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Check
+          <u>at
+            least one modified element</u><o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Check
+          <u>at
+            least one unmodified element</u> (if any)<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:1.0in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt">Check just enough fields<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        color:#00B050">Record a test case for </span><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier;color:#00B050">increaseRentalNights</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Make two of the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD&#8217;s</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> in the test
+        fixture rented
+        by adding a rental night to them.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Invoke the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">increaseRentalNights</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> method.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Check one un-rented </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> and one
+        rented </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">.Searching a
+        Collection:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">With
+        collections it is often going to be useful to <b
+          style="mso-bidi-font-weight:
+          normal">search</b> through the collection for objects with
+        particular
+        properties:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>This will allow us to do things
+        like:<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>E.g. <span style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp; </span><span style="color:#0070C0">Find
+          the </span></span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier;
+        color:#0070C0">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        color:#0070C0"> that has been rented for the longest period of
+        time.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="color:#0070C0">Find
+          the most overdue </span></span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier;color:#0070C0">DVD</span><span
+        style="font-size:
+        13.0pt;mso-bidi-font-size:10.0pt;color:#0070C0">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">We
+        need a method that searches for the </span><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> that has
+        been rented for
+        the longest period of time.<span style="mso-spacerun:yes">&nbsp;
+        </span>This method
+        should return a reference to the </span><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">What
+        would the method signature look like?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public DVD
+        getLongestRental() {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Add a javadoc comment.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>/**<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>* Find and
+        return the DVD that has been rented<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>* for the
+        longest period of time.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><span style="mso-spacerun:yes">&nbsp;</span>*/<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">What&#8217;s
+        the plan for implementing this method?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">The basic idea will be to iterate
+        through the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVDs</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> keeping
+        track of the
+        longest rental that we have seen <u>so far</u>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>To start <u>assume that the first </u></span><u><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span></u><u><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> would be
+          the longest rental
+          <b style="mso-bidi-font-weight:normal">so far</b></span></u><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">.<span
+          style="mso-spacerun:yes">&nbsp; </span><b
+          style="mso-bidi-font-weight:normal">It is</b>,
+        as we start !<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Check
+          each </span></b><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt;font-family:Courier">DVD</span></b><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> to see if
+          it has been
+          rented longer than the longest one we&#8217;ve seen so far.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt">If it is then make it the longest rental we&#8217;ve seen so
+          far.<o:p></o:p></span></b></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">Once we&#8217;ve been through all of the </span><span
+style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVDs</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> in the
+        collection we will
+        have found the longest rental.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="page-break-before:always"><span
+        style="font-size:
+        13.0pt;mso-bidi-font-size:10.0pt">Sketch out the code:<o:p></o:p></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span><span style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">public DVD
+        getLongestRental() {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Set the
+        first DVD as the longest rental so far.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Iterate
+        through the DVDs.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// If
+        the current DVD has been rented longer than<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// the
+        longest one seen so far then set it<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// as
+        the longest so far.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Return
+        the DVD with the longest rental.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<span
+          style="mso-tab-count:
+          1">&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Fill
+        in the details.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">public DVD getLongestRental() {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Set the first
+        DVD as the longest rental so far.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>DVD longest =
+        dvdList.get(0);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Iterate
+        through the <b style="mso-bidi-font-weight:normal">rest</b> of
+        the DVDs.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>for (int <b style="mso-bidi-font-weight:normal">i=1</b>;
+        i&lt;dvdList.size(); i++) {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>DVD aDVD =
+        dvdList.get(i);<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// If the
+        current DVD has been rented longer than<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// the
+        longest one seen so far then set it<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// as the
+        longest so far.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>if
+        (aDVD.getNightsRented() &gt; longest.getNightsRented()) {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>longest
+        = aDVD;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>else {<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// do
+        nothing...<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:11.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>// Return the
+        DVD with the longest rental.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return longest;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:11.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">}<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">It
+        is possible to use </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">if</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt"> without </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">else</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt">, <span style="color:#00B050">so remove</span>.<o:p></o:p></span></p>
+    <p class="MsoNormal"><i style="mso-bidi-font-style:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Trace
+        this. <o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Make the first </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> rented for 1
+        night.<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">Make the last </span><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> rented for 3
+        nights.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Show</span><span style="font-size:
+        13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier"> i</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> changing
+        value and the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">aDVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> reference
+        moving from </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> to </span><span
+style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Show longest moving from the first
+        to the last </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt">.Are there any potential problems with this program?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">What if the collection doesn&#8217;t have
+        any </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVDs</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> in it?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in;text-indent:.5in"><b
+        style="mso-bidi-font-weight:normal"><span
+          style="font-size:13.0pt;mso-bidi-font-size:
+          10.0pt;color:#00B050">Try it...</span></b><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt"> </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:
+        10.0pt;font-family:Courier">IndexOutOfBoundsException<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:
+          normal">Why?<o:p></o:p></b></span></p>
+    <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><i
+          style="mso-bidi-font-style:
+          normal"><span
+            style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></i></b></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">How can we <span
+          style="color:#00B050">fix this
+          problem</span>?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>if
+        (dvdList.size() == 0) {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>//
+        No DVDs in the store!<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>return
+        null;<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>else {<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>&lt;rest
+        of code here&gt;<o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-indent:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;font-family:Courier"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>There is also <b style="mso-bidi-font-weight:
+          normal">another problem</b>, what is it?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>What happens if none of
+        the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:
+        Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">&#8217;s
+        are rented?<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>This method returns the
+        first one!<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>How could we fix it?<o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;color:#00B050">Add another if
+        statement at the end that
+        checks if the </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;
+        font-family:Courier;color:#00B050">DVD</span><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt;color:#00B050"> being returned has
+        been checked
+        out.<span style="mso-spacerun:yes">&nbsp; </span>If it has not,
+        then return null
+        instead.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">Test
+        methods necessary to achieve statement coverage for </span><span
+style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">getLongestRental</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt">.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Test on an <b style="mso-bidi-font-weight:
+          normal">empty collection</b><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>Test on <b style="mso-bidi-font-weight:
+          normal">non-empty collection with at least one rental</b><o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">Note that if the longest rental is
+        the first one, we
+        do not achieve statement coverage.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><b style="mso-bidi-font-weight:normal"><i
+            style="mso-bidi-font-style:normal">Why
+            not?<o:p></o:p></i></b></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <p class="MsoNormal" style="margin-left:.5in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">If I wanted to be really thorough
+        with my testing
+        then I would probably want to test that the method works when
+        the longest
+        rental is the <b style="mso-bidi-font-weight:normal">first</b>
+      </span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> in the
+        collection and when
+        it is <b style="mso-bidi-font-weight:normal">somewhere in the
+          middle</b> of the
+        collection and also when it is the <b
+          style="mso-bidi-font-weight:normal">last </b></span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt;font-family:Courier">DVD</span><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"> in the
+        collection.<o:p></o:p></span></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><span
+          style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.0in"><span
+        style="font-size:13.0pt;
+        mso-bidi-font-size:10.0pt">Statement coverage is the minimum
+        level of testing
+        that you should be doing.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+    <p class="MsoNormal" style="margin-left:1.5in"><b
+        style="mso-bidi-font-weight:
+        normal"><span style="font-size:13.0pt;mso-bidi-font-size:10.0pt">The
+          reference
+          test cases in WebCAT are going to begin to test your code more
+          thoroughly,
+          checking things like just described.<o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span
+        style="font-size:13.0pt;mso-bidi-font-size:10.0pt"><o:p>&nbsp;</o:p></span></p>
+    <meta name="Keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=ISO-8859-1">
+    <meta name="ProgId" content="Word.Document">
+    <meta name="Generator" content="Microsoft Word 14">
+    <meta name="Originator" content="Microsoft Word 14">
+    <link rel="File-List"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_filelist.xml">
+    <!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Revision>0</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Pages>1</o:Pages>
+  <o:Words>814</o:Words>
+  <o:Characters>4643</o:Characters>
+  <o:Company>Dickinson College</o:Company>
+  <o:Lines>38</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>5447</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+    <link rel="themeData"
+href="file://localhost/Users/siglej/Library/Caches/TemporaryItems/msoclip/0clip_themedata.xml">
+    <!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+    <style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-hyphenate:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Times;
+	mso-fareast-font-family:Times;
+	mso-bidi-font-family:Times;
+	mso-fareast-language:HI;
+	mso-bidi-language:HI;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--StartFragment--><!--EndFragment-->
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<html lang="en"><head>
+	<title>Searching Collections</title>
+	<!-- Changed by: , 12-Aug-2009 -->
+	<link href="../cs131.css" type="text/css" rel="stylesheet">
+</head>
+
+<body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Searching Collections<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review Section 4.9 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/CoinCollection.zip"><i>CoinCollection</i></a><br>
+<!---<a href="../examples/VideoStore-Start.zip"><i>VideoStore-Start</i></a><br>--->
+<a href="../examples/VideoStore.zip"><i>VideoStore</i></a><br>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<LI>Complete the method body of the <code>increaseRentalLengths</code> method in the <code>VideoStore</code> class.
+
+<LI>Create a test method for your <code>increaseRentalLengths</code> method.  Be sure to follow the Testing Rule for a method that modifies the elements of a collection.
+
+<LI>Complete the definition of the <code>getMostOverdueDVD()</code> method in the <code>VideoStore</code> class.  Note: Test methods already exist for this method. So you can test your implementation by running the existing tests.
+
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignment 8a</h3>
+<p>
+</p><ol>
+<!--
+<LI>In class we developed the <code>getLongestRental</code> method for the <code>VideoStore</code> class.  The code we wrote for this method is contained in the <i>VideoStore</i> project if you need to refer to it.  In the  <code>getLongestRental</code> method we used the following <code>if</code> statement:
+<UL><xmp>if (next.getNightsOut() > longest.getNightsOut())</xmp></UL>
+Imagine that we change this <code>if</code> statement to be:
+<UL><xmp>if (next.getNightsOut() >= longest.getNightsOut())</xmp></UL>
+How would this change affect the behavior of the method?
+-->
+
+<p><LI>Using the <i>CoinCollection</i> project that you have been working with for the last several homework assignments, perform the tasks described below. NOTE: If you had difficulties with the previous homework assignment be sure to use the solutions posted outside the instructor's office to correct that assignment before beginning this one. 
+<OL type="a">
+<LI>Add a method named <code>increaseCoinValues</code>. This method
+  does not return a value. It accepts one parameter of type
+  <code>double</code> indicating the percentage by which the value of
+  each coin should be increased. Note that, even though the
+  percentage parameter is a double, you should expect values
+  that are greater than one. For example, if the percent increase is to
+  be 12.5% the argument that is passed should be 12.5 (not 0.125). 
+  When invoked the method increases the value of each coin by the specified
+  percentage.  Be sure to include a javadoc comment describing your method.
+
+<LI>Create a test method for your <code>increaseCoinValues</code> method. Be sure to follow the <a href="testing.html">Testing Rule</a> for a method that modifies the elements of a collection.
+
+<li>Add a method named <code>getMostValuableCoin</code> that returns the <code>Coin</code> with the highest value.  If there is a tie for the most valuable <code>Coin</code>, then this method returns the first <code>Coin</code> with that value. If the <code>CoinCollection</code> does not contain any <code>Coin</code>s then this method should return <code>null</code>. Be sure to include a javadoc comment for your method.
+
+<li>Develop test methods for your <code>getMostValuableCoin</code> method. Be sure to follow the <a href="testing.html">Testing Rule</a> for a method that searches the elements of a collection.
+</OL>
+
+<!--
+<p>Submit your <i>CoinCollection</i> project via Web-CAT.  In order to submit you will have to click the "Browse..." button in the Submitter and then select the "Coin Collection HW Part 2" assignment within the COSCI 131 folder.  Also be sure to save this project as you will continue to add to it in the next several homework assignments.
+-->
+
+Save this project. You will be adding to it in the next two homework assignments.  Once those assignments are complete, you will submit your project via Web-CAT.
+</ol>
+
+</div></body></html>

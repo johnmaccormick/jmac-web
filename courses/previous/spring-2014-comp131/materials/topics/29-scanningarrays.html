@@ -1,0 +1,82 @@
+<html lang="en"><head><title>Scanning Arrays</title>
+	<!-- Changed by: , 11-Nov-2009 -->
+
+	<link href="25-Searching_files/cs131.css" type="text/css" rel="stylesheet"></head><body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Scanning Arrays<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Review 4.16.5-4.17 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<!---<a href="../examples/StockAnalyzer-Start.zip"><i>StockAnalyzer-Start</i></a><br>--->
+
+  <a href="../examples/StockAnalyzer.zip"><i>StockAnalyzer</i></a><br>
+<a href="../examples/GradeBook.zip"><i>GradeBook</i></a><br>
+</p><hr>
+
+<h3>Practice Exercises</h3>
+
+<p>
+
+</p><ol>
+<li>If it was not done as an example in class, complete the <code>getMaxPrice</code> in the <code>StockAnalyzer</code> class.  This method does not take any parameters and returns a <code>double</code> value indicating the maximum price for the stock during the period being analyzed.
+
+<LI>Complete the <code>getMinPrice</code> method in the <code>StockAnalyzer</code> class.  This method does not take any parameters and returns a <code>double</code> value indicating the minimum price for the stock during the period being analyzed.
+
+<UL>Note: The <code>StockAnalyzerTest</code> class already contains test methods for each of the methods that you are writing for these exercises.  You can run each test individually by right clicking on the <code>StockAnalyzerTest</code> class and choosing the appropriate test method.</UL>
+
+<LI>Complete the <code>getDayOfMaxPrice</code> method in the <code>StockAnalyzer</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the index at which the maximum price occurs. If there are multiple days that tie for the maximum price, the index of the most recent day with that price should be returned.
+
+<li>Complete the <code>getDayOfMinPrice</code> method in the <code>StockAnalyzer</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the index at which the minimum price occurs.  If there are multiple days that tie for the minimum price, the index of the most recent day with that price should be returned.
+
+<LI>Complete the <code>getLargestPriceDifference</code> method in the <code>StockAnalyzer</code> class. This method does not take any parameters and returns a <code>double</code> value indicating the largest difference between any two prices that occurred within the period being analyzed. Note that if the lowest price occurred before the highest price then the value returned by this method will be positive. If the highest price occurs first then the value returned by this method will be negative. Hint: Call other methods of
+the <code>StockAnalyzer</code> class to do some of the work.
+
+<LI>Complete the <code>isVolatilePeriod</code> method in the <code>StockAnalyzer</code> class. This method accepts one parameter, an <code>int</code> value specifying a number of days.  This method then returns <code>true</code> if the maximum and minimum prices are separated by no more than the specified number of days of each other, and <code>false</code> otherwise.
+
+</ol>
+</ol>
+
+<p>
+</p><hr>
+
+<h3>Homework Assignment 9b</h3>
+
+<p>
+</p>
+
+<OL>
+
+<li>Complete the following exercises using the <i>GradeBook</i> project that you worked with in the previous homework assignment. 
+
+<ol type="a">
+
+<li>Add a method named <code>findHomeworkAverage</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the average of all of the homework scores. Any fractional part of the average is truncated.  Also add test methods that achieve statement coverage for your <code>findHomeworkAverage</code> method.
+
+<LI>Add a method named <code>findHomeworkMin</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the lowest homework score. Also add test methods that achieve statement coverage for your <code>findHomeworkMin</code> method.</li>
+
+<LI>Add a method named <code>findIndexOfHomeworkMax</code> to the <code>GradeBook</code> class. This method does not take any parameters and returns an <code>int</code> value indicating the index of the highest homework score.  If there are ties for the highest homework score, this method returns the index of the most recent homework with that score.  Assume that older homework scores are stored at lower indices. Also add test methods that achieve statement coverage for your <code>findIndexOfHomeworkMax</code> method.
+
+</li>
+
+<LI>Add a method named <code>isHomeworkConsistent</code> to the <code>GradeBook</code> class.  This method takes one parameter that is an <code>int</code> value specifying the maximum allowable difference of the homework scores from the average homework score. This method then returns <code>true</code> if all of the homework scores differ from the average by no more than the specified maximum allowable difference, and <code>false</code> otherwise. Also add test methods that achieve statement coverage for your <code>isHomeworkConsistent</code> method.
+</li>
+
+</ol>
+
+<!--
+Submit your <i>GradeBook</i> project via Web-CAT.
+-->
+Save this project.  You will be adding to it in the next two assignments and then submitting it via Web-CAT.
+</OL>
+
+</div></body></html>

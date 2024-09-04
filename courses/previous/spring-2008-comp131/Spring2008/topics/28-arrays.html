@@ -1,0 +1,55 @@
+<html lang="en"><head><title>Arrays</title>
+	
+	<link href="25-Searching_files/cs131.css" type="text/css" rel="stylesheet"></head><body leftmargin="8" topmargin="8" bgcolor="#ffffff" text="#000000">
+<div class="body">
+
+<h4 align="center">COMP 131</h4>
+<center>
+<h2>Arrays of Primitive Values<hr>
+</h2></center>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 4.12.1-4.12.4 of Barnes &amp; Kolling
+</p><hr>
+
+<h3>Sample Code</h3>
+<p>
+<a href="../examples/FirstArrayExample.zip"><i>FirstArrayExample</i></a><br>
+<a href="../examples/StockAnalyzer-Start.zip"><i>StockAnalyzer-Start</i></a><br>
+<a href="../examples/StockAnalyzer.zip"><i>StockAnalyzer</i></a><br>
+<a href="../examples/GradeBook.zip"><i>GradeBook</i></a><br>
+</p><hr>
+<h3>Practice Exercises</h3>
+<p>
+</p><ol>
+<li>Complete the following exercises using the <i>weblog-analyzer</i> project from the text.</li>
+<ol type='a'>
+<li>Add a method named <code>resetHourlyCount</code> to the <code>LogAnalyzer</code> class.  This method takes the index of the hourly count to be reset and sets the corresponding hourly count to 0.  If an invalid index is specified, this method should print an error message.</li>
+<li>Add a method named <code>getHourlyCount</code> to the <code>LogAnalyzer</code> class. This method takes the index of the hourly count to be returned and returns the corresponding hourly count. If an invalid index is specified, this method should print an error message and return the value -1.</li>
+<li>Create test methods for the two methods that you just added to the <code>LogAnalyzer</code> class. Your test methods must achieve statement coverage for your methods.
+<li>Do Exercises 4.39-4.46 in Barnes &amp; Kolling </li>
+</ol>
+</ol>
+
+<p>
+</p><hr>
+<h3>Homework Assignments</h3>
+<p>
+</p>
+<p>Download and unpack the 
+<a href="../examples/GradeBook.zip"><i>GradeBook</i></a> project and use it to complete the following exercises. Javadoc comments and method signatures have not been provided for the methods that you will be adding to this class. As you add methods, please be sure that names of the methods that you write exactly match those given in the assignment. In addition, if a method has more than one formal parameter, be sure they are listed in the order described in the assignment. Following these rules will  ensure that the reference tests used by WebCAT will compile with your implementation of the <code>GradeBook</code> class. Finally, you need to provide a javadoc comment for each of the methods that you write.
+<ol>
+<li>Define the fields for the <code>GradeBook</code> class.</li>
+<li>Implement the constructor for the <code>GradeBook</code> class.</li>
+<li>Implement an accessor named <code>getStudentName</code> that returns the name of the student.</li>
+<LI>Implement accessor methods named <code>getNumHomeworks</code> and <code>getNumQuizzes</code>. These methods return integer values indicating the total number of homework scores or quiz scores that the student may have.
+<li>Implement methods named <code>setHomeworkScore</code> and <code>setQuizScore</code>. Each of these methods takes 2 parameters. The first parameter specifies the index of the homework or quiz for which to set the score.  The second parameter specifies the score on the homework or quiz.  If an invalid index is passed to either of these methods it should print an error message. Note: The score for each homework or quiz will be an integer value indicating the percent of correct answers.</li>
+<li>Implement methods named <code>getHomeworkScore</code> and <code>getQuizScore</code>. Each of these methods takes 1 parameter indicating the index of the score to return. The score is returned as an integer. If an invalid index is passed to either of these methods it should print an error message and return the integer value -1.</li>
+<li>Create test methods for your <code>GradeBook</code> class. Your test methods must achieve statement coverage for your implementation.
+</li>
+</ol>
+
+Save this project.  You will be adding to it in the next three assignments and then submitting it via Web-CAT.
+
+</div></body></html>

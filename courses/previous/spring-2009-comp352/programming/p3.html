@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>Programming assignment P3</title>
+    <!-- Changed by: , 18-Feb-2009 -->
+    <META NAME="ROBOTS" CONTENT="NOFOLLOW">
+  </head>
+
+  <body>
+    <h2>Programming assignment P3</h2>
+
+In this assignment you will design and implement a
+simple client-server protocol, called the TIME protocol.
+The TIME protocol has only one message type, called a
+GETTIME message.  When a client sends a GETTIME request
+to a server, the server responds with a GETTIME response
+containing the current time of day, and the client
+should then print a description of this response in the
+terminal window.  The time of day need only be specified
+to the nearest second.  The server program must be
+multi-threaded: that is, it must process each request in
+a new thread, using a similar design to the web server
+in assignment P2.
+
+<P>As with our previous client-server examples, the
+server program will take exactly 1 command line
+argument, specifying the port on which it will be
+listening.  The client program will take exactly 2
+command line arguments, specifying the name of the
+machine on which the server is running, and the port on
+which the server is listening.  Following is an example
+of the outputs when the server is running on the machine
+blackbird.dickinson.edu, and the client is run on the
+machine albatross.dickinson.edu.
+
+<P>First, we start the server on blackbird:
+<PRE>
+  blackbird:/tmp jmac$ java TimeServerP3 56765
+</PRE>
+
+<P>Then, we run the client on albatross:
+<PRE>
+  albatross:/tmp jmac$ java TimeClientP3 blackbird 56765
+  TimeServer at blackbird says time is 15:20:19
+</PRE>
+
+<P>Your solution should contain exactly 2 files, called
+<TT>TimeServerP3.java</TT> and
+<TT>TimeClientP3.java</TT>.  If you define any other
+classes, add them to one of these files as we did with
+the <TT>MyHttpRequest</TT> class in assignment
+P2. Submit your code to Web-CAT by first making a zip
+file of these two Java files.
+
+<H4>Extra credit</H4>
+
+For a small amount of extra credit on this assignment
+(at most 5% of the total score), you can implement an
+additional message type for the TIME protocol: the
+SETTIME message.  When the client sends a SETTIME
+request to the server, it provides a new value for the
+current time, specified with hours, minutes, and seconds
+(the server will not keep track of the date).  On
+receiving a SETTIME request, the server resets its clock
+to the requested time, and responds to the client with a
+message confirming that the SETTIME request has been
+performed.  Subsequent GETTIME requests should return
+times that correctly reflect the most recent SETTIME.
+
+<P>To achieve this, the client program must accept an
+additional optional parameter.  If this parameter is
+present, it should be in the format HH:MM:SS,
+representing the time in hours, minutes, and seconds,
+where the hours are specified using the 24-hour clock.
+If the extra parameter is present, the client program
+performs a SETTIME request, otherwise it performs a
+GETTIME request.
+
+<P>For example, assume that the server has been started
+on blackbird.dickinson.edu as above.  Then just as
+before, we might run the client on
+albatross.dickinson.edu.  Issuing a GETTIME produces the
+same behavior as before (assuming the current time is
+around 3:20 p.m.): 
+
+<PRE>
+  albatross:/tmp jmac$ java TimeClientP3 blackbird 56765
+  TimeServer at blackbird says time is 15:20:19
+</PRE>
+
+We might then issue a SETTIME, setting the server's time
+to 9:45 a.m.:
+
+<PRE>
+  albatross:/tmp jmac$ java TimeClientP3 blackbird 56765 09:45:00
+  TimeServer at blackbird completed SETTIME request
+</PRE>
+
+Finally, we wait for exactly 100 seconds and issue another GETTIME:
+
+<PRE>
+  albatross:/tmp jmac$ java TimeClientP3 blackbird 56765
+  TimeServer at blackbird says time is 09:46:40 
+</PRE>
+
+Note that the server's time is now 100 seconds later
+than the 9:45 a.m. to which it was set, 100 seconds ago.
+
+<P>A note on the implementation: do not attempt to reset
+the system clock on the machine where the server is
+running.  Instead, the server should merely remember the
+offset between its own "virtual" clock, and the system
+clock.
+
+
+  </body>
+</html>
+

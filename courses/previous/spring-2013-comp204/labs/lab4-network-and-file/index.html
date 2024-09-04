@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <title>File and network security lab</title>
+    <!-- Changed by: , 30-Aug-2010 -->
+  </head>
+
+  <body>
+    <h2>File and network security lab</h2>
+
+<P><a href="https://docs.google.com/spreadsheet/ccc?key=0AqFettA6GtYZdGJNdnR6TVY5RUN0ZlBxZlRxNFlPekE&usp=sharing">Lab
+partners</a> for today.
+
+
+<P>Note: most of these exercises will only work correctly on the Macs in
+the Tome building.
+
+<P><b>Homework exercise 23.0:</b> Who is your lab partner?<p>
+
+<h3>Part 1: Processes</h3>
+
+
+<ol>
+<li><b>Examine running processes:</b>  Log in to one of the lab machines, and examine the processes running.
+
+<p><b>Homework exercise 23.1:</b> (a) How many processes are owned by
+the root user? (b) How many processes are owned by a user other than
+you or root?<p>
+
+<li><b>Launch multiple browsers with multiple windows each:</b>  Firefox and Safari are two different web browsers installed on our
+lab machines. Open both of these browsers, and use them to open
+multiple websites, using multiple tabs and windows.  
+
+<p><b>Homework exercise 23.2:</b> (a) How many processes is Firefox using? (b) How many processes is Safari using?<p>
+
+
+<li><b>Launch a process owned by one user while another user is logged
+in:</b> To describe this exercise, we will assume that the usernames
+of you and your lab partner are userA and userB respectively.  In
+practice, you will of course use your own usernames.  Let us assume
+that userA has logged into one of the lab machines.  Our objective is
+for userB to launch the TextEdit program in a process owned by userB,
+without first logging out of userA's session.  To do this, please
+execute the following instructions:
+  <ol>
+    <li>Open a terminal window.
+    <li>Change the active user of the terminal window by using the <tt>su</tt> command (<tt>su</tt> is an abbreviation for "set user").  Specifically, type <tt>su userB</tt>, hit Enter, then type in userB's password as requested.
+
+<p><b>Homework exercise 23.3:</b> How many processes are currently owned by userB?  List the name of each such process.<p>
+
+<p><b>Homework exercise 23.4:</b> (a) Are you currently in the home
+directory of userA or userB?  (b) What happens when you execute the
+"ls" command in the current directory?  (c) Give a brief explanation
+of the result.<p>
+
+  <li>Change directory to the location of the TextEdit program, which happens to be stored in the directory <tt>/Applications/TextEdit.app/Contents/MacOS</tt>.
+
+  <li>Run TextEdit by typing the command "<tt>./TextEdit</tt>"
+
+<p><b>Homework exercise 23.5:</b> List any additional processes that are now owned by userB.<p>
+
+  <li>Exit from the terminal window.
+
+  </ol>
+</ol>
+
+
+<h3>Part 2: Files</h3>
+
+<ol>
+  <li><b>Examine the permissions of a file stored on the file server:</b>
+Create a new Microsoft Word document and save it as a file named "test.docx".
+ Locate your test.docx file in the Finder, control-click on it,
+  choose "get info", then open up the bottom tab called "sharing and
+  permissions". Take a look at what you see here. This is an access
+  control list (ACL), as discussed in class.  Unfortunately, the
+  permissions you see here are complicated by the fact that this file
+  is stored on a separate computer, known as a file server.  To avoid
+  this complexity, the rest of this part of the lab will deal only
+  with files stored on your machine's local hard drive.
+
+<li><b>Copy <tt>test.docx</tt> into <tt>/tmp</tt>:</b> There is a
+special directory on the local hard drive of the machine for storing
+temporary files; this directory is called "/tmp".  Navigate to /tmp in
+the Finder now.  To do this, choose "go to folder" from the "Go" menu
+and enter "/tmp".  Copy your test.docx into the /tmp folder.
+
+<li><b>Examine the permissions of a file stored on the local hard drive:</b> Examine the permissions on the new copy of test.docx.  Ignore the user group "wheel" which you might encounter here; we won't be using groups in this lab.
+
+<p><b>Homework exercise 23.6:</b> What are the current permissions of test.docx?  i.e. who can read the file? Who can write the file?<p>
+
+<li><b>Experiment with global read-only permissions:</b> Alter the permissions of test.docx so that it is read-only for everyone, including you.  Verify that you succeeded by opening the file in Word, editing it, then attempting to save it.
+
+<p><b>Homework exercise 23.7:</b> What error message does Word produce when you attempt to save the edited file?<p>
+
+<li><b>Experiment with private permissions:</b> Alter the permissions
+of test.docx so that no one other than you can read it. Verify that
+you succeeded by logging out and allowing your partner to log in. Your
+partner should then navigate to /tmp and attempt to open test.docx by
+double-clicking on it.
+
+<p><b>Homework exercise 23.8:</b> What error message does Word produce when someone without read permission attempts to open a file?<p>
+
+
+</ol>
+
+<h3>Part 3: Network security</h3>
+
+This part of the lab involves using some web research to investigate
+the security of Dropbox.  As with any other academic work, you should
+state your sources when answering, and use quotation marks if
+appropriate.  You are of course permitted to work on these questions
+with your partner, and you and your partner may submit identical
+solutions.  Try to give a detailed and specific answer to each
+question.  2-3 sentences should be sufficient for each question.
+
+<p><b>Homework exercise 23.9:</b> What security features does Dropbox offer?<p>
+
+<p><b>Homework exercise 23.10:</b> (a) What company owns the data
+centers where Dropbox stores its users' backups? (b) What country is
+the data stored in?<p>
+
+<p><b>Homework exercise 23.11:</b> What security features are offered
+by the relevant services of the company you named in the previous
+question?<p>
+
+<p><b>Homework exercise 23.12:</b> In your opinion, is the security of
+Dropbox adequate for sensitive information, such as medical records,
+or student grades?
+
+
+
+    <hr>
+  </body>
+</html>

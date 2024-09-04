@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+ <HEAD>
+<title>Resources for COMP251</title>
+<!-- Changed by: , 02-Dec-2008 -->
+<SCRIPT>
+	function openIt(theURL)
+	{
+	    window.open(theURL, 'KS', 'resizable');
+	}
+</SCRIPT>
+</HEAD>
+<BODY>
+<h2>Resources for COMP251</h2>
+
+<h3>Lectures</h3>
+<UL>
+  <LI>Lecture 1: <A HREF="CodeParadoxes.java">CodeParadoxes.java</A>, <A HREF="SheepTracker.java">SheepTracker.java</A></LI>
+  <LI>Lecture 2: 
+    <UL>
+      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/datapath.html');">The Basic Knob &amp; Switch Computer</a></LI>
+      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/dpandmem.html')">The Knob &amp; Switch Computer with Memory</a></LI>
+      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/micromachine.html', 'KS')">The Knob &amp; Switch Computer with Control Unit</a></LI>
+      <LI><a href = "javascript:openIt('http://dickinson.edu/~braught/kands/KandS2/machine.html','KSM')">The Knob &amp; Switch Computer with Assembly Programming</a></LI>
+      <LI><a href="http://dickinson.edu/~braught/kands/KandS2/instructions.html">The Knob &amp; Switch Computer Assembly Language</a></LI>
+      <LI><A HREF="SmallProgram.java">SmallProgram.java</A></LI>
+    </UL>
+</LI>
+  <LI>Lecture 3: <A HREF="unsigned.c">unsigned.c</A>, <A HREF="ascii.c">ascii.c</A></LI>
+
+
+    <LI>Lecture 4: <A HREF="SignedIntExperiments.java">SignedIntExperiments.java</A>, <A HREF="carry-in-and-out.ppt">my explanation</A> of the textbook's table 2.2 (page 63)</LI>
+
+  <LI>Lecture 5: <A HREF="FloatingPointExperiments.java">FloatingPointExperiments.java</A></LI>
+
+
+  <LI>Lecture 6: <A
+    HREF="TruthTable.java">TruthTable.java</A>, <A
+    HREF="http://wps.aw.com/wps/media/objects/1185/1214152/activities/ch1/big/LogicGates.html">logic
+    gate applet</A> (from the website for Computer
+    Science: An Overview, by J. Glenn Brookshear)</LI>
+  <LI>Lecture 7: <UL>
+		   <LI><A
+    HREF="http://wps.aw.com/wps/media/objects/1185/1214152/activities/ch1/big/LogicGates.html">logic
+    gate applet</A> (from the website for Computer
+    Science: An Overview, by J. Glenn Brookshear)</LI>
+
+   <LI>Some beautiful JavaScript demos
+   of important circuits by Ken Bigelow:
+   <A
+   HREF="http://www.play-hookey.com/digital/adder.html">half
+     and full adders</A>, <A
+     HREF="http://www.play-hookey.com/digital/multiplexer_four_input.html">multiplexer</A>,
+     <A
+     HREF="http://www.play-hookey.com/digital/decoder_demux_four.html">decoder</A></LI>
+<LI><A HREF="lecture-7-puzzles.ppt">circuit puzzles</A></LI>
+
+		 </UL></LI>
+  <LI>Lecture 8: 
+    <UL>
+      <LI>An explanation of the <A
+      HREF="instability-of-SR-flip-flop.pdf">instability
+      of the SR flip-flop</A>.  Also note that, in my
+      opinion, the first paragraph of page 134 in the
+      text book (the discussion of instability of the SR
+      flip-flop) is potentially misleading: an SR
+      flip-flop without a clock is perfectly stable when
+      S=R=1, and results in Q = Qbar =
+      0.  It is only when we have a clock that S=R=1
+      becomes a problem, because immediately after the
+      clock cycle, the inputs S, R are killed and the
+      resulting state depends on which one happens to
+      die off first, resulting in either Q=0 or Q=1.
+      Please see the linked document above for a more
+      detailed explanation.  The difference between the
+      first two links below should also make this
+      distinction clear.</LI>
+
+      <LI>
+More circuits by Ken Bigelow:
+<UL>
+  <LI><A HREF="http://www.play-hookey.com/digital/rs_nor_latch.html">SR 
+        flip-flop</A></LI>
+  <LI><A HREF="http://www.play-hookey.com/digital/clocked_rs_latch.html">
+	SR flip-flop with a clock</A></LI>
+  <LI><A HREF=
+      "http://www.play-hookey.com/digital/rs_nand_flip-flop.html">
+	edge-triggered SR flip-flop</A> -- how does this
+	differ from the immediately previous link, "SR
+	flip-flop with a clock"?  What are
+	its advantages and disadvantages?</LI>
+  <LI><A HREF="http://www.play-hookey.com/digital/ripple_counter.html">
+	ripple counter</A> -- how does this differ from
+	the binary counter studied in class?  What are
+	its advantages and disadvantages?</LI>
+</UL>
+      </LI>
+
+      <LI>Please note the error on slide 50 of the
+      textbook authors' PowerPoint slides for chapter 3.
+      A corrected version is now available from the <A
+      HREF="../book-powerpoints">PowerPoint slides</A>
+      link.</LI>
+<LI><A HREF="lecture-8-puzzles.ppt">circuit puzzles</A></LI>
+    </UL>
+
+  <LI>Lecture 9: <A HREF="WordSizeExperiment.java">WordSizeExperiment.java</A></LI>
+  <LI>Lecture 10: You'll need the MARIE simulator from the textbook's <A HREF="http://computerscience.jbpub.com/ecoa/2e/student_resources.cfm">student resource page</A>.   Steps to create and run an assembly language program:
+    <OL>
+      <LI>run MarieSim.jar</LI>
+      <LI>in simulator: File | Edit</LI>
+      <LI>in editor: Type program</LI>
+      <LI>in editor: File | Save [saves text file as *.mas]</LI>
+      <LI>in editor: Assemble | Assemble current file [creates machine language file as *.mex] </LI>
+      <LI>[optional] in editor: Assemble |  Show assembly listing</LI>
+      <LI>in simulator: File | Load [load the .mex file]</LI>
+      <LI>in simulator: Run | Run (you can experiment with single stepping)</LI>
+    </OL>
+</LI>
+  <LI>Lecture 11: <A HREF="Counter.java">Counter.java</A>, zip file of <A HREF="assembler-demos.zip">assembly language demos</A></LI>
+  <LI>Lecture 12: <A HREF="lecture-12.zip">Assembly code examples</A></LI>
+  <LI>Lecture 13: <A HREF="StackDemo.java">StackDemo.java</A>, <A HREF="IA32-instruction-set-reference.pdf">IA32 instruction set reference</A>, <A HREF="variables.c">variables.c</A>, <A HREF="subroutine.c">subroutine.c</A>, <A HREF="loop.c">loop.c</A></LI>
+  <LI>Lecture 14: <A HREF="endian.c">endian.c</A></LI>
+  <LI>Lecture 15: <UL>
+		    <LI><A HREF="Mult.java">Mult.java</A></LI>
+		    <LI>Command line for disassembling a java file: <br>javap -c ClassName</LI>
+		    <LI>Command line for dumping literal contents of a file in numeric format, eight bytes per line, with decimal addresses and values: <br>od -w8 -Ad -t d1 filename</LI>
+		  </UL></LI>
+  <LI>Lecture 16: <A HREF="CacheTimer.java">CacheTimer.java</A>,  <A HREF="access-times.pdf">cool results</A> from CacheTimer.java</LI> 
+  <LI>Lecture 17: <A HREF="caching-worksheet.pdf">caching-worksheet.pdf</A></LI>
+  <LI>Lecture 18: <A HREF="vm-worksheet.pdf">vm-worksheet.pdf</A></LI>
+  <LI>Lecture 19: <A HREF="Amdahl.java">Amdahl.java</A></LI>
+  <LI>Lecture 20: <A HREF="DiskSpeed.java">DiskSpeed.java</A></LI>
+
+
+
+    </UL>
+
+<h3>Projects</h3>
+    <UL>
+  <LI>Project 1: <UL> 
+      <LI><A HREF="../project1/project1.pdf">The assignment</A></LI>
+      <LI>Useful links:
+<A
+  HREF="http://java.sun.com/j2se/1.5.0/docs/api/">Java
+  API</A>, <A
+  HREF="http://java.sun.com/j2se/1.5.0/docs/api/java/util/LinkedList.html">LinkedList
+  API</A>, <A
+  HREF="http://java.sun.com/j2se/1.5.0/docs/api/java/util/Vector.html">Vector
+  API</A>, <A
+  HREF="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/System.html#nanoTime()">System.nanoTime()</A>
+  (useful for timing experiments), <A
+  HREF="http://java.sun.com/docs/books/tutorial/java/generics/index.html">Tutorial
+  on Java generics</A></LI>
+    </UL>
+  <LI>Project 2: <A HREF="../project2/project2.pdf">The assignment</A></LI>
+
+  <LI>Project 3: <A HREF="../project3/project3.pdf">The
+  assignment</A>. Companion files: <A
+  HREF="../project3/data1.txt">data1.txt</A>, <A
+  HREF="../project3/data2.txt">data2.txt</A>, <A
+  HREF="../project3/data3.txt">data3.txt</A>, <A
+  HREF="../project3/data1.xls">data1.xls</A>, <A
+  HREF="../project3/RevenueAdder.java">RevenueAdder.java</A></LI>
+
+    </UL>
+
+<h3>Exams</h3>
+    <UL>
+      <LI>Midterm Exam 1: The exam covers Lectures 1-8.
+      Technically, any material covered in any lecture
+      or any assigned reading is eligible to be
+      examined.  However, in practice, the vast majority
+      of questions
+      will be similar to either a homework question, one
+      of the puzzle questions from the puzzle sheets in
+      lectures 7 and 8, or this <A
+      HREF="exam1-example-question.pdf">example
+      question</A>. Therefore, the best method of
+      preparation is to ensure you can effortlessly and
+      correctly complete all homework questions, puzzle
+      questions, and the example question.  Note that
+      homework solutions are provided outside the
+      instructor's office. It is highly advisable to
+      show your working in all exam answers, as partial
+      credit for incorrect answers can only be given if
+      your working demonstrates a correct understanding
+      of the concepts being examined.  This exam is open
+      book, meaning you can bring and use any printed or
+      handwritten materials. However, no electronic
+      devices of any kind whatsoever may be used.</LI>
+      
+      <LI>Midterm Exam 2: The exam covers Lectures 9-15.
+      Technically, any material covered in any lecture
+      or any assigned reading is eligible to be
+      examined.  However, in practice, the vast majority
+      of questions
+      will be similar to one of the homework
+      questions. Therefore, the best method of
+      preparation is to ensure you can effortlessly and
+      correctly complete all homework questions.  Note
+      that homework solutions are provided outside the
+      instructor's office. It is highly advisable to
+      show your working in all exam answers, as partial
+      credit for incorrect answers can only be given if
+      your working demonstrates a correct understanding
+      of the concepts being examined.  This exam is open
+      book, meaning you can bring and use any printed or
+      handwritten materials. However, no electronic
+      devices of any kind whatsoever may be used.</LI>
+
+      <LI>Final Exam: <UL>
+			<LI>The exam covers Lectures
+			1-20.
+      Technically, any material covered in any lecture
+      or any assigned reading is eligible to be
+      examined.  However, in practice, the vast majority
+      of questions will be similar to one of the
+      homework
+      questions, one of the in-class exam questions, or
+      one of the worksheets available on this
+      webpage. (Pay special attention to the caching and
+      virtual memory worksheets from lecturers and 17
+      and 18, which were not covered by the previous
+      exams.) Therefore, the best method of
+      preparation is to ensure you can effortlessly and
+      correctly complete all homework questions,
+      previous exam questions, and worksheets.  Note
+      that homework solutions are provided outside the
+      instructor's office. It is highly advisable to
+      show your working in all exam answers, as partial
+      credit for incorrect answers can only be given if
+      your working demonstrates a correct understanding
+      of the concepts being examined.</LI>
+			<LI> This exam is open
+      book, meaning you can bring and use any printed or
+      handwritten materials. However, no electronic
+      devices of any kind whatsoever may be used. </LI>
+       
+			<LI> The final exam will take
+			place on Saturday,
+      December 13 at 9 a.m., in Tome 117 <B>(not our
+      usual classroom, Tome 231)</B>.  The exam will be
+      proctored by Professor Jennifer Froelich.
+      Professor Froelich is not able to answer
+      content-specific questions.  If you have a
+      question about, or suspect an error in, the exam,
+      make a clear note of it on your exam paper,
+      clearly stating any additional assumptions you
+      have made, and complete the question to the best
+      of your ability. </LI>
+    </UL></LI>
+      </UL>
+
+
+
+
+
+<div class=body>
+<HR>
+<I>Last updated:&nbsp;</I>
+<SCRIPT LANGUAGE="JavaScript">
+   document.write(document.lastModified );
+</SCRIPT>
+</div>
+
+</BODY>
+
+</HTML>

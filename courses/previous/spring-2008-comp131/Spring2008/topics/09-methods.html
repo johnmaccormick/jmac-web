@@ -1,0 +1,92 @@
+<html lang="en">
+<HEAD>
+   	<TITLE>Methods</TITLE>
+	<LINK href="../cs131.css" type=text/css rel=stylesheet>
+</HEAD>
+<BODY text=#000000 bgColor=#ffffff leftMargin=8 topMargin=8>
+<DIV class=body>
+
+<H4 align="center">COMP 131</H4>
+<CENTER>
+<H2>Methods</h2>
+<HR>
+</CENTER>
+
+<h3>Reading Assignments</h3>
+<p>
+Sections 2.6 - 2.7 of Barnes &amp; Kolling
+<HR>
+
+<H3>Sample Code</H3>
+<p>
+<a href = "../examples/Account-v1.zip"><i>Account-v1</i></a>
+<HR>
+<H3>Practice Exercises</H3>
+<p>
+Use the <i>naive-ticket-machine</i> project (from Chapter 2) to
+do Exercises 2.23 - 2.24, 2.26, 2.29, 2.32
+ in Barnes &amp; Kolling
+<p>
+<HR>
+<H3>Homework Assignments</H3>
+<p>
+<ol>
+<li> Continue with the <i>Account-v1</i></a> project that you modified in the previous homework to answer the following questions.
+<ol type = "a">
+<li> Add another constructor to the <code>Account</code> class that
+ takes the account number, a balance for the account, the customer's name, and the interest rate as parameters and uses their values to initialize the fields of the object as appropriate.  (Also be sure to add the <code>interestRate</code> field as we did in class.) Copy and paste this definition
+ of the new constructor into your answer for this exercise.
+<LI> Add an accessor method named <code>getCustomerName</code> to the <code>Account</code> class. This method should return the customer's name. Copy and paste the definition
+ of the new accessor into your answer for this exercise.
+<li> Does the <code>Account</code> class contain any accessor methods
+ in addition to <code>getBalance</code>?  If so, name them.
+<li> List all mutator methods in the <code>Account</code> class.  How do
+ you know that they are mutators?
+<li> Change the name of the <code>getAccountNumber</code> method to
+ <code>getAcctNumber</code>, recompile the class, and create an instance.
+ What has changed in the list of methods that is displayed when you right-click on the instance?
+</ol>
+<li> The following definition of class <code>Widget</code> contains at 
+ least 4 errors that would either prevent the class from compiling, or
+ cause the class to work incorrectly when run.  Identify each error, and
+ explain why it is an error.
+ Do NOT use BlueJ to find the errors.
+<pre>
+public class Widget {
+    private int stockNum;  // stock number used for tracking product
+    private String name;   // name of the widget
+    int private quantity;  // number in the warehouse
+
+    /** create a new Widget with the specific field values
+      * @param initStockNum the stock number
+      * @param initName the widget name
+      * @param initQuantity the number in the warehouse
+      */
+    public Widget(String initStockNum, String initName, int initQuantity) {
+        stockNum = initStockNum;
+        initName = name;
+        quantity = initQuantity;
+    }
+
+    /** set the number of the widget in the warehouse */
+    public void setQuantity(int newQuantity) {
+        quantity = newQuantity;
+    }
+
+    /** get the stock number
+      * @return the stock number */
+    public String getStockNumber() {
+        return stockNum;
+    }
+
+    /** decrease the quantity by 1 */
+    public int decreaseQuantity() {
+        quantity = quantity - 1;
+    }
+}
+</pre>
+</ol>
+</BODY>
+
+</HTML>
+

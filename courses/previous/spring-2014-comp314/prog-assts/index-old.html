@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html lang="en">
+  <HEAD>
+    <TITLE>Programming assignments</TITLE>
+    <!-- Changed by: , 26-Feb-2010 -->
+  </HEAD>
+  <BODY>
+    <H2>Programming assignments</H2>
+
+    <H3>Programming assignment 1</H3>
+
+To turn in this assignment, please submit a single zip file of your
+Java files to Moodle.
+
+    <DL>
+      <DT>Question 0.</DT>
+      <DD>Download the <A
+      HREF="prog-asst-1.zip">dfa code</A> provided for this
+      assignment.  Read the JavaDoc first.  Then read the code
+      itself.  Make a note of anything you don't understand, but
+      don't spend too much time on minor details.  </DD> 
+
+      <DT>Question 1. (80 points.)</DT>
+      <DD>Complete the code of the <TT>accepts()</TT> method in the
+      <TT>Dfa</TT> class.</DD>
+
+      <DT>Question 2. (20 points.)</DT>
+      <DD>Alter the code so that transitions can be labeled with
+      multiple symbols, as introduced in Linz, Example 2.2.  In
+      other words, lines such as <TT>Q1 acd Q3</TT>
+      should now be permitted in dfa files. (The intended meaning of
+      this line is that the dfa transitions from <TT>Q1</TT> to
+      <TT>Q3</TT> on
+      encountering <TT>a</TT> or <TT>c</TT> or <TT>d</TT>.)  </DD>
+
+      <DT>Extra credit. (20 points.)</DT>
+      <DD>(If you attempt any extra credit problems, please make a
+      new copy of your Java files and submit them separately, so
+      that your attempt on the previous questions can be graded.)
+      (i) Alter the code so that it works for nfas. (ii) Write code
+      that converts an nfa to an equivalent dfa. (iii) Read Linz,
+      Section 2.4, then implement an algorithm that minimizes the
+      number of states in a dfa.</DD>
+    </DL>
+
+    <H3>Programming assignment 2</H3>
+
+To turn in this assignment, please submit a single zip file of your
+Java file(s) to Moodle.
+
+    <DL>
+      <DT>Question 0.1</DT>
+      <DD>Download the <A
+      HREF="JavaAnalyzer.java">JavaAnalyzer code</A> provided for this
+      assignment.  Try to read and understand the code as much as
+      possible before moving on. </DD>
+
+      <DT>Question 0.2</DT>
+      <DD>Read and understand the first few screens of <A
+      HREF="http://java.sun.com/docs/books/tutorial/essential/regex/index.html">Sun's
+      java tutorial on regular expressions</A>. At a minimum, you
+      need to compile and run the test harness they provide, and
+      understand the sections on string literals, predefined
+      character classes, and boundary matchers.  (Thanks to Russell
+      Toris, who provided a <A HREF="RegexTestHarness.java">new
+      version of the test harness</A> that
+      compiles on the Macs in Tome.) You also need to
+      understand the use of the backslash character as an escape
+      character in java regular expressions.  Specifically, if you
+      don't understand the use of double backslashes in the code
+      <TT>Pattern.compile(console.readLine("\\s\\w*\\s")</TT>, or
+      the actual meaning of this regular expression, please seek
+      help from the instructor or a classmate.
+
+
+      <DT>Question 1. (80 points.)</DT>
+      <DD>As stated in the JavaDoc for the JavaAnalyzer class, a typical output is:
+<P><BLOCKQUOTE><TT>
+fields:<br>
+line 14:        private String label;<br>
+<br>
+constructors:<br>
+line 27:        public DfaVertex(String label)<br>
+<br>
+methods:<br>
+line 43:        public void addTransition(String symbol, String dest)<br>
+line 57:        public String getTransition(String symbol)<br>
+line 64:        public String getLabel()<br>
+</TT></BLOCKQUOTE><P>
+		    (This output was produced by using the input file <TT>DfaVertex.java</TT>
+ from programming assignment 1.)  <P>
+
+Let us agree to call a field, constructor, or method <I>ordinary</I>
+if it is declared using the simplest possible set of keywords: an
+access modifier, a datatype or return type if required, a name, and
+a parameter list if required.  Specifically, ordinary fields and
+methods do not have additional keywords such as <TT>static</TT> or <TT>final</TT>.
+Additionally, ordinary declarations don't have any comments or other
+tricky syntax.  For this question, you need only find matches for
+the ordinary declarations.
+
+Thus, the task for this question is to add code to the JavaAnalyzer
+class that will print out all the ordinary declarations in a manner
+similar to the output given above.  You must use regular expressions
+to find the appropriate lines.  To assist with grading, please do
+not alter any existing code, and only add code in places marked by
+the string "PROGASSIGNMENT2".  </DD>
+
+      <DT>Question 2. (20 points.)</DT>
+      <DD>Improve your code from question 1 to cope with
+      declarations that are not ordinary.  Try to cover as many
+      cases as you can think of.  One obvious thing to account for is
+      the optional use of keywords such as <TT>static</TT> and
+      <TT>final</TT>.  Also,
+      consider what might happen if a literal string or a
+      single-line comment contained a string that looked exactly like
+      a declaration.  You may assume
+      that multi-line comments (i.e. <TT>/* ... */</TT>) 
+      are not present, and
+      that declarations do not span multiple lines.</DD>
+
+      <DT>Extra credit. (20 points.)</DT>
+      <DD>(If you attempt the extra credit, please submit the
+      attempt as a separate file.)  Alter the code so that it works
+      correctly even when multi-line comments are present, and when
+      declarations span multiple lines.  Your general approach
+      should still use regular expressions, but don't worry too much
+      about efficiency or memory limitations.  In particular, it's
+      fine to slurp the entire input file into memory before
+      starting your processing. (This would be a very bad way to
+      write a compiler, but we are not concerned about that
+      here.) It's fine to edit the existing code for this part of
+      the assignment.</DD>
+
+
+
+
+    </DL>
+
+
+  </BODY>
+</HTML>

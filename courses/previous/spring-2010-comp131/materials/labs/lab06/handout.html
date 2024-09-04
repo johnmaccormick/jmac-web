@@ -1,0 +1,345 @@
+<html lang="en">
+<head><Title>Lab #6 - Virtual Pests</title>
+                                                                                
+</head>
+<body BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+               
+<H4 align="center">COMP 131</H4>
+                                                                 
+<font size=+2 color='#006400'>
+<center><b>Lab #6 - Virtual Pests</b></center>
+</font>
+                                                                                
+<font size=+1 color='#000064'>
+<p><b>Introduction:</b>
+</font>
+<p>
+
+
+The most popular toy to hit the scene a few years ago was the "virtual pet"
+- an electronic toy that simulated pet behavior (displayed on a screen) and
+allowed its "owner" to respond to various types of behavior by performing 
+actions (generally pushing buttons).
+Owners often find that these toys are more "virtual pests" than
+"virtual pets".
+Jeffrey L. Popyack at Drexel University has adapted this idea into a 
+nifty programming assignment, as described below.
+<p>
+
+ The behavior of a virtual pest can be described using a 
+<i>finite state machine</i>.
+For example, consider a simple virtual fish that is perpetually in one of
+four <i>states</i>: <b>hungry</b>, <b>sleepy</b>, <b>full</b> or 
+<b>grouchy</b>.  The fish indicates the state that it is in by making
+a particular sound and performing a particular action.
+The fish also interacts with its owner by changing its state in response
+to owner actions.  This is shown in the virtual pest interface (see
+Figure 1), where owner actions appear as buttons.
+<p>
+
+<center>
+<img src="fishGUI.jpg">
+<p><b>Figure 1:</b> Fred the fish as a virtual pest.
+</center>
+
+The state of the fish will change depending on the actions of its owner or
+just the passing of time.
+If a fish is <b>hungry</b>, and its owner feeds it, it becomes <b>full</b>.
+Also, if a <b>hungry</b> fish is not fed, after some time interval it will
+become <b>sleepy</b>, and so on.  
+<!-- A <b>full</b> fish becomes <b>grouchy</b> after some
+time interval, and if the owner pets a <b>full</b> fish, it becomes
+<b>sleepy</b>.  If the owner pets a <b>grouchy</b> fish, it becomes 
+<b>hungry</b>.  If a fish is <b>sleepy</b> and its owner puts it to bed,
+it becomes <b>grouchy</b>.  Finally, a <b>sleepy</b> fish will become
+<b>hungry</b> after some time interval.
+<p>
+-->
+ The diagram below (Figure 2) describes this behavior as a finite state
+ machine.  The machine has four states, which are drawn as circles labeled
+with the state's name.  The machine is always in exactly one of these
+states.  The machine may make a <i>transition</i> from one state to another
+as specified by the arrows connecting the states.  Transitions are triggered
+by the actions of the pest owner or just the passing of time.
+For example, the
+arrow labeled <b>feed</b> connecting the <b>hungry</b> state to the
+<b>full</b> state means that feeding a <b>hungry</b> fish causes it to
+become <b>full</b>.  The label <b>random</b> means "after some 
+(random) time interval".  The arrow entering the <b>hungry</b> state
+from nowhere means that <b>hungry</b> is the <i>initial state</i> -
+the state that a fish starts in.
+<p>
+
+<center>
+<img src="fishState.jpg">
+<p><b>Figure 2:</b> A finite state machine for the behavior of Fred
+ the fish.
+</center>
+
+The virtual pests available commercially generally have very many states and
+there are many ways in which their owners can interact with them.
+They also sometimes have <i>terminal states</i>, that is, states from which
+the pest cannot exit because no arrows leave the state.
+Typically, the pest is said to have died if it enters such a state.
+
+<font size=+1 color='#000064'>
+<p><b>Part A: Implementing the Pet Fish</b>
+</font>
+<p>
+
+For the first part of this assignment, you will implement a pet fish
+with the behavior described above.  That is, you will implement the
+finite state machine given in Figure 2.  To simplify the implementation,
+we will assign an integer to each state and each owner action.  These numbers
+will be used internally in your program to represent the state and
+action.  We will also write methods that map these numbers to meaningful
+state and action names to display to the user.
+<p>
+For example, the states and actions for Fred the fish can be mapped
+to integers as follows:
+
+<center>
+<table>
+<tr>
+<td>
+<table border="1">
+<tr> <th align="center">state</th> <th>number</th> </tr>
+<tr> <td>hungry</td> <td align="center">1</td> </tr>
+<tr> <td>sleepy</td> <td align="center">2</td> </tr>
+<tr> <td>full</td> <td align="center">3</td> </tr>
+<tr> <td>grouchy</td> <td align="center">4</td> </tr>
+</table>
+</td>
+<td> &nbsp; &nbsp; &nbsp; &nbsp; </td>
+<td>
+<table border="1">
+<tr> <th align="center">action</th> <th>number</th> </tr>
+<tr> <td>random</td> <td align="center">0</td> </tr>
+<tr> <td>feed</td> <td align="center">1</td> </tr>
+<tr> <td>pet</td> <td align="center">2</td> </tr>
+<tr> <td>put to bed</td> <td align="center">3</td> </tr>
+</table>
+</td>
+</tr>
+</table>
+</center>
+
+<p>
+The finite state machine can be written with these numbers for the
+states and transitions as follows in Figure 3.
+<p>
+
+<center>
+<img src="fishState2.jpg">
+<p><b>Figure 3:</b> The finite state machine from Figure 2 using numbers
+ for state and action names.
+</center>
+<p>
+In each state, Fred makes a characteristic sound and performs a habitual
+action.  These sounds and actions are given in the following table.
+
+<center>
+<table border="1">
+<tr> <th align="center">state</th> <th>pest sound</th> <th>pest action</th></tr>
+<tr> <td align="center">1</td> <td align="center">blurp!</td> 
+  <td align="center">swim to top</td></tr>
+<tr> <td align="center">2</td> <td align="center">zzZZzzzZz</td> 
+  <td align="center">lay on bottom</td></tr>
+<tr> <td align="center">3</td> <td align="center">BLURP!</td> 
+  <td align="center">sulk on bottom</td></tr>
+<tr> <td align="center">4</td> <td align="center">blurp! bubble bubble ...</td> 
+  <td align="center">swim to bottom</td></tr>
+</table>
+</center>
+<p>
+
+To begin implementing the behavior of Fred the fish, create a 
+<code>Lab06</code> folder in your <code>CS131</code> folder.
+Download and unpack the <a href="DemoPest.zip"><i>DemoPest</i> project</a>
+into your <code>Lab06</code> folder, and use BlueJ to open it.
+Create an instance of the <code>VirtualPest</code> class, using "Fred"
+as the name of the pest, and with an initial state of 1.
+Then create an instance of class <code>VirtualPestGUI</code> using 
+the constructor that takes a <code>VirtualPest</code> as a parameter (pass
+it the <code>VirtualPest</code> that you just created).
+Fred the fish will appear, but the 
+buttons for interacting with him will not work - 
+Fred's state will always be <b>hungry</b>, no matter which buttons
+are pushed.  Also, Fred will not make any sounds or perform any actions.
+
+<p>
+In BlueJ, double click the <code>VirtualPest</code> class to open it
+in the editor.  The fields, constructor and several methods of the
+class are provided for you.  Your task is to implement the remaining
+methods according to the given specifications.
+These methods are: <code>getPestSound</code>, <code>getPestAction</code>
+and <code>doAction</code>.  The pest sounds and actions for each state
+are given in the above tables.  
+<p>
+<b>NOTE</b>: you are NOT allowed to use multiple return statements within
+ one method definition.  Instead, you should use a local variable to hold
+ the return value from the method, and use one return statement at the end
+ of method to return the value of that variable.
+<p>
+ The <code>doAction</code> method must
+ implement the finite state machine given in Figure 3. 
+ This method takes an action as a parameter, and changes the
+ state of the virtual pest depending on the combination of this
+ action and the current state of the pest, exactly as specified by the
+ finite state machine.  For example, if the current state of the pest
+ is <b>hungry</b> (state 1) and the owner feeds the pest (action 1),
+ then the state of the pest becomes <b>full</b> (state 3).
+ In addition to the owner actions, the graphical interface will also 
+ periodically pass
+ the random action (action 0) to this method.  In each state, the pest will
+ typically only
+ respond to some of the possible owner actions (or random) - other actions
+ will not change the pest's state.
+<p>
+ You must also provide test cases that achieve statement coverage for
+ the three methods that you define.  Test cases for the other methods
+ are included with the project.  Note that the constructor for the
+ <code>VirtualPest</code> class takes a state number as a parameter -
+ this is very useful for writing test cases that depend on the pest 
+ being in a particular state.
+<p>
+ Once you have completed the implementation of the <code>VirtualPest</code> 
+ class, be sure to create an instance and then pass that instance as a 
+ parameter when you create an instance of the <code>VirtualPestGUI</code>
+ class.  Now you can see Fred the fish in action!
+<p>
+ Submit this part of the lab via WebCAT
+<p>
+
+<font size=+1 color='#000064'>
+<p><b>Part B: Designing Your Own Pest</b>
+</font>
+<p>
+
+For the second part of this assignment, you must design and implement
+your own virtual pest.  Note that this pest will be implemented in a
+separate project - do NOT modify your <i>DemoPest</i> project for this
+part of the assignment.
+<p>
+Your pest must have at least 5 states, and
+must respond to at least 4 actions (including the <b>random</b> action).
+In the design process, you need to do all of the following:
+<ol>
+<li> Choose the states that your pest can be in, and assign a number
+ to each state. 
+<li> Decide what sound your pest makes and how it acts while in each state.
+ For example, when it is sleepy, it may snore.  When it is hungry, it may beg.
+<li> Choose the owner actions that your pest responds to, and assign a number
+ to each action.  These should be
+ interactions of the owner with the pest, such as petting, feeding, ...
+ Note that the number for the <b>random</b> action must be 0, and the
+ remaining actions must be numbered consecutively starting with 1.
+<li> Decide how the pest reacts to owner actions (and the <b>random</b>
+  action) while in each state, and record these decisions in a finite
+  state machine.  That is, your finite state machine should depict which 
+  states may be reached from which other states, and under what conditions, 
+  as in the example in Figure 2.  You must include at least one
+  <b>random</b> transition.
+  Label each state with both the state name and state number, and each
+  transition with both the action name and action number.
+ <p>
+  Note that your pest does NOT need to respond to every owner action in
+  every state - that is, you should not have a transition
+  from every state to every other state.
+</ol>
+  The information from points 1 - 3 above must be recorded in tables
+ (similar to the tables given above), and you must draw a finite state
+ machine for point 4.  These tables and the finite state machine must
+ be submitted at the beginning of the next lab period.
+<p>
+ 
+  Finally, implement your virtual pest.  Download and unpack the 
+ <a href="MyPest.zip"><i>MyPest</i> project</a>, and use the 
+ <code>VirtualPest</code> class in this project to implement your 
+ pest.  You must implement the
+ <code>getPestSound</code>, <code>getPestAction</code> and 
+ <code>doAction</code> methods as in part A, and also several additional
+ methods.
+<p>
+
+  The <code>getNumActions</code>, <code>getAction</code> and 
+ <code>getFile</code> methods are used for building the graphical interface
+ for the virtual pest.  See the <i>DemoPest</i> project for examples of
+ implementing these methods.  The <code>getFile</code>
+ method should simply return a file name (as a String).  This file must
+ be a GIF or JPEG image file (containing a picture of the virtual pest), 
+ and the file must be located in the <i>MyPest</i> project directory.
+ The <code>getNumActions</code> method should simply return the number of 
+ owner actions that the pest can respond to (NOT including the <b>random</b>
+ action, since all pests can respond to <b>random</b>).  For example, if the
+ pest responds to feeding, petting and being put to bed, 
+ <code>getNumActions</code> should return 3.
+ The <code>getAction</code> method takes a number as a parameter, and returns
+ the owner action (as a String) corresponding to that number.  
+ The numbers should range from 1 up to the number returned by 
+ <code>getNumActions</code>.
+ For example, <code>getAction</code> might return "feed" when passed 1, "pet"
+ when passed 2, and "put to bed" when passed 3.  For any other number,
+ it should return the empty string "".
+ The <code>getState</code> method returns the state that the pest is
+ currently in as a String, or "error" if the pest is in a nonexistent state.
+<!--
+<p>
+ Note that the <code>VirtualPestGUI</code> class has a second constructor 
+ that takes a <code>VirtualPest</code> and a <code>boolean</code> as 
+ parameters.  This constructor can be used for testing your own virtual pest,
+  and also to control whether or not the state
+ of the virtual pest appears directly in the interface.
+-->
+<p>
+ As with the <i>DemoPest</i> project, you are not allowed to use multiple
+ return statements within one method definition for this project.
+<p>
+ You must also provide test cases that achieve statement coverage for
+ all of the methods and constructors in the <code>VirtualPest</code>
+ class (including the method and constructor that are provided for you).
+<p>
+ Submit your project via WebCAT.  Note that WebCAT can not do 
+ correctness testing for your <i>MyPest</i> project, as it does not know
+ how your pest is supposed to behave!  However, WebCAT will
+ evaluate whether or not your test cases achieve statement coverage.
+ Additionally, WebCAT will not accept your submission until you have at
+ least created a test class for the <code>VirtualPest</code> class.
+<p>
+  In addition to your implementation,  you must also hand in the finite
+ state machine and tables for your pest as specified above.
+ Your tables and finite state machine are due at the beginning
+ of the next lab period.
+<!--
+<p>
+ Points for parts A and B of this lab will be distributed as follows:
+ <ul>
+ <li> 30 points for part A, all assigned via WebCAT correctness, style
+ and test coverage checking.
+ <li> 40 points for part B assigned via WebCAT style and test coverage
+ checking.
+ <li> 30 points (for both parts A and B) assigned by your instructor.
+ The bulk of these points will be for the correctness of part B.
+</ul>
+-->
+
+<p>
+<font size=+1 color='#000064'>
+<p><b>Part C: Bonus Problem</b>
+</font>
+<p>
+
+ Modify your <code>getFile</code> method (in the <i>MyPest</i> project)
+ so that it 
+ returns a different file name for each state of the virtual pest, and
+ find or create image files (in GIF or JPEG format) corresponding to each
+ state and place them in the <i>MyPest</i> folder.
+ This will cause the image displayed in the interface to change each time
+ the state of the pest changes.  Note that this will work best if all of
+ your images have approximately the same dimensions.
+ You will also need to write new test cases for your <code>getFile</code>
+ method (to achieve statement coverage).  You do not need to submit this
+ part of the assignment separately - just include these modifications
+ in your submission to WebCAT.
+</body>
+</html>

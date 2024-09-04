@@ -1,0 +1,285 @@
+<html lang="en">
+<HEAD>
+<Title>CS354 - Operating Systems</Title>
+<!-- Changed by: , 17-Jan-2008 -->
+</HEAD>
+
+<BODY BGColor='#FFFFFF' text='#000000' link='#473C8B' vlink='#757575'>
+
+<hr>
+<center>
+<font size=+2 color='#006400'>
+<b>
+Computer Science 354<br>
+Operating Systems<br>
+</b>
+</font>
+<font size=-1>
+<br>
+Dickinson College<br>
+Spring Semester 2006<br>
+Grant Braught
+</font>
+</center>
+
+<hr>
+<center>
+<font size=+2 color='#000064'>
+
+<b>Project #1 - Processes and Shells</b>
+
+</font>
+</center>
+
+
+<font size=+1 color='#006400'>
+<p><b>Introduction</b>
+</font>
+
+<UL>
+<p>In this project you will gain some practice using the C++ <code>fork</code>, 
+<code>wait</code> and <code>execv</code> system calls for creating new
+processes and running programs.  In addition, you will extend the functionality
+of a C++ program that implements a command line shell.
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>Resources</b>
+</font>
+
+<UL>
+You will be writing your programs for this project using C++.  The sample programs
+presented in class, plus the links provided here will be good resources for
+completing this project.
+
+<p><b>Sample Programs:</b>
+<UL>
+<li><a href="ConsoleIODemo.cpp">ConsoleIODemo.cpp</a> - Demonstration of console input/output
+in C++.
+<li><a href="StringDemo.cpp">StringDemo.cpp</a> - Demonstration of <code>string</code>
+functions in C++.
+<li><a href="StringConvert.cpp">StringConvert.cpp</a> - Demonstration of converting a C++ 
+<code>string</code> into a C-style string.
+<li><a href="TokenizeString.cpp">TokenizeString.cpp</a> - Demonstration of using the
+functions in <a href="StringTokenizer.cpp">StringTokenizer.cpp</a> to split a C++ 
+<code>string</code> into its tokens.
+<LI><a href="ForkDemo.cpp">ForkDemo.cpp</a> - Demonstration of using the <code>fork</code> 
+and <code>wait</code> system calls in C++.
+<LI><a href="ExecvDemo.cpp">ExecvDemo.cpp</a> - Demonstration of using the <code>fork</code>,
+<code>execv</code> and <code>wait</code> system calls in C++.
+</UL>
+
+<p><b>Links:</b>
+<UL>
+<li><a href="http://www.cppreference.com/cppstring/">C++ Strings</a> - a page listing and 
+describing all of the C++ string functions.
+</UL>
+
+</UL>
+
+<font size=+1 color='#006400'>
+<p><b>Compiling and Running C++ Programs</b>
+</font>
+
+<UL>
+<p>To compile a C++ program use the command line:
+
+<UL><code>g++ &lt;source file&gt; -o &lt;executable file&gt;</code></UL>
+
+<p>For example, to compile the <code>ForkDemo.cpp</code> program the command line would be:
+<UL><code>g++ ForkDemo.cpp -o ForkDemo.exe</code></UL>
+
+<p>Note that unix does not require the <code>.exe</code> extension on an executable file.
+I've used it here just to clearly distinguish between the source and executable versions
+of the programs.
+
+<p>To run a compiled C++ program, be sure you are in the directory containing the file 
+and then use the command line:
+
+<UL><code>./&lt;executable file&gt;</code></UL>
+
+<p>For example, to run the <code>ForkDemo.exe</code> program that was compiled above, 
+you would use the command line:
+
+<UL><code>./ForkDemo.exe</code>
+</UL>
+</UL>
+
+
+<font size=+1 color='#006400'>
+<p><b>Part 1 - <code>fork</code>, <code>wait</code> and <code>execv</code></b>
+</font>
+
+<OL>
+<p>In this part of the project you will write several programs that make use of the 
+<code>fork</code>, <code>wait</code> and <code>execv</code> system calls in C++.
+
+<LI>Write programs A.cpp, B.cpp, C.cpp, D.cpp, such that when program A is run the
+following process tree is created:
+<UL><xmp>           A
+          / \
+         B   C
+        / \   \
+       D   C   D
+            \
+             D
+</xmp></UL>
+
+<p>Every process should wait for all of its children to complete. 
+Note process D doesn't fork any other processes. It should just announce that it 
+is running, sleep for a little while and then announce that it is done. 
+If you have D sleep for long enough you will be able to use the <code>ps</code> command
+to verify that you have created the correct process tree.
+
+<p>The output from running program A should be similar to the following:
+<UL><xmp>Process A running
+Process C running
+Process D running
+Process B running
+Process D running
+Process C running
+Process D running
+Process D done
+Process C done
+Process D done
+Process D done
+Process C done
+Process B done
+Process A done</xmp></UL>
+
+Turn in printouts of your 4 programs as your answer to this question.
+(Save backup copies, because the next several questions ask you to
+make some changes to these programs.)  Question to think about for
+discussion in class: can you guarantee that the output will be
+<I>exactly</I> as given above?  If not, why not?
+
+<LI>Answer the following questions by modifying your programs from 
+#1 and using the <code>ps</code> command. You will need to use calls to 
+the sleep method in your processes so that you have time to observe the results
+using <code>ps</code>.  You will also need to use some of the options to the 
+<code>ps</code> command in order to see <code>PPID</code> information as well
+as all system processes (you will be particularly interested in the 
+<code>init</code> process.) Do not turn in programs for this part. 
+In your answers just explain how you modified prgrams C and D, what 
+you did in order to answer the question and what you found.
+
+<OL type="a">
+<LI>What happens to process D if you kill process C while it is 
+waiting for process D to complete?
+
+<LI>What happens to process C if process D is killed while process 
+C is waiting on it?
+
+<LI>What happens to process C if process D completes naturally before 
+process C waits on it?
+
+<LI>What happens if process C exits normally while process D is still running?
+
+<LI>Based on those observations. What do you think would happen if you 
+ran process A and it were killed while waiting for its child processes B and C?  
+Check your expectations and describe what happens.
+
+<LI>What happens if you kill the process for the command shell from which process A was
+run while process A is still running? Why do you think this is different?
+</OL>
+</OL>
+
+<font size=+1 color='#006400'>
+<p><b>Part 2 - Exending the SimpleShell</b>
+</font>
+
+<UL>
+<p>The program contaned in the file 
+<a href="SimpleShell.cpp">SimpleShell.cpp</a></code> contains the beginnings
+of a shell program.  As suggested by its name, the functionality of the SimpleShell 
+is very limited.  It will read a single
+line of input from the user and attempt to execute that line as a program using
+<code>fork</code> and <code>execv</code>.  So for example, if the user were
+to enter the command:
+
+<UL><code>/bin/ls -l</code></UL>
+
+<p>In response to this command, the SimpleShell will execute the
+<code>ls</code> program contained in the <code>/bin</code> directory and pass it
+the command line argument <code>-l</code>. After executing the command, the SimpleShell
+simply exits.  You should play with the SimpleShell program for a little while until 
+you get a feel for what it can and cannot do.  Some things you should be sure to try are: 
+entering a bogus command, changing directories, running a program (like <code>ls</code>) 
+without specifying its full path, and running a program in the current directory.
+
+<p>Your job for this part of the project is to extend the functionality of the 
+SimpleShell in the following ways:
+<UL>
+<LI>Have the shell read and attempt to execute commands from the user until the user 
+enters the <code>exit</code> command.
+
+<p><LI>Add the <code>&</code> functionality.  That is, if a command that is entered
+ends with an <code>&</code> then the command should be run concurrently with 
+the shell.  Otherwise, the shell should wait for the entered command to complete.
+
+<p><LI>Implement the <code>cd</code> command so that the user can change the 
+current working directory. Using <code>cd</code> without any argument should
+cause the current working directory to be set to the user's home directory as
+indicated by the <code>HOME</code> variable.  To change the current working 
+directory you will need to make use of the <code>chdir</code> system call.  The 
+code below shows several examples of how to use this system call:
+
+<UL><xmp>
+char *newAbsDir = "/usr/local/bin";
+int rv = chdir(newAbsDir);   // change cwd to /usr/local/bin
+// rv will be 0 if the directory was changed and -1 if not.
+
+char *newRelDir = "stuff";
+rv = chdir(newRelDir);       // Change into "stuff" subdirectory
+                             // of the current directory.
+
+char *newParentDir = "..";
+rv = chdir(newParentDir);    // change into the parent directory.
+</xmp></UL>
+
+<p><LI>Implement <code>PATH</code> functionality.  When the user enters a command with no
+path specified (e.g. <code>ls -l</code>) the shell should attempt to run a program with
+the specified name in each of the directories listed in the <code>PATH</code>. The 
+directories in the <code>PATH</code> are to be tried in the order that they appear. 
+If the program is not found in any of the directories contained in the <code>PATH</code>,
+then an appropriate error message should be displayed.  NOTE: If the user enters a 
+command containing either an absolute or a relative path, then the <code>PATH</code>
+should not be seached.
+</UL>
+
+<p>To submit part 2 of this project, send all of the source code files 
+for your shell (with comments please) to me as an e-mail attachment.
+
+<p><b>Bonus Features</b>
+
+<p>Each of the following features can be implemented for bonus points:
+<UL>
+<LI>Change the program so that the values for the <code>PATH</code> and <code>HOME</code>
+environment variables are read from a file when the shell is started.
+<p><LI>Add a history feature to your shell.  The history feature should allow the user to 
+recall and execute commands that had been previously entered without retyping them.  
+In the bash shell, the history is accessed using the up-arrow key.  Your history
+may be accessed that way or any other way that you like.  Just include directions
+for how to use your history feature in a comment at the top of your shell code.
+</UL>
+
+<p> Acknowledgment: this content is essentially identical to that
+developed by Professor Grant Braught for the Spring 2006 Operating
+Systems course, and I'm grateful for his permission to use it.
+
+
+
+
+<hr>
+<font size=-2>
+<script language="JavaScript">
+          <!---//hide script from old browsers
+          document.write( "This document was last updated "+ document.lastModified + "<br><br>" );
+          //end hiding contents --->
+          </script>
+</font>
+
+
+
+</body>
+</html>

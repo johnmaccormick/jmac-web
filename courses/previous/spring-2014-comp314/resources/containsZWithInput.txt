@@ -1,0 +1,8 @@
+# file containsZWithInput.txt
+def containsZ(input):
+    if "Z" in input:
+        return "yes"
+    else:
+        return "no"
+##end-of-program##
+asdfZ4321
