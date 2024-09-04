@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationRelatedData>
+	<Last_Updated_Date>01/24/2012</Last_Updated_Date><!--Date when you have last updated this XML file, please use format MM/DD/YYYY-->
+	<Company_Info>
+        <Company_Name>John MacCormick</Company_Name><!--Developer company name-->
+        <Support_Info>jmac@dickinson.edu</Support_Info><!--Support email or URL-->
+		<Developer_Info>jmac@dickinson.edu</Developer_Info><!--Developers email or URL-->
+	</Company_Info>
+	<Program_Info>
+	    <Program_Name>MultiCam</Program_Name><!--Program name-->
+        <Program_Version>1.0.0.0</Program_Version><!--Program version-->
+        <Program_Release_Date>01/24/2012</Program_Release_Date><!--Program release date-->
+        <Program_Cost></Program_Cost><!--Cost of the program. If the app is free just keep this field blank. Recommended format x,xxx.xx-->
+		<Program_Cost_Currency></Program_Cost_Currency><!--Currency code. If the app is free just keep this field blank
+		Please use 3-symbols Alphabetic code. Examples - http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm-->
+		<Program_Promotion_Cost></Program_Promotion_Cost><!--Promotional cost. If there is no promotions leave it blank. If this field is not blank it will be used as cost instead of <Program_Cost> field-->
+		<Program_Promotion_DateStart></Program_Promotion_DateStart><!--Promotion Start date. Please use format MM/DD/YYYY. This field is used to automatically update price only if <Program_Promotion_Cost> is not blank-->
+		<Program_Promotion_DateEnd></Program_Promotion_DateEnd><!--Promotion End date. Please use format MM/DD/YYYY. This field is used to automatically update price only if <Program_Promotion_Cost> is not blank-->
+		<FreeTrial></FreeTrial><!--Specify Y if your Program has Free trial, otherwise leave blank-->		
+		<Program_OS_Support>Windows 7</Program_OS_Support><!--Specify all supported operating systems separated by comma and space-->
+		<Program_Win_Support>Y</Program_Win_Support><!--Specify Y if the program supports Windows-->
+		<Program_Mac_Support>N</Program_Mac_Support><!--Specify Y if the program supports Mac OS-->
+        <Program_Language>English</Program_Language><!--Specify all supported languages separated by comma and space-->
+		<Program_Desc_Short>Use multiple cameras while you chat.</Program_Desc_Short><!--Short description, please use no more than 40 characters, no HTML -->
+        <Program_Desc_Long>Switch between multiple cameras while you video chat, with a single keystroke or mouse click.  See a tiled view of all cameras at once, or one camera at a time.  The person you're talking to can switch your cameras too.</Program_Desc_Long><!--Long description, please use no more than 300 characters, HTML available -->
+        <Program_Icon_URL>http://users.dickinson.edu/~jmac/multicam/skype-app/multicam-logo-60x60.png</Program_Icon_URL><!--URL pointed to the App icon. Recommended resolution:60x60, type:jpg, gif, png. *All images have to save as RGB web format.-->
+		<DeveloperLogo_URL>http://users.dickinson.edu/~jmac/multicam/skype-app/multicam-logo-140x90.png</DeveloperLogo_URL><!--URL pointed to the developer logo. Recommended resolution:140x90, type:jpg, gif, png. *All images have to save as RGB web format.-->
+        <Landing_Page_URL>http://users.dickinson.edu/~jmac/multicam/</Landing_Page_URL><!--This is the url where you want users to go after they click on a "get it now" button on the App Directory-->
+        <Program_Screenshot1>http://users.dickinson.edu/~jmac/multicam/skype-app/3-camera-living-room-screenshot-cropped-blurred.jpg</Program_Screenshot1><!--Main image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+        <Program_Screenshot2>http://users.dickinson.edu/~jmac/multicam/skype-app/2camera-labelled-example.jpg</Program_Screenshot2><!--Additional image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+        <Program_Screenshot3>http://users.dickinson.edu/~jmac/multicam/skype-app/3cam-living-room-labelled.jpg</Program_Screenshot3><!--Additional image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+        <Program_Screenshot4>http://users.dickinson.edu/~jmac/multicam/skype-app/multicam-app-screenshot.PNG</Program_Screenshot4><!--Additional image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+        <Program_Screenshot5></Program_Screenshot5><!--Additional image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+        <Program_Screenshot6></Program_Screenshot6><!--Additional image URL. Recommended resolution: 430x330, type:jpg, gif, png. Please show the app against the backdrop of a desktop, rather than simply the app itself. *All images have to save as RGB web format. If void, just leave blank-->
+	</Program_Info>
+    <Skype_Info>
+	    <SkypeAppDirectory_ID></SkypeAppDirectory_ID><!--APP ID in the App Directory, for the first submission please leave it blank, you will receive generated ID from App Directory admin by email-->
+		<SkypeApp_Category>Integrations with popular software</SkypeApp_Category><!--Program category,
+		pick primary category, list of available categories you can find here:
+		It need to be one of the examples we're including (including case sensitivity)
+			Business
+			Call recording (audio &amp; video)
+			Call recording (audio only)
+			Desktop &amp; whiteboard sharing
+			Faxing
+			Integrations with popular software
+			Mobile video communications
+			-->
+        <SkypeApp_skypekit>N</SkypeApp_skypekit><!--Specify Y if you used SkypeKit to build the program-->
+		<SkypeApp_RemovalRequired></SkypeApp_RemovalRequired><!--Specify Y if you would like to remove program from App Directory-->
+        <SkypeApp_Features_Line1>Use multiple cameras in a Skype chat.</SkypeApp_Features_Line1><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line2>Switch between cameras easily.</SkypeApp_Features_Line2><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line3>See a tiled view of all cameras simultaneously.</SkypeApp_Features_Line3><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line4>The person you are chatting with can switch between your cameras too.</SkypeApp_Features_Line4><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line5></SkypeApp_Features_Line5><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line6></SkypeApp_Features_Line6><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line7></SkypeApp_Features_Line7><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line8></SkypeApp_Features_Line8><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line9></SkypeApp_Features_Line9><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line10></SkypeApp_Features_Line10><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line11></SkypeApp_Features_Line11><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line12></SkypeApp_Features_Line12><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line13></SkypeApp_Features_Line13><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line14></SkypeApp_Features_Line14><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Features_Line15></SkypeApp_Features_Line15><!--Features of the program. If void, just leave blank-->
+        <SkypeApp_Requirements_Line1>PC running Windows 7.</SkypeApp_Requirements_Line1><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line2>Two or more webcams (built-in webcams are fine).
+</SkypeApp_Requirements_Line2><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line3></SkypeApp_Requirements_Line3><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line4></SkypeApp_Requirements_Line4><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line5></SkypeApp_Requirements_Line5><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line6></SkypeApp_Requirements_Line6><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line7>Skype 5.0 or higher recommended.</SkypeApp_Requirements_Line7><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line8></SkypeApp_Requirements_Line8><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line9></SkypeApp_Requirements_Line9><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line10></SkypeApp_Requirements_Line10><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line11></SkypeApp_Requirements_Line11><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line12></SkypeApp_Requirements_Line12><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line13></SkypeApp_Requirements_Line13><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line14></SkypeApp_Requirements_Line14><!--Program Requirements. If void, just leave blank-->
+        <SkypeApp_Requirements_Line15></SkypeApp_Requirements_Line15><!--Program Requirements. If void, just leave blank-->
+	</Skype_Info>
+</ApplicationRelatedData>

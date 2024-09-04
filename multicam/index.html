@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <title>MultiCam for video chat with multiple cameras</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="../mystyle.css">
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27349339-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </head>
+
+  <body>
+    <h1>MultiCam for video chat with multiple cameras</h1>
+
+<!-- <img src="multicam-demo.jpg" alt="MultiCam demo" align="right" > -->
+
+
+<!-- <table align="right"> -->
+<!--   <tr><td><img src="multicam-demo.jpg" alt="MultiCam demo" width="350px"> -->
+<!--   <tr><td><img src="multicam-app.gif" alt="MultiCam application window" width="350px"> -->
+<!--   <tr><td><img src="2camera-labelled-example.jpg" alt="MultiCam demo with 2 labeled cameras" width="350px"> -->
+<!--   <tr><td><img src="3cam-living-room-labelled.jpg" alt="MultiCam demo with 3 labeled cameras"> -->
+<!-- </table> -->
+
+
+
+<P><b>Announcement (12/17/13):</b> Sadly, support for MultiCam has
+been discontinued.  This page will remain intact to enable legacy uses
+of MultiCam to continue, especially for research purposes. However,
+the MultiCam software is increasingly likely to be incompatible with
+newer software, such as Windows 8 and recent versions of Skype. It may
+be possible to continue using MultiCam on Windows 7 with older
+versions of Skype, such
+as <a href="http://download.skype.com/msi/SkypeSetup_6.1.0.129.msi">version
+6.1.0.129</a>. (Just click on the link to install it; you will probably
+also need to disable automatic updates within Skype, via
+Tools|Options|Advanced|Automatic updates. And an update from August
+2014: MultiCam user Kev Lawrence tells me that version <a href="http://download.skype.com/msi/SkypeSetup_6.18.0.106.msi">6.18.0.106</a> is
+now working with MultiCam. Many thanks to Kev for this useful
+information.)
+
+<P>Why has support for MultiCam been discontinued?  The primary reason
+is that the code requires substantial maintenance to keep up with
+changes in Windows and Skype, and the resources to continue this
+maintenance are not available.
+Impending <a href="http://blogs.skype.com/2013/11/06/feature-evolution-and-support-for-the-skype-desktop-api/">changes
+in the Skype Desktop API</a> represent a particularly large challenge
+in this regard.
+
+<P>Thanks to all MultiCam users for their support and feedback!
+Although it has not happened yet, I still hope that the existence of
+MultiCam and similar utilities will persuade video chat vendors to
+provide more flexible built-in multi-camera support.  Certainly, MultiCam has succeeded in proving that certain niche applications (such as online music lessons and other types of online tutoring) can benefit greatly from flexible viewpoint control at both ends of the conversation.  Thanks again! -- John MacCormick
+
+<blockquote><i>The drama's done. Why then here does any one step forth?--Because one
+did survive the wreck.</i>  -- from the Epilogue of Melville's Moby Dick</blockquote>
+
+<h3>Legacy content for unsupported MultiCam:</h3>
+
+
+<!-- <P>Announcement (7/25/13): The compatibility bug has been fixed, and MultiCam is now working again with the latest version of Skype on Windows 7.<P> -->
+
+<!-- The bug announced in the following notice was fixed on 7/25/13
+
+<!-- <P><b>Important notice, posted April 22, 2013: The most recent -->
+<!-- update to Skype appears to be incompatible with MultiCam. A fix for -->
+<!-- this is being worked on, and will hopefully be available -->
+<!-- soon. Meanwhile, you can still use MultiCam by installing an earlier -->
+<!-- version of Skype, such -->
+<!-- as <a href="http://download.skype.com/msi/SkypeSetup_6.1.0.129.msi">version -->
+<!-- 6.1.0.129</a> (just click on the link to install it). You will -->
+<!-- probably also need to disable automatic updates within Skype, via -->
+<!-- Tools|Options|Advanced|Automatic updates.</b> -->
+<!-- <P> -->
+
+<!-- <P><b>Important notice, posted January 28, 2013: If you had some -->
+<!-- difficulties with MultiCam in late December or early January, please -->
+<!-- install the latest version of Skype. The current version of MultiCam -->
+<!-- (1.0.2.6) works with the latest versions of Skype (6.1.59.129 or -->
+<!-- later).  Thanks!</b>  -->
+<P>
+
+
+<table>
+  <tr>
+    <td>
+      <a href="#What-is-MultiCam">What is MultiCam?</a><br>
+      <a href="#install-MultiCam">How do I download and install MultiCam?</a><br>
+      <a href="#When-use-MultiCam">When should I use MultiCam?</a><br>
+      <a href="#How-use-MultiCam">How do I use MultiCam?</a><br>
+      <a href="#bug-reports">How do I report a bug?</a><br>
+      <a href="#Other-versions">Are other versions of MultiCam available?</a><br>
+      <a href="#similar-software">What other software has features similar to
+	MultiCam's?</a><br>
+      <a href="#connection-to-Skype">Is the software certified by Skype?</a><br>
+      <a href="#works-with-other-programs">Does MultiCam work with other video chat programs?</a><br>
+      <a href="#administrative-privilege-problem">MultiCam tells me "This program is running with administrator privileges, and Skype will therefore refuse to connect to it." How can I fix this problem?</a><br>
+      <!-- <a href="#"></a><br> -->
+    <td>
+	<a href="MultiCam-latest.msi" onmouseup="javascript: _gaq.push(['_trackEvent', 'download', 'MultiCam-latest.msi']);">
+	  <img src="download-multicam.gif"
+	       alt="download MultiCam" width="200px" align="left top" hspace="30" 
+	       border="hidden">
+	</a>
+	<!-- <br>(Or visit the <a href="downloads.html">downloads</a> page.) -->
+</table>
+
+
+<p>
+
+
+<h3 id="What-is-MultiCam">What is MultiCam?</h3>
+
+<b><i>MultiCam</i></b> is two things:
+<ol>
+  <li>MultiCam is a free and open-source software program that lets you
+easily use multiple cameras during a Skype video chat.  You can switch
+between cameras with a single keystroke or mouse click, you can view
+all cameras simultaneously in a single window, and the person you're
+speaking with can also switch between your cameras.
+  <li>MultiCam is also a research project to investigate new ways of
+  using multiple cameras with video chat.
+</ol>
+
+To get the basic idea, here are a couple of setups that have been used
+successfully with MultiCam Skype chats:
+
+<table align="center" cellspacing="30">
+  <tr>
+    <td><img src="2camera-labelled-example.jpg" alt="MultiCam demo with 2 labeled cameras" width="350px">
+    <td><img src="3cam-living-room-labelled.jpg" alt="MultiCam demo with 3 labeled cameras">
+</table>
+
+The webcams are circled in green. As you can see, a standard approach
+is to use one or two cameras trained on individual participants or
+objects of interest (such as a baby).  In addition, it can be useful
+to have a camera surveying the whole room, as in the 3-camera setup on
+the right, where a camera on top of the TV screen performs this role.
+The people on the other end of the chat in this particular 3-camera
+setup can opt to see all three camera views simultaneously, as in the
+following screenshot:
+
+<table align="center" cellpadding="30">
+  <tr>
+    <td><img src="3-camera-living-room-screenshot.jpg" alt="MultiCam screenshot with 3 cameras" width="350px">
+</table>
+
+But the participants in the Skype chat don't <i>have</i> to watch all
+the cameras at once.  With a keystroke or mouse click, they can switch
+between each of the individual camera views, and/or the tiled view of
+all cameras.  A particularly interesting aspect of MultiCam is that
+the participants <i>at either end of the conversation</i> can switch
+between cameras at either end.  Here is a screenshot of the MultiCam
+application, showing the ability to switch cameras locally or
+remotely:
+
+<table align="center" cellpadding="30">
+  <tr>
+    <td><img src="multicam-app-screenshot.PNG" alt="MultiCam application screenshot">
+    <!-- <td><img src="multicam-app-screenshot.PNG" alt="MultiCam application screenshot" width="350px"> -->
+</table>
+
+<h3 id="install-MultiCam">How do I download and install MultiCam?</h3>
+
+Download and run the <a href="MultiCam-latest.msi"
+onmouseup="javascript: _gaq.push(['_trackEvent', 'download',
+'MultiCam-latest.msi']);">MultiCam installer</a>. (Apologies to Mac
+and Linux users&#8212;this works on Windows only.  It's been tested on
+Windows 7; earlier versions of Windows may encounter difficulties.)
+You may be asked to give permission for the installer to alter
+settings on your computer.  Your Web browser may also give you some
+warnings about downloading and running the installer, but you can
+safely ignore these.
+
+<P>If you don't have it already, you may also be required to install
+Microsoft's <a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=17113">.NET
+Framework 4 Client Profile</a>.
+
+<P>You will, of course, also
+need <a href="http://www.skype.com/intl/en-us/get-skype/">Skype</a>
+(the free version is fine).
+
+<P>By the way, earlier versions of MultiCam, and the latest
+development version, are available on the
+separate <a href="downloads.html">downloads page</a>.
+
+<h3 id="When-use-MultiCam">When should I use MultiCam?</h3>
+
+MultiCam is designed for standard two-party conversations, not
+conference calls. It's most effective when both parties are running
+the MultiCam software, but MultiCam can still be useful even when it's
+running at only one end of the conversation.  
+
+<P>Obviously, at least one of the parties should be using multiple
+cameras&#8212;otherwise, there's nothing for MultiCam to do.  But that
+is the only restriction.  For example, MultiCam is definitely useful
+when one end of the conversation isn't even using video, provided the
+other end has multiple cameras. Similarly, MultiCam is again useful
+when one end of the conversation has two or more cameras, and the
+other end has only one. And of course, MultiCam is also useful when
+both ends of the conversation have multiple cameras.
+
+<h3 id="How-use-MultiCam">How do I use MultiCam?</h3>
+
+
+<ol>
+<li><b>Plug in the webcams:</b> Plug in any webcams you are planning
+to use. You can use a built-in webcam as one of your cameras, of
+course. Most cameras are automatically on, but if one or more of your
+cameras needs to be turned on or activated somehow, you should do
+that.
+  
+<li><b>Launch the applications:</b> Start Skype as normal. Also start
+the program &quot;MultiCam&quot; from the Windows start menu.
+
+<li><b>Give MultiCam permission to communicate with Skype:</b> Soon
+after you launch Skype and MultiCam for the first time, an alert will
+pop up near the top of the Skype window, saying  &quot;MultiCam.exe wants to
+use Skype.&quot;  Click on &quot;Allow access.&quot;
+
+<li><b>Configure Skype to use MultiCam video:</b> This step is only
+necessary if your computer is using multiple cameras; if your end of
+the conversation is not using video, or you have only a single camera,
+there is no need to change your Skype settings. 
+  <ol class="withalpha">
+    <li><b>Open Skype video settings:</b> In Skype, go to Tools | Options | Video settings.  
+    <li><b>Choose Virtual Cam:</b> In the drop-down list of cameras,
+    choose the option labeled &quot;Virtual Cam.&quot; 
+      <ul>
+	<li>Note that you might need to scroll through the drop-down
+            list, and the scrolling controls aren't always obvious
+            until you try to start scrolling. If all else fails, press
+            the up/down arrows to get to &quot;Virtual Cam.&quot;
+	<li>Once you've successfully selected Virtual Cam, you'll see
+            a pattern of random colors in the video window.  This is
+            intentional.  It turns out that for obscure technical
+            reasons, it's not possible to switch directly between a
+            real physical camera and the artificial MultiCam
+            camera, which is why we have to temporarily select
+            this random-color virtual camera before and after using
+            MultiCam.
+      </ul>
+    <li><b>Choose MultiCam:</b> In the same drop-down
+    list of cameras, choose &quot;MultiCam.&quot; 
+    <li><b>Test MultiCam:</b> This is a good time to test out the
+    MultiCam functionality: find the MultiCam application window, and
+    click &quot;Switch local camera&quot; a few times. The video
+    should cycle through each camera in turn, including an additional
+    mode that combines all cameras into a single view.
+    <li><b>Save Skype camera settings:</b> Click &quot;Save&quot; at
+    the bottom of this settings window.
+  </ol>
+
+<li><b>Launch a Skype video call, and start enjoying MultiCam:</b>
+Once you've started a video call, take a look at the MultiCam
+application window. The two main buttons here are labeled &quot;Switch local
+camera&quot; and &quot;Switch remote camera.&quot; Hopefully, the
+meanings are obvious: &quot;Switch local camera&quot; switches to a
+different camera on your own computer, whereas &quot;Switch
+remote camera&quot; switches to a different camera on the computer of
+the person you are talking to.  If your computer doesn't have
+multiple cameras, the &quot;Switch local camera&quot; button is grayed
+out. Similarly, if the computer of the person you are talking to
+doesn't have multiple cameras (or that computer isn't running
+MultiCam) the &quot;Switch remote camera&quot; button is grayed out.
+As mentioned above, the &quot;Switch camera&quot; buttons cycle
+through each camera on the relevant computer, including an additional
+mode that combines all cameras into a single view.
+
+<li><b>Use keys instead of mouse clicks to switch cameras:</b> If you
+want, you can switch the remote camera by hitting the spacebar, and
+you can switch the local camera by hitting the Enter key.  These
+keystrokes work from any window, which is particularly useful if you
+want to maximize the Skype window, or go into full screen video mode
+within Skype.  However, there may be times when you want to turn off
+this switch-by-key feature (if, say, you are typing while video
+chatting).  To do that, uncheck the &quot;Enable switching cameras
+using keys&quot; box.
+
+<li><b>Switch cameras with Skype chat messages:</b> If you're talking
+with someone who doesn't have MultiCam installed, they can still
+switch between the cameras at <i>your</i> end, by sending Skype chat
+messages (also known as IM messages).  Your local camera advances every
+time a message is received.  To turn off this feature, uncheck the
+&quot;Receipt of chat message switches local camera&quot; box.
+
+</ol>
+
+
+<h3 id="bug-reports">How do I report a bug?</h3>  
+
+If you encounter a problem, please email the author of MultiCam, John
+MacCormick (jmac&#64;dickinson.edu).  Attach the following two files to your email:
+  <ul>
+    <li> <tt>C:\temp\multicam-log.txt</tt>
+    <li> <tt>C:\temp\vcam-log.txt</tt>
+  </ul>
+(To do this, click the "Attach" button in your email program.  Now
+browse to "Computer", then "Local Disk (C:)", then the "temp" folder,
+and select the file <tt>multicam-log.txt</tt>.  Do the same
+for <tt>vcam-log.txt</tt>.)
+
+<P>Most likely, additional details will be needed to track down your
+problem.  To record these additional details, please take the
+following steps:
+<ol>
+
+<li>Uninstall your current version of MultiCam.  (In Windows 7, this
+can be done via Control Panel | Programs | Uninstall a program.)
+
+<li>Download and run the <a href="MultiCam-verbose.msi" onmouseup="javascript: _gaq.push(['_trackEvent', 'download', 'MultiCam-verbose.msi']);"> version of
+MultiCam that includes additional logging</a>.
+
+<li>Reproduce the problem you would like diagnosed.
+
+<li>Again email the following two files to jmac&#64;dickinson.edu as
+email attachments:
+  <ul>
+    <li> <tt>C:\temp\multicam-log.txt</tt>
+    <li> <tt>C:\temp\vcam-log.txt</tt>
+  </ul>
+
+</ol>
+
+
+<h3 id="Other-versions">Are other versions of MultiCam available?</h3>  
+
+Yes, all released versions are available on
+the <a href="downloads.html">downloads page</a>.
+
+<h3 id="source-code">Is the source code of MultiCam available?</h3>  
+
+Yes, source code is available on
+the <a href="downloads.html">downloads page</a>.
+
+<h3 id="similar-software">What other software has features similar to
+MultiCam's?</h3>
+
+There is an excellent free product
+called <a href="http://www.manycam.com">ManyCam</a> which has some
+features in common with MultiCam.  The main advertised purposes of
+ManyCam are to add interesting overlays to a single camera, and to use
+a single camera with multiple applications simultaneously. But you can
+also use it to do the reverse of this: that is, you can use multiple
+cameras with a single application. And you can even switch between
+cameras using a single keystroke, provided you have the ManyCam window
+open and active.  Thus, ManyCam does achieve one of the main features
+of MultiCam.  But there are some significant differences in the
+feature set. The most important difference is that in MultiCam, a user
+at one end of the conversation can switch cameras at the other
+end&#8212;ManyCam has nothing resembling this feature. Here is a more
+complete list of the pros and cons of the two programs:
+<ul>
+  <li>Advantages of ManyCam:
+    <ul>
+      <li>Works with any video chat program, not just Skype.  
+      <li>Works on all recent versions of Windows and Mac operating
+      systems (MultiCam is for Windows 7 only).
+      <li>When viewing two cameras simultaneously, the user can move
+      and resize one of the two views.
+    </ul>
+  <li>Advantages of MultiCam:
+    <ul>
+      <li>User at one end of the conversation can switch cameras at the other end.
+      <li>User can have Skype in full-screen mode and still switch
+      cameras using keystrokes.
+      <li>Includes a tiled view of all cameras simultaneously (ManyCam
+      is limited to viewing two cameras simultaneously).
+      <li>MultiCam is open source (ManyCam is free but closed-source).
+    </ul>
+</ul>
+
+<h3 id="connection-to-Skype">Is the software certified by Skype?</h3>  
+
+No. The software is not created, certified, or officially endorsed by
+Skype.  The software was created through a non-commercial, volunteer
+effort.
+
+<h3 id="works-with-other-programs">Does MultiCam work with other video chat programs?</h3>  
+
+Somewhat. Some features of MultiCam are Skype-specific, but others
+should work, in principle, with any video chat software. Specifically,
+switching the camera locally should work with any video chat program,
+but switching the camera remotely requires Skype. However, MultiCam
+has been tested carefully only with Skype. At the time of writing,
+MultiCam appears to work reasonably well with Yahoo Messenger and
+ooVoo, but it has technical problems with Google's chat software.
+
+<h3 id="administrative-privilege-problem">MultiCam tells me "This program is running with administrator privileges, and Skype will therefore refuse to connect to it." How can I fix this problem?</h3>  
+
+[Many thanks to David Brosseau, who provided this workaround.]
+
+<P>
+You need to run MultiCam with a lower "trust level."  This can be
+achieved using the Windows RunAs utility.  For example, assuming you
+are in the directory where MultiCam.exe resides, you can issue the
+following command from the Windows command prompt:
+<blockquote>
+RunAs /trustlevel:0x20000 MultiCam.exe
+</blockquote>
+You can make this more convenient for yourself by creating a shortcut
+to perform the RunAs.  First, make a shortcut to MultiCam.exe and
+place it on the desktop or any other convenient location.  Right-click
+on the shortcut and choose Properties.  In the Target field, paste
+"RunAs /trustlevel:0x20000 " in front of the existing target that is
+already there in quotes.  The resulting value should be something like
+<blockquote>
+RunAs /trustlevel:0x20000 "C:\Program Files (x86)\Erasmus Software\MultiCam\Multicam.exe"
+</blockquote>
+
+<h3 id="favorite-feedback">What is your favorite feedback from a MultiCam user?</h3>
+
+Someone sent me this kind comment:
+<blockquote>
+  Multicam saved one of my Koi whilst we were on holiday recently -- I directed 
+  my father in law to where a fish in trouble was and directed him real time 
+  through treating him sucessfully.
+</blockquote>
+
+<hr>
+<span class="s80">Back
+to <a href="http://www.dickinson.edu/johnmaccormick">John MacCormick's
+homepage</a></span>
+
+
+
+  </body>
+</html>
