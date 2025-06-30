@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>360° View of My Car</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    #viewer {
+      width: 800px;
+      max-width: 95%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>MacMitchell NZ RAV4</h1>
+  <div id="viewer"></div>
+
+  <!-- Load the viewer script -->
+  <script src="https://cdn.jsdelivr.net/gh/whitecodeltd/360-image-viewer/dist/ThreeSixty.min.js"></script>
+
+  <script>
+    const viewer = new ThreeSixty(document.getElementById('viewer'), {
+      image: 'images/car',   // path to images/car1.jpg, car2.jpg, ...
+      count: 30,             // number of images
+      ext: '.jpg',           // file extension
+      draggable: true,
+      keys: true
+    });
+  </script>
+</body>
+</html>
