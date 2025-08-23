@@ -1,21 +1,19 @@
 # Contact Information for John MacCormick
 
-![John MacCormick](jmac4.jpg){ width=150 }
+![John MacCormick](jmac4.jpg)
 
 **John MacCormick**  
 Professor of Computer Science  
 Department of Mathematics and Computer Science  
 Dickinson College  
 
-📧 [jmac@dickinson.edu](mailto:jmac@dickinson.edu)  
-📍 Office location: Tome 242  
-☎ Office phone: 717-245-1626  
-📱 Cell phone: 223-269-0946  
-
-**Zoom:** [https://zoom.us/my/johnmaccormick](https://zoom.us/my/johnmaccormick)  
-**LinkedIn:** [https://www.linkedin.com/in/johnmaccormick/](https://www.linkedin.com/in/johnmaccormick/)  
-
-[Office hours](office-hours.md)
+* Email: [jmac@dickinson.edu](mailto:jmac@dickinson.edu)  
+* Office location: Tome 242  
+* Office phone: 717-245-1626  
+* Cell phone: 223-269-0946  
+* Zoom: [https://zoom.us/my/johnmaccormick](https://zoom.us/my/johnmaccormick)  
+* LinkedIn: [https://www.linkedin.com/in/johnmaccormick/](https://www.linkedin.com/in/johnmaccormick/)  
+* [Office hours](office-hours.md)
 
 ---
 

@@ -16,3 +16,15 @@ footer {
 .btn {
   display: none !important;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Adjust font size for mobile devices */
+  }
+  .content-container {
+    padding: 10px; /* Reduce padding on small screens */
+  }
+  img {
+    max-width: 100%; /* Ensure images don't overflow their containers */
+  }
+}

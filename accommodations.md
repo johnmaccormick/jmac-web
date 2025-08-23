@@ -22,12 +22,9 @@ If you will be using any test-taking accommodations in this class, be sure to en
 
 ### Physical Access to My Office (Tome 242) and Classrooms
 
-My office is located on the second floor of Tome, which has an elevator.  
-If there is ever a malfunction with the elevator, I will gladly arrange to meet you at an alternative location or by video conference.  
+My office is located on the second floor of Tome, which has an elevator.  If there is ever a malfunction with the elevator, I will gladly arrange to meet you at an alternative location or by video conference.  
 
-All classrooms in which I teach are accessible by elevator.  
-If there is ever a malfunction with the elevator, I will make all class materials available to you.  
-Given sufficient notice, I will also arrange real-time video conference access to the class.  
+All classrooms in which I teach are accessible by elevator.  If there is ever a malfunction with the elevator, I will make all class materials available to you.  Given sufficient notice, I will also arrange real-time video conference access to the class.  
 
 ---
 
