@@ -3,7 +3,7 @@
 * [contact info](contact.md)
 * [office hours](office-hours.md)
 * [declaring a major](major-declaration.md)
-* [accommodations](accommodations.md)
+* [accommodations](accommodations/accommodations.md)
 * [appointments](appointments.md): how to make an appointment to meet with me
 * [recommendation letters](recommendation-letters.md)
 * [schedule](schedule.md): John MacCormick's schedule
