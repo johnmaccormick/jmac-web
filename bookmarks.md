@@ -1,6 +1,6 @@
 # bookmarks
 
-[jmac home page](https://www.dickinson.edu/johnmaccormick)  
+[jmac home page](https://www.dickinson.edu/johnmaccormick), [office hours](office-hours.md), [Zoom](https://zoom.us/my/johnmaccormick), [contact details](contact.md)  
 [email](https://outlook.office.com/mail/)  
 [Dickinson links](dickinson-links.md)  
 [130 web](https://dickinson-comp130-02-fa2025.github.io/comp130-web/), also [fa23](https://dickinson-comp130-01-fa2023.github.io/comp130-web/), [web repo](https://github.com/dickinson-comp130-02-fa2025/comp130-web)  
