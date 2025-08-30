@@ -5,5 +5,5 @@
 [BBC Radio 4](https://www.bbc.co.uk/sounds/play/live/bbc_radio_four#noapp)   
 [BBC Radio 4 Extra](https://www.bbc.co.uk/sounds/play/live/bbc_radio_four_extra#noapp)  
 [BBC World Service](https://www.bbc.com/audio/play/live/bbc_world_service#noapp)  
-[WITF](https://www.witf.org/stream/), [WHYY](https://whyy.org/ways-to-stream/) 
+[WITF](https://www.witf.org/stream/), [WHYY](https://whyy.org/ways-to-stream/), [KQED](https://www.kqed.org/radio) 
 
