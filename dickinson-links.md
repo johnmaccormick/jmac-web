@@ -16,6 +16,7 @@
 [Virtual Lab](https://www.dickinson.edu/virtual)  
 [Printing](https://www.dickinson.edu/print)  
 [Student Computing](https://www.dickinson.edu/studentcomputing)  
-[Mobile computing initiative](https://www.dickinson.edu/mci) 
-[Kline pool hours](https://dickinsonathletics.com/sports/2022/7/25/clarke-aquatic-center.aspx)
+[Mobile computing initiative](https://www.dickinson.edu/mci)  
+[Kline pool hours](https://dickinsonathletics.com/sports/2022/7/25/clarke-aquatic-center.aspx)  
+
 
