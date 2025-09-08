@@ -1,7 +1,7 @@
 # bookmarks
 
 [jmac home page](https://www.dickinson.edu/johnmaccormick), [office hours](office-hours.md), [Zoom](https://zoom.us/my/johnmaccormick), [contact details](contact.md)  
-[email](https://outlook.office.com/mail/)  
+[Dickinson email](https://outlook.office.com/mail/), [Arawata Bill email](https://arawatabill.org:2096/), [Yahoo email](https://mail.yahoo.com/)   
 [Dickinson links](dickinson-links.md)  
 [130 web](https://dickinson-comp130-02-fa2025.github.io/comp130-web/), also [fa23](https://dickinson-comp130-01-fa2023.github.io/comp130-web/), [web repo](https://github.com/dickinson-comp130-02-fa2025/comp130-web)  
 [378 web](https://dickinson-comp378-fa2025.github.io/comp378-web/), also [sp22](https://dickinson-comp378-jm.github.io/web/), [web repo](https://github.com/dickinson-comp378-fa2025/comp378-web)  
