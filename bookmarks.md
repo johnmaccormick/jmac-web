@@ -16,7 +16,7 @@
 [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)  
 [Wiktionary](https://en.wiktionary.org/wiki/)  
 [markdown quick reference](https://wordpress.com/support/markdown-quick-reference/)  
-[Thinking AI links](thinking-AI.md)
+[Thinking AI links](thinking-AI.md)  
 [Liberating CoT links](liberate-cot-links.md)  
 [Arawata Bill links](arawatabill-links.md)  
 [CASD links](casd/casd-links.md)  
