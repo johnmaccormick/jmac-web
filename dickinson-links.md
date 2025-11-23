@@ -13,6 +13,7 @@
 [library favorites](https://dickinson.primo.exlibrisgroup.com/discovery/favorites?vid=01DICKINSON_INST:DICKINSON&lang=en&section=items)  
 [registrar's office](https://www.dickinson.edu/academics/resources/registrar/)  
 [course priorities](https://cliq.dickinson.edu/apps/registrar/course_criteria_public.cfm)  
+[CLIQ form center](https://cliq.dickinson.edu/deploy/formCenter/#/landing)  
 [fall timeline](https://www.dickinson.edu/info/20088/registrars_office/313/fall_timeline)  
 [Virtual Lab](https://www.dickinson.edu/virtual)  
 [Printing](https://www.dickinson.edu/print)  
