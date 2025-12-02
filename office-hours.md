@@ -1,6 +1,6 @@
 # John MacCormick’s Office Hours, Fall 2025
 
-**Tuesday December 2nd: 8:00 a.m. office hour will be remote only due to campus closure**
+<!-- **Tuesday December 2nd: 8:00 a.m. office hour will be remote only due to campus closure** -->
 
 - Tuesday: 8:00–9:00 a.m.  
 - Wednesday: 2:00–3:00 p.m.  
