@@ -29,7 +29,7 @@ All classrooms in which I teach are accessible by elevator.  If there is ever a 
 
 ---
 
-Full syllabus statement document provided by ADS and SOAR: (ADS-and-SOAR-Syllabus-Statements.pdf)[ADS-and-SOAR-Syllabus-Statements.pdf]
+Full syllabus statement document provided by ADS and SOAR: [ADS-and-SOAR-Syllabus-Statements.pdf](ADS-and-SOAR-Syllabus-Statements.pdf)
 
 ---
 
