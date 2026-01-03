@@ -4,7 +4,7 @@
 [Dickinson email](https://outlook.office.com/mail/), [Arawata Bill email](https://arawatabill.org:2096/), [Yahoo email](https://mail.yahoo.com/)   
 [Dickinson links](dickinson-links.md)  
 [130 web](https://dickinson-comp130-sp2026.github.io/web/), also [fa25](https://dickinson-comp130-02-fa2025.github.io/comp130-web/), [fa23](https://dickinson-comp130-01-fa2023.github.io/comp130-web/), [web repo](https://github.com/dickinson-comp130-sp2026/web)  
-[314 web](https://dickinson-comp314-sp2026.github.io/web/), also [sp23](https://dickinson-comp314-sp2023.github.io/web/), [web repo](https://github.com/dickinson-comp314-sp2026/web/)  
+[314 web](https://dickinson-comp314-sp2026.github.io/web/), also [sp23](https://dickinson-comp314-sp2023.github.io/web/), [web repo](https://github.com/dickinson-comp314-sp2026/web/), [WiD org](https://github.com/Dickinson-COMP-WiD)  
 [378 web](https://dickinson-comp378-fa2025.github.io/comp378-web/), also [sp22](https://dickinson-comp378-jm.github.io/web/), [web repo](https://github.com/dickinson-comp378-fa2025/comp378-web)  
 [560 web](https://dson-comp560-sp26.github.io/comp560-web/), [MS Team](https://teams.microsoft.com/l/team/19%3A_GsPmsPAHyNRNM16rkLYR2tZH0CmPZ6ZFAAhhKzwj2A1%40thread.tacv2/conversations?groupId=327c5cf0-93db-45ce-be36-d648004b666f&tenantId=6232b055-76b9-4c13-9b88-b562ae7db6fb), [GitHub org](https://github.com/dson-comp560-sp26), [web repo](https://github.com/dson-comp560-sp26/comp560-web)  
 [comp130 fa23](https://dickinson-comp130-01-fa2023.github.io/comp130-web/), [comp378 sp22](https://dickinson-comp378-jm.github.io/web/)  
