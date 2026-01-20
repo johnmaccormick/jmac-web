@@ -28,3 +28,13 @@ footer {
     max-width: 100%; /* Ensure images don't overflow their containers */
   }
 }
+
+/* Add this to your existing style.scss */
+body {
+  padding-top: 50px;
+}
+
+.gallery-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+}
