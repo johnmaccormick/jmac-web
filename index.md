@@ -8,7 +8,8 @@
 * [recommendation letters](recommendation-letters.md)
 * [schedule](schedule.md): John MacCormick's schedule
 * [SOAR](soar.md): learning skills from Strategies, Organization, and Achievement Resources (SOAR)
-
+* [Computer scientists I admire](teaching/compscis-admired/)
+  
 ---
 
 Back to [John MacCormick's homepage](http://www.dickinson.edu/johnmaccormick)

@@ -16,4 +16,4 @@ title: Teaching
 
 ---
 
-Back to [John MacCormick's homepage]({{ site.baseurl }}/)
+Back to [John MacCormick's homepage](http://www.dickinson.edu/johnmaccormick)
