@@ -1,20 +1,22 @@
 ---
 layout: default
-title: Document Archive
+title: Computer scientists I admire
 ---
+
+# Computer scientists I admire
 
 <div class="gallery-grid">
   <div class="document-item">
     <a href="assets/images/dwork-oct-2025.jpg" target="_blank" title="Click to view full size">
       <img src="assets/images/thumbs/dwork-oct-2025.jpg" alt="Cynthia Dwork description">
-      <span class="view-label">Open Full Page</span>
+      <span class="view-label">Cynthia Dwork</span>
     </a>
   </div>
 
   <div class="document-item">
     <a href="assets/images/bengio-jan2026.jpg" target="_blank" title="Click to view full size">
       <img src="assets/images/thumbs/bengio-jan2026.jpg" alt="Yoshua Bengio description">
-      <span class="view-label">Open Full Page</span>
+      <span class="view-label">Yoshua Bengio</span>
     </a>
   </div>
 </div>
