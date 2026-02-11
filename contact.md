@@ -12,7 +12,8 @@ Dickinson College
 * Office phone: 717-245-1626  
 * Cell phone: 223-269-0946  
 * Zoom: [https://zoom.us/my/johnmaccormick](https://zoom.us/my/johnmaccormick)  
-* LinkedIn: [https://www.linkedin.com/in/johnmaccormick/](https://www.linkedin.com/in/johnmaccormick/)  
+* LinkedIn: [https://www.linkedin.com/in/johnmaccormick/](https://www.linkedin.com/in/johnmaccormick/)
+* GitHub: [https://github.com/johnmaccormick](https://github.com/johnmaccormick)  
 * [Office hours](office-hours.md)
 
 ---
