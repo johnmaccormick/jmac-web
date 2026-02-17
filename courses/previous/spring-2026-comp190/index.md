@@ -20,5 +20,5 @@ Suggested discussion questions (address any subset in any order):
 1. Do you expect other major competitors of OpenAI/ChatGPT to introduce advertising on their AI assistants in the near future? Which ones and why? (Competitors to consider, just pick two or three: Google Gemini, Microsoft Copilot, GitHub Copilot, Apple Siri, Anthropic Claude, xAI Grok, Meta AI, DeepSeek-R1, Mistral AI, Moonshot AI Kimi, Z.ai ChatGLM)
 1. The title of the first reading refers to "expanding access to ChatGPT." Explain what the author means by this.
 
-_Write down some quotations from the readings to support your answers to the above. Our discussion later will be device-free, so you need to record evidence for your answers now._
+<!-- _Write down some quotations from the readings to support your answers to the above. Our discussion later will be device-free, so you need to record evidence for your answers now._ -->
 
