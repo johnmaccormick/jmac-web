@@ -10,7 +10,7 @@ Timeline:
 
 Readings (to be done in class, no need to read in advance):
 * Simo, F. (2026, January 16). Our approach to advertising and expanding access to ChatGPT. OpenAI. [https://openai.com/index/our-approach-to-advertising-and-expanding-access/](https://openai.com/index/our-approach-to-advertising-and-expanding-access/)
-* Hitzig, Z. (2026, February 11). OpenAI is making the mistakes Facebook made. I quit. The New York Times. [https://www.nytimes.com/2026/02/11/opinion/openai-ads-chatgpt.html](https://www.nytimes.com/2026/02/11/opinion/openai-ads-chatgpt.html)
+* Hitzig, Z. (2026, February 11). OpenAI is making the mistakes Facebook made. I quit. The New York Times. [https://www.nytimes.com/2026/02/11/opinion/openai-ads-chatgpt.html](https://www.nytimes.com/2026/02/11/opinion/openai-ads-chatgpt.html). If you don't have a free subscription to the New York Times set up, visit the relevant [Dickinson College Library](https://libguides.dickinson.edu/specialaccess/nytimes) page.
 
 Suggested discussion questions (address any subset in any order):
 1. Who are the authors? Should we trust their factual statements? Should we trust their opinions?
