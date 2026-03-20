@@ -16,6 +16,7 @@
 [Arawata Bill links](arawatabill-links.md)  
 [CASD links](casd/casd-links.md)  
 [Audio links](audio-links.md)  
+[Reading links](reading-links.md)  
 [Code on toast](https://code-on-toast.vercel.app/), [instructor view](https://code-on-toast.vercel.app/instructor)  
 [War and Peace links](war-and-peace-links.md)  
 [Teams](https://teams.microsoft.com/)  
