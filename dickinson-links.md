@@ -9,7 +9,7 @@
 [CS](https://www.dickinson.edu/computerscience/)  
 [Math](https://www.dickinson.edu/mathematics)  
 [Data Analytics](https://www.dickinson.edu/dataanalytics)  
-[Library](https://www.dickinson.edu/library)  
+[Library](https://www.dickinson.edu/library), [account](https://dickinson.primo.exlibrisgroup.com/discovery/search?vid=01DICKINSON_INST:DICKINSON&lang=en)
 [library favorites](https://dickinson.primo.exlibrisgroup.com/discovery/favorites?vid=01DICKINSON_INST:DICKINSON&lang=en&section=items)  
 [registrar's office](https://www.dickinson.edu/academics/resources/registrar/)  
 [course priorities](https://cliq.dickinson.edu/apps/registrar/course_criteria_public.cfm)  
