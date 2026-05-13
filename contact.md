@@ -13,8 +13,10 @@ Dickinson College
 * Cell phone: 223-269-0946  
 * Zoom: [https://zoom.us/my/johnmaccormick](https://zoom.us/my/johnmaccormick)  
 * LinkedIn: [https://www.linkedin.com/in/johnmaccormick/](https://www.linkedin.com/in/johnmaccormick/)
-* GitHub: [https://github.com/johnmaccormick](https://github.com/johnmaccormick)  
+* GitHub: [https://github.com/johnmaccormick](https://github.com/johnmaccormick)
+* Amazon author page: [https://www.amazon.com/author/johnmaccormick](https://www.amazon.com/author/johnmaccormick)  
 * [Office hours](office-hours.md)
+* [Calendar](schedule.md)
 
 ---
 
