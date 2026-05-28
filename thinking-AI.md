@@ -2,3 +2,5 @@
 [Amazon](https://www.amazon.com/Thinking-AI-Artificial-Intelligence-Understanding-ebook/dp/B0FTKHZ676/)  
 [jmac-web](https://johnmaccormick.github.io/thinkingAI-web/)  
 [youtube](https://www.youtube.com/watch?v=vet0KdKKKF0)  
+[WaPo](https://www.washingtonpost.com/opinions/2026/05/26/ai-may-end-myth-human-uniqueness/)  
+
