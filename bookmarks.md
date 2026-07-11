@@ -3,7 +3,7 @@
 [jmac home page](https://www.dickinson.edu/johnmaccormick), [office hours](office-hours.md), [Zoom](https://zoom.us/my/johnmaccormick), [contact details](contact.md)  
 [Dickinson email](https://outlook.office.com/mail/), [Arawata Bill email](https://arawatabill.org:2096/), [Yahoo email](https://mail.yahoo.com/)   
 [Dickinson links](bookmarks/dickinson-links.md)  
-[DNU web](https://dnulab.org/), [DNU org](https://github.com/dnulab), [DNU web repo](https://github.com/dnulab/dnulab-web)
+[DNU web](https://dnulab.org/), [DNU org](https://github.com/dnulab), [DNU web repo](https://github.com/dnulab/dnulab-web)  
 [121 web](https://dickinson-math121-fall2026.github.io/web/), [web repo](https://github.com/dickinson-math121-fall2026/web), [toast](https://code-on-toast.vercel.app/), [toast-instructor](https://code-on-toast.vercel.app/instructor)    
 [130 web](https://dickinson-comp130-sp2026.github.io/web/), also [fa25](https://dickinson-comp130-02-fa2025.github.io/comp130-web/), [fa23](https://dickinson-comp130-01-fa2023.github.io/comp130-web/), [web repo](https://github.com/dickinson-comp130-sp2026/web), [toast](https://code-on-toast.vercel.app/), [toast-instructor](https://code-on-toast.vercel.app/instructor)    
 [314 web](https://dickinson-comp314-sp2026.github.io/web/), also [sp23](https://dickinson-comp314-sp2023.github.io/web/), [web repo](https://github.com/dickinson-comp314-sp2026/web/), [WiD org](https://github.com/Dickinson-COMP-WiD)  
