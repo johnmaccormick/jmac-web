@@ -12,6 +12,7 @@
 [Library](https://www.dickinson.edu/library), [account](https://dickinson.primo.exlibrisgroup.com/discovery/search?vid=01DICKINSON_INST:DICKINSON&lang=en)
 [library favorites](https://dickinson.primo.exlibrisgroup.com/discovery/favorites?vid=01DICKINSON_INST:DICKINSON&lang=en&section=items)  
 [registrar's office](https://www.dickinson.edu/academics/resources/registrar/)  
+committees: [fpc](https://www.dickinson.edu/homepage/750/faculty_personnel_committee), [r&d](https://www.dickinson.edu/homepage/91/research_and_development_committee)    
 [course priorities](https://cliq.dickinson.edu/apps/registrar/course_criteria_public.cfm)  
 [CLIQ form center](https://cliq.dickinson.edu/deploy/formCenter/#/landing)  
 [fall timeline](https://www.dickinson.edu/info/20088/registrars_office/313/fall_timeline)  
