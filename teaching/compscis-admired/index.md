@@ -19,6 +19,15 @@ title: Computer scientists I admire
       <span class="view-label">Yoshua Bengio</span>
     </a>
   </div>
+
+  <div class="document-item">
+    <a href="assets/images/03-sweeney-sept-2026.jpg" target="_blank" title="Click to view full size">
+      <img src="assets/images/thumbs/03-sweeney-sept-2026.jpg" alt="Latanya Sweeney description">
+      <span class="view-label">Latanya Sweeney</span>
+    </a>
+  </div>
+
+
 </div>
 
 <style>
