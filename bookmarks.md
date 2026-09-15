@@ -10,7 +10,7 @@
 [314 web](https://dickinson-comp314-sp2026.github.io/web/), also [sp23](https://dickinson-comp314-sp2023.github.io/web/), [web repo](https://github.com/dickinson-comp314-sp2026/web/), [WiD org](https://github.com/Dickinson-COMP-WiD)  
 [364 web](https://dickinson-comp364-fall2026.github.io/web/), [web repo](https://github.com/dickinson-comp364-fall2026/web), [GitHub org](https://github.com/dickinson-comp364-fall2026), [prev 2016](https://johnmaccormick.github.io/jmac-web/courses/previous/fall-2016-comp364/)  
 [560 fall web](https://dson-comp560-fa26.github.io/web/), [web repo](https://github.com/dson-comp560-fa26/web)  
-[560 spring web](https://dson-comp560-sp26.github.io/comp560-web/), [MS Team](https://teams.microsoft.com/l/team/19%3A_GsPmsPAHyNRNM16rkLYR2tZH0CmPZ6ZFAAhhKzwj2A1%40thread.tacv2/conversations?groupId=327c5cf0-93db-45ce-be36-d648004b666f&tenantId=6232b055-76b9-4c13-9b88-b562ae7db6fb), [GitHub org](https://github.com/dson-comp560-sp26), [web repo](https://github.com/dson-comp560-sp26/comp560-web), [instructor docs](https://dickinson0.sharepoint.com/sites/COMP560spring2026-Instructors/Shared%20Documents/Forms/AllItems.aspx)  
+[GCP instances](https://console.cloud.google.com/compute/instances?project=elegant-atom-452908-b4)   
 [Google](https://www.google.com/)  
 [Google Scholar](https://scholar.google.com/)  
 [Google contacts](https://www.google.com/contacts/?cplus=0#contacts)  
