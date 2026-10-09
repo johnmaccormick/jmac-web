@@ -1,7 +1,5 @@
 # John MacCormick’s Office Hours, Fall 2026
 
-**Friday 10/9 office hour is phone-only: call 223-269-0946**
-
 <!-- # John MacCormick’s Office Hours, winter break 2025-26 -->
 
 <!--I will not be holding regularly scheduled office hours during the summer break. Regular office hours will resume on the first day of classes in fall 2026. During exams and the vacation, you are always welcome to make an [appointment](appointments.md) with me to meet in person or via phone or video call. -->
